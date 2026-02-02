@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://pu0aibdb2bh7"]
+
+[ext_resource type="Texture2D" uid="uid://butu7b2wedoks" path="res://assets/tempSprites/freddy_fazbear_shocked.png" id="1_j8d5s"]
+[ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="2_olwqp"]
+
+[node name="MovementCont" type="Node2D" unique_id=2117843696]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1379178297]
+position = Vector2(261.875, 218.375)
+scale = Vector2(0.46765912, 0.57573724)
+texture = ExtResource("1_j8d5s")
+
+[node name="player" parent="." unique_id=810202292 instance=ExtResource("2_olwqp")]
+position = Vector2(568, 177)
