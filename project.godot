@@ -12,7 +12,7 @@ config_version=5
 
 config/name="NoInfoGame"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://bxl245j7738ni"
 
 [editor]
 
