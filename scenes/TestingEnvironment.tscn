@@ -3,12 +3,61 @@
 [ext_resource type="Texture2D" uid="uid://butu7b2wedoks" path="res://assets/tempSprites/freddy_fazbear_shocked.png" id="1_j8d5s"]
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="2_olwqp"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8d5s"]
+size = Vector2(754, 103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olwqp"]
+size = Vector2(44, 340)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j8d5s"]
+distance = -1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_olwqp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tq8dg"]
+distance = 1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rcwxk"]
+distance = -648.0
+
 [node name="MovementCont" type="Node2D" unique_id=2117843696]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1379178297]
-position = Vector2(261.875, 218.375)
-scale = Vector2(0.46765912, 0.57573724)
+position = Vector2(605.00006, 326)
+scale = Vector2(1.8932238, 0.26005355)
 texture = ExtResource("1_j8d5s")
 
 [node name="player" parent="." unique_id=810202292 instance=ExtResource("2_olwqp")]
 position = Vector2(568, 177)
+
+[node name="ouch" type="StaticBody2D" parent="." unique_id=617398389]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ouch" unique_id=184405924]
+position = Vector2(679, 326.5)
+shape = SubResource("RectangleShape2D_j8d5s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ouch" unique_id=1402639144]
+position = Vector2(27, 238)
+shape = SubResource("RectangleShape2D_olwqp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ouch" unique_id=1730801274]
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_j8d5s")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ouch" unique_id=1214715080]
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_olwqp")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="ouch" unique_id=771913895]
+position = Vector2(1150, 0)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_tq8dg")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="ouch" unique_id=1592195598]
+shape = SubResource("WorldBoundaryShape2D_rcwxk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=410380638]
+position = Vector2(24.000008, 209)
+rotation = 1.5707964
+scale = Vector2(0.838, 0.115)
+texture = ExtResource("1_j8d5s")
