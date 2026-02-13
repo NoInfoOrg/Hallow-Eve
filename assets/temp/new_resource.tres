@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://c7d6psxyk3cfh"]
+
+[ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://item.gd" id="1_rjlbc"]
+[ext_resource type="Texture2D" uid="uid://biuctm6hk3wj4" path="res://assets/tempSprites/shocked blue emoji.png" id="2_xaa13"]
+
+[resource]
+script = ExtResource("1_rjlbc")
+name = "fella"
+texture = ExtResource("2_xaa13")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"

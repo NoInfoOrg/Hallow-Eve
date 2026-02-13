@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
-@export var player_id = 1
-@export var inv: Inv
+@export var player_id = 2
 const SPEED = 300.0
 
 
