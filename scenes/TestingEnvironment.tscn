@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://butu7b2wedoks" path="res://assets/tempSprites/freddy_fazbear_shocked.png" id="1_j8d5s"]
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="2_olwqp"]
-[ext_resource type="Texture2D" uid="uid://dmoorypkp3r47" path="res://assets/tempSprites/ambatakum.jpg" id="3_olwqp"]
 [ext_resource type="Script" uid="uid://d2kffjtlxbgq" path="res://player2mv.gd" id="3_tq8dg"]
+[ext_resource type="Texture2D" uid="uid://biuctm6hk3wj4" path="res://assets/tempSprites/shocked blue emoji.png" id="4_tq8dg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j8d5s"]
 size = Vector2(754, 103)
@@ -78,6 +78,6 @@ position = Vector2(-106.77966, -108.47452)
 shape = SubResource("RectangleShape2D_rcwxk")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=834553959]
-position = Vector2(-105.08477, -108.47454)
-scale = Vector2(0.5745762, 0.5610171)
-texture = ExtResource("3_olwqp")
+position = Vector2(-107.44409, -106.77962)
+scale = Vector2(0.56536007, 0.5495233)
+texture = ExtResource("4_tq8dg")
