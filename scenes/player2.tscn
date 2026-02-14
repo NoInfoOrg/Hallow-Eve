@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cphkguivqa6gt"]
+
+[ext_resource type="Script" uid="uid://dmlgolxi1fkcv" path="res://scenes/player2mv.gd" id="1_c08b3"]
+[ext_resource type="Texture2D" uid="uid://cybfpw22lkphg" path="res://assets/tempSprites/funny thinking emoji.png" id="1_lttm1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c08b3"]
+size = Vector2(233, 232)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=882182450]
+script = ExtResource("1_c08b3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=922027651]
+position = Vector2(367, 150)
+scale = Vector2(0.49799198, 0.503992)
+texture = ExtResource("1_lttm1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=862284075]
+position = Vector2(364, 151)
+shape = SubResource("RectangleShape2D_c08b3")

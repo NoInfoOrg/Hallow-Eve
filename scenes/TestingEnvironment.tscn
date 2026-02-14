@@ -2,6 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://butu7b2wedoks" path="res://assets/tempSprites/freddy_fazbear_shocked.png" id="1_j8d5s"]
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="2_olwqp"]
+[ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="3_olwqp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_olwqp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tq8dg"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rcwxk"]
+distance = -6.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rww21"]
+distance = -92.0
 
 [node name="MovementCont" type="Node2D" unique_id=2117843696]
 
@@ -12,3 +23,25 @@ texture = ExtResource("1_j8d5s")
 
 [node name="player" parent="." unique_id=810202292 instance=ExtResource("2_olwqp")]
 position = Vector2(568, 177)
+
+[node name="CharacterBody2D" parent="." unique_id=882182450 instance=ExtResource("3_olwqp")]
+up_direction = Vector2(0.98458165, -0.17492567)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1875371505]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=13519396]
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_olwqp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=921331840]
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_tq8dg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1460202766]
+position = Vector2(1153, 642)
+shape = SubResource("WorldBoundaryShape2D_rcwxk")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=966933456]
+position = Vector2(1059, 292)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_rww21")
