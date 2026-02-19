@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b7y82qoyrdjis"]
+
+[ext_resource type="Texture2D" uid="uid://lsipaea0si66" path="res://assets/sprites/level objs/box.png" id="1_3inec"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3inec"]
+
+[sub_resource type="GDScript" id="GDScript_3inec"]
+script/source = "extends CollisionShape2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Box" type="CharacterBody2D" unique_id=748287882 groups=["Boxes"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1615975503]
+texture = ExtResource("1_3inec")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1593911776]
+shape = SubResource("RectangleShape2D_3inec")
+script = SubResource("GDScript_3inec")
