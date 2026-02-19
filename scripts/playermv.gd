@@ -22,21 +22,21 @@ func _physics_process(delta):
 	velocity = direction * SPEED
 	
 	# INFO Have Eve's texture face the direction of the player movement 
-	if Input.is_action_just_pressed("P1Left") and not (Input.is_action_just_pressed("P1Up") or Input.is_action_just_pressed("P1Down")):
+	if Input.is_action_pressed("P1Left") and not (Input.is_action_pressed("P1Up") or Input.is_action_pressed("P1Down")):
 		$Sprite2D.texture = eve_270_degrees
-	elif Input.is_action_just_pressed("P1Right") and not (Input.is_action_just_pressed("P1Up") or Input.is_action_just_pressed("P1Down")):
+	elif Input.is_action_pressed("P1Right") and not (Input.is_action_pressed("P1Up") or Input.is_action_pressed("P1Down")):
 		$Sprite2D.texture = eve_90_degrees
-	elif Input.is_action_just_pressed("P1Up") and not (Input.is_action_just_pressed("P1Left") or Input.is_action_just_pressed("P1Right")):
+	elif Input.is_action_pressed("P1Up") and not (Input.is_action_pressed("P1Left") or Input.is_action_pressed("P1Right")):
 		$Sprite2D.texture = eve_180_degrees
-	elif Input.is_action_just_pressed("P1Down") and not (Input.is_action_just_pressed("P1Left") or Input.is_action_just_pressed("P1Right")):
+	elif Input.is_action_pressed("P1Down") and not (Input.is_action_pressed("P1Left") or Input.is_action_pressed("P1Right")):
 		$Sprite2D.texture = eve_0_degrees
-	elif Input.is_action_just_pressed("P1Left") and Input.is_action_just_pressed("P1Up"):
+	elif Input.is_action_pressed("P1Left") and Input.is_action_pressed("P1Up"):
 		$Sprite2D.texture = eve_225_degrees
-	elif Input.is_action_just_pressed("P1Left") and Input.is_action_just_pressed("P1Down"):
+	elif Input.is_action_pressed("P1Left") and Input.is_action_pressed("P1Down"):
 		$Sprite2D.texture = eve_315_degrees
-	elif Input.is_action_just_pressed("P1Right") and Input.is_action_just_pressed("P1Up"):
+	elif Input.is_action_pressed("P1Right") and Input.is_action_pressed("P1Up"):
 		$Sprite2D.texture = eve_135_degrees
-	elif Input.is_action_just_pressed("P1Right") and Input.is_action_just_pressed("P1Down"):
+	elif Input.is_action_pressed("P1Right") and Input.is_action_pressed("P1Down"):
 		$Sprite2D.texture = eve_45_degrees
 	
 	move_and_slide()
