@@ -19,7 +19,7 @@ distance = -92.0
 [node name="MovementCont" type="Node2D" unique_id=2117843696]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1379178297]
-position = Vector2(261.875, 218.375)
+position = Vector2(-149, 143.00002)
 scale = Vector2(0.46765912, 0.57573724)
 texture = ExtResource("1_j8d5s")
 
