@@ -1,21 +1,172 @@
 [gd_scene format=3 uid="uid://w6s64ylvwlya"]
 
-[ext_resource type="Texture2D" uid="uid://c7l63yy1yms65" path="res://assets/tempSprites/uhoe.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://pv6eoafrval0" path="res://scripts/playermv.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://bfl6vednvl8bh" path="res://assets/spritesheets/p1/Eve_FullHealth_SpriteSheet.png" id="2_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(141, 139)
+size = Vector2(64, 136)
+
+[sub_resource type="Animation" id="Animation_qhqgy"]
+resource_name = "Eve_Idle_A"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_dqkch"]
+resource_name = "Eve_Idle_A+S"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="Animation" id="Animation_qlg0r"]
+resource_name = "Eve_Idle_D"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_tuyoq"]
+resource_name = "Eve_Idle_D+W"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_fjrip"]
+resource_name = "Eve_Idle_S"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_smehm"]
+resource_name = "Eve_Idle_S+D"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_ur7pv"]
+resource_name = "Eve_Idle_W"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_y4r1p"]
+resource_name = "Eve_Idle_W+A"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_d2wvv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3v2ag"]
+_data = {
+&"Eve_Idle_A": SubResource("Animation_qhqgy"),
+&"Eve_Idle_A+S": SubResource("Animation_dqkch"),
+&"Eve_Idle_D": SubResource("Animation_qlg0r"),
+&"Eve_Idle_D+W": SubResource("Animation_tuyoq"),
+&"Eve_Idle_S": SubResource("Animation_fjrip"),
+&"Eve_Idle_S+D": SubResource("Animation_smehm"),
+&"Eve_Idle_W": SubResource("Animation_ur7pv"),
+&"Eve_Idle_W+A": SubResource("Animation_y4r1p"),
+&"RESET": SubResource("Animation_d2wvv")
+}
 
 [node name="player" type="CharacterBody2D" unique_id=810202292]
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=342882675]
-position = Vector2(1.5, -0.5)
+position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1709103146]
 position = Vector2(1.0000076, -0.9999924)
 scale = Vector2(0.50701755, 0.51086956)
-texture = ExtResource("1_3vyb7")
+texture = ExtResource("2_g2els")
+hframes = 10
+vframes = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=431555211]
+libraries/ = SubResource("AnimationLibrary_3v2ag")
