@@ -25,24 +25,24 @@ texture = ExtResource("1_j8d5s")
 [node name="Eve" parent="." unique_id=810202292 instance=ExtResource("2_olwqp")]
 position = Vector2(568, 177)
 
-[node name="CharacterBody2D" parent="." unique_id=882182450 instance=ExtResource("3_olwqp")]
+[node name="Willow" parent="." unique_id=882182450 instance=ExtResource("3_olwqp")]
 up_direction = Vector2(0.98458165, -0.17492567)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1875371505]
+[node name="World Borders" type="StaticBody2D" parent="." unique_id=1875371505]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=13519396]
+[node name="World Border Top" type="CollisionShape2D" parent="World Borders" unique_id=13519396]
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_olwqp")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=921331840]
+[node name="World Border Left" type="CollisionShape2D" parent="World Borders" unique_id=921331840]
 rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_tq8dg")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1460202766]
+[node name="World Border Right" type="CollisionShape2D" parent="World Borders" unique_id=1460202766]
 position = Vector2(1153, 642)
 shape = SubResource("WorldBoundaryShape2D_rcwxk")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=966933456]
+[node name="World Border Bottom" type="CollisionShape2D" parent="World Borders" unique_id=966933456]
 position = Vector2(1059, 292)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_rww21")

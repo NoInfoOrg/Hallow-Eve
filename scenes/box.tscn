@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b7y82qoyrdjis"]
 
-[ext_resource type="Texture2D" uid="uid://lsipaea0si66" path="res://assets/sprites/level objs/box.png" id="1_3inec"]
+[ext_resource type="Texture2D" uid="uid://c0mh0dts0nscc" path="res://assets/sprites/level objs/box.png" id="1_3inec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3inec"]
 

@@ -58,8 +58,29 @@ func _physics_process(delta):
 	
 func check_box_collision(x_push, y_push, delta):
 	for i in get_slide_collision_count():
+		# Make sure Eve is actually moving in the direction she is pushing
+		if y_push != 0 and (lastDirection == "A" or lastDirection == "D"):
+			return
+		elif x_push != 0 and (lastDirection == "W" or lastDirection == "S"):
+			return
+		
 		var collision = get_slide_collision(i)
 		var collision_box = collision.get_collider()
 		
+		# Make sure that Eve is actually moving in the direction she is pushing
+		var normal = collision.get_normal()
+		# print(normal)
+		
+		const LEFT_DIRECTION = Vector2(-1.0, 0.0)
+		const RIGHT_DIRECTION = Vector2(1.0, 0.0)
+		const UP_DIRECTION = Vector2(0.0, -1.0)
+		const DOWN_DIRECTION = Vector2(0.0, 1.0)
+		
+		if x_push != 0 and (normal == UP_DIRECTION or normal == DOWN_DIRECTION):
+			return
+		elif y_push != 0 and (normal == LEFT_DIRECTION or normal == RIGHT_DIRECTION):
+			return
+		
+		# At this point, it should ideally be confirmed that Eve is moving to push the box
 		if collision_box.is_in_group("Boxes"):
 			collision_box.translate(Vector2(delta * x_push, delta * y_push))
