@@ -14,28 +14,28 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	# INFO Eve's Walking Animations (uses idle for placeholder)
-	if Input.is_action_just_pressed("P1Left") and not (Input.is_action_just_pressed("P1Up") or Input.is_action_just_pressed("P1Down")):
+	if Input.is_action_pressed("P1Left") and not (Input.is_action_pressed("P1Up") or Input.is_action_pressed("P1Down")):
 		$AnimationPlayer.play("Eve_Idle_A")
 		lastDirection = "A"
-	elif Input.is_action_just_pressed("P1Right") and not (Input.is_action_just_pressed("P1Up") or Input.is_action_just_pressed("P1Down")):
+	elif Input.is_action_pressed("P1Right") and not (Input.is_action_pressed("P1Up") or Input.is_action_pressed("P1Down")):
 		$AnimationPlayer.play("Eve_Idle_D")
 		lastDirection = "D"
-	elif Input.is_action_just_pressed("P1Up") and not (Input.is_action_just_pressed("P1Left") or Input.is_action_just_pressed("P1Right")):
+	elif Input.is_action_pressed("P1Up") and not (Input.is_action_pressed("P1Left") or Input.is_action_pressed("P1Right")):
 		$AnimationPlayer.play("Eve_Idle_W")
 		lastDirection = "W"
-	elif Input.is_action_just_pressed("P1Down") and not (Input.is_action_just_pressed("P1Left") or Input.is_action_just_pressed("P1Right")):
+	elif Input.is_action_pressed("P1Down") and not (Input.is_action_pressed("P1Left") or Input.is_action_pressed("P1Right")):
 		$AnimationPlayer.play("Eve_Idle_S")
 		lastDirection = "S"
-	elif Input.is_action_just_pressed("P1Left") and Input.is_action_just_pressed("P1Up"):
+	elif Input.is_action_pressed("P1Left") and Input.is_action_pressed("P1Up"):
 		$AnimationPlayer.play("Eve_Idle_W+A")
 		lastDirection = "W+A"
-	elif Input.is_action_just_pressed("P1Left") and Input.is_action_just_pressed("P1Down"):
+	elif Input.is_action_pressed("P1Left") and Input.is_action_pressed("P1Down"):
 		$AnimationPlayer.play("Eve_Idle_A+S")
 		lastDirection = "A+S"
-	elif Input.is_action_just_pressed("P1Right") and Input.is_action_just_pressed("P1Up"):
+	elif Input.is_action_pressed("P1Right") and Input.is_action_pressed("P1Up"):
 		$AnimationPlayer.play("Eve_Idle_D+W")
 		lastDirection = "D+W"
-	elif Input.is_action_just_pressed("P1Right") and Input.is_action_just_pressed("P1Down"):
+	elif Input.is_action_pressed("P1Right") and Input.is_action_pressed("P1Down"):
 		$AnimationPlayer.play("Eve_Idle_S+D")
 		lastDirection = "S+D"
 	
