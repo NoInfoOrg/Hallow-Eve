@@ -3,6 +3,8 @@ extends CharacterBody2D
 const SPEED = 300.0
 var lastDirection : String
 
+const PUSH_FORCE = 150.0
+
 # INFO Sources:
 # https://forum.godotengine.org/t/how-to-properly-change-the-sprite-depending-on-facing-direction-and-other-situations/19024
 # https://forum.godotengine.org/t/how-do-i-change-sprite-texture-in-gdscript/51473
@@ -17,24 +19,35 @@ func _physics_process(delta):
 	if Input.is_action_pressed("P1Left") and not (Input.is_action_pressed("P1Up") or Input.is_action_pressed("P1Down")):
 		$AnimationPlayer.play("Eve_Idle_A")
 		lastDirection = "A"
+		check_box_collision(-PUSH_FORCE, 0, delta)
+		
 	elif Input.is_action_pressed("P1Right") and not (Input.is_action_pressed("P1Up") or Input.is_action_pressed("P1Down")):
 		$AnimationPlayer.play("Eve_Idle_D")
 		lastDirection = "D"
+		check_box_collision(PUSH_FORCE, 0, delta)
+		
 	elif Input.is_action_pressed("P1Up") and not (Input.is_action_pressed("P1Left") or Input.is_action_pressed("P1Right")):
 		$AnimationPlayer.play("Eve_Idle_W")
 		lastDirection = "W"
+		check_box_collision(0, -PUSH_FORCE, delta)
+		
 	elif Input.is_action_pressed("P1Down") and not (Input.is_action_pressed("P1Left") or Input.is_action_pressed("P1Right")):
 		$AnimationPlayer.play("Eve_Idle_S")
 		lastDirection = "S"
+		check_box_collision(0, PUSH_FORCE, delta)
+		
 	elif Input.is_action_pressed("P1Left") and Input.is_action_pressed("P1Up"):
 		$AnimationPlayer.play("Eve_Idle_W+A")
 		lastDirection = "W+A"
+		
 	elif Input.is_action_pressed("P1Left") and Input.is_action_pressed("P1Down"):
 		$AnimationPlayer.play("Eve_Idle_A+S")
 		lastDirection = "A+S"
+		
 	elif Input.is_action_pressed("P1Right") and Input.is_action_pressed("P1Up"):
 		$AnimationPlayer.play("Eve_Idle_D+W")
 		lastDirection = "D+W"
+		
 	elif Input.is_action_pressed("P1Right") and Input.is_action_pressed("P1Down"):
 		$AnimationPlayer.play("Eve_Idle_S+D")
 		lastDirection = "S+D"
@@ -43,3 +56,10 @@ func _physics_process(delta):
 	# elif velocity == Vector2.ZERO:
 	#	$AnimationPlayer.play("Eve_Idle_" + lastDirection)
 	
+func check_box_collision(x_push, y_push, delta):
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collision_box = collision.get_collider()
+		
+		if collision_box.is_in_group("Boxes"):
+			collision_box.translate(Vector2(delta * x_push, delta * y_push))
