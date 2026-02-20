@@ -69,7 +69,7 @@ func check_box_collision(x_push, y_push, delta):
 		
 		# Make sure that Eve is actually moving in the direction she is pushing
 		var normal = collision.get_normal()
-		# print(normal)
+		#print(normal)
 		
 		const LEFT_DIRECTION = Vector2(-1.0, 0.0)
 		const RIGHT_DIRECTION = Vector2(1.0, 0.0)
@@ -78,9 +78,17 @@ func check_box_collision(x_push, y_push, delta):
 		
 		if x_push != 0 and (normal == UP_DIRECTION or normal == DOWN_DIRECTION):
 			return
+		elif x_push > 0 and normal == RIGHT_DIRECTION:
+			return
+		elif x_push < 0 and normal == LEFT_DIRECTION:
+			return
 		elif y_push != 0 and (normal == LEFT_DIRECTION or normal == RIGHT_DIRECTION):
+			return
+		elif y_push > 0 and normal == DOWN_DIRECTION:
+			return
+		elif y_push < 0 and normal == UP_DIRECTION:
 			return
 		
 		# At this point, it should ideally be confirmed that Eve is moving to push the box
 		if collision_box.is_in_group("Boxes"):
-			collision_box.translate(Vector2(delta * x_push, delta * y_push))
+			collision_box.push_by_player(Vector2(delta * x_push, delta * y_push), PUSH_FORCE)
