@@ -63,6 +63,10 @@ P2Down={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Pushable Object Boundaries"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

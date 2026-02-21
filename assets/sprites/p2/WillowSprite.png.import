@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0mh0dts0nscc"
-path="res://.godot/imported/box.png-21f1578492885d6cc2835c27d405d36c.ctex"
+uid="uid://1acb5r71134k"
+path="res://.godot/imported/WillowSprite.png-db1e469ad21a8128ac37559d3a082ae0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/level objs/box.png"
-dest_files=["res://.godot/imported/box.png-21f1578492885d6cc2835c27d405d36c.ctex"]
+source_file="res://assets/sprites/p2/WillowSprite.png"
+dest_files=["res://.godot/imported/WillowSprite.png-db1e469ad21a8128ac37559d3a082ae0.ctex"]
 
 [params]
 

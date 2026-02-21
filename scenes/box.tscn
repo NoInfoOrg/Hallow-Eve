@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://b7y82qoyrdjis"]
 
-[ext_resource type="Texture2D" uid="uid://lsipaea0si66" path="res://assets/sprites/level objs/box.png" id="1_3inec"]
+[ext_resource type="Texture2D" uid="uid://c0mh0dts0nscc" path="res://assets/sprites/level objs/box.png" id="1_3inec"]
+[ext_resource type="Script" uid="uid://bh1fe3puqd1lf" path="res://scenes/box.gd" id="1_ks2v0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3inec"]
+size = Vector2(64, 64)
 
 [sub_resource type="GDScript" id="GDScript_3inec"]
 script/source = "extends CollisionShape2D
@@ -18,6 +20,7 @@ func _process(delta: float) -> void:
 "
 
 [node name="Box" type="CharacterBody2D" unique_id=748287882 groups=["Boxes"]]
+script = ExtResource("1_ks2v0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1615975503]
 texture = ExtResource("1_3inec")
