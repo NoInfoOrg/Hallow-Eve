@@ -63,6 +63,21 @@ P2Down={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="Player"
+2d_render/layer_2="Walls"
+2d_render/layer_3="Floor"
+2d_render/layer_4="Side Walls"
+2d_render/layer_5="Interactables"
+2d_physics/layer_1="Player 1"
+2d_physics/layer_2="Walls"
+2d_physics/layer_3="Floor"
+2d_physics/layer_4="Side Walls"
+2d_physics/layer_5="Doors"
+2d_physics/layer_6="Interactables"
+2d_physics/layer_7="Player 2"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
