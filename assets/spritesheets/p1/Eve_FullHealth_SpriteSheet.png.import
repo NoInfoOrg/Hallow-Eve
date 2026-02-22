@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv56b1o7l3sif"
-path="res://.godot/imported/Eve 0 Deg.png-a6c5f5c8f5160dbca1d84d0cc2fd88ba.ctex"
+uid="uid://bfl6vednvl8bh"
+path="res://.godot/imported/Eve_FullHealth_SpriteSheet.png-b5a915e579b284a6a105559a4af12e72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/p1/Eve 0 Deg.png"
-dest_files=["res://.godot/imported/Eve 0 Deg.png-a6c5f5c8f5160dbca1d84d0cc2fd88ba.ctex"]
+source_file="res://assets/spritesheets/p1/Eve_FullHealth_SpriteSheet.png"
+dest_files=["res://.godot/imported/Eve_FullHealth_SpriteSheet.png-b5a915e579b284a6a105559a4af12e72.ctex"]
 
 [params]
 
