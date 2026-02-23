@@ -4,7 +4,7 @@ var can_move = true
 
 const MAX_PUSH_SPEED = 150.0
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta: float) -> void:	
 	if (velocity[0] > MAX_PUSH_SPEED):
 		velocity = Vector2(MAX_PUSH_SPEED, velocity[1])
 	elif (velocity[0] < -MAX_PUSH_SPEED):
@@ -41,7 +41,3 @@ func _physics_process(delta: float) -> void:
 
 func push_by_player(direction, push_force):
 	velocity = direction * push_force
-
-
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("entered")

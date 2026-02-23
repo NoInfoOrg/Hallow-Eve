@@ -28,11 +28,3 @@ texture = ExtResource("2_ks2v0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1593911776]
 shape = SubResource("RectangleShape2D_3inec")
 script = SubResource("GDScript_3inec")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=813001330]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=851538527]
-shape = SubResource("RectangleShape2D_3inec")
-script = SubResource("GDScript_3inec")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
