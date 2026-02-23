@@ -2,8 +2,20 @@ extends CharacterBody2D
 
 var can_move = true
 
-func _physics_process(delta: float) -> void:
-	move_and_slide()
+const MAX_PUSH_SPEED = 150.0
+
+func _physics_process(delta: float) -> void:	
+	if (velocity[0] > MAX_PUSH_SPEED):
+		velocity = Vector2(MAX_PUSH_SPEED, velocity[1])
+	elif (velocity[0] < -MAX_PUSH_SPEED):
+		velocity = Vector2(-MAX_PUSH_SPEED, velocity[1])
+	elif (velocity[1] > MAX_PUSH_SPEED):
+		velocity = Vector2(velocity[0], MAX_PUSH_SPEED)
+	elif (velocity[1] < -MAX_PUSH_SPEED):
+		velocity = Vector2(velocity[0], -MAX_PUSH_SPEED)
+	
+	# move_and_slide() caused issues with boxes moving with Eve even when Eve is not pushing the boxes 
+	move_and_collide(velocity * delta)
 	
 	if get_slide_collision_count() == 0:
 		velocity = Vector2(0, 0)
