@@ -154,7 +154,7 @@ _data = {
 &"RESET": SubResource("Animation_d2wvv")
 }
 
-[node name="player" type="CharacterBody2D" unique_id=810202292]
+[node name="Eve - P1" type="CharacterBody2D" unique_id=810202292]
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=342882675]
