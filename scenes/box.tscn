@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b7y82qoyrdjis"]
 
-[ext_resource type="Texture2D" uid="uid://c0mh0dts0nscc" path="res://assets/sprites/level objs/box.png" id="1_3inec"]
 [ext_resource type="Script" uid="uid://bh1fe3puqd1lf" path="res://scenes/box.gd" id="1_ks2v0"]
+[ext_resource type="Texture2D" uid="uid://dyt83sccyhyn3" path="res://assets/sprites/level objs/box_64x64.png" id="2_ks2v0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3inec"]
 size = Vector2(64, 64)
@@ -23,8 +23,16 @@ func _process(delta: float) -> void:
 script = ExtResource("1_ks2v0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1615975503]
-texture = ExtResource("1_3inec")
+texture = ExtResource("2_ks2v0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1593911776]
 shape = SubResource("RectangleShape2D_3inec")
 script = SubResource("GDScript_3inec")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=813001330]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=851538527]
+shape = SubResource("RectangleShape2D_3inec")
+script = SubResource("GDScript_3inec")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

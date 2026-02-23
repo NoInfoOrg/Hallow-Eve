@@ -24,7 +24,7 @@ scale = Vector2(0.46765912, 0.57573724)
 texture = ExtResource("1_j8d5s")
 
 [node name="Eve" parent="." unique_id=810202292 instance=ExtResource("2_olwqp")]
-position = Vector2(503, 211)
+position = Vector2(583, 203)
 
 [node name="Willow" parent="." unique_id=882182450 instance=ExtResource("3_olwqp")]
 up_direction = Vector2(0.98458165, -0.17492567)
@@ -54,49 +54,49 @@ script = ExtResource("4_tq8dg")
 [node name="Boxes" type="Node2D" parent="." unique_id=607055175]
 
 [node name="Box1" parent="Boxes" unique_id=748287882 instance=ExtResource("5_rcwxk")]
-position = Vector2(876, 86)
+position = Vector2(877, 64)
 
 [node name="Box2" parent="Boxes" unique_id=1267361033 instance=ExtResource("5_rcwxk")]
-position = Vector2(876, 151)
+position = Vector2(877, 133)
 
 [node name="Box3" parent="Boxes" unique_id=690139648 instance=ExtResource("5_rcwxk")]
-position = Vector2(941, 346)
+position = Vector2(940, 345)
 
 [node name="Box4" parent="Boxes" unique_id=548418245 instance=ExtResource("5_rcwxk")]
-position = Vector2(746, 346)
+position = Vector2(739, 343)
 
 [node name="Box5" parent="Boxes" unique_id=1149227476 instance=ExtResource("5_rcwxk")]
-position = Vector2(941, 86)
+position = Vector2(943, 64)
 
 [node name="Box6" parent="Boxes" unique_id=958179934 instance=ExtResource("5_rcwxk")]
-position = Vector2(1006, 346)
+position = Vector2(1006, 342)
 
 [node name="Box7" parent="Boxes" unique_id=675737565 instance=ExtResource("5_rcwxk")]
-position = Vector2(746, 411)
+position = Vector2(739, 410)
 
 [node name="Box8" parent="Boxes" unique_id=505713232 instance=ExtResource("5_rcwxk")]
-position = Vector2(876, 346)
+position = Vector2(874, 344)
 
 [node name="Box9" parent="Boxes" unique_id=1315982041 instance=ExtResource("5_rcwxk")]
-position = Vector2(1006, 216)
+position = Vector2(1006, 208)
 
 [node name="Box10" parent="Boxes" unique_id=2108056597 instance=ExtResource("5_rcwxk")]
-position = Vector2(1006, 86)
+position = Vector2(1008, 64)
 
 [node name="Box11" parent="Boxes" unique_id=422216074 instance=ExtResource("5_rcwxk")]
-position = Vector2(941, 281)
+position = Vector2(941, 277)
 
 [node name="Box12" parent="Boxes" unique_id=939070273 instance=ExtResource("5_rcwxk")]
-position = Vector2(811, 346)
+position = Vector2(806, 343)
 
 [node name="Box13" parent="Boxes" unique_id=1701537768 instance=ExtResource("5_rcwxk")]
-position = Vector2(811, 151)
+position = Vector2(809, 132)
 
 [node name="Box14" parent="Boxes" unique_id=1329035974 instance=ExtResource("5_rcwxk")]
-position = Vector2(1006, 281)
+position = Vector2(1007, 274)
 
 [node name="Box15" parent="Boxes" unique_id=410082874 instance=ExtResource("5_rcwxk")]
-position = Vector2(876, 411)
+position = Vector2(875, 411)
 
 [node name="Box16" parent="Boxes" unique_id=557842757 instance=ExtResource("5_rcwxk")]
 position = Vector2(1006, 411)
