@@ -17,8 +17,8 @@ distance = -92.0
 [node name="MovementCont" type="Node2D" unique_id=2117843696]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1379178297]
-position = Vector2(261.875, 218.375)
-scale = Vector2(0.46765912, 0.57573724)
+position = Vector2(511.24997, 410.00003)
+scale = Vector2(0.13039021, 0.13941024)
 texture = ExtResource("1_pibr7")
 
 [node name="player" parent="." unique_id=810202292 instance=ExtResource("2_qakxd")]
