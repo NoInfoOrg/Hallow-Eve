@@ -11,14 +11,22 @@ config_version=5
 [application]
 
 config/name="NoInfoGame"
-run/main_scene="uid://pu0aibdb2bh7"
+run/main_scene="uid://c27i3jdck2hje"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://bxl245j7738ni"
+
+[autoload]
+
+PhantomCameraManager="*uid://duq6jhf6unyis"
 
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
 [input]
 
@@ -63,9 +71,25 @@ P2Down={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="Player"
+2d_render/layer_2="Walls"
+2d_render/layer_3="Floor"
+2d_render/layer_4="Side Walls"
+2d_render/layer_5="Interactables"
+2d_physics/layer_1="Player 1"
+2d_physics/layer_2="Walls"
+2d_physics/layer_3="Floor"
+2d_physics/layer_4="Side Walls"
+2d_physics/layer_5="Doors"
+2d_physics/layer_6="Interactables"
+2d_physics/layer_7="Player 2"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
+common/physics_interpolation=true
 
 [rendering]
 

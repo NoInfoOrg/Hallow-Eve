@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://crj8x651flfow"]
+[gd_scene format=3 uid="uid://cphkguivqa6gt"]
 
 [ext_resource type="Script" uid="uid://dmlgolxi1fkcv" path="res://scenes/player2mv.gd" id="1_c08b3"]
-[ext_resource type="Texture2D" path="res://assets/sprites/p2/WillowSprite.png" id="2_c08b3"]
+[ext_resource type="Texture2D" uid="uid://1acb5r71134k" path="res://assets/sprites/p2/WillowSprite.png" id="2_c08b3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c08b3"]
 size = Vector2(68, 244)

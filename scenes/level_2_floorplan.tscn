@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://x3cewmdbavm4"]
+
+[ext_resource type="TileSet" uid="uid://dmd1h5se2kp2p" path="res://assets/tilesets/floor.tres" id="1_mj8e3"]
+[ext_resource type="TileSet" uid="uid://ch1a3evpneqaq" path="res://assets/tilesets/walls.tres" id="2_r60jr"]
+[ext_resource type="TileSet" uid="uid://dt13bvgr5foh4" path="res://assets/tilesets/side_walls.tres" id="3_7th5v"]
+
+[node name="Level 2 Floorplan" type="Node2D" unique_id=786862080]
+
+[node name="Floor - No Collision" type="TileMapLayer" parent="." unique_id=701597144]
+tile_set = ExtResource("1_mj8e3")
+
+[node name="Walls - Collision" type="TileMapLayer" parent="." unique_id=1813787456]
+position = Vector2(0, 1)
+tile_set = ExtResource("2_r60jr")
+
+[node name="Side Walls - Collision" type="TileMapLayer" parent="." unique_id=393633538]
+tile_set = ExtResource("3_7th5v")
