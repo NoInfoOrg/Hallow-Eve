@@ -93,5 +93,5 @@ func check_box_collision(x_push, y_push, delta):
 			return
 		
 		# At this point, it should ideally be confirmed that Eve is moving to push the box
-		if collision_box.is_in_group("Boxes"):
+		if collision_box.is_in_group("Boxes") or collision_box.is_in_group("Spirit Boxes"):
 			collision_box.push_by_player(Vector2(delta * x_push, delta * y_push), PUSH_FORCE)
