@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="2_qakxd"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="3_464wy"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="4_qakxd"]
+[ext_resource type="PackedScene" uid="uid://b7y82qoyrdjis" path="res://scenes/box.tscn" id="5_464wy"]
+[ext_resource type="PackedScene" uid="uid://b5rhclw6ern25" path="res://scenes/spirit_box.tscn" id="6_papty"]
+[ext_resource type="PackedScene" uid="uid://c616w2s1ho401" path="res://scenes/human_box.tscn" id="7_valbq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_olwqp"]
 
@@ -22,10 +25,13 @@ position = Vector2(261.875, 218.375)
 scale = Vector2(0.46765912, 0.57573724)
 texture = ExtResource("1_pibr7")
 
-[node name="player" parent="." unique_id=810202292 instance=ExtResource("2_qakxd")]
+[node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("2_qakxd")]
 position = Vector2(568, 177)
+collision_mask = 190
 
-[node name="CharacterBody2D" parent="." unique_id=882182450 instance=ExtResource("3_464wy")]
+[node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("3_464wy")]
+collision_layer = 64
+collision_mask = 190
 up_direction = Vector2(0.98458165, -0.17492567)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1875371505]
@@ -49,3 +55,12 @@ shape = SubResource("WorldBoundaryShape2D_rww21")
 
 [node name="Debug Console" parent="." unique_id=1129319356 instance=ExtResource("4_qakxd")]
 position = Vector2(530, 55)
+
+[node name="Box" parent="." unique_id=748287882 groups=["Human Boxes"] instance=ExtResource("5_464wy")]
+position = Vector2(664, 414)
+
+[node name="Spirit Box" parent="." unique_id=1878367245 instance=ExtResource("6_papty")]
+position = Vector2(834, 414)
+
+[node name="Human Box" parent="." unique_id=508017747 instance=ExtResource("7_valbq")]
+position = Vector2(991, 414)

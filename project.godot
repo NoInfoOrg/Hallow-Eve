@@ -28,6 +28,12 @@ version_control/autoload_on_startup=true
 
 enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
+[global_group]
+
+"Spirit Boxes"=""
+"Human Boxes"=""
+Boxes=""
+
 [input]
 
 P1Left={
