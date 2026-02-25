@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-var lastDirection : String
+
+# INFO: Assuming that Eve starts out facing to the front
+var lastDirection : String = "S"
 
 const PUSH_FORCE = 150.0
 
@@ -53,8 +55,9 @@ func _physics_process(delta):
 		lastDirection = "S+D"
 	
 	# INFO meant to return animation to idle, but SHITS the debugger - Lizz
-	# elif velocity == Vector2.ZERO:
-	#	$AnimationPlayer.play("Eve_Idle_" + lastDirection)
+	# INFO I think this fixes it? But I don't know if this is what you had in mind - Nick
+	elif velocity == Vector2.ZERO:
+		$AnimationPlayer.play("Eve_Idle_" + lastDirection)
 	
 func check_box_collision(x_push, y_push, delta):
 	for i in get_slide_collision_count():
