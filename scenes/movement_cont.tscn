@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://butu7b2wedoks" path="res://assets/tempSprites/freddy_fazbear_shocked.png" id="1_pibr7"]
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="2_qakxd"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="3_464wy"]
+[ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="4_qakxd"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_olwqp"]
 
@@ -45,3 +46,6 @@ shape = SubResource("WorldBoundaryShape2D_rcwxk")
 position = Vector2(1059, 292)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_rww21")
+
+[node name="Debug Console" parent="." unique_id=1129319356 instance=ExtResource("4_qakxd")]
+position = Vector2(530, 55)

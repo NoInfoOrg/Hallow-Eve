@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_d0nkq"]
 [ext_resource type="PackedScene" uid="uid://dnjf1aqiogr0k" path="res://scenes/level_1_floorplan.tscn" id="3_vdyla"]
 [ext_resource type="PackedScene" uid="uid://b7y82qoyrdjis" path="res://scenes/box.tscn" id="7_cowtf"]
+[ext_resource type="PackedScene" uid="uid://c27i3jdck2hje" path="res://scenes/movement_cont.tscn" id="8_1lfwu"]
+[ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="9_d18id"]
 
 [sub_resource type="Resource" id="Resource_d0nkq"]
 script = ExtResource("3_d0nkq")
@@ -129,3 +131,9 @@ position = Vector2(993, 6174)
 [node name="Box16" parent="." unique_id=822512834 instance=ExtResource("7_cowtf")]
 z_index = 10
 position = Vector2(1133, 6173)
+
+[node name="Test Environment" parent="." unique_id=1107117117 instance=ExtResource("8_1lfwu")]
+
+[node name="Debug Console" parent="." unique_id=1129319356 instance=ExtResource("9_d18id")]
+z_index = 10
+position = Vector2(-26, -124)
