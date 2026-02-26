@@ -1,13 +1,11 @@
-extends Resource
+extends Node2D
 
-class_name Inv
-signal inv_updated 
+signal updated_inv
 @export var items: Array[Item]
 
 func add_item(newItem: Item) -> bool:
 	items.append(newItem)
-	print("something happened btw")
-	inv_updated.emit()
+	updated_inv.emit()
 	return true
 	
 func remove_item(remItem: Item) -> bool:
@@ -17,9 +15,9 @@ func remove_item(remItem: Item) -> bool:
 			items.remove_at(index)
 			return true
 		index += 1
-	inv_updated.emit()
+	updated_inv.emit()
 	return false
-
+			
 
 func get_inv_size() -> int:
 	return items.size()

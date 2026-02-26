@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var inv: Inv
 const SPEED = 300.0
 var lastDirection : String
 

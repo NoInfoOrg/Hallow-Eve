@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://c27i3jdck2hje"]
+[gd_scene format=3 uid="uid://i6fcwca1kki2"]
 
-[ext_resource type="Texture2D" uid="uid://butu7b2wedoks" path="res://assets/tempSprites/freddy_fazbear_shocked.png" id="1_pibr7"]
+[ext_resource type="Resource" uid="uid://dvxwubxmqyn0j" path="res://assets/temp/key.tres" id="2_papty"]
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="2_qakxd"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="3_464wy"]
+[ext_resource type="PackedScene" uid="uid://dwu4oi2tru041" path="res://scenes/collectibles.tscn" id="3_pibr7"]
+[ext_resource type="Script" uid="uid://5it8olpe6dgr" path="res://scenes/inventory.gd" id="5_464wy"]
+[ext_resource type="PackedScene" uid="uid://ckrf5goc0ul3o" path="res://inv_ui.tscn" id="5_papty"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_olwqp"]
 
@@ -16,10 +19,11 @@ distance = -92.0
 
 [node name="MovementCont" type="Node2D" unique_id=2117843696]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1379178297]
-position = Vector2(511.24997, 410.00003)
-scale = Vector2(0.13039021, 0.13941024)
-texture = ExtResource("1_pibr7")
+[node name="collectibles" parent="." unique_id=1417814454 instance=ExtResource("3_pibr7")]
+item_info = ExtResource("2_papty")
+
+[node name="collectibles2" parent="." unique_id=436517533 instance=ExtResource("3_pibr7")]
+position = Vector2(790, -96)
 
 [node name="player" parent="." unique_id=810202292 instance=ExtResource("2_qakxd")]
 position = Vector2(568, 177)
@@ -45,3 +49,15 @@ shape = SubResource("WorldBoundaryShape2D_rcwxk")
 position = Vector2(1059, 292)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_rww21")
+
+[node name="Inventory" type="Node2D" parent="." unique_id=1733337758]
+script = ExtResource("5_464wy")
+
+[node name="InvUI" parent="." unique_id=352140929 node_paths=PackedStringArray("inventory") instance=ExtResource("5_papty")]
+anchor_right = 0.75600004
+anchor_bottom = 0.0
+offset_left = 628.0
+offset_top = 3.0
+offset_right = 1089.0
+offset_bottom = 71.0
+inventory = NodePath("../Inventory")

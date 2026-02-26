@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+@export var inv: Inv # shared inventory for Willow and Eve (I hope this works)
 const SPEED = 300.0
 
 
