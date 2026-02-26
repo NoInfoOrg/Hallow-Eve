@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_d0nkq"]
 [ext_resource type="PackedScene" uid="uid://dnjf1aqiogr0k" path="res://scenes/level_1_floorplan.tscn" id="3_vdyla"]
 [ext_resource type="PackedScene" uid="uid://c616w2s1ho401" path="res://scenes/human_box.tscn" id="7_cowtf"]
-[ext_resource type="PackedScene" uid="uid://c27i3jdck2hje" path="res://scenes/movement_cont.tscn" id="8_1lfwu"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="9_d18id"]
 [ext_resource type="PackedScene" uid="uid://b5rhclw6ern25" path="res://scenes/spirit_box.tscn" id="10_lg53w"]
 
@@ -129,12 +128,12 @@ position = Vector2(1274, 6244)
 z_index = 10
 position = Vector2(993, 6174)
 
-[node name="Test Environment" parent="." unique_id=1107117117 instance=ExtResource("8_1lfwu")]
-
-[node name="Debug Console" parent="." unique_id=1129319356 instance=ExtResource("9_d18id")]
-z_index = 10
-position = Vector2(-26, -124)
-
 [node name="Spirit Box" parent="." unique_id=1878367245 instance=ExtResource("10_lg53w")]
 z_index = 5
 position = Vector2(993, 6313)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=711542435]
+
+[node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("9_d18id")]
+z_index = 10
+position = Vector2(416, 603)

@@ -53,9 +53,6 @@ position = Vector2(1059, 292)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_rww21")
 
-[node name="Debug Console" parent="." unique_id=1129319356 instance=ExtResource("4_qakxd")]
-position = Vector2(530, 55)
-
 [node name="Box" parent="." unique_id=748287882 groups=["Human Boxes"] instance=ExtResource("5_464wy")]
 position = Vector2(664, 414)
 
@@ -64,3 +61,8 @@ position = Vector2(834, 414)
 
 [node name="Human Box" parent="." unique_id=508017747 instance=ExtResource("7_valbq")]
 position = Vector2(991, 414)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1516971265]
+
+[node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("4_qakxd")]
+position = Vector2(435, 606)

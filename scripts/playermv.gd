@@ -17,6 +17,10 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+	## INFO Ctrl + D to open the debugging menu
+	#if Input.is_key_pressed(KEY_CTRL) and Input.is_key_pressed(KEY_D):
+		#pass
+	
 	# INFO Eve's Walking Animations (uses idle for placeholder)
 	if Input.is_action_pressed("P1Left") and not (Input.is_action_pressed("P1Up") or Input.is_action_pressed("P1Down")):
 		$AnimationPlayer.play("Eve_Idle_A")
