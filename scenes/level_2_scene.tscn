@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cdb5iv2ftog18"]
 
 [ext_resource type="PackedScene" uid="uid://x3cewmdbavm4" path="res://scenes/level_2_floorplan.tscn" id="1_dhe5w"]
+[ext_resource type="Script" uid="uid://cvy8perii5g6s" path="res://scenes/camera_2d.gd" id="1_l75xx"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_w3v4c"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_l75xx"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_bh3am"]
@@ -23,6 +24,7 @@ visibility_layer = 65
 z_index = 10
 zoom = Vector2(1.25, 1.25)
 editor_draw_limits = true
+script = ExtResource("1_l75xx")
 
 [node name="PhantomCameraHost" type="Node" parent="Camera Setup/Camera2D" unique_id=39857236]
 process_priority = 300
