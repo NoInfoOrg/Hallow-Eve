@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cdb5iv2ftog18"]
+
+[ext_resource type="PackedScene" uid="uid://x3cewmdbavm4" path="res://scenes/level_2_floorplan.tscn" id="1_dhe5w"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_w3v4c"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_l75xx"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_bh3am"]
+[ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="4_k5nr0"]
+[ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="5_st00f"]
+[ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="7_76qun"]
+
+[sub_resource type="Resource" id="Resource_edtfm"]
+script = ExtResource("3_bh3am")
+duration = 0.3
+transition = 4
+
+[node name="Level 2 Scene" type="Node2D" unique_id=644213373]
+
+[node name="Camera Setup" type="Node" parent="." unique_id=782444736]
+
+[node name="Camera2D" type="Camera2D" parent="Camera Setup" unique_id=1370746339]
+top_level = true
+visibility_layer = 65
+z_index = 10
+zoom = Vector2(1.25, 1.25)
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera Setup/Camera2D" unique_id=39857236]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("1_w3v4c")
+host_layers = 65
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera2D" type="Node2D" parent="Camera Setup" unique_id=1639745428 node_paths=PackedStringArray("follow_targets")]
+top_level = true
+script = ExtResource("2_l75xx")
+priority = 10
+follow_mode = 3
+follow_targets = [null, null]
+zoom = Vector2(1.25, 1.25)
+tween_resource = SubResource("Resource_edtfm")
+host_layers = 65
+follow_damping = true
+auto_zoom = true
+auto_zoom_min = 0.7
+auto_zoom_max = 1.25
+auto_zoom_margin = Vector4(400, 0, 400, 0)
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="MovementCont" type="Node2D" parent="." unique_id=44698228]
+
+[node name="Eve - P1" parent="MovementCont" unique_id=810202292 instance=ExtResource("4_k5nr0")]
+z_index = 9
+collision_mask = 4294967230
+slide_on_ceiling = false
+
+[node name="Willow - P2" parent="MovementCont" unique_id=882182450 instance=ExtResource("5_st00f")]
+z_index = 9
+collision_layer = 64
+collision_mask = 4294967230
+slide_on_ceiling = false
+
+[node name="Level 2 Floorplan" parent="." unique_id=786862080 instance=ExtResource("1_dhe5w")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1543515650]
+
+[node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("7_76qun")]
+z_index = 10
+position = Vector2(416, 603)

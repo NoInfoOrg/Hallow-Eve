@@ -10,5 +10,7 @@ offset_right = 333.0
 offset_bottom = 31.0
 
 [node name="Label" type="Label" parent="." unique_id=2079759181]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_top = -26.0
+offset_right = 153.0
+offset_bottom = -3.0
+text = "Debugging Console:"
