@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bfl6vednvl8bh" path="res://assets/spritesheets/p1/Eve_FullHealth_SpriteSheet.png" id="2_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(64, 133)
+size = Vector2(64, 136)
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 resource_name = "Eve_Idle_A"
@@ -157,6 +157,10 @@ _data = {
 [node name="Eve - P1" type="CharacterBody2D" unique_id=810202292]
 script = ExtResource("1_g2els")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=342882675]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_g2els")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1709103146]
 position = Vector2(1.0000076, -0.9999924)
 scale = Vector2(0.50701755, 0.51086956)
@@ -164,11 +168,5 @@ texture = ExtResource("2_g2els")
 hframes = 10
 vframes = 10
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=342882675]
-position = Vector2(1, -0.5)
-shape = SubResource("RectangleShape2D_g2els")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=431555211]
 libraries/ = SubResource("AnimationLibrary_3v2ag")
-
-[node name="inventory" type="Node2D" parent="." unique_id=1023187329]
