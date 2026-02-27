@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b76acakb81w3k"]
+
+[node name="Panel" type="Panel" unique_id=1156373481]
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.062000003
+offset_right = -0.3199997
+offset_bottom = -0.1760025
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1801223220]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
