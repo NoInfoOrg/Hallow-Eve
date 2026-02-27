@@ -17,7 +17,7 @@ func remove_item(remItem: Item) -> bool:
 		index += 1
 	updated_inv.emit()
 	return false
-			
+
 
 func get_inv_size() -> int:
 	return items.size()
