@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://dy6vmnugwo4au"]
 
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="1_ihv73"]
+[ext_resource type="Script" uid="uid://cvy8perii5g6s" path="res://scenes/camera_2d.gd" id="1_lg53w"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_cowtf"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="2_d0nkq"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_ihv73"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_d0nkq"]
 [ext_resource type="PackedScene" uid="uid://dnjf1aqiogr0k" path="res://scenes/level_1_floorplan.tscn" id="3_vdyla"]
-[ext_resource type="PackedScene" uid="uid://b7y82qoyrdjis" path="res://scenes/box.tscn" id="7_cowtf"]
+[ext_resource type="PackedScene" uid="uid://c616w2s1ho401" path="res://scenes/human_box.tscn" id="7_cowtf"]
+[ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="9_d18id"]
+[ext_resource type="PackedScene" uid="uid://b5rhclw6ern25" path="res://scenes/spirit_box.tscn" id="10_lg53w"]
 
 [sub_resource type="Resource" id="Resource_d0nkq"]
 script = ExtResource("3_d0nkq")
@@ -25,6 +28,7 @@ z_index = 10
 zoom = Vector2(1.25, 1.25)
 process_callback = 0
 editor_draw_limits = true
+script = ExtResource("1_lg53w")
 
 [node name="PhantomCameraHost" type="Node" parent="Camera Setup/Camera2D" unique_id=330053516]
 process_priority = 300
@@ -66,66 +70,72 @@ slide_on_ceiling = false
 [node name="Level 1 Floorplan" parent="." unique_id=1850241566 instance=ExtResource("3_vdyla")]
 position = Vector2(-442, -162)
 
-[node name="Box1" parent="." unique_id=748287882 instance=ExtResource("7_cowtf")]
+[node name="Human Box 1" parent="." unique_id=748287882 instance=ExtResource("7_cowtf")]
 z_index = 10
 position = Vector2(1274, 6173)
 
-[node name="Box2" parent="." unique_id=1238176207 instance=ExtResource("7_cowtf")]
+[node name="Human Box 2" parent="." unique_id=1238176207 instance=ExtResource("7_cowtf")]
 z_index = 10
 position = Vector2(1203, 6453)
 
-[node name="Box3" parent="." unique_id=793998642 instance=ExtResource("7_cowtf")]
+[node name="Human Box 3" parent="." unique_id=793998642 instance=ExtResource("7_cowtf")]
 z_index = 10
 position = Vector2(1133, 6453)
 
-[node name="Box4" parent="." unique_id=1129229352 instance=ExtResource("7_cowtf")]
+[node name="Human Box 4" parent="." unique_id=1129229352 instance=ExtResource("7_cowtf")]
 z_index = 10
 position = Vector2(1133, 6523)
 
-[node name="Box5" parent="." unique_id=1310048725 instance=ExtResource("7_cowtf")]
+[node name="Human Box 5" parent="." unique_id=1310048725 instance=ExtResource("7_cowtf")]
 z_index = 10
 position = Vector2(1062, 6523)
 
-[node name="Box6" parent="." unique_id=949366495 instance=ExtResource("7_cowtf")]
+[node name="Human Box 6" parent="." unique_id=949366495 instance=ExtResource("7_cowtf")]
 z_index = 10
 position = Vector2(993, 6522)
 
-[node name="Box7" parent="." unique_id=315565776 instance=ExtResource("7_cowtf")]
+[node name="Human Box 7" parent="." unique_id=315565776 instance=ExtResource("7_cowtf")]
 z_index = 10
 position = Vector2(994, 6383)
 
-[node name="Box8" parent="." unique_id=1201642435 instance=ExtResource("7_cowtf")]
+[node name="Human Box 8" parent="." unique_id=1201642435 instance=ExtResource("7_cowtf")]
 z_index = 10
 position = Vector2(1062, 6313)
 
-[node name="Box9" parent="." unique_id=320217030 instance=ExtResource("7_cowtf")]
+[node name="Human Box 9" parent="." unique_id=822512834 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(994, 6313)
+position = Vector2(1133, 6173)
 
-[node name="Box10" parent="." unique_id=1180213343 instance=ExtResource("7_cowtf")]
+[node name="Human Box 10" parent="." unique_id=1180213343 instance=ExtResource("7_cowtf")]
 z_index = 10
 position = Vector2(993, 6243)
 
-[node name="Box11" parent="." unique_id=2038028676 instance=ExtResource("7_cowtf")]
+[node name="Human Box 11" parent="." unique_id=2038028676 instance=ExtResource("7_cowtf")]
 z_index = 10
 position = Vector2(1062, 6242)
 
-[node name="Box12" parent="." unique_id=55392578 instance=ExtResource("7_cowtf")]
+[node name="Human Box 12" parent="." unique_id=55392578 instance=ExtResource("7_cowtf")]
 z_index = 10
 position = Vector2(1133, 6243)
 
-[node name="Box13" parent="." unique_id=1277625804 instance=ExtResource("7_cowtf")]
+[node name="Human Box 13" parent="." unique_id=1277625804 instance=ExtResource("7_cowtf")]
 z_index = 10
 position = Vector2(1202, 6243)
 
-[node name="Box14" parent="." unique_id=4865893 instance=ExtResource("7_cowtf")]
+[node name="Human Box 14" parent="." unique_id=4865893 instance=ExtResource("7_cowtf")]
 z_index = 10
 position = Vector2(1274, 6244)
 
-[node name="Box15" parent="." unique_id=505708773 instance=ExtResource("7_cowtf")]
+[node name="Human Box 15" parent="." unique_id=505708773 instance=ExtResource("7_cowtf")]
 z_index = 10
 position = Vector2(993, 6174)
 
-[node name="Box16" parent="." unique_id=822512834 instance=ExtResource("7_cowtf")]
+[node name="Spirit Box" parent="." unique_id=1878367245 instance=ExtResource("10_lg53w")]
+z_index = 5
+position = Vector2(993, 6313)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=711542435]
+
+[node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("9_d18id")]
 z_index = 10
-position = Vector2(1133, 6173)
+position = Vector2(416, 603)

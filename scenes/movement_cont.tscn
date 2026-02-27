@@ -7,6 +7,10 @@
 [ext_resource type="Script" uid="uid://5it8olpe6dgr" path="res://scenes/inventory.gd" id="5_464wy"]
 [ext_resource type="PackedScene" uid="uid://ckrf5goc0ul3o" path="res://inv_ui.tscn" id="5_papty"]
 [ext_resource type="PackedScene" uid="uid://nmbgcgm0lqea" path="res://locked_door.tscn" id="7_valbq"]
+[ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="4_qakxd"]
+[ext_resource type="PackedScene" uid="uid://b7y82qoyrdjis" path="res://scenes/box.tscn" id="5_464wy"]
+[ext_resource type="PackedScene" uid="uid://b5rhclw6ern25" path="res://scenes/spirit_box.tscn" id="6_papty"]
+[ext_resource type="PackedScene" uid="uid://c616w2s1ho401" path="res://scenes/human_box.tscn" id="7_valbq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_olwqp"]
 
@@ -26,11 +30,14 @@ item_info = ExtResource("2_papty")
 [node name="collectibles2" parent="." unique_id=436517533 instance=ExtResource("3_pibr7")]
 position = Vector2(773, -17)
 
-[node name="player" parent="." unique_id=810202292 instance=ExtResource("2_qakxd")]
+[node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("2_qakxd")]
 position = Vector2(678, 537)
+collision_mask = 190
 
-[node name="CharacterBody2D" parent="." unique_id=882182450 instance=ExtResource("3_464wy")]
+[node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("3_464wy")]
 position = Vector2(261, 387)
+collision_layer = 64
+collision_mask = 190
 up_direction = Vector2(0.98458165, -0.17492567)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1875371505]
@@ -65,3 +72,16 @@ offset_bottom = 71.0
 inventory = NodePath("../Inventory")
 
 [node name="LockedDoor" parent="." unique_id=581550398 instance=ExtResource("7_valbq")]
+[node name="Box" parent="." unique_id=748287882 groups=["Human Boxes"] instance=ExtResource("5_464wy")]
+position = Vector2(664, 414)
+
+[node name="Spirit Box" parent="." unique_id=1878367245 instance=ExtResource("6_papty")]
+position = Vector2(834, 414)
+
+[node name="Human Box" parent="." unique_id=508017747 instance=ExtResource("7_valbq")]
+position = Vector2(991, 414)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1516971265]
+
+[node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("4_qakxd")]
+position = Vector2(435, 606)
