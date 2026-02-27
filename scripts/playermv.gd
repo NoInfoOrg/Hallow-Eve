@@ -42,22 +42,6 @@ func _physics_process(delta):
 		$AnimationPlayer.play("Eve_Idle_S")
 		lastDirection = "S"
 		check_box_collision(0, PUSH_FORCE, delta)
-		
-	elif Input.is_action_pressed("P1Left") and Input.is_action_pressed("P1Up"):
-		$AnimationPlayer.play("Eve_Idle_W+A")
-		lastDirection = "W+A"
-		
-	elif Input.is_action_pressed("P1Left") and Input.is_action_pressed("P1Down"):
-		$AnimationPlayer.play("Eve_Idle_A+S")
-		lastDirection = "A+S"
-		
-	elif Input.is_action_pressed("P1Right") and Input.is_action_pressed("P1Up"):
-		$AnimationPlayer.play("Eve_Idle_D+W")
-		lastDirection = "D+W"
-		
-	elif Input.is_action_pressed("P1Right") and Input.is_action_pressed("P1Down"):
-		$AnimationPlayer.play("Eve_Idle_S+D")
-		lastDirection = "S+D"
 	
 	# INFO meant to return animation to idle, but SHITS the debugger - Lizz
 	# INFO I think this fixes it? But I don't know if this is what you had in mind - Nick
