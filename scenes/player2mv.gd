@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 
 # INFO: Assuming that Willow starts out facing to the front
-var lastDirection : String = "S"
+var lastDirection : String = "Down"
 
 const PUSH_FORCE = 150.0
 
@@ -14,46 +14,39 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	# INFO Eve's Walking Animations (uses idle for placeholder)
+	# INFO Willow's Walking Animations (uses idle for placeholder)
 	if Input.is_action_pressed("P2Left") and not (Input.is_action_pressed("P2Up") or Input.is_action_pressed("P2Down")):
-		lastDirection = "A"
+		$AnimationPlayer.play("Willow_Left")
+		lastDirection = "Left"
 		check_box_collision(-PUSH_FORCE, 0, delta)
 		
 	elif Input.is_action_pressed("P2Right") and not (Input.is_action_pressed("P2Up") or Input.is_action_pressed("P2Down")):
-		lastDirection = "D"
+		$AnimationPlayer.play("Willow_Right")
+		lastDirection = "Right"
 		check_box_collision(PUSH_FORCE, 0, delta)
 		
 	elif Input.is_action_pressed("P2Up") and not (Input.is_action_pressed("P2Left") or Input.is_action_pressed("P2Right")):
-		lastDirection = "W"
+		$AnimationPlayer.play("Willow_Up")
+		lastDirection = "Up"
 		check_box_collision(0, -PUSH_FORCE, delta)
 		
 	elif Input.is_action_pressed("P2Down") and not (Input.is_action_pressed("P2Left") or Input.is_action_pressed("P2Right")):
-		lastDirection = "S"
+		$AnimationPlayer.play("Willow_Down")
+		lastDirection = "Down"
 		check_box_collision(0, PUSH_FORCE, delta)
 		
-	elif Input.is_action_pressed("P2Left") and Input.is_action_pressed("P2Up"):
-		lastDirection = "W+A"
-		
-	elif Input.is_action_pressed("P2Left") and Input.is_action_pressed("P2Down"):
-		lastDirection = "A+S"
-		
-	elif Input.is_action_pressed("P2Right") and Input.is_action_pressed("P2Up"):
-		lastDirection = "D+W"
-		
-	elif Input.is_action_pressed("P2Right") and Input.is_action_pressed("P2Down"):
-		lastDirection = "S+D"
 	
 	# INFO meant to return animation to idle, but SHITS the debugger - Lizz
 	# INFO I think this fixes it? But I don't know if this is what you had in mind - Nick
 	# elif velocity == Vector2.ZERO:
-		# $AnimationPlayer.play("Eve_Idle_" + lastDirection)
+		# $AnimationPlayer.play("Willow_Idle_" + lastDirection)
 	
 func check_box_collision(x_push, y_push, delta):
 	for i in get_slide_collision_count():
-		# Make sure Willow is actually moving in the direction she is pushing
-		if y_push != 0 and (lastDirection == "A" or lastDirection == "D"):
+		# Make sure Willow is actually moving in the direction he is pushing
+		if y_push != 0 and (lastDirection == "Left" or lastDirection == "Right"):
 			return
-		elif x_push != 0 and (lastDirection == "W" or lastDirection == "S"):
+		elif x_push != 0 and (lastDirection == "Up" or lastDirection == "Down"):
 			return
 		
 		var collision = get_slide_collision(i)
