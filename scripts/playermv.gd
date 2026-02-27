@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@export var inv: Inv
 const SPEED = 300.0
 
 # INFO: Assuming that Eve starts out facing to the front
