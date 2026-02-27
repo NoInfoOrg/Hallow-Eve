@@ -4,11 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="2_qakxd"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="3_464wy"]
 [ext_resource type="PackedScene" uid="uid://dwu4oi2tru041" path="res://scenes/collectibles.tscn" id="3_pibr7"]
-[ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="4_qakxd"]
-[ext_resource type="PackedScene" uid="uid://b7y82qoyrdjis" path="res://scenes/box.tscn" id="5_464wy"]
+[ext_resource type="PackedScene" path="res://scenes/debug_console.tscn" id="4_qakxd"]
+[ext_resource type="Script" uid="uid://5it8olpe6dgr" path="res://scenes/inventory.gd" id="5_464wy"]
 [ext_resource type="PackedScene" uid="uid://ckrf5goc0ul3o" path="res://inv_ui.tscn" id="5_papty"]
-[ext_resource type="PackedScene" uid="uid://b5rhclw6ern25" path="res://scenes/spirit_box.tscn" id="6_papty"]
-[ext_resource type="PackedScene" uid="uid://c616w2s1ho401" path="res://scenes/human_box.tscn" id="7_valbq"]
+[ext_resource type="PackedScene" path="res://scenes/spirit_box.tscn" id="6_papty"]
+[ext_resource type="PackedScene" uid="uid://b7y82qoyrdjis" path="res://scenes/box.tscn" id="7_7q3w4"]
+[ext_resource type="PackedScene" path="res://scenes/human_box.tscn" id="7_valbq"]
+[ext_resource type="PackedScene" uid="uid://nmbgcgm0lqea" path="res://locked_door.tscn" id="10_yc0ht"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_olwqp"]
 
@@ -58,6 +60,7 @@ rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_rww21")
 
 [node name="Inventory" type="Node2D" parent="." unique_id=1733337758]
+script = ExtResource("5_464wy")
 
 [node name="InvUI" parent="." unique_id=352140929 node_paths=PackedStringArray("inventory") instance=ExtResource("5_papty")]
 anchor_right = 0.75600004
@@ -68,9 +71,7 @@ offset_right = 1089.0
 offset_bottom = 71.0
 inventory = NodePath("../Inventory")
 
-[node name="LockedDoor" parent="." unique_id=581550398 instance=ExtResource("7_valbq")]
-
-[node name="Box" parent="." unique_id=748287882 groups=["Human Boxes"] instance=ExtResource("5_464wy")]
+[node name="Box" parent="." unique_id=748287882 groups=["Human Boxes"] instance=ExtResource("7_7q3w4")]
 position = Vector2(664, 414)
 
 [node name="Spirit Box" parent="." unique_id=1878367245 instance=ExtResource("6_papty")]
@@ -83,3 +84,5 @@ position = Vector2(991, 414)
 
 [node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("4_qakxd")]
 position = Vector2(435, 606)
+
+[node name="LockedDoor" parent="." unique_id=1400186033 instance=ExtResource("10_yc0ht")]
