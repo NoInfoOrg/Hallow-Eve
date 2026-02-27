@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://wgg2gorg83vj"]
+
+[ext_resource type="Script" uid="uid://cigr5c8rvew4i" path="res://scenes/debug_console.gd" id="1_hpx2j"]
+
+[node name="Debug Console" type="Node2D" unique_id=1129319356]
+script = ExtResource("1_hpx2j")
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=1177162787]
+offset_right = 333.0
+offset_bottom = 31.0
+
+[node name="Label" type="Label" parent="." unique_id=2079759181]
+offset_top = -26.0
+offset_right = 153.0
+offset_bottom = -3.0
+text = "Debugging Console:"
