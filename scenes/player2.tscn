@@ -1,11 +1,95 @@
 [gd_scene format=3 uid="uid://cphkguivqa6gt"]
 
 [ext_resource type="Script" uid="uid://dmlgolxi1fkcv" path="res://scenes/player2mv.gd" id="1_c08b3"]
-[ext_resource type="Texture2D" uid="uid://1acb5r71134k" path="res://assets/sprites/p2/WillowSprite.png" id="2_c08b3"]
+[ext_resource type="Texture2D" uid="uid://cd7gcsfuddwic" path="res://assets/spritesheets/p2/Willow_FullHealth_SpriteSheet.png" id="2_agjl5"]
 [ext_resource type="Script" uid="uid://5it8olpe6dgr" path="res://scenes/inventory.gd" id="3_agjl5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c08b3"]
-size = Vector2(69, 246)
+size = Vector2(68, 244)
+
+[sub_resource type="Animation" id="Animation_dj65e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hb4is"]
+resource_name = "Willow_Down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_gmtae"]
+resource_name = "Willow_Left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_8l1to"]
+resource_name = "Willow_Right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_3ejgl"]
+resource_name = "Willow_Up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_24gv0"]
+_data = {
+&"RESET": SubResource("Animation_dj65e"),
+&"Willow_Down": SubResource("Animation_hb4is"),
+&"Willow_Left": SubResource("Animation_gmtae"),
+&"Willow_Right": SubResource("Animation_8l1to"),
+&"Willow_Up": SubResource("Animation_3ejgl")
+}
 
 [node name="Willow - P2" type="CharacterBody2D" unique_id=882182450]
 script = ExtResource("1_c08b3")
@@ -13,11 +97,17 @@ script = ExtResource("1_c08b3")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=922027651]
 position = Vector2(32, 122)
 scale = Vector2(0.49799198, 0.503992)
-texture = ExtResource("2_c08b3")
+texture = ExtResource("2_agjl5")
+hframes = 10
+vframes = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=862284075]
-position = Vector2(32, 124)
+position = Vector2(29, 125)
 shape = SubResource("RectangleShape2D_c08b3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1640059439]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_24gv0")
 
 [node name="inventory" type="Node2D" parent="." unique_id=447718021]
 script = ExtResource("3_agjl5")
