@@ -36,6 +36,8 @@ collision_mask = 190
 
 [node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("3_464wy")]
 position = Vector2(325, 385)
+collision_layer = 64
+collision_mask = 190
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1875371505]
 
