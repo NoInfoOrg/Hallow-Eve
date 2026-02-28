@@ -14,6 +14,10 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+	## INFO U to open a door
+	if Input.is_action_just_pressed("OpenDoor"):
+		check_to_open_door()
+	
 	# INFO Willow's Walking Animations (uses idle for placeholder)
 	if Input.is_action_pressed("P2Left") and not (Input.is_action_pressed("P2Up") or Input.is_action_pressed("P2Down")):
 		$AnimationPlayer.play("Willow_Left")
@@ -77,3 +81,15 @@ func check_box_collision(x_push, y_push, delta):
 		# At this point, it should ideally be confirmed that Willow is moving to push the box
 		if collision_box.is_in_group("Boxes") or collision_box.is_in_group("Human Boxes"):
 			collision_box.push_by_player(Vector2(delta * x_push, delta * y_push), PUSH_FORCE)
+
+func check_to_open_door():
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var door = collision.get_collider()
+		
+		if door.is_in_group("Doors"):
+			# Change the door image to be opened
+			door.get_node("Door").play("open")
+			
+			# Change the door collision so players can enter the door
+			door.get_node("Closed Door Collision").set_deferred("disabled", true)
