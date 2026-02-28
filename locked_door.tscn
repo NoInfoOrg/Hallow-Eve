@@ -34,6 +34,8 @@ size = Vector2(250, 9)
 size = Vector2(250, 9)
 
 [node name="LockedDoor" type="StaticBody2D" unique_id=1400186033 groups=["Doors"]]
+z_index = 10
+scale = Vector2(0.9, 0.9)
 collision_layer = 255
 collision_mask = 255
 script = ExtResource("1_42grv")
@@ -43,7 +45,7 @@ position = Vector2(317.75, 178.00002)
 scale = Vector2(0.56116074, 0.5530303)
 sprite_frames = SubResource("SpriteFrames_mq1x3")
 animation = &"closed"
-frame_progress = 0.6690419
+frame_progress = 0.7463639
 script = ExtResource("4_mq1x3")
 
 [node name="Closed Door Collision" type="CollisionShape2D" parent="." unique_id=578145236]

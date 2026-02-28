@@ -15,7 +15,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	## INFO U to open a door
-	if Input.is_action_just_pressed("OpenDoor"):
+	if Input.is_action_just_pressed("P2Grab"):
 		check_to_open_door()
 	
 	# INFO Willow's Walking Animations (uses idle for placeholder)
