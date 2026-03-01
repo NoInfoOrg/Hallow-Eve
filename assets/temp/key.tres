@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://dvxwubxmqyn0j"]
 
-[ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://item.gd" id="1_d5pti"]
+[ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="1_d5pti"]
 [ext_resource type="Texture2D" uid="uid://butu7b2wedoks" path="res://assets/tempSprites/freddy_fazbear_shocked.png" id="2_3n8dv"]
 
 [resource]

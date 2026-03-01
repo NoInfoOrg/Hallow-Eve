@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://nmbgcgm0lqea"]
 
-[ext_resource type="Script" uid="uid://oy2eobmj4y7q" path="res://locked_door.gd" id="1_42grv"]
+[ext_resource type="Script" uid="uid://oy2eobmj4y7q" path="res://scripts/locked_door.gd" id="1_42grv"]
 [ext_resource type="Texture2D" uid="uid://c3f4wcd3x2i3o" path="res://assets/tempSprites/closed_door.png" id="1_x4nd7"]
 [ext_resource type="Texture2D" uid="uid://ckuai5tqvbbgu" path="res://assets/tempSprites/open_door.png" id="2_42grv"]
-[ext_resource type="Script" uid="uid://5app73n7stfy" path="res://door.gd" id="4_mq1x3"]
+[ext_resource type="Script" uid="uid://5app73n7stfy" path="res://scripts/door.gd" id="4_mq1x3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mq1x3"]
 animations = [{

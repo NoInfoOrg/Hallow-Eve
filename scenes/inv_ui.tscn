@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ckrf5goc0ul3o"]
 
-[ext_resource type="Script" uid="uid://b72hxo4d5bk1u" path="res://inventoryui.gd" id="1_s7you"]
-[ext_resource type="PackedScene" uid="uid://b4fis0r7sey1x" path="res://inventory_slot.tscn" id="2_s7you"]
+[ext_resource type="Script" uid="uid://b72hxo4d5bk1u" path="res://scripts/inventoryui.gd" id="1_s7you"]
+[ext_resource type="PackedScene" uid="uid://b4fis0r7sey1x" path="res://scenes/inventory_slot.tscn" id="2_s7you"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7you"]
 bg_color = Color(0.99818486, 0.0002745378, 0.8724077, 1)
