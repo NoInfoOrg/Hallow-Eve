@@ -4,12 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="2_qakxd"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="3_464wy"]
 [ext_resource type="PackedScene" uid="uid://dwu4oi2tru041" path="res://scenes/collectibles.tscn" id="3_pibr7"]
+[ext_resource type="Resource" uid="uid://cnsjysh3wclw5" path="res://assets/temp/testInv.tres" id="4_grxhu"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="4_qakxd"]
 [ext_resource type="Script" uid="uid://5it8olpe6dgr" path="res://scenes/inventory.gd" id="5_464wy"]
-[ext_resource type="PackedScene" uid="uid://ckrf5goc0ul3o" path="res://scenes/inv_ui.tscn" id="5_papty"]
+[ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="6_grxhu"]
 [ext_resource type="PackedScene" path="res://scenes/spirit_box.tscn" id="6_papty"]
 [ext_resource type="PackedScene" uid="uid://b7y82qoyrdjis" path="res://scenes/box.tscn" id="7_7q3w4"]
 [ext_resource type="PackedScene" path="res://scenes/human_box.tscn" id="7_valbq"]
+[ext_resource type="Script" uid="uid://b72hxo4d5bk1u" path="res://scripts/inventoryui.gd" id="8_oqd58"]
+[ext_resource type="PackedScene" uid="uid://b4fis0r7sey1x" path="res://scenes/inventory_slot.tscn" id="9_c4e7b"]
 [ext_resource type="PackedScene" uid="uid://nmbgcgm0lqea" path="res://scenes/locked_door.tscn" id="10_yc0ht"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_olwqp"]
@@ -33,11 +36,13 @@ position = Vector2(773, -17)
 [node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("2_qakxd")]
 position = Vector2(678, 537)
 collision_mask = 190
+inv = ExtResource("4_grxhu")
 
 [node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("3_464wy")]
 position = Vector2(325, 385)
 collision_layer = 64
 collision_mask = 190
+inv = ExtResource("4_grxhu")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1875371505]
 
@@ -61,14 +66,37 @@ shape = SubResource("WorldBoundaryShape2D_rww21")
 [node name="Inventory" type="Node2D" parent="." unique_id=1733337758]
 script = ExtResource("5_464wy")
 
-[node name="InvUI" parent="." unique_id=352140929 node_paths=PackedStringArray("inventory") instance=ExtResource("5_papty")]
-anchor_right = 0.75600004
-anchor_bottom = 0.0
-offset_left = 628.0
-offset_top = 3.0
-offset_right = 1089.0
-offset_bottom = 71.0
-inventory = NodePath("../Inventory")
+[node name="UI2" parent="." unique_id=274633659 instance=ExtResource("6_grxhu")]
+
+[node name="Inv" parent="UI2/Shared Inv" parent_id_path=PackedInt32Array(274633659, 778429166) index="0" unique_id=64656259 node_paths=PackedStringArray("inventory")]
+inventory = NodePath("../../../Inventory")
+
+[node name="Inv Slots" parent="UI2/Shared Inv/Inv" index="0" unique_id=544756510]
+anchors_preset = -1
+anchor_left = 0.555
+anchor_top = 0.381
+anchor_right = 0.555
+anchor_bottom = 0.381
+offset_left = -1692.6215
+offset_top = -131.72842
+offset_right = -920.022
+offset_bottom = -60.03308
+
+[node name="Inv - For now" type="Panel" parent="UI2" unique_id=502334645 node_paths=PackedStringArray("inventory", "container")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_oqd58")
+inventory = NodePath("../../Inventory")
+container = NodePath("GridContainer")
+slot = ExtResource("9_c4e7b")
+
+[node name="GridContainer" type="GridContainer" parent="UI2/Inv - For now" unique_id=489013792]
+layout_mode = 0
+offset_left = 687.0
+offset_top = 9.0
+offset_right = 1142.0
+offset_bottom = 70.0
+columns = 6
 
 [node name="Box" parent="." unique_id=748287882 groups=["Human Boxes"] instance=ExtResource("7_7q3w4")]
 position = Vector2(664, 414)
@@ -85,3 +113,5 @@ position = Vector2(991, 414)
 position = Vector2(435, 606)
 
 [node name="LockedDoor" parent="." unique_id=1400186033 instance=ExtResource("10_yc0ht")]
+
+[editable path="UI2"]

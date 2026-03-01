@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://dsclb3m2sqebv"]
+
+[ext_resource type="Script" path="res://scenes/ui.gd" id="1_8dubc"]
+[ext_resource type="Texture2D" uid="uid://ojknkrsa3b1p" path="res://assets/Health and Points Bars/Sprites/Star Bar/Star Stage 5.png" id="3_p7vwb"]
+[ext_resource type="Texture2D" uid="uid://df1mxua3eddq4" path="res://assets/Health and Points Bars/Sprites/Star Bar/Star Stage 1.png" id="4_ktti3"]
+[ext_resource type="Texture2D" uid="uid://bwaynjkvmh32u" path="res://assets/Health and Points Bars/Sprites/Brain Bar/Brain Stage 5.png" id="5_cgfq5"]
+[ext_resource type="Texture2D" uid="uid://bca1t2dhh8bul" path="res://assets/Health and Points Bars/Sprites/Brain Bar/Brain Stage 1.png" id="6_7dvkv"]
+[ext_resource type="Script" uid="uid://b72hxo4d5bk1u" path="res://scripts/inventoryui.gd" id="6_p7vwb"]
+[ext_resource type="PackedScene" uid="uid://b4fis0r7sey1x" path="res://scenes/inventory_slot.tscn" id="7_ktti3"]
+
+[node name="UI" type="CanvasLayer" unique_id=274633659]
+script = ExtResource("1_8dubc")
+
+[node name="P1" type="Node2D" parent="." unique_id=1019487313]
+position = Vector2(1144, 120)
+rotation = 3.1415925
+scale = Vector2(0.79795563, -1.1458155)
+
+[node name="P1 Sanity" type="TextureProgressBar" parent="P1" unique_id=455430084]
+offset_right = 40.0
+offset_bottom = 40.0
+fill_mode = 3
+texture_under = ExtResource("3_p7vwb")
+texture_progress = ExtResource("4_ktti3")
+metadata/_edit_use_anchors_ = true
+
+[node name="P2" type="Node2D" parent="." unique_id=646862601]
+position = Vector2(176.00002, 120)
+rotation = 3.1415925
+scale = Vector2(0.79795563, -1.1458155)
+
+[node name="P2 Sanity" type="TextureProgressBar" parent="P2" unique_id=154112298]
+offset_left = 144.1183
+offset_top = -1.5154725e-05
+offset_right = 208.1183
+offset_bottom = 63.999985
+fill_mode = 3
+texture_under = ExtResource("5_cgfq5")
+texture_progress = ExtResource("6_7dvkv")
+
+[node name="Sanity Test" type="Node" parent="." unique_id=1402241439]
+
+[node name="P1 Scroll Bar" type="HScrollBar" parent="Sanity Test" unique_id=1084010050]
+offset_left = 896.0
+offset_top = 264.0
+offset_right = 1148.0
+offset_bottom = 279.0
+
+[node name="P1 Progress Bar" type="ProgressBar" parent="Sanity Test" unique_id=1132415742]
+offset_left = 880.0
+offset_top = 296.0
+offset_right = 1144.0
+offset_bottom = 323.0
+
+[node name="P2 Scroll Bar" type="HScrollBar" parent="Sanity Test" unique_id=269329387]
+offset_left = 8.0
+offset_top = 264.0
+offset_right = 260.0
+offset_bottom = 279.0
+
+[node name="P2 Progress Bar" type="ProgressBar" parent="Sanity Test" unique_id=1209635639]
+offset_left = 8.0
+offset_top = 304.0
+offset_right = 272.0
+offset_bottom = 331.0
+
+[node name="Shared Inv" type="Node2D" parent="." unique_id=778429166]
+position = Vector2(61.000008, 120)
+rotation = 3.1415925
+scale = Vector2(0.79795563, -1.1458155)
+
+[node name="Inv" type="Panel" parent="Shared Inv" unique_id=64656259 node_paths=PackedStringArray("container")]
+offset_left = -1362.2312
+offset_top = -102.98328
+offset_right = -777.9022
+offset_bottom = -36.699333
+script = ExtResource("6_p7vwb")
+container = NodePath("Inv Slots")
+slot = ExtResource("7_ktti3")
+
+[node name="Inv Slots" type="GridContainer" parent="Shared Inv/Inv" unique_id=544756510]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 6
