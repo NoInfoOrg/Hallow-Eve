@@ -62,6 +62,7 @@ collision_layer = 64
 collision_mask = 190
 
 [node name="Level 2 Floorplan" parent="." unique_id=786862080 instance=ExtResource("1_dhe5w")]
+position = Vector2(133, 67)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1543515650]
 
