@@ -12,7 +12,8 @@ func _ready():
 	body_exited.connect(body_exit)
 
 func _process(delta: float):
-	check_answer()
+	if homework_opened:
+		check_answer()
 	
 	for player in players_detected:
 		if Input.is_action_just_pressed("P1Grab") and player.name == "Eve - P1":
@@ -52,4 +53,7 @@ func check_answer():
 	var answer = get_node("CanvasLayer/Answer Text Box")
 	
 	if answer.currentContent == correct_answer:
-		pass
+		print("CORRECT ANSWER !!!")
+		homework.hide()
+		answer.hide()
+		homework_opened = false
