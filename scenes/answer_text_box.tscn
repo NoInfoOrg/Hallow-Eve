@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cr6aiqw65fcow"]
+
+[ext_resource type="Script" uid="uid://b00g47c2q0cfk" path="res://scenes/answer_text_box.gd" id="1_8p8io"]
+[ext_resource type="Script" uid="uid://c03tnt5gisiqm" path="res://scenes/line_edit.gd" id="2_nn7dr"]
+
+[node name="Answer Text Box" type="Node2D" unique_id=1803316721]
+script = ExtResource("1_8p8io")
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=188286239]
+offset_right = 213.0
+offset_bottom = 31.0
+script = ExtResource("2_nn7dr")
+
+[node name="Label" type="Label" parent="." unique_id=1919241397]
+offset_left = 1.0
+offset_top = -24.0
+offset_right = 64.0
+offset_bottom = -1.0
+text = "Answer:"
