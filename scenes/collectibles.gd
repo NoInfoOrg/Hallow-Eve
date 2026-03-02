@@ -10,6 +10,9 @@ func _ready():
 	if item_info and item_info.texture:
 		key.texture = item_info.texture
 	
+	if name:
+		item_info.name = name
+	
 	body_entered.connect(body_entry)
 	body_exited.connect(body_exit)
 

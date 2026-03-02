@@ -5,9 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="2_qakxd"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="3_464wy"]
 [ext_resource type="PackedScene" uid="uid://dwu4oi2tru041" path="res://scenes/collectibles.tscn" id="3_pibr7"]
+[ext_resource type="PackedScene" uid="uid://k3afniuq4kul" path="res://scenes/pencil_item.tscn" id="4_8ru5a"]
 [ext_resource type="Resource" uid="uid://cnsjysh3wclw5" path="res://assets/temp/testInv.tres" id="4_grxhu"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="4_qakxd"]
 [ext_resource type="Script" uid="uid://5it8olpe6dgr" path="res://scenes/inventory.gd" id="5_464wy"]
+[ext_resource type="PackedScene" uid="uid://bwd22jx5mssx0" path="res://scenes/black_light_flashlight_item.tscn" id="5_b7gnf"]
 [ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="6_grxhu"]
 [ext_resource type="PackedScene" uid="uid://b5rhclw6ern25" path="res://scenes/spirit_box.tscn" id="6_papty"]
 [ext_resource type="PackedScene" uid="uid://b7y82qoyrdjis" path="res://scenes/box.tscn" id="7_7q3w4"]
@@ -36,6 +38,12 @@ item_info = ExtResource("2_papty")
 
 [node name="collectibles2" parent="." unique_id=436517533 instance=ExtResource("3_pibr7")]
 position = Vector2(773, -17)
+
+[node name="Pencil Item" parent="." unique_id=876747062 instance=ExtResource("4_8ru5a")]
+position = Vector2(671, 164)
+
+[node name="Black Light Flashlight Item" parent="." unique_id=603767252 instance=ExtResource("5_b7gnf")]
+position = Vector2(669, 252)
 
 [node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("2_qakxd")]
 z_index = 9

@@ -38,14 +38,27 @@ func interact_with_homework():
 	var answer = get_node("CanvasLayer/Answer Text Box")
 	
 	if not homework_opened:
-		homework.show()
+		show_homework(homework)
 		answer.show()
 		homework_opened = true
 	else:
 		homework.hide()
 		answer.hide()
 		homework_opened = false
-		
+
+func show_homework(homework):
+	# Show the default version by default
+	var homework_sprite = homework.get_node("Versions")
+	homework_sprite.play("default")
+	
+	# If the players have the black light, show the black light version
+	var inventory = get_node("../Inventory")
+	for item in inventory.items:
+		if item.name == "Black Light Flashlight Item":
+			homework_sprite.play("under_black_light")
+	
+	homework.show()
+
 func check_answer():
 	var correct_answer = "11"
 	
