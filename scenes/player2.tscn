@@ -92,6 +92,8 @@ _data = {
 }
 
 [node name="Willow - P2" type="CharacterBody2D" unique_id=882182450]
+collision_layer = 64
+collision_mask = 186
 script = ExtResource("1_c08b3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=922027651]

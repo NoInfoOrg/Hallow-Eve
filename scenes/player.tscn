@@ -91,6 +91,7 @@ _data = {
 }
 
 [node name="Eve - P1" type="CharacterBody2D" unique_id=810202292]
+collision_mask = 182
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1709103146]

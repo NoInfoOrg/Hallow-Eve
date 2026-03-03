@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="4_k5nr0"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="5_st00f"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="7_76qun"]
+[ext_resource type="PackedScene" uid="uid://nmbgcgm0lqea" path="res://scenes/locked_door.tscn" id="9_bh3am"]
 
 [sub_resource type="Resource" id="Resource_w3v4c"]
 script = ExtResource("3_bh3am")
@@ -69,3 +70,12 @@ position = Vector2(133, 67)
 [node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("7_76qun")]
 z_index = 10
 position = Vector2(416, 603)
+
+[node name="Hall-LibraryStatueRoom Door" parent="." unique_id=1400186033 instance=ExtResource("9_bh3am")]
+position = Vector2(-673.00006, -1249.0001)
+
+[node name="LockedDoor" parent="." unique_id=2139845666 instance=ExtResource("9_bh3am")]
+position = Vector2(-2058, -1249)
+
+[node name="LockedDoor2" parent="." unique_id=889521707 instance=ExtResource("9_bh3am")]
+position = Vector2(-524, 405)

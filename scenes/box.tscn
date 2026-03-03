@@ -19,8 +19,8 @@ func _process(delta: float) -> void:
 	pass
 "
 
-[node name="Box" type="CharacterBody2D" unique_id=748287882 groups=["Boxes"]]
-collision_layer = 65
+[node name="Box" type="CharacterBody2D" unique_id=748287882 groups=["Boxes", "Communal Boxes"]]
+collision_layer = 255
 collision_mask = 255
 script = ExtResource("1_ks2v0")
 

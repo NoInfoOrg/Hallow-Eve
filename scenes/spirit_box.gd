@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		const UP_DIRECTION = Vector2(0.0, -1.0)
 		const DOWN_DIRECTION = Vector2(0.0, 1.0)
 		
-		if collision_box.is_in_group("Spirit Boxes"):
+		if collision_box.is_in_group("Boxes"):
 			velocity = Vector2(0, 0)
 		else:  # Should probably be changed to only players later
 			if velocity[0] != 0 and (normal == UP_DIRECTION or normal == DOWN_DIRECTION):
@@ -40,4 +40,15 @@ func _physics_process(delta: float) -> void:
 				velocity = Vector2(0, 0)
 
 func push_by_player(direction, push_force):
-	velocity = direction * push_force
+	var colliding_with_another_box = false
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collision_box = collision.get_collider()
+		
+		if collision_box.is_in_group("Boxes"):
+			colliding_with_another_box = true
+			break
+	
+	if not colliding_with_another_box:
+		velocity = direction * push_force
