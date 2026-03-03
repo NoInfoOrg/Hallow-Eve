@@ -48,17 +48,16 @@ position = Vector2(669, 252)
 [node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("2_qakxd")]
 z_index = 9
 position = Vector2(678, 537)
-collision_mask = 190
 inv = ExtResource("4_grxhu")
 
 [node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("3_464wy")]
 z_index = 9
 position = Vector2(325, 385)
-collision_layer = 64
-collision_mask = 190
 inv = ExtResource("4_grxhu")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1875371505]
+collision_layer = 255
+collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=13519396]
 rotation = 1.5707964

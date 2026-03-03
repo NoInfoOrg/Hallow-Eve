@@ -4,7 +4,7 @@ var can_move = true
 
 const MAX_PUSH_SPEED = 150.0
 
-func _physics_process(delta: float) -> void:	
+func _physics_process(delta: float) -> void:
 	if (velocity[0] > MAX_PUSH_SPEED):
 		velocity = Vector2(MAX_PUSH_SPEED, velocity[1])
 	elif (velocity[0] < -MAX_PUSH_SPEED):
@@ -40,4 +40,15 @@ func _physics_process(delta: float) -> void:
 				velocity = Vector2(0, 0)
 
 func push_by_player(direction, push_force):
-	velocity = direction * push_force
+	var colliding_with_another_box = false
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collision_box = collision.get_collider()
+		
+		if collision_box.is_in_group("Boxes"):
+			colliding_with_another_box = true
+			break
+	
+	if not colliding_with_another_box:
+		velocity = direction * push_force

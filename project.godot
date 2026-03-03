@@ -32,8 +32,9 @@ enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
 "Spirit Boxes"=""
 "Human Boxes"=""
-Boxes=""
 Doors=""
+"Communal Boxes"=""
+Boxes=""
 
 [input]
 
