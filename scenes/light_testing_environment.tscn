@@ -1,0 +1,86 @@
+[gd_scene format=4 uid="uid://3dqctkumje83"]
+
+[ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="1_tf2yx"]
+[ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="2_371ck"]
+[ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="3_371ck"]
+[ext_resource type="TileSet" uid="uid://dmd1h5se2kp2p" path="res://assets/tilesets/floor.tres" id="3_rggml"]
+[ext_resource type="Texture2D" uid="uid://4solyxlfa55m" path="res://assets/tempSprites/vertical_wall_sprite_texture.png" id="4_ktfke"]
+[ext_resource type="Texture2D" uid="uid://bud4upv8o81ko" path="res://assets/tempSprites/horizonal_wall_sprite_texture.png" id="5_llb02"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_llb02"]
+polygon = PackedVector2Array(-27.555553, -225.70207, 18.666668, -225.70207, 20.444443, 223.62506, -27.555553, 223.62506)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rggml"]
+polygon = PackedVector2Array(-26, -224.06506, 18, -224.06506, 22, 226.67352, -26, 226.67352)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_obfh4"]
+polygon = PackedVector2Array(-24, -220.59561, 24, -221.86523, 24, 223.76959, -22.080078, 223.76959)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h70e2"]
+polygon = PackedVector2Array(-372.76468, -21.5, 369.70605, -27.5, 370.4707, 24.5, -371.23538, 24.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p7b2u"]
+polygon = PackedVector2Array(-370.50003, -24.5, 368.97992, -22.5, 369.73993, 27.5, -372.78003, 25.5)
+
+[node name="Light Testing Environment" type="Node2D" unique_id=1061748591]
+
+[node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("1_tf2yx")]
+z_index = 5
+position = Vector2(235, 163)
+
+[node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("2_371ck")]
+z_index = 5
+position = Vector2(110, 87)
+
+[node name="Floor - NC" type="TileMapLayer" parent="." unique_id=1316033034]
+tile_map_data = PackedByteArray("AAD/////AAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD//wIAAAAAAAAAAAD//wMAAAAAAAAAAAD//wQAAAAAAAAAAAD//wUAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAADAP//AAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAP//AAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAP//AAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAP//AAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAP//AAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAP//AAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAA=")
+tile_set = ExtResource("3_rggml")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1954976749]
+
+[node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("3_371ck")]
+position = Vector2(357, 582)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1491132312]
+rotation = -4.712389
+shadow_enabled = true
+
+[node name="Left Wall" type="Sprite2D" parent="." unique_id=1848806237]
+position = Vector2(15.5, 325)
+scale = Vector2(0.5625, 1.444382)
+texture = ExtResource("4_ktfke")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Left Wall" unique_id=1961983609]
+occluder = SubResource("OccluderPolygon2D_llb02")
+
+[node name="Right Wall 1" type="Sprite2D" parent="." unique_id=1353744429]
+position = Vector2(1011, 107.375)
+scale = Vector2(0.5, 0.47921348)
+texture = ExtResource("4_ktfke")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Right Wall 1" unique_id=81881378]
+occluder = SubResource("OccluderPolygon2D_rggml")
+
+[node name="Right Wall 2" type="Sprite2D" parent="." unique_id=161671049]
+position = Vector2(1012.5, 471.75)
+scale = Vector2(0.5208333, 0.78764045)
+texture = ExtResource("4_ktfke")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Right Wall 2" unique_id=1099408042]
+occluder = SubResource("OccluderPolygon2D_obfh4")
+
+[node name="Top Wall" type="Sprite2D" parent="." unique_id=1487509396]
+position = Vector2(513.5, 13.75)
+scale = Vector2(1.3077956, 0.5)
+texture = ExtResource("5_llb02")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Top Wall" unique_id=765919735]
+occluder = SubResource("OccluderPolygon2D_h70e2")
+
+[node name="Bottom Wall" type="Sprite2D" parent="." unique_id=385273591]
+position = Vector2(514.50006, 635.25)
+scale = Vector2(1.3157896, 0.5)
+texture = ExtResource("5_llb02")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Bottom Wall" unique_id=649143886]
+occluder = SubResource("OccluderPolygon2D_p7b2u")
