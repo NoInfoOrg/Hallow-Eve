@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="9_d18id"]
 [ext_resource type="PackedScene" uid="uid://b5rhclw6ern25" path="res://scenes/spirit_box.tscn" id="10_lg53w"]
 [ext_resource type="PackedScene" uid="uid://nmbgcgm0lqea" path="res://scenes/locked_door.tscn" id="11_g77a3"]
+[ext_resource type="PackedScene" uid="uid://c83a2a5ujdc16" path="res://scenes/shapes_paper.tscn" id="12_2ydo2"]
+[ext_resource type="PackedScene" uid="uid://bwd22jx5mssx0" path="res://scenes/black_light_flashlight_item.tscn" id="13_xb17u"]
 
 [sub_resource type="Resource" id="Resource_d0nkq"]
 script = ExtResource("3_d0nkq")
@@ -166,3 +168,11 @@ position = Vector2(675, 4791.0005)
 
 [node name="Hall-Study Door" parent="." unique_id=1813639858 instance=ExtResource("11_g77a3")]
 position = Vector2(1511, 4790.0005)
+
+[node name="Shapes Paper" parent="." unique_id=1319041526 instance=ExtResource("12_2ydo2")]
+z_index = 3
+position = Vector2(1880, 5459)
+
+[node name="Black Light Flashlight Item" parent="." unique_id=603767252 instance=ExtResource("13_xb17u")]
+z_index = 4
+position = Vector2(1992, 5493)
