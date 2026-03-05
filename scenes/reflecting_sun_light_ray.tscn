@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bv44nvjtl34yi"]
+
+[ext_resource type="Script" uid="uid://clsnhf87kk1v5" path="res://scenes/reflecting_sun_light_ray.gd" id="1_i32y1"]
+
+[node name="Reflecting Sun Light Ray" type="Node2D" unique_id=1697315052]
+script = ExtResource("1_i32y1")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=917382279]
+
+[node name="Line2D" type="Line2D" parent="." unique_id=2013656093]
+
+[node name="Label" type="Label" parent="." unique_id=1955854941]
+offset_right = 40.0
+offset_bottom = 23.0
