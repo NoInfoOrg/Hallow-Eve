@@ -35,5 +35,5 @@ func _on_LineEdit_text_entered(new_text):
 	if new_text == "level_2":
 		get_tree().change_scene_to_file("res://scenes/level_2_scene.tscn")
 	
-	if new_text == "light_puzzle_test":
+	if new_text == "general_lighting_test":
 		get_tree().change_scene_to_file("res://scenes/light_testing_environment.tscn")
