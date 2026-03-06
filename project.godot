@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="NoInfoGame"
-run/main_scene="uid://3dqctkumje83"
+run/main_scene="uid://easa742dilkq"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://bxl245j7738ni"
 
@@ -35,6 +35,7 @@ enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 Doors=""
 "Communal Boxes"=""
 Boxes=""
+Mirrors=""
 
 [input]
 
