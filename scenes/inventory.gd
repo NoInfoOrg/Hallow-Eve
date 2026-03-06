@@ -6,6 +6,11 @@ signal updated_inv
 func add_item(newItem: Item) -> bool:
 	items.append(newItem)
 	updated_inv.emit()
+	print("you got: ")
+	var count = 1
+	for item in items:
+		print(count, ": ", item.name)
+		count += 1
 	return true
 	
 func remove_item(remItem: Item) -> bool:
