@@ -81,8 +81,24 @@ script = ExtResource("5_464wy")
 
 [node name="UI2" parent="." unique_id=274633659 instance=ExtResource("6_grxhu")]
 
+[node name="P2 Sanity" parent="UI2/P2" parent_id_path=PackedInt32Array(274633659, 646862601) index="0" unique_id=154112298]
+metadata/_edit_use_anchors_ = true
+
+[node name="P1 Scroll Bar" parent="UI2/Sanity Test" parent_id_path=PackedInt32Array(274633659, 1402241439) index="0" unique_id=1084010050]
+metadata/_edit_use_anchors_ = true
+
+[node name="P1 Progress Bar" parent="UI2/Sanity Test" parent_id_path=PackedInt32Array(274633659, 1402241439) index="1" unique_id=1132415742]
+metadata/_edit_use_anchors_ = true
+
+[node name="P2 Scroll Bar" parent="UI2/Sanity Test" parent_id_path=PackedInt32Array(274633659, 1402241439) index="2" unique_id=269329387]
+metadata/_edit_use_anchors_ = true
+
+[node name="P2 Progress Bar" parent="UI2/Sanity Test" parent_id_path=PackedInt32Array(274633659, 1402241439) index="3" unique_id=1209635639]
+metadata/_edit_use_anchors_ = true
+
 [node name="Inv" parent="UI2/Shared Inv" parent_id_path=PackedInt32Array(274633659, 778429166) index="0" unique_id=64656259 node_paths=PackedStringArray("inventory")]
 inventory = NodePath("../../../Inventory")
+metadata/_edit_use_anchors_ = true
 
 [node name="Inv Slots" parent="UI2/Shared Inv/Inv" index="0" unique_id=544756510]
 anchors_preset = -1
@@ -94,6 +110,7 @@ offset_left = -1692.6215
 offset_top = -131.72842
 offset_right = -920.022
 offset_bottom = -60.03308
+metadata/_edit_use_anchors_ = true
 
 [node name="Inv - For now" type="Panel" parent="UI2" unique_id=502334645 node_paths=PackedStringArray("inventory", "container")]
 offset_right = 40.0
@@ -102,6 +119,7 @@ script = ExtResource("8_oqd58")
 inventory = NodePath("../../Inventory")
 container = NodePath("GridContainer")
 slot = ExtResource("9_c4e7b")
+metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="UI2/Inv - For now" unique_id=489013792]
 layout_mode = 0
@@ -110,6 +128,7 @@ offset_top = 9.0
 offset_right = 1142.0
 offset_bottom = 70.0
 columns = 6
+metadata/_edit_use_anchors_ = true
 
 [node name="Box" parent="." unique_id=748287882 groups=["Human Boxes"] instance=ExtResource("7_7q3w4")]
 position = Vector2(664, 414)

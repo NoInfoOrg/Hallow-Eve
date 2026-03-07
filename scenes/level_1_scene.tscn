@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://nmbgcgm0lqea" path="res://scenes/locked_door.tscn" id="11_g77a3"]
 [ext_resource type="PackedScene" uid="uid://c83a2a5ujdc16" path="res://scenes/shapes_paper.tscn" id="12_2ydo2"]
 [ext_resource type="PackedScene" uid="uid://bwd22jx5mssx0" path="res://scenes/black_light_flashlight_item.tscn" id="13_xb17u"]
+[ext_resource type="Texture2D" uid="uid://dkmocmuvlptk4" path="res://assets/tempSprites/key_placeholder.png" id="14_xb17u"]
 
 [sub_resource type="Resource" id="Resource_d0nkq"]
 script = ExtResource("3_d0nkq")
@@ -74,67 +75,187 @@ position = Vector2(-442, -162)
 
 [node name="Human Box 1" parent="." unique_id=748287882 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1164, 5263)
+position = Vector2(642, 5193)
 
 [node name="Human Box 2" parent="." unique_id=1238176207 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1093, 5543)
+position = Vector2(713, 5193)
 
 [node name="Human Box 3" parent="." unique_id=793998642 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1023, 5543)
+position = Vector2(854, 5193)
 
 [node name="Human Box 4" parent="." unique_id=1129229352 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1023, 5613)
+position = Vector2(923, 5193)
 
 [node name="Human Box 5" parent="." unique_id=1310048725 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(952, 5613)
+position = Vector2(1063, 5193)
 
 [node name="Human Box 6" parent="." unique_id=949366495 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(883, 5612)
+position = Vector2(1273, 5194)
 
 [node name="Human Box 7" parent="." unique_id=315565776 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(884, 5473)
+position = Vector2(854, 5262)
 
 [node name="Human Box 8" parent="." unique_id=1201642435 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(952, 5403)
+position = Vector2(923, 5263)
 
 [node name="Human Box 9" parent="." unique_id=822512834 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1023, 5263)
+position = Vector2(1063, 5263)
 
 [node name="Human Box 10" parent="." unique_id=1180213343 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(883, 5333)
+position = Vector2(1273, 5263)
 
 [node name="Human Box 11" parent="." unique_id=2038028676 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(952, 5332)
+position = Vector2(923, 5333)
 
 [node name="Human Box 12" parent="." unique_id=55392578 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1023, 5333)
+position = Vector2(1063, 5333)
 
 [node name="Human Box 13" parent="." unique_id=1277625804 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1092, 5333)
+position = Vector2(1273, 5333)
 
 [node name="Human Box 14" parent="." unique_id=4865893 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1164, 5334)
+position = Vector2(923, 5402)
 
 [node name="Human Box 15" parent="." unique_id=505708773 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(883, 5264)
+position = Vector2(1063, 5402)
 
-[node name="Spirit Box" parent="." unique_id=1878367245 instance=ExtResource("10_lg53w")]
+[node name="Human Box 16" parent="." unique_id=508017747 instance=ExtResource("7_cowtf")]
+z_index = 10
+position = Vector2(1273, 5403)
+
+[node name="Human Box 17" parent="." unique_id=391550769 instance=ExtResource("7_cowtf")]
+z_index = 10
+position = Vector2(853, 5333)
+
+[node name="Human Box 18" parent="." unique_id=1160717028 instance=ExtResource("7_cowtf")]
+z_index = 10
+position = Vector2(993, 5473)
+
+[node name="Human Box 19" parent="." unique_id=349464841 instance=ExtResource("7_cowtf")]
+z_index = 10
+position = Vector2(1133, 5473)
+
+[node name="Human Box 20" parent="." unique_id=333668780 instance=ExtResource("7_cowtf")]
+z_index = 10
+position = Vector2(1203, 5473)
+
+[node name="Human Box 21" parent="." unique_id=1768963015 instance=ExtResource("7_cowtf")]
+z_index = 10
+position = Vector2(853, 5403)
+
+[node name="Human Box 22" parent="." unique_id=818636057 instance=ExtResource("7_cowtf")]
+z_index = 10
+position = Vector2(993, 5542)
+
+[node name="Human Box 23" parent="." unique_id=1839827447 instance=ExtResource("7_cowtf")]
+z_index = 10
+position = Vector2(1133, 5543)
+
+[node name="Human Box 24" parent="." unique_id=1791397379 instance=ExtResource("7_cowtf")]
+z_index = 10
+position = Vector2(1203, 5543)
+
+[node name="Human Box 25" parent="." unique_id=62022876 instance=ExtResource("7_cowtf")]
+z_index = 10
+position = Vector2(993, 5613)
+
+[node name="Human Box 26" parent="." unique_id=1994874431 instance=ExtResource("7_cowtf")]
+z_index = 10
+position = Vector2(1133, 5614)
+
+[node name="Human Box 27" parent="." unique_id=893767197 instance=ExtResource("7_cowtf")]
+z_index = 10
+position = Vector2(1203, 5614)
+
+[node name="Human Box 28" parent="." unique_id=1742096285 instance=ExtResource("7_cowtf")]
+z_index = 10
+position = Vector2(993, 5682)
+
+[node name="Human Box 29" parent="." unique_id=1331461891 instance=ExtResource("7_cowtf")]
+z_index = 10
+position = Vector2(1134, 5682)
+
+[node name="Human Box 30" parent="." unique_id=636414185 instance=ExtResource("7_cowtf")]
+z_index = 10
+position = Vector2(1203, 5683)
+
+[node name="Spirit Box 1" parent="." unique_id=1878367245 instance=ExtResource("10_lg53w")]
 z_index = 5
-position = Vector2(883, 5403)
+position = Vector2(1134, 5193)
+
+[node name="Spirit Box 2" parent="." unique_id=1705650461 instance=ExtResource("10_lg53w")]
+z_index = 5
+position = Vector2(642, 5263)
+
+[node name="Spirit Box 3" parent="." unique_id=1476619993 instance=ExtResource("10_lg53w")]
+z_index = 5
+position = Vector2(713, 5263)
+
+[node name="Spirit Box 4" parent="." unique_id=1352583819 instance=ExtResource("10_lg53w")]
+z_index = 5
+position = Vector2(1134, 5263)
+
+[node name="Spirit Box 5" parent="." unique_id=37503156 instance=ExtResource("10_lg53w")]
+z_index = 5
+position = Vector2(713, 5333)
+
+[node name="Spirit Box 6" parent="." unique_id=760847726 instance=ExtResource("10_lg53w")]
+z_index = 5
+position = Vector2(1134, 5333)
+
+[node name="Spirit Box 7" parent="." unique_id=218456616 instance=ExtResource("10_lg53w")]
+z_index = 5
+position = Vector2(643, 5403)
+
+[node name="Spirit Box 8" parent="." unique_id=1868943232 instance=ExtResource("10_lg53w")]
+z_index = 5
+position = Vector2(714, 5403)
+
+[node name="Spirit Box 9" parent="." unique_id=565062146 instance=ExtResource("10_lg53w")]
+z_index = 5
+position = Vector2(1134, 5403)
+
+[node name="Spirit Box 10" parent="." unique_id=462759632 instance=ExtResource("10_lg53w")]
+z_index = 5
+position = Vector2(922, 5474)
+
+[node name="Spirit Box 11" parent="." unique_id=1850872172 instance=ExtResource("10_lg53w")]
+z_index = 5
+position = Vector2(922, 5543)
+
+[node name="Spirit Box 12" parent="." unique_id=1529300802 instance=ExtResource("10_lg53w")]
+z_index = 5
+position = Vector2(1273, 5542)
+
+[node name="Spirit Box 13" parent="." unique_id=1712467100 instance=ExtResource("10_lg53w")]
+z_index = 5
+position = Vector2(922, 5613)
+
+[node name="Spirit Box 14" parent="." unique_id=646778908 instance=ExtResource("10_lg53w")]
+z_index = 5
+position = Vector2(1273, 5613)
+
+[node name="Spirit Box 15" parent="." unique_id=1783467023 instance=ExtResource("10_lg53w")]
+z_index = 5
+position = Vector2(922, 5683)
+
+[node name="Spirit Box 16" parent="." unique_id=1939239172 instance=ExtResource("10_lg53w")]
+z_index = 5
+position = Vector2(1273, 5683)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=711542435]
 
@@ -164,7 +285,7 @@ position = Vector2(-870, 3802)
 position = Vector2(-168, 4792)
 
 [node name="Hall-Storage Door" parent="." unique_id=388552782 instance=ExtResource("11_g77a3")]
-position = Vector2(675, 4791.0005)
+position = Vector2(693.00006, 4792)
 
 [node name="Hall-Study Door" parent="." unique_id=1813639858 instance=ExtResource("11_g77a3")]
 position = Vector2(1511, 4790.0005)
@@ -176,3 +297,9 @@ position = Vector2(1880, 5459)
 [node name="Black Light Flashlight Item" parent="." unique_id=603767252 instance=ExtResource("13_xb17u")]
 z_index = 4
 position = Vector2(1992, 5493)
+
+[node name="Key Placeholder" type="Sprite2D" parent="." unique_id=1361209313]
+z_index = 5
+position = Vector2(783, 5194)
+scale = Vector2(0.14522077, 0.14522079)
+texture = ExtResource("14_xb17u")
