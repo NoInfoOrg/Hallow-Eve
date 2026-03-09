@@ -14,7 +14,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	## INFO U to open a door
+	## INFO P2Grab allows to open doors and press buttons
 	if Input.is_action_just_pressed("P2Grab"):
 		check_to_open_door()
 	
@@ -88,6 +88,10 @@ func check_to_open_door():
 		var door = collision.get_collider()
 		
 		if door.is_in_group("Doors"):
+			# Only open doors that are not button-operated
+			if door.button_operated:
+				return
+			
 			# Change the door image to be opened
 			door.get_node("Door").play("open")
 			

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cflwj36oa3fd5"]
+
+[ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="1_yor7p"]
+[ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="2_a5rwl"]
+[ext_resource type="PackedScene" uid="uid://dfbiqnn4nnley" path="res://scenes/spirit_button.tscn" id="3_a5rwl"]
+[ext_resource type="PackedScene" uid="uid://ccm85dx1kq2ay" path="res://scenes/human_button.tscn" id="4_5ttts"]
+[ext_resource type="PackedScene" uid="uid://clgl4g8cxa8s6" path="res://scenes/communal_button.tscn" id="5_1csvh"]
+[ext_resource type="PackedScene" uid="uid://nmbgcgm0lqea" path="res://scenes/locked_door.tscn" id="6_1csvh"]
+
+[node name="Button Puzzle Testing Environment" type="Node2D" unique_id=837361566]
+
+[node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("1_yor7p")]
+z_index = 9
+position = Vector2(545, 529)
+
+[node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("2_a5rwl")]
+z_index = 9
+position = Vector2(423, 349)
+
+[node name="Spirit Button" parent="." unique_id=1015848893 instance=ExtResource("3_a5rwl")]
+position = Vector2(77, 564)
+
+[node name="Human Button" parent="." unique_id=1758736909 instance=ExtResource("4_5ttts")]
+position = Vector2(197, 564)
+
+[node name="Communal Button" parent="." unique_id=1874324096 instance=ExtResource("5_1csvh")]
+position = Vector2(319, 564)
+
+[node name="LockedDoor" parent="." unique_id=1400186033 node_paths=PackedStringArray("required_buttons") instance=ExtResource("6_1csvh")]
+button_operated = true
+required_buttons = [NodePath("../Spirit Button"), NodePath("../Human Button"), NodePath("../Communal Button")]

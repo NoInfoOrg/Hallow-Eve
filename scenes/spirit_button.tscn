@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dfbiqnn4nnley"]
+
+[ext_resource type="Texture2D" uid="uid://cd4vbe8nc0d5g" path="res://assets/tempSprites/button_placeholders/spirit_button_pressed.png" id="1_4kw8m"]
+[ext_resource type="Script" uid="uid://dq2fd6o77oo2t" path="res://scenes/button.gd" id="1_fdvx4"]
+[ext_resource type="Texture2D" uid="uid://day25nybrlvrq" path="res://assets/tempSprites/button_placeholders/spirit_button_unpressed.png" id="2_fdvx4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xxr8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4kw8m")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fdvx4")
+}],
+"loop": true,
+"name": &"unpressed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kw8m"]
+size = Vector2(74, 49)
+
+[node name="Spirit Button" type="Area2D" unique_id=4992084 groups=["Spirit Buttons"]]
+collision_mask = 159
+script = ExtResource("1_fdvx4")
+
+[node name="Button" type="AnimatedSprite2D" parent="." unique_id=9945868]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_xxr8s")
+animation = &"unpressed"
+
+[node name="Button Collision" type="CollisionShape2D" parent="." unique_id=1796500822]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_4kw8m")

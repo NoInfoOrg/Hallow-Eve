@@ -26,7 +26,6 @@ func _process(delta: float):
 			break
 
 func body_entry(body):
-	print("called")
 	if body.name == "Eve - P1" or body.name == "Willow - P2":
 		if body not in players_detected:
 			players_detected.append(body)

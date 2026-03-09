@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://ccm85dx1kq2ay"]
+
+[ext_resource type="Script" uid="uid://dq2fd6o77oo2t" path="res://scenes/button.gd" id="1_lq2fa"]
+[ext_resource type="Texture2D" uid="uid://btjnmxpbuo3x0" path="res://assets/tempSprites/button_placeholders/human_button_pressed.png" id="1_u6vlp"]
+[ext_resource type="Texture2D" uid="uid://jjtkhxvud8nd" path="res://assets/tempSprites/button_placeholders/human_button_unpressed.png" id="2_lq2fa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yfyj6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u6vlp")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lq2fa")
+}],
+"loop": true,
+"name": &"unpressed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6vlp"]
+size = Vector2(74, 50)
+
+[node name="Human Button" type="Area2D" unique_id=322020262 groups=["Human Buttons"]]
+collision_layer = 64
+collision_mask = 222
+script = ExtResource("1_lq2fa")
+
+[node name="Button" type="AnimatedSprite2D" parent="." unique_id=1465658430]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_yfyj6")
+animation = &"unpressed"
+
+[node name="Button Collision" type="CollisionShape2D" parent="." unique_id=1081208987]
+shape = SubResource("RectangleShape2D_u6vlp")
