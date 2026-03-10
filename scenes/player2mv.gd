@@ -89,7 +89,7 @@ func check_to_open_door():
 		
 		if door.is_in_group("Doors"):
 			# Only open doors that are not button-operated
-			if door.button_operated:
+			if door.synced_buttons_needed:
 				return
 			
 			# Change the door image to be opened

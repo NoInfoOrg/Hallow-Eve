@@ -4,6 +4,8 @@ extends Area2D
 var players_detected = []
 var button_pressed = false
 
+signal button_object_emitted(button)
+
 # Each button will have a timer for its "cooldown"
 var timer = Timer.new()
 
@@ -46,6 +48,9 @@ func press_button():
 	# The button will be unpressed in two seconds
 	timer.wait_time = 2.0
 	timer.start()
+	
+	# This is mainly for the ordered button puzzle at the moment
+	button_object_emitted.emit(self)
 
 func _on_timer_timeout():
 	timer.stop()

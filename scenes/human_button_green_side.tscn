@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b1nq6lf71a2j2"]
+
+[ext_resource type="Texture2D" uid="uid://brdv8ijwxncha" path="res://assets/sprites/level objs/buttons/WillowButton_Side_Selected_Green_On.png" id="1_k2rt5"]
+[ext_resource type="Script" uid="uid://dq2fd6o77oo2t" path="res://scenes/button.gd" id="1_lgy72"]
+[ext_resource type="Texture2D" uid="uid://btwa56ggxjn5e" path="res://assets/sprites/level objs/buttons/WillowButton_Side_Selected_Green_Off.png" id="2_lgy72"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2ftx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k2rt5")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lgy72")
+}],
+"loop": true,
+"name": &"unpressed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cauvf"]
+size = Vector2(15, 64)
+
+[node name="Human Button Green Side" type="Area2D" unique_id=2006187479 groups=["Human Buttons"]]
+collision_layer = 64
+collision_mask = 222
+script = ExtResource("1_lgy72")
+
+[node name="Button" type="AnimatedSprite2D" parent="." unique_id=89375022]
+sprite_frames = SubResource("SpriteFrames_g2ftx")
+animation = &"unpressed"
+
+[node name="Button Collision" type="CollisionShape2D" parent="." unique_id=787260966]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_cauvf")
