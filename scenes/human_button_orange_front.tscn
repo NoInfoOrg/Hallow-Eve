@@ -1,17 +1,35 @@
 [gd_scene format=3 uid="uid://ccm85dx1kq2ay"]
 
 [ext_resource type="Script" uid="uid://dq2fd6o77oo2t" path="res://scenes/button.gd" id="1_lq2fa"]
+[ext_resource type="Texture2D" uid="uid://f1x5m1g5ndpr" path="res://assets/sprites/level objs/buttons/WillowButton_Selected_Green_On.png" id="2_fbhbc"]
 [ext_resource type="Texture2D" uid="uid://by4fxu0xdc24f" path="res://assets/sprites/level objs/buttons/WillowButton_Interactable_Orange_On.png" id="2_ktsrq"]
 [ext_resource type="Texture2D" uid="uid://clgmiy2vfgew6" path="res://assets/sprites/level objs/buttons/WillowButton_Interactable_Orange_Off.png" id="3_nipbe"]
+[ext_resource type="Texture2D" uid="uid://cersxuvyfi2dc" path="res://assets/sprites/level objs/buttons/WillowButton_Selected_Green_Off.png" id="3_nxlcq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yfyj6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_fbhbc")
+}],
+"loop": true,
+"name": &"hovered+pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_nxlcq")
+}],
+"loop": true,
+"name": &"hovered+unpressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_ktsrq")
 }],
 "loop": true,
-"name": &"pressed",
+"name": &"unhovered+pressed",
 "speed": 5.0
 }, {
 "frames": [{
@@ -19,7 +37,7 @@ animations = [{
 "texture": ExtResource("3_nipbe")
 }],
 "loop": true,
-"name": &"unpressed",
+"name": &"unhovered+unpressed",
 "speed": 5.0
 }]
 
@@ -33,7 +51,7 @@ script = ExtResource("1_lq2fa")
 
 [node name="Button" type="AnimatedSprite2D" parent="." unique_id=1465658430]
 sprite_frames = SubResource("SpriteFrames_yfyj6")
-animation = &"unpressed"
+animation = &"hovered+unpressed"
 
 [node name="Button Collision" type="CollisionShape2D" parent="." unique_id=1081208987]
 position = Vector2(-0.5, 0)

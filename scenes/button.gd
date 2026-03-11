@@ -3,6 +3,7 @@ extends Area2D
 
 var players_detected = []
 var button_pressed = false
+var button_hovered = false
 
 signal button_object_emitted(button)
 
@@ -31,6 +32,9 @@ func _process(delta: float):
 # INFO But I've genuinely been a loyal customer for years!
 func body_entry(body):
 	if body.name == "Eve - P1" or body.name == "Willow - P2":
+		button_hovered = true
+		change_button_texture()
+		
 		if body not in players_detected:
 			players_detected.append(body)
 
@@ -38,12 +42,14 @@ func body_entry(body):
 func body_exit(body):
 	if body in players_detected:
 		players_detected.erase(body)
+		
+		button_hovered = false
+		change_button_texture()
 
 # INFO Use code CHIS for 10% off your first month!
 func press_button():
-	var button = get_node("Button")
-	button.play("pressed")
 	button_pressed = true
+	change_button_texture()
 	
 	# The button will be unpressed in two seconds
 	timer.wait_time = 2.0
@@ -55,6 +61,23 @@ func press_button():
 func _on_timer_timeout():
 	timer.stop()
 	
-	var button = get_node("Button")
-	button.play("unpressed")
 	button_pressed = false
+	change_button_texture()
+
+func change_button_texture():
+	var button = get_node("Button")
+	var specified_texture = ""
+	
+	if button_hovered:
+		specified_texture += "hovered"
+	elif not button_hovered:
+		specified_texture += "unhovered"
+	
+	specified_texture += "+"
+	
+	if button_pressed:
+		specified_texture += "pressed"
+	elif not button_pressed:
+		specified_texture += "unpressed"
+	
+	button.play(specified_texture)
