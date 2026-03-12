@@ -18,6 +18,8 @@ func _ready():
 	
 	body_entered.connect(body_entry)
 	body_exited.connect(body_exit)
+	
+	change_button_texture()
 
 # INFO Chris did not give me a script other than this script!
 func _process(delta: float):

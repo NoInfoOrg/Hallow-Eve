@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xahoiagvwy1"
-path="res://.godot/imported/spirit_version_ordered_buttons_puzzle_note_hint.png-d330fef3aa5eafb38fe5a840ce53d104.ctex"
+uid="uid://tlql7f4t0whb"
+path="res://.godot/imported/version_1_spirit_version_ordered_buttons_puzzle_note_hint.png-1ec4302cecaf0127f79e13c45a6e22f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/popups/ordered_button_puzzle/spirit_version_ordered_buttons_puzzle_note_hint.png"
-dest_files=["res://.godot/imported/spirit_version_ordered_buttons_puzzle_note_hint.png-d330fef3aa5eafb38fe5a840ce53d104.ctex"]
+source_file="res://assets/popups/ordered_button_puzzle/version_1_spirit_version_ordered_buttons_puzzle_note_hint.png"
+dest_files=["res://.godot/imported/version_1_spirit_version_ordered_buttons_puzzle_note_hint.png-1ec4302cecaf0127f79e13c45a6e22f3.ctex"]
 
 [params]
 

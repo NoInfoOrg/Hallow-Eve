@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv2s1xeow066d"
-path="res://.godot/imported/ordered_buttons_puzzle_note_hint.png-1e832d2e778664c694d40cff623ecf9c.ctex"
+uid="uid://cydk375r7auc7"
+path="res://.godot/imported/Box_Eve.png-d12d7f2168380661e7bba1172031475b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/popups/ordered_button_puzzle/ordered_buttons_puzzle_note_hint.png"
-dest_files=["res://.godot/imported/ordered_buttons_puzzle_note_hint.png-1e832d2e778664c694d40cff623ecf9c.ctex"]
+source_file="res://assets/sprites/level objs/Box_Eve.png"
+dest_files=["res://.godot/imported/Box_Eve.png-d12d7f2168380661e7bba1172031475b.ctex"]
 
 [params]
 

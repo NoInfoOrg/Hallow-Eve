@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvg4jhwmq7j2f"
-path="res://.godot/imported/human_version_ordered_buttons_puzzle_note_hint.png-f263c47efad3d9632e2efdd83fd27244.ctex"
+uid="uid://uxsguaiqry8l"
+path="res://.godot/imported/Crate_Eve.png-68dccbdc9d3d2aa1603d1d42f070c948.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/popups/ordered_button_puzzle/human_version_ordered_buttons_puzzle_note_hint.png"
-dest_files=["res://.godot/imported/human_version_ordered_buttons_puzzle_note_hint.png-f263c47efad3d9632e2efdd83fd27244.ctex"]
+source_file="res://assets/sprites/level objs/Crate_Eve.png"
+dest_files=["res://.godot/imported/Crate_Eve.png-68dccbdc9d3d2aa1603d1d42f070c948.ctex"]
 
 [params]
 

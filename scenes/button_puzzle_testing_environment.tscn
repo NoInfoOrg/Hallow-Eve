@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ccm85dx1kq2ay" path="res://scenes/human_button_orange_front.tscn" id="4_5ttts"]
 [ext_resource type="PackedScene" uid="uid://clgl4g8cxa8s6" path="res://scenes/communal_button.tscn" id="5_1csvh"]
 [ext_resource type="PackedScene" uid="uid://nmbgcgm0lqea" path="res://scenes/locked_door.tscn" id="6_1csvh"]
-[ext_resource type="PackedScene" uid="uid://bh8wtjsscwlns" path="res://scenes/ordered_puzzle_paper.tscn" id="7_mnaqv"]
+[ext_resource type="PackedScene" uid="uid://5ksk0750mv13" path="res://scenes/ordered_puzzle_paper_2.tscn" id="7_mnaqv"]
 
 [node name="Button Puzzle Testing Environment" type="Node2D" unique_id=837361566]
 
@@ -31,17 +31,23 @@ position = Vector2(319, 564)
 synced_buttons_needed = true
 required_buttons = [NodePath("../Puzzle 1 Spirit Button"), NodePath("../Puzzle 1 Human Button"), NodePath("../Puzzle 1 Communal Button")]
 
-[node name="Ordered Puzzle Paper" parent="." unique_id=1630155788 instance=ExtResource("7_mnaqv")]
-position = Vector2(716, 567)
+[node name="Puzzle 2 Spirit Button Blue Front 1" parent="." unique_id=4992084 instance=ExtResource("3_a5rwl")]
+position = Vector2(737, 568)
 
-[node name="Spirit Button Blue Front" parent="." unique_id=4992084 instance=ExtResource("3_a5rwl")]
-position = Vector2(824, 564)
+[node name="Puzzle 2 Human Button Orange Front 1" parent="." unique_id=322020262 instance=ExtResource("4_5ttts")]
+position = Vector2(850, 568)
 
-[node name="Human Button Orange Front" parent="." unique_id=322020262 instance=ExtResource("4_5ttts")]
-position = Vector2(946, 564)
+[node name="Puzzle 2 Spirit Button Blue Front 2" parent="." unique_id=1320872240 instance=ExtResource("3_a5rwl")]
+position = Vector2(963, 568)
+
+[node name="Puzzle 2 Human Button Orange Front 2" parent="." unique_id=1380839586 instance=ExtResource("4_5ttts")]
+position = Vector2(1077, 568)
 
 [node name="LockedDoor2" parent="." unique_id=2063074117 node_paths=PackedStringArray("connected_buttons", "required_buttons") instance=ExtResource("6_1csvh")]
 position = Vector2(581, 5)
-connected_buttons = [NodePath("../Spirit Button Blue Front"), NodePath("../Human Button Orange Front")]
+connected_buttons = [NodePath("../Puzzle 2 Spirit Button Blue Front 1"), NodePath("../Puzzle 2 Human Button Orange Front 1"), NodePath("../Puzzle 2 Spirit Button Blue Front 2"), NodePath("../Puzzle 2 Human Button Orange Front 2")]
 ordered_buttons_needed = true
-required_buttons = [NodePath("../Spirit Button Blue Front"), NodePath("../Human Button Orange Front")]
+required_buttons = [NodePath("../Puzzle 2 Spirit Button Blue Front 1"), NodePath("../Puzzle 2 Human Button Orange Front 1"), NodePath("../Puzzle 2 Spirit Button Blue Front 2"), NodePath("../Puzzle 2 Human Button Orange Front 2")]
+
+[node name="Ordered Puzzle Paper" parent="." unique_id=181645418 instance=ExtResource("7_mnaqv")]
+position = Vector2(640, 567)

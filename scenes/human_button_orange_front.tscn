@@ -51,7 +51,7 @@ script = ExtResource("1_lq2fa")
 
 [node name="Button" type="AnimatedSprite2D" parent="." unique_id=1465658430]
 sprite_frames = SubResource("SpriteFrames_yfyj6")
-animation = &"hovered+unpressed"
+animation = &"unhovered+unpressed"
 
 [node name="Button Collision" type="CollisionShape2D" parent="." unique_id=1081208987]
 position = Vector2(-0.5, 0)

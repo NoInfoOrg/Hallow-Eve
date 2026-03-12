@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://djv6c0bas74lb" path="res://assets/sprites/level objs/paper_32x36.png" id="1_4fi3b"]
 [ext_resource type="Script" uid="uid://c2604o2kh8jc1" path="res://scenes/ordered_puzzle_paper.gd" id="1_rc6df"]
-[ext_resource type="PackedScene" uid="uid://ddp75wn4b5vne" path="res://scenes/ordered_puzzle_clue.tscn" id="2_y55ll"]
+[ext_resource type="PackedScene" uid="uid://ddp75wn4b5vne" path="res://scenes/ordered_puzzle_clue_1.tscn" id="2_y55ll"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fi3b"]
 size = Vector2(32, 36)
