@@ -52,7 +52,7 @@ func show_homework(homework):
 	homework_sprite.play("default")
 	
 	# If the players have the black light, show the black light version
-	var inventory = get_node("../Inventory")
+	var inventory = get_node("../UI/SharedInv/Inventory")
 	for item in inventory.items:
 		if item.name == "Black Light Flashlight Item":
 			homework_sprite.play("under_black_light")

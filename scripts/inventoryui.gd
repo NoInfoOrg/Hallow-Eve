@@ -15,8 +15,8 @@ func _ready():
 	update()
 		
 func update():
-	for slot in slots:
-		var icon = slot.get_node("Icon")
+	for inv_slot in slots:
+		var icon = inv_slot.get_node("Icon")
 		icon.visible = false
 		icon.texture = null
 	for i in range(inventory.items.size()):

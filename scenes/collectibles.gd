@@ -36,7 +36,7 @@ func body_exit(body):
 
 func pickup(player):
 	if item_info:
-		var inv = player.get_node("/root/MovementCont/Inventory")
+		var inv = player.get_node("../UI/SharedInv/Inventory")
 		if inv:
 			inv.add_item(item_info)
 			queue_free()

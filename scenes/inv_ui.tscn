@@ -16,17 +16,17 @@ offset_right = -0.24804688
 offset_bottom = -0.072021484
 theme_override_styles/panel = SubResource("StyleBoxFlat_s7you")
 script = ExtResource("1_s7you")
-container = NodePath("GridContainer")
+container = NodePath("InvSlots")
 slot = ExtResource("2_s7you")
 
-[node name="GridContainer" type="GridContainer" parent="." unique_id=1056513528]
+[node name="InvSlots" type="GridContainer" parent="." unique_id=1056513528]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.212
+anchor_bottom = 1.0
 offset_top = 24.0
 offset_right = -42.0
-offset_bottom = -153.90002
+offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 75

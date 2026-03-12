@@ -1,88 +1,183 @@
 [gd_scene format=3 uid="uid://dsclb3m2sqebv"]
 
-[ext_resource type="Script" path="res://scenes/ui.gd" id="1_8dubc"]
-[ext_resource type="Texture2D" uid="uid://ojknkrsa3b1p" path="res://assets/Health and Points Bars/Sprites/Star Bar/Star Stage 5.png" id="3_p7vwb"]
-[ext_resource type="Texture2D" uid="uid://df1mxua3eddq4" path="res://assets/Health and Points Bars/Sprites/Star Bar/Star Stage 1.png" id="4_ktti3"]
-[ext_resource type="Texture2D" uid="uid://bwaynjkvmh32u" path="res://assets/Health and Points Bars/Sprites/Brain Bar/Brain Stage 5.png" id="5_cgfq5"]
-[ext_resource type="Texture2D" uid="uid://bca1t2dhh8bul" path="res://assets/Health and Points Bars/Sprites/Brain Bar/Brain Stage 1.png" id="6_7dvkv"]
+[ext_resource type="Script" uid="uid://dypcq06x4m6pr" path="res://scenes/ui.gd" id="1_8dubc"]
+[ext_resource type="Texture2D" uid="uid://dagkhplbptaym" path="res://assets/ui elements/Health_Willow_Zero.png" id="2_cgfq5"]
+[ext_resource type="Texture2D" uid="uid://bwx8hllmihkjm" path="res://assets/ui elements/Health_Willow_Full.png" id="3_7dvkv"]
+[ext_resource type="Texture2D" uid="uid://bpbiq6e7gh4en" path="res://assets/ui elements/Health_Eve_Zero.png" id="4_vdcm2"]
+[ext_resource type="Texture2D" uid="uid://bmi2upsvcq7qu" path="res://assets/ui elements/Health_Eve_Full.png" id="5_6rmj2"]
+[ext_resource type="Script" uid="uid://5it8olpe6dgr" path="res://scenes/inventory.gd" id="6_ktti3"]
 [ext_resource type="Script" uid="uid://b72hxo4d5bk1u" path="res://scripts/inventoryui.gd" id="6_p7vwb"]
 [ext_resource type="PackedScene" uid="uid://b4fis0r7sey1x" path="res://scenes/inventory_slot.tscn" id="7_ktti3"]
+[ext_resource type="Texture2D" uid="uid://10lq70eug6rr" path="res://assets/ui elements/InventoryBar.png" id="9_7dvkv"]
+[ext_resource type="Texture2D" uid="uid://6o0i4v0qlkjf" path="res://assets/ui elements/InventoryBarBack.png" id="10_qsv74"]
+[ext_resource type="Texture2D" uid="uid://41k1searexw6" path="res://assets/ui elements/Watch_NoGlow.png" id="11_vsj0x"]
+[ext_resource type="Texture2D" uid="uid://cv2tlwoo60nla" path="res://assets/ui elements/MenuButton.png" id="12_qsv74"]
+[ext_resource type="Texture2D" uid="uid://b1bgdrwrvlvgr" path="res://assets/ui elements/Clock-Progression_Empty.png" id="13_h1mc3"]
+[ext_resource type="Texture2D" uid="uid://bb25udxq20hi8" path="res://assets/ui elements/TextBox.png" id="14_h1mc3"]
 
-[node name="UI" type="CanvasLayer" unique_id=274633659]
+[node name="UI" type="CanvasLayer" unique_id=1522527901]
 script = ExtResource("1_8dubc")
 
-[node name="P1" type="Node2D" parent="." unique_id=1019487313]
-position = Vector2(1144, 120)
-rotation = 3.1415925
-scale = Vector2(0.79795563, -1.1458155)
+[node name="P1" type="Node2D" parent="." unique_id=1549037820]
+z_index = 1
+position = Vector2(1056, 160)
+metadata/_edit_group_ = true
 
-[node name="P1 Sanity" type="TextureProgressBar" parent="P1" unique_id=455430084]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="P1Sanity" type="TextureProgressBar" parent="P1" unique_id=756704857]
+offset_right = 120.0
+offset_bottom = 370.0
+scale = Vector2(0.75, 0.75)
+texture_under = ExtResource("2_cgfq5")
+texture_progress = ExtResource("3_7dvkv")
+
+[node name="P2" type="Node2D" parent="." unique_id=1480691437]
+z_index = 1
+position = Vector2(8, 143)
+metadata/_edit_group_ = true
+
+[node name="P2Sanity" type="TextureProgressBar" parent="P2" unique_id=1490061044]
+offset_right = 1.0
+offset_bottom = 1.0
+scale = Vector2(0.75, 0.75)
 fill_mode = 3
-texture_under = ExtResource("3_p7vwb")
-texture_progress = ExtResource("4_ktti3")
-metadata/_edit_use_anchors_ = true
+texture_under = ExtResource("4_vdcm2")
+texture_progress = ExtResource("5_6rmj2")
 
-[node name="P2" type="Node2D" parent="." unique_id=646862601]
-position = Vector2(176.00002, 120)
-rotation = 3.1415925
-scale = Vector2(0.79795563, -1.1458155)
+[node name="SanityTest" type="Node" parent="." unique_id=207171836]
 
-[node name="P2 Sanity" type="TextureProgressBar" parent="P2" unique_id=154112298]
-offset_left = 144.1183
-offset_top = -1.5154725e-05
-offset_right = 208.1183
-offset_bottom = 63.999985
-fill_mode = 3
-texture_under = ExtResource("5_cgfq5")
-texture_progress = ExtResource("6_7dvkv")
-
-[node name="Sanity Test" type="Node" parent="." unique_id=1402241439]
-
-[node name="P1 Scroll Bar" type="HScrollBar" parent="Sanity Test" unique_id=1084010050]
+[node name="P1ScrollBar" type="HScrollBar" parent="SanityTest" unique_id=347635933]
+visible = false
 offset_left = 896.0
-offset_top = 264.0
+offset_top = 568.0
 offset_right = 1148.0
-offset_bottom = 279.0
+offset_bottom = 583.0
 
-[node name="P1 Progress Bar" type="ProgressBar" parent="Sanity Test" unique_id=1132415742]
+[node name="P1ProgressBar" type="ProgressBar" parent="SanityTest" unique_id=1670185118]
+visible = false
 offset_left = 880.0
-offset_top = 296.0
+offset_top = 600.0
 offset_right = 1144.0
-offset_bottom = 323.0
+offset_bottom = 627.0
 
-[node name="P2 Scroll Bar" type="HScrollBar" parent="Sanity Test" unique_id=269329387]
+[node name="P2ScrollBar" type="HScrollBar" parent="SanityTest" unique_id=1998321597]
+visible = false
 offset_left = 8.0
-offset_top = 264.0
+offset_top = 568.0
 offset_right = 260.0
-offset_bottom = 279.0
+offset_bottom = 583.0
 
-[node name="P2 Progress Bar" type="ProgressBar" parent="Sanity Test" unique_id=1209635639]
+[node name="P2ProgressBar" type="ProgressBar" parent="SanityTest" unique_id=195202728]
+visible = false
 offset_left = 8.0
-offset_top = 304.0
+offset_top = 608.0
 offset_right = 272.0
-offset_bottom = 331.0
+offset_bottom = 635.0
 
-[node name="Shared Inv" type="Node2D" parent="." unique_id=778429166]
-position = Vector2(61.000008, 120)
-rotation = 3.1415925
-scale = Vector2(0.79795563, -1.1458155)
+[node name="SharedInv" type="Control" parent="." unique_id=436860684]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 552.0
+offset_top = 20.0
+offset_right = 552.0
+offset_bottom = 20.0
+scale = Vector2(0.75, 0.75)
 
-[node name="Inv" type="Panel" parent="Shared Inv" unique_id=64656259 node_paths=PackedStringArray("container")]
-offset_left = -1362.2312
-offset_top = -102.98328
-offset_right = -777.9022
-offset_bottom = -36.699333
+[node name="Inventory" type="Node2D" parent="SharedInv" unique_id=400344352]
+script = ExtResource("6_ktti3")
+
+[node name="Inv" type="Panel" parent="SharedInv" unique_id=547074357 node_paths=PackedStringArray("inventory", "container")]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.266
+anchor_right = 0.395
+anchor_bottom = 0.56
+offset_left = 21.333374
+offset_top = 14.666668
+offset_right = 549.3334
+offset_bottom = 80.0
+grow_horizontal = 2
 script = ExtResource("6_p7vwb")
-container = NodePath("Inv Slots")
+inventory = NodePath("../Inventory")
+container = NodePath("InvSlots")
 slot = ExtResource("7_ktti3")
 
-[node name="Inv Slots" type="GridContainer" parent="Shared Inv/Inv" unique_id=544756510]
+[node name="InvSlots" type="GridContainer" parent="SharedInv/Inv" unique_id=1195967456]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = -1
+anchor_left = 0.013
+anchor_top = 0.079
+anchor_right = 0.98700005
+anchor_bottom = 0.896
+offset_left = -6.8640003
+offset_top = -5.161333
+offset_right = 6.8639526
+offset_bottom = 6.79467
+theme_override_constants/h_separation = 75
+theme_override_constants/v_separation = 75
 columns = 6
+
+[node name="FrontSlotsImage" type="TextureRect" parent="SharedInv" unique_id=1612059415]
+layout_mode = 0
+offset_right = 567.0
+offset_bottom = 94.0
+texture = ExtResource("9_7dvkv")
+
+[node name="BackInvImage" type="TextureRect" parent="SharedInv" unique_id=2120236392]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 8.00002
+offset_top = 5.333332
+offset_right = 561.0
+offset_bottom = 88.33333
+texture = ExtResource("10_qsv74")
+
+[node name="PocketWatch" type="Node2D" parent="." unique_id=979694871]
+position = Vector2(8, 478.00003)
+scale = Vector2(0.75, 0.75)
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="PocketWatch" unique_id=1693372238]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_vsj0x")
+
+[node name="MenuButton" type="Node2D" parent="." unique_id=367305255]
+position = Vector2(1064, 20)
+scale = Vector2(0.75, 0.75)
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="MenuButton" unique_id=744778585]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_qsv74")
+
+[node name="DialogueBox" type="Node2D" parent="." unique_id=1775988295]
+visible = false
+position = Vector2(152, 472)
+scale = Vector2(0.75, 0.75)
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="DialogueBox" unique_id=460703041]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("14_h1mc3")
+
+[node name="ProgressTracker" type="Node2D" parent="." unique_id=1134032675]
+position = Vector2(420.00003, 73)
+scale = Vector2(0.75, 0.75)
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ProgressTracker" unique_id=187890823]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -86.0
+offset_bottom = 86.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("13_h1mc3")

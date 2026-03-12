@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dy6vmnugwo4au"]
 
+[ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="1_5coaa"]
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="1_ihv73"]
 [ext_resource type="Script" uid="uid://cvy8perii5g6s" path="res://scenes/camera_2d.gd" id="1_lg53w"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_cowtf"]
@@ -18,6 +19,8 @@ duration = 0.3
 transition = 4
 
 [node name="Level 1 Scene" type="Node" unique_id=641711977]
+
+[node name="UI" parent="." unique_id=1522527901 instance=ExtResource("1_5coaa")]
 
 [node name="Camera Setup" type="Node" parent="." unique_id=1834127849]
 

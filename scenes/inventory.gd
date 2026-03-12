@@ -4,15 +4,19 @@ signal updated_inv
 @export var items: Array[Item]
 
 func add_item(newItem: Item) -> bool:
-	items.append(newItem)
-	updated_inv.emit()
-	return true
+	if items.size() >= 6:
+		return false
+	else:
+		items.append(newItem)
+		updated_inv.emit()
+		return true
 	
 func remove_item(remItem: Item) -> bool:
 	var index = 0
 	for item in items:
 		if item == remItem:
 			items.remove_at(index)
+			updated_inv.emit()
 			return true
 		index += 1
 	updated_inv.emit()
