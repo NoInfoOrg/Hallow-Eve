@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://clgl4g8cxa8s6" path="res://scenes/communal_button.tscn" id="5_1csvh"]
 [ext_resource type="PackedScene" uid="uid://nmbgcgm0lqea" path="res://scenes/locked_door.tscn" id="6_1csvh"]
 [ext_resource type="PackedScene" uid="uid://5ksk0750mv13" path="res://scenes/ordered_puzzle_paper_2.tscn" id="7_mnaqv"]
+[ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="8_m64xm"]
 
 [node name="Button Puzzle Testing Environment" type="Node2D" unique_id=837361566]
 
@@ -51,3 +52,8 @@ required_buttons = [NodePath("../Puzzle 2 Spirit Button Blue Front 1"), NodePath
 
 [node name="Ordered Puzzle Paper" parent="." unique_id=181645418 instance=ExtResource("7_mnaqv")]
 position = Vector2(640, 567)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=577939094]
+
+[node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("8_m64xm")]
+position = Vector2(438, 608)
