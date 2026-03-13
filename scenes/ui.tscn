@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://10lq70eug6rr" path="res://assets/ui elements/InventoryBar.png" id="9_7dvkv"]
 [ext_resource type="Texture2D" uid="uid://6o0i4v0qlkjf" path="res://assets/ui elements/InventoryBarBack.png" id="10_qsv74"]
 [ext_resource type="Texture2D" uid="uid://41k1searexw6" path="res://assets/ui elements/Watch_NoGlow.png" id="11_vsj0x"]
+[ext_resource type="Script" uid="uid://c2gghrs7yolpp" path="res://scenes/menu_button.gd" id="12_h1mc3"]
 [ext_resource type="Texture2D" uid="uid://cv2tlwoo60nla" path="res://assets/ui elements/MenuButton.png" id="12_qsv74"]
 [ext_resource type="Texture2D" uid="uid://b1bgdrwrvlvgr" path="res://assets/ui elements/Clock-Progression_Empty.png" id="13_h1mc3"]
 [ext_resource type="Texture2D" uid="uid://bb25udxq20hi8" path="res://assets/ui elements/TextBox.png" id="14_h1mc3"]
@@ -146,12 +147,47 @@ texture = ExtResource("11_vsj0x")
 [node name="MenuButton" type="Node2D" parent="." unique_id=367305255]
 position = Vector2(1064, 20)
 scale = Vector2(0.75, 0.75)
+script = ExtResource("12_h1mc3")
 metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="MenuButton" unique_id=744778585]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("12_qsv74")
+
+[node name="Menu" type="CanvasLayer" parent="MenuButton" unique_id=1012407032]
+visible = false
+
+[node name="Control" type="Control" parent="MenuButton/Menu" unique_id=169739648]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 306.0
+offset_top = 143.0
+offset_right = 346.0
+offset_bottom = 183.0
+metadata/_edit_group_ = true
+
+[node name="Panel" type="Panel" parent="MenuButton/Menu/Control" unique_id=2101947414]
+layout_mode = 0
+offset_right = 590.0
+offset_bottom = 423.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuButton/Menu/Control/Panel" unique_id=331149323]
+layout_mode = 0
+offset_right = 590.0
+offset_bottom = 423.0
+
+[node name="Resume" type="Button" parent="MenuButton/Menu/Control/Panel/VBoxContainer" unique_id=2012321918]
+layout_mode = 2
+text = "Resume"
+
+[node name="Settings" type="Button" parent="MenuButton/Menu/Control/Panel/VBoxContainer" unique_id=188100735]
+layout_mode = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="MenuButton/Menu/Control/Panel/VBoxContainer" unique_id=829429541]
+layout_mode = 2
+text = "Quit"
 
 [node name="DialogueBox" type="Node2D" parent="." unique_id=1775988295]
 visible = false

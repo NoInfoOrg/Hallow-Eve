@@ -107,3 +107,8 @@ position = Vector2(573, 323)
 
 [node name="Shapes Paper" parent="." unique_id=1319041526 instance=ExtResource("16_jx25j")]
 position = Vector2(760, 157)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=839850962]
+position = Vector2(-178, 300)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=829869771]
