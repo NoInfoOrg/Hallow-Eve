@@ -87,7 +87,7 @@ func check_box_collision(x_push, y_push, delta):
 
 func check_to_open_door():
 	
-	var inventory = get_node("../Inventory")
+	var inventory = get_node("../UI/SharedInv/Inventory")
 	if inventory == null:
 		print("danger type beat")
 	for i in get_slide_collision_count():

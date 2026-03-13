@@ -11,21 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="6_grxhu"]
 [ext_resource type="PackedScene" uid="uid://b5rhclw6ern25" path="res://scenes/spirit_box.tscn" id="6_papty"]
 [ext_resource type="PackedScene" uid="uid://b7y82qoyrdjis" path="res://scenes/box.tscn" id="7_7q3w4"]
-[ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="7_lcmof"]
 [ext_resource type="PackedScene" uid="uid://c616w2s1ho401" path="res://scenes/human_box.tscn" id="7_valbq"]
-[ext_resource type="Script" uid="uid://buhoxpngrk3g1" path="res://scripts/inventory.gd" id="8_ymw3k"]
-[ext_resource type="PackedScene" uid="uid://nmbgcgm0lqea" path="res://scenes/locked_door.tscn" id="10_yc0ht"]
-[ext_resource type="PackedScene" uid="uid://7335o2o2a47d" path="res://scenes/shapes_homework.tscn" id="14_c4e7b"]
+[ext_resource type="PackedScene" uid="uid://b5evgada02h46" path="res://scenes/locked_door.tscn" id="10_yc0ht"]
 [ext_resource type="PackedScene" uid="uid://c83a2a5ujdc16" path="res://scenes/shapes_paper.tscn" id="16_jx25j"]
 [ext_resource type="PackedScene" uid="uid://b104ytawpg2ul" path="res://scenes/settings_button.tscn" id="17_b7gnf"]
-
-[sub_resource type="Resource" id="Resource_8ru5a"]
-script = ExtResource("8_ymw3k")
-metadata/_custom_type_script = "uid://buhoxpngrk3g1"
-
-[sub_resource type="Resource" id="Resource_x4itw"]
-script = ExtResource("8_ymw3k")
-metadata/_custom_type_script = "uid://buhoxpngrk3g1"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_olwqp"]
 
@@ -55,13 +44,11 @@ position = Vector2(669, 252)
 [node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("2_qakxd")]
 z_index = 9
 position = Vector2(678, 537)
-inv = SubResource("Resource_8ru5a")
 
 [node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("3_464wy")]
 z_index = 9
 position = Vector2(325, 385)
 collision_layer = 1
-inv = SubResource("Resource_x4itw")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1875371505]
 collision_layer = 255
