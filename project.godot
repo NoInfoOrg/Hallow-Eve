@@ -26,7 +26,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/gdscript-linter/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [global_group]
 
