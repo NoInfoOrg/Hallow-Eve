@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bxqlucune8epn"]
+
+[ext_resource type="Script" uid="uid://dq2fd6o77oo2t" path="res://scenes/button.gd" id="1_fd7h5"]
+[ext_resource type="Texture2D" uid="uid://btskshm74opx3" path="res://assets/sprites/level objs/buttons/EveButton_Selected_Yellow_On.png" id="1_xlqsk"]
+[ext_resource type="Texture2D" uid="uid://bhtdbow8m1twa" path="res://assets/sprites/level objs/buttons/EveButton_Selected_Yellow_Off.png" id="2_fd7h5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8dlil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xlqsk")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fd7h5")
+}],
+"loop": true,
+"name": &"unpressed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fn4h"]
+size = Vector2(79, 78)
+
+[node name="Spirit Button Yellow Front" type="Area2D" unique_id=1712415687 groups=["Spirit Buttons"]]
+collision_mask = 159
+script = ExtResource("1_fd7h5")
+
+[node name="Button" type="AnimatedSprite2D" parent="." unique_id=989589329]
+sprite_frames = SubResource("SpriteFrames_8dlil")
+animation = &"unpressed"
+
+[node name="Button Collision" type="CollisionShape2D" parent="." unique_id=1558370882]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_7fn4h")

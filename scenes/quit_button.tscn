@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c2swx07llka82"]
+
+[ext_resource type="Texture2D" uid="uid://bvsmmq8yk3qx5" path="res://assets/ui elements/quit_button_383x118.png" id="1_8r2k3"]
+[ext_resource type="Script" uid="uid://cy7ts8qubiiap" path="res://scenes/quit_button.gd" id="1_yfv4f"]
+
+[node name="Quit Button" type="Button" unique_id=2015597662]
+anchors_preset = -1
+anchor_right = 0.19100001
+anchor_bottom = 0.105000004
+offset_right = -0.03201294
+offset_bottom = -0.040000916
+script = ExtResource("1_yfv4f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1240265282]
+position = Vector2(110, 34)
+scale = Vector2(0.57627124, 0.57627124)
+texture = ExtResource("1_8r2k3")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dpmykk27ckpvf"]
+
+[ext_resource type="Texture2D" uid="uid://cou0vovt474m3" path="res://assets/popups/settings_screen_862x498.png" id="1_srqes"]
+[ext_resource type="PackedScene" uid="uid://c2swx07llka82" path="res://scenes/quit_button.tscn" id="2_assm4"]
+
+[node name="Settings Screen" type="Node2D" unique_id=5954156]
+z_index = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1769717704]
+position = Vector2(577, 323)
+scale = Vector2(1.2555219, 1.255522)
+texture = ExtResource("1_srqes")
+
+[node name="Quit Button" parent="." unique_id=2015597662 instance=ExtResource("2_assm4")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 459.0
+offset_top = 477.0
+offset_right = 679.0
+offset_bottom = 544.0

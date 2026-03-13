@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var inv: Inv # shared inventory for Willow and Eve (I hope this works)
+
 const SPEED = 300.0
 
 # INFO: Assuming that Willow starts out facing to the front
@@ -14,7 +14,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	## INFO U to open a door
+	## INFO P2Grab allows to open doors and press buttons
 	if Input.is_action_just_pressed("P2Grab"):
 		check_to_open_door()
 	
@@ -83,11 +83,24 @@ func check_box_collision(x_push, y_push, delta):
 			collision_box.push_by_player(Vector2(delta * x_push, delta * y_push), PUSH_FORCE)
 
 func check_to_open_door():
+	
+	var inventory = get_node("../Inventory")
+	if inventory == null:
+		print("danger type beat")
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var door = collision.get_collider()
-		
-		if door.is_in_group("Doors"):
+		var door_verify = false
+		for item in inventory.items:
+			print(item.name)
+			if item.name == "key":
+				print("key :D")
+				door_verify = true
+		if door.is_in_group("Doors") and door_verify:
+			# Only open doors that are not button-operated
+			if door.synced_buttons_needed:
+				return
+			
 			# Change the door image to be opened
 			door.get_node("Door").play("open")
 			

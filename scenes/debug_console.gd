@@ -28,9 +28,24 @@ func _on_LineEdit_text_entered(new_text):
 	
 	if new_text == "test_environment":
 		get_tree().change_scene_to_file("res://scenes/movement_cont.tscn")
+		return
 		
 	if new_text == "level_1":
 		get_tree().change_scene_to_file("res://scenes/level_1_scene.tscn")
+		return
 	
 	if new_text == "level_2":
 		get_tree().change_scene_to_file("res://scenes/level_2_scene.tscn")
+		return
+	
+	if new_text == "general_lighting_test":
+		get_tree().change_scene_to_file("res://scenes/light_testing_environment.tscn")
+		return
+	
+	if new_text == "light_ray_puzzle_test":
+		get_tree().change_scene_to_file("res://scenes/light_ray_puzzle_testing_environment.tscn")
+		return
+		
+	if new_text == "button_puzzle_test":
+		get_tree().change_scene_to_file("res://scenes/button_puzzle_testing_environment.tscn")
+		return

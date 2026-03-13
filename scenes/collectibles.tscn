@@ -14,6 +14,7 @@ metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
 radius = 68.18358
 
 [node name="collectibles" type="Area2D" unique_id=1417814454]
+collision_mask = 65
 script = ExtResource("1_rms2y")
 item_info = SubResource("Resource_paja6")
 

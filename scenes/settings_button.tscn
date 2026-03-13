@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b104ytawpg2ul"]
+
+[ext_resource type="Texture2D" uid="uid://cv2tlwoo60nla" path="res://assets/ui elements/MenuButton.png" id="1_j1mmx"]
+[ext_resource type="PackedScene" uid="uid://dpmykk27ckpvf" path="res://scenes/settings_screen.tscn" id="1_jxe1r"]
+[ext_resource type="Script" uid="uid://ihhkaiyx4wkx" path="res://scenes/settings_button.gd" id="1_v456u"]
+
+[node name="Settings Button" type="Button" unique_id=1727820710]
+z_index = 100
+anchors_preset = -1
+anchor_left = -0.037
+anchor_top = -0.07
+anchor_right = 0.039930556
+anchor_bottom = 0.072530866
+offset_left = 42.624
+offset_top = 45.36
+offset_right = -38.0
+offset_bottom = -39.0
+script = ExtResource("1_v456u")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=974623962]
+position = Vector2(44, 47)
+texture = ExtResource("1_j1mmx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=728959159]
+
+[node name="Settings Screen" parent="CanvasLayer" unique_id=5954156 instance=ExtResource("1_jxe1r")]
+visible = false
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

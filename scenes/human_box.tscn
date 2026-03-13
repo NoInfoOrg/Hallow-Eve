@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c616w2s1ho401"]
 
-[ext_resource type="Texture2D" uid="uid://c8jkwbb1h3cql" path="res://assets/sprites/level objs/human_box_64x64.png" id="1_1ay2o"]
 [ext_resource type="Script" uid="uid://cgwjba1w2ap23" path="res://scenes/human_box.gd" id="1_ouxk6"]
+[ext_resource type="Texture2D" uid="uid://djl3tuo56n7pk" path="res://assets/sprites/level objs/Box_Willow.png" id="2_ouxk6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ouxk6"]
 size = Vector2(64, 64)
@@ -12,7 +12,8 @@ collision_mask = 254
 script = ExtResource("1_ouxk6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=924738425]
-texture = ExtResource("1_1ay2o")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ouxk6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=493996643]
 shape = SubResource("RectangleShape2D_ouxk6")
