@@ -9,6 +9,7 @@ var debuggingWindowIsOpen = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	hide()
 	get_node("CanvasLayer/Console Commands").hide()
 	
@@ -19,6 +20,7 @@ func _process(delta: float) -> void:
 	# INFO Ctrl + D to open the debugging menu
 	if Input.is_action_just_pressed("ToggleDebuggingWindow"):
 		if (!debuggingWindowIsOpen):
+			get_tree().paused = true
 			show()
 			get_node("CanvasLayer/Console Commands").show()
 			debuggingWindowIsOpen = true
@@ -26,34 +28,40 @@ func _process(delta: float) -> void:
 			hide()
 			get_node("CanvasLayer/Console Commands").hide()
 			debuggingWindowIsOpen = false
+			get_tree().paused = false
 
 func _on_LineEdit_text_entered(new_text):
 	#print(new_text)
 	
+	var valid_command = true
+	var scene_path = ""
+	
 	if new_text == "test_environment":
-		get_tree().change_scene_to_file("res://scenes/movement_cont.tscn")
-		return
+		scene_path = "res://scenes/movement_cont.tscn"
 		
-	if new_text == "level_1":
-		get_tree().change_scene_to_file("res://scenes/level_1_scene.tscn")
-		return
+	elif new_text == "level_1":
+		scene_path = "res://scenes/level_1_scene.tscn"
 	
-	if new_text == "level_2":
-		get_tree().change_scene_to_file("res://scenes/level_2_scene.tscn")
-		return
+	elif new_text == "level_2":
+		scene_path = "res://scenes/level_2_scene.tscn"
 	
-	if new_text == "general_lighting_test":
-		get_tree().change_scene_to_file("res://scenes/light_testing_environment.tscn")
-		return
+	elif new_text == "general_lighting_test":
+		scene_path = "res://scenes/light_testing_environment.tscn"
 	
-	if new_text == "light_ray_puzzle_test":
-		get_tree().change_scene_to_file("res://scenes/light_ray_puzzle_testing_environment.tscn")
-		return
+	elif new_text == "light_ray_puzzle_test":
+		scene_path = "res://scenes/light_ray_puzzle_testing_environment.tscn"
 		
-	if new_text == "button_puzzle_test":
-		get_tree().change_scene_to_file("res://scenes/button_puzzle_testing_environment.tscn")
-		return
+	elif new_text == "button_puzzle_test":
+		scene_path = "res://scenes/button_puzzle_testing_environment.tscn"
 	
-	if new_text == "blanket_ghost_test":
-		get_tree().change_scene_to_file("res://scenes/blanket_ghost_enemy_testing_environment.tscn")
-		return
+	elif new_text == "blanket_ghost_test":
+		scene_path = "res://scenes/blanket_ghost_enemy_testing_environment.tscn"
+	
+	else:
+		valid_command = false
+	
+	# If we entered a valid command, it would redirect us to a new scene at the moment
+	# As a result, unpause the tree so we can run the scene
+	if valid_command:
+		get_tree().paused = false
+		get_tree().change_scene_to_file(scene_path)

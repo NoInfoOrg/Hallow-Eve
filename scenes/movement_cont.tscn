@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://c616w2s1ho401" path="res://scenes/human_box.tscn" id="7_valbq"]
 [ext_resource type="PackedScene" uid="uid://b5evgada02h46" path="res://scenes/locked_door.tscn" id="10_yc0ht"]
 [ext_resource type="PackedScene" uid="uid://c83a2a5ujdc16" path="res://scenes/shapes_paper.tscn" id="16_jx25j"]
-[ext_resource type="PackedScene" uid="uid://b104ytawpg2ul" path="res://scenes/settings_button.tscn" id="17_b7gnf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_olwqp"]
 
@@ -48,7 +47,6 @@ position = Vector2(678, 537)
 [node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("3_464wy")]
 z_index = 9
 position = Vector2(325, 385)
-collision_layer = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1875371505]
 collision_layer = 255
@@ -86,12 +84,6 @@ position = Vector2(991, 414)
 
 [node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("4_qakxd")]
 position = Vector2(435, 606)
-
-[node name="Settings Button" parent="CanvasLayer" unique_id=1677102488 instance=ExtResource("17_b7gnf")]
-offset_left = 1101.0
-offset_top = 49.0
-offset_right = 1101.0
-offset_bottom = 49.0
 
 [node name="LockedDoor" parent="." unique_id=1400186033 instance=ExtResource("10_yc0ht")]
 position = Vector2(-2, 2)

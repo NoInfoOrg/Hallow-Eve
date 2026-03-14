@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://c616w2s1ho401" path="res://scenes/human_box.tscn" id="7_cowtf"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="9_d18id"]
 [ext_resource type="PackedScene" uid="uid://b5rhclw6ern25" path="res://scenes/spirit_box.tscn" id="10_lg53w"]
-[ext_resource type="PackedScene" uid="uid://nmbgcgm0lqea" path="res://scenes/locked_door.tscn" id="11_g77a3"]
-[ext_resource type="Texture2D" uid="uid://dl2r3y450gx41" path="res://assets/sprites/environment/SleeplessChild_Bed-Complete.png" id="13_2ydo2"]
+[ext_resource type="PackedScene" uid="uid://b5evgada02h46" path="res://scenes/locked_door.tscn" id="11_g77a3"]
 [ext_resource type="PackedScene" uid="uid://c83a2a5ujdc16" path="res://scenes/shapes_paper.tscn" id="12_2ydo2"]
+[ext_resource type="Texture2D" uid="uid://dl2r3y450gx41" path="res://assets/sprites/environment/SleeplessChild_Bed-Complete.png" id="13_2ydo2"]
 [ext_resource type="PackedScene" uid="uid://bwd22jx5mssx0" path="res://scenes/black_light_flashlight_item.tscn" id="13_xb17u"]
 [ext_resource type="Texture2D" uid="uid://dkmocmuvlptk4" path="res://assets/tempSprites/key_placeholder.png" id="14_xb17u"]
 
@@ -300,6 +300,7 @@ position = Vector2(1511, 4790.0005)
 z_index = 6
 position = Vector2(-658, 1933)
 texture = ExtResource("13_2ydo2")
+
 [node name="Shapes Paper" parent="." unique_id=1319041526 instance=ExtResource("12_2ydo2")]
 z_index = 3
 position = Vector2(1880, 5459)

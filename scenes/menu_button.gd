@@ -5,6 +5,7 @@ var menu_open = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,8 +15,15 @@ func _process(delta: float) -> void:
 		#var menu = get_node("../UI/MenuButton/Menu")
 		var menu = get_node("Menu")
 		if menu_open:
+			get_tree().paused = true
 			menu.show()
 		else:
+			get_tree().paused = false
 			menu.hide()
-		
-		
+
+func _on_resume_pressed() -> void:
+	var menu = get_node("Menu")
+	menu.hide()
+	menu_open = false
+	
+	get_tree().paused = false
