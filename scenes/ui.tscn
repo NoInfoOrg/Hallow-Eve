@@ -17,6 +17,8 @@
 [ext_resource type="Script" uid="uid://dvc7yomb50ty" path="res://scenes/quit.gd" id="14_cof4p"]
 [ext_resource type="Script" uid="uid://ceex0idpm34yb" path="res://scenes/resume.gd" id="14_f7tlh"]
 [ext_resource type="Texture2D" uid="uid://bb25udxq20hi8" path="res://assets/ui elements/TextBox.png" id="14_h1mc3"]
+[ext_resource type="PackedScene" uid="uid://dpmykk27ckpvf" path="res://scenes/settings.tscn" id="15_8k7j3"]
+[ext_resource type="Script" uid="uid://8vb68x4k5osx" path="res://scenes/settings.gd" id="15_jkdwc"]
 
 [node name="UI" type="CanvasLayer" unique_id=1522527901]
 script = ExtResource("1_8dubc")
@@ -187,6 +189,10 @@ script = ExtResource("14_f7tlh")
 [node name="Settings" type="Button" parent="MenuButton/Menu/Control/Panel/VBoxContainer" unique_id=188100735]
 layout_mode = 2
 text = "Settings"
+script = ExtResource("15_jkdwc")
+
+[node name="Settings Screen" parent="MenuButton/Menu/Control/Panel/VBoxContainer/Settings" unique_id=1267861807 instance=ExtResource("15_8k7j3")]
+visible = false
 
 [node name="Quit" type="Button" parent="MenuButton/Menu/Control/Panel/VBoxContainer" unique_id=829429541]
 layout_mode = 2
@@ -223,4 +229,5 @@ grow_vertical = 2
 texture = ExtResource("13_h1mc3")
 
 [connection signal="pressed" from="MenuButton/Menu/Control/Panel/VBoxContainer/Resume" to="MenuButton" method="_on_resume_pressed"]
+[connection signal="pressed" from="MenuButton/Menu/Control/Panel/VBoxContainer/Settings" to="MenuButton/Menu/Control/Panel/VBoxContainer/Settings" method="_on_pressed"]
 [connection signal="pressed" from="MenuButton/Menu/Control/Panel/VBoxContainer/Quit" to="MenuButton/Menu/Control/Panel/VBoxContainer/Quit" method="_on_quit_pressed"]

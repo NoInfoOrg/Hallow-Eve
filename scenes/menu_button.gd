@@ -20,6 +20,10 @@ func _process(delta: float) -> void:
 		else:
 			get_tree().paused = false
 			menu.hide()
+			
+			var settings = get_node("Menu/Control/Panel/VBoxContainer/Settings")
+			settings.settings_open = false
+			settings.get_node("Settings Screen").hide()
 
 func _on_resume_pressed() -> void:
 	var menu = get_node("Menu")
