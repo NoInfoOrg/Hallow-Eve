@@ -21,6 +21,7 @@ text = "Debugging Console:"
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1658265552]
 
 [node name="Console Commands" type="Sprite2D" parent="CanvasLayer" unique_id=291201773]
+visible = false
 position = Vector2(601, 316)
 scale = Vector2(0.7587549, 0.75875485)
 texture = ExtResource("3_whr0r")

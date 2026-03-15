@@ -20,4 +20,3 @@ func _process(delta: float) -> void:
 	
 	P2_Prog.value = P2_Scroll.value
 	P2_Sanity.value = P2_Prog.value
-	
