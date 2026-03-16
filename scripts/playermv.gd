@@ -86,10 +86,13 @@ func check_box_collision(x_push, y_push, delta):
 			collision_box.push_by_player(Vector2(delta * x_push, delta * y_push), PUSH_FORCE)
 
 func check_to_open_door():
-	
-	var inventory = get_node("../UI/SharedInv/Inventory")
+	# Find the inventory first
+	var inventory = find_inventory()
 	if inventory == null:
 		print("danger type beat")
+		print("inventory not found")
+		return
+	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var door = collision.get_collider()
@@ -109,3 +112,32 @@ func check_to_open_door():
 			
 			# Change the door collision so players can enter the door
 			door.get_node("Closed Door Collision").set_deferred("disabled", true)
+
+func find_inventory():
+	var root = get_tree().root.get_child(0)
+	
+	var inventory = null
+	var current_node = get_node(".")
+	
+	# Not really required, but basically limit the while loop to run up to 1000 times
+	# Currently, I don't think our game is 1000 parent nodes deep (at the moment, it's around 5-10 usually?)
+	const MAX_ITERATIONS = 1000
+	var safetyIndex = 0
+	
+	while safetyIndex < MAX_ITERATIONS:
+		#print(current_node.name)
+		
+		if current_node == root:
+			break
+		
+		# get_node will either be null if the filepath at that moment doesn't exist...
+		# ...or not null if the filepath exists!
+		inventory = current_node.get_node("UI/SharedInv/Inventory")
+		if inventory != null:
+			break
+		
+		# Go to the parent node of the current node we are at
+		current_node = current_node.get_node("..")
+		safetyIndex += 1
+	
+	return inventory

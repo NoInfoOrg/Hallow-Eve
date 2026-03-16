@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dl2r3y450gx41" path="res://assets/sprites/environment/SleeplessChild_Bed-Complete.png" id="13_2ydo2"]
 [ext_resource type="PackedScene" uid="uid://bwd22jx5mssx0" path="res://scenes/black_light_flashlight_item.tscn" id="13_xb17u"]
 [ext_resource type="Texture2D" uid="uid://dkmocmuvlptk4" path="res://assets/tempSprites/key_placeholder.png" id="14_xb17u"]
+[ext_resource type="PackedScene" uid="uid://dwu4oi2tru041" path="res://scenes/collectibles.tscn" id="17_tqr37"]
 
 [sub_resource type="Resource" id="Resource_d0nkq"]
 script = ExtResource("3_d0nkq")
@@ -314,3 +315,7 @@ z_index = 5
 position = Vector2(783, 5194)
 scale = Vector2(0.14522077, 0.14522079)
 texture = ExtResource("14_xb17u")
+
+[node name="key" parent="." unique_id=1417814454 instance=ExtResource("17_tqr37")]
+z_index = 8
+position = Vector2(333, -230)
