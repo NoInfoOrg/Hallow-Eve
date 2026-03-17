@@ -1,56 +1,72 @@
 extends CharacterBody2D
+class_name Player
 
-
+# Constants
 const SPEED = 300.0
-
-# INFO: Assuming that Eve starts out facing to the front
-var lastDirection : String = "S"
-
 const PUSH_FORCE = 150.0
+
+# Can be changed between instances
+var move_left_action = null
+var move_right_action = null
+var move_up_action = null
+var move_down_action = null
+var grab_action = null
+var idle_left = null
+var idle_right = null
+var idle_up = null
+var idle_down = null
+
+# INFO: Assuming that the player starts out facing to the front
+var lastDirection : String = "S"
 
 # INFO Sources:
 # https://forum.godotengine.org/t/how-to-properly-change-the-sprite-depending-on-facing-direction-and-other-situations/19024
 # https://forum.godotengine.org/t/how-do-i-change-sprite-texture-in-gdscript/51473
 
 func _physics_process(delta):
-	var direction = Input.get_vector("P1Left", "P1Right", "P1Up", "P1Down")
+	var direction = Input.get_vector(move_left_action, move_right_action, move_up_action, move_down_action)
 	velocity = direction * SPEED
 	
 	move_and_slide()
 	
-	## INFO P1Grab allows to open doors and press buttons
-	if Input.is_action_just_pressed("P1Grab"):
+	## INFO grab_action allows to open doors and press buttons
+	if Input.is_action_just_pressed(grab_action):
 		check_to_open_door()
 	
-	# INFO Eve's Walking Animations (uses idle for placeholder)
-	if Input.is_action_pressed("P1Left") and not (Input.is_action_pressed("P1Up") or Input.is_action_pressed("P1Down")):
-		$AnimationPlayer.play("Eve_Idle_A")
+	# INFO The Player's Walking Animations (uses idle for placeholder)
+	var moving_left = Input.is_action_pressed(move_left_action)
+	var moving_right = Input.is_action_pressed(move_right_action)
+	var moving_up = Input.is_action_pressed(move_up_action)
+	var moving_down = Input.is_action_pressed(move_down_action)
+	
+	if moving_left and not (moving_up or moving_down):
+		$AnimationPlayer.play(idle_left)
 		lastDirection = "A"
 		check_box_collision(-PUSH_FORCE, 0, delta)
 		
-	elif Input.is_action_pressed("P1Right") and not (Input.is_action_pressed("P1Up") or Input.is_action_pressed("P1Down")):
-		$AnimationPlayer.play("Eve_Idle_D")
+	elif moving_right and not (moving_up or moving_down):
+		$AnimationPlayer.play(idle_right)
 		lastDirection = "D"
 		check_box_collision(PUSH_FORCE, 0, delta)
 		
-	elif Input.is_action_pressed("P1Up") and not (Input.is_action_pressed("P1Left") or Input.is_action_pressed("P1Right")):
-		$AnimationPlayer.play("Eve_Idle_W")
+	elif moving_up and not (moving_left or moving_right):
+		$AnimationPlayer.play(idle_up)
 		lastDirection = "W"
 		check_box_collision(0, -PUSH_FORCE, delta)
 		
-	elif Input.is_action_pressed("P1Down") and not (Input.is_action_pressed("P1Left") or Input.is_action_pressed("P1Right")):
-		$AnimationPlayer.play("Eve_Idle_S")
+	elif moving_down and not (moving_left or moving_right):
+		$AnimationPlayer.play(idle_down)
 		lastDirection = "S"
 		check_box_collision(0, PUSH_FORCE, delta)
 	
-	# INFO meant to return animation to idle, but SHITS the debugger - Lizz
+	# INFO meant to return animation to idle, but [DESTROYS] the debugger - Lizz
 	# INFO I think this fixes it? But I don't know if this is what you had in mind - Nick
-	elif velocity == Vector2.ZERO:
-		$AnimationPlayer.play("Eve_Idle_" + lastDirection)
+	#elif velocity == Vector2.ZERO:
+		#$AnimationPlayer.play("Eve_Idle_" + lastDirection)
 	
 func check_box_collision(x_push, y_push, delta):
 	for i in get_slide_collision_count():
-		# Make sure Eve is actually moving in the direction she is pushing
+		# Make sure the player is actually moving in the direction they are pushing
 		if y_push != 0 and (lastDirection == "A" or lastDirection == "D"):
 			return
 		elif x_push != 0 and (lastDirection == "W" or lastDirection == "S"):
@@ -59,7 +75,7 @@ func check_box_collision(x_push, y_push, delta):
 		var collision = get_slide_collision(i)
 		var collision_box = collision.get_collider()
 		
-		# Make sure that Eve is actually moving in the direction she is pushing
+		# Make sure that the player is actually moving in the direction they are pushing
 		var normal = collision.get_normal()
 		#print(normal)
 		
@@ -81,13 +97,13 @@ func check_box_collision(x_push, y_push, delta):
 		elif y_push < 0 and normal == UP_DIRECTION:
 			return
 		
-		# At this point, it should ideally be confirmed that Eve is moving to push the box
+		# At this point, it should ideally be confirmed that the player is moving to push the box
 		if collision_box.is_in_group("Boxes") or collision_box.is_in_group("Spirit Boxes"):
 			collision_box.push_by_player(Vector2(delta * x_push, delta * y_push), PUSH_FORCE)
 
 func check_to_open_door():
 	# Find the inventory first
-	var inventory = find_inventory()
+	var inventory = find_node("UI/SharedInv/Inventory")
 	if inventory == null:
 		print("danger type beat")
 		print("inventory not found")
@@ -97,11 +113,29 @@ func check_to_open_door():
 		var collision = get_slide_collision(i)
 		var door = collision.get_collider()
 		var door_verify = false
+		
+		var index = 0
 		for item in inventory.items:
 			print(item.name)
+			
 			if item.name == "key":
 				print("key :D")
 				door_verify = true
+				
+				# Remove the item from the inventory (this is experimental)
+				var slots_node = find_node("UI/SharedInv/Inv")
+				if slots_node == null:
+					print("inventory slot not found")
+					return
+					
+				var removed_inventory_icon = slots_node.slots[index].get_node("Icon")
+				
+				removed_inventory_icon.visible = false
+				removed_inventory_icon.texture = null
+				inventory.items.remove_at(index)
+			
+			index += 1
+				
 		if door.is_in_group("Doors") and door_verify:
 			# Only open doors that are not button-operated
 			if door.synced_buttons_needed:
@@ -113,10 +147,10 @@ func check_to_open_door():
 			# Change the door collision so players can enter the door
 			door.get_node("Closed Door Collision").set_deferred("disabled", true)
 
-func find_inventory():
+func find_node(node_path):
 	var root = get_tree().root.get_child(0)
 	
-	var inventory = null
+	var found_node = null
 	var current_node = get_node(".")
 	
 	# Not really required, but basically limit the while loop to run up to 1000 times
@@ -132,12 +166,12 @@ func find_inventory():
 		
 		# get_node will either be null if the filepath at that moment doesn't exist...
 		# ...or not null if the filepath exists!
-		inventory = current_node.get_node("UI/SharedInv/Inventory")
-		if inventory != null:
+		found_node = current_node.get_node(node_path)
+		if found_node != null:
 			break
 		
 		# Go to the parent node of the current node we are at
 		current_node = current_node.get_node("..")
 		safetyIndex += 1
 	
-	return inventory
+	return found_node
