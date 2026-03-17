@@ -87,7 +87,7 @@ func check_box_collision(x_push, y_push, delta):
 
 func check_to_open_door():
 	# Find the inventory first
-	var inventory = find_inventory()
+	var inventory = find_node("UI/SharedInv/Inventory")
 	if inventory == null:
 		print("danger type beat")
 		print("inventory not found")
@@ -97,11 +97,29 @@ func check_to_open_door():
 		var collision = get_slide_collision(i)
 		var door = collision.get_collider()
 		var door_verify = false
+		
+		var index = 0
 		for item in inventory.items:
 			print(item.name)
+			
 			if item.name == "key":
 				print("key :D")
 				door_verify = true
+				
+				# Remove the item from the inventory (this is experimental)
+				var slots_node = find_node("UI/SharedInv/Inv")
+				if slots_node == null:
+					print("inventory slot not found")
+					return
+					
+				var removed_inventory_icon = slots_node.slots[index].get_node("Icon")
+				
+				removed_inventory_icon.visible = false
+				removed_inventory_icon.texture = null
+				inventory.items.remove_at(index)
+			
+			index += 1
+				
 		if door.is_in_group("Doors") and door_verify:
 			# Only open doors that are not button-operated
 			if door.synced_buttons_needed:
@@ -113,10 +131,10 @@ func check_to_open_door():
 			# Change the door collision so players can enter the door
 			door.get_node("Closed Door Collision").set_deferred("disabled", true)
 
-func find_inventory():
+func find_node(node_path):
 	var root = get_tree().root.get_child(0)
 	
-	var inventory = null
+	var found_node = null
 	var current_node = get_node(".")
 	
 	# Not really required, but basically limit the while loop to run up to 1000 times
@@ -132,12 +150,12 @@ func find_inventory():
 		
 		# get_node will either be null if the filepath at that moment doesn't exist...
 		# ...or not null if the filepath exists!
-		inventory = current_node.get_node("UI/SharedInv/Inventory")
-		if inventory != null:
+		found_node = current_node.get_node(node_path)
+		if found_node != null:
 			break
 		
 		# Go to the parent node of the current node we are at
 		current_node = current_node.get_node("..")
 		safetyIndex += 1
 	
-	return inventory
+	return found_node
