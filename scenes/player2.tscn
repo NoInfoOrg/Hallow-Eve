@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cphkguivqa6gt"]
 
-[ext_resource type="Script" uid="uid://dmlgolxi1fkcv" path="res://scenes/player2mv.gd" id="1_c08b3"]
+[ext_resource type="Script" uid="uid://d2kffjtlxbgq" path="res://scripts/willow.gd" id="1_agjl5"]
 [ext_resource type="Texture2D" uid="uid://cd7gcsfuddwic" path="res://assets/spritesheets/p2/Willow_FullHealth_SpriteSheet.png" id="2_agjl5"]
 [ext_resource type="Script" uid="uid://5it8olpe6dgr" path="res://scenes/inventory.gd" id="3_agjl5"]
 
@@ -94,7 +94,7 @@ _data = {
 [node name="Willow - P2" type="CharacterBody2D" unique_id=882182450]
 collision_layer = 64
 collision_mask = 186
-script = ExtResource("1_c08b3")
+script = ExtResource("1_agjl5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=922027651]
 position = Vector2(32, 122)

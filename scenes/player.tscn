@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://w6s64ylvwlya"]
 
-[ext_resource type="Script" uid="uid://pv6eoafrval0" path="res://scripts/playermv.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://pv6eoafrval0" path="res://scripts/eve.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://bfl6vednvl8bh" path="res://assets/spritesheets/p1/Eve_FullHealth_SpriteSheet.png" id="2_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]

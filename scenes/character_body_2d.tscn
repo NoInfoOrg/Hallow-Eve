@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dxlsaedh8u64n"]
 
-[ext_resource type="Script" uid="uid://d2kffjtlxbgq" path="res://scripts/player2mv.gd" id="1_ij6vw"]
+[ext_resource type="Script" uid="uid://d2kffjtlxbgq" path="res://scripts/willow.gd" id="1_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://dmoorypkp3r47" path="res://assets/tempSprites/ambatakum.jpg" id="2_ghijl"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1348783984]
