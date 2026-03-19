@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b5rhclw6ern25"]
 
-[ext_resource type="Script" uid="uid://6xv8lqng8kop" path="res://scenes/spirit_box.gd" id="1_ht7cu"]
+[ext_resource type="Script" uid="uid://6xv8lqng8kop" path="res://scripts/spirit_box.gd" id="1_ht7cu"]
 [ext_resource type="Texture2D" uid="uid://cydk375r7auc7" path="res://assets/sprites/level objs/Box_Eve.png" id="2_ht7cu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wky4i"]

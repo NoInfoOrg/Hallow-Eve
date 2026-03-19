@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dpmykk27ckpvf"]
 
-[ext_resource type="Script" uid="uid://dhyqa3bocy5m1" path="res://scenes/back_to_menu.gd" id="1_5p8wc"]
-[ext_resource type="Script" uid="uid://wusystxbx4io" path="res://scenes/toggle_inventory.gd" id="1_r6d6q"]
+[ext_resource type="Script" uid="uid://dhyqa3bocy5m1" path="res://scripts/back_to_menu.gd" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://wusystxbx4io" path="res://scripts/toggle_inventory.gd" id="1_r6d6q"]
 
 [node name="Settings Screen" type="CanvasLayer" unique_id=1267861807]
 

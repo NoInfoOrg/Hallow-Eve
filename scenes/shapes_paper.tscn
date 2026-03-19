@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c83a2a5ujdc16"]
 
-[ext_resource type="Script" uid="uid://dol5q0k3e3jle" path="res://scenes/shapes_paper.gd" id="1_akf8h"]
+[ext_resource type="Script" uid="uid://dol5q0k3e3jle" path="res://scripts/shapes_paper.gd" id="1_akf8h"]
 [ext_resource type="Texture2D" uid="uid://du4n5cyp68gen" path="res://assets/sprites/level objs/shapes_paper_32x36.png" id="1_px4bd"]
 [ext_resource type="PackedScene" uid="uid://7335o2o2a47d" path="res://scenes/shapes_homework.tscn" id="3_6u2yd"]
 [ext_resource type="PackedScene" uid="uid://cr6aiqw65fcow" path="res://scenes/answer_text_box.tscn" id="4_la1ke"]

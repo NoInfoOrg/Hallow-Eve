@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ccm85dx1kq2ay"]
 
-[ext_resource type="Script" uid="uid://dq2fd6o77oo2t" path="res://scenes/button.gd" id="1_lq2fa"]
+[ext_resource type="Script" uid="uid://dq2fd6o77oo2t" path="res://scripts/button.gd" id="1_lq2fa"]
 [ext_resource type="Texture2D" uid="uid://f1x5m1g5ndpr" path="res://assets/sprites/level objs/buttons/WillowButton_Selected_Green_On.png" id="2_fbhbc"]
 [ext_resource type="Texture2D" uid="uid://by4fxu0xdc24f" path="res://assets/sprites/level objs/buttons/WillowButton_Interactable_Orange_On.png" id="2_ktsrq"]
 [ext_resource type="Texture2D" uid="uid://clgmiy2vfgew6" path="res://assets/sprites/level objs/buttons/WillowButton_Interactable_Orange_Off.png" id="3_nipbe"]
