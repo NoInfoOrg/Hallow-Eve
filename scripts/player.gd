@@ -114,11 +114,14 @@ func check_to_open_door():
 		var door = collision.get_collider()
 		var door_verify = false
 		
+		if not door.is_in_group("Doors"):
+			return
+		
 		var index = 0
 		for item in inventory.items:
 			print(item.name)
 			
-			if item.name == "key":
+			if item.name == door.required_key_name:
 				print("key :D")
 				door_verify = true
 				

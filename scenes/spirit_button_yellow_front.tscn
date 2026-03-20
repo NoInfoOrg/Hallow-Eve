@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bxqlucune8epn"]
 
-[ext_resource type="Script" uid="uid://dq2fd6o77oo2t" path="res://scenes/button.gd" id="1_fd7h5"]
+[ext_resource type="Script" uid="uid://dq2fd6o77oo2t" path="res://scripts/button.gd" id="1_fd7h5"]
 [ext_resource type="Texture2D" uid="uid://btskshm74opx3" path="res://assets/sprites/level objs/buttons/EveButton_Selected_Yellow_On.png" id="1_xlqsk"]
 [ext_resource type="Texture2D" uid="uid://bhtdbow8m1twa" path="res://assets/sprites/level objs/buttons/EveButton_Selected_Yellow_Off.png" id="2_fd7h5"]
 

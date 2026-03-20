@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c616w2s1ho401"]
 
-[ext_resource type="Script" uid="uid://cgwjba1w2ap23" path="res://scenes/human_box.gd" id="1_ouxk6"]
+[ext_resource type="Script" uid="uid://cgwjba1w2ap23" path="res://scripts/human_box.gd" id="1_ouxk6"]
 [ext_resource type="Texture2D" uid="uid://djl3tuo56n7pk" path="res://assets/sprites/level objs/Box_Willow.png" id="2_ouxk6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ouxk6"]

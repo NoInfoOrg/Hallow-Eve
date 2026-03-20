@@ -1,7 +1,15 @@
 extends StaticBody2D
 
-@export var connected_buttons: Array[Area2D]
+# Inventory
+var inventory = null
 
+# For normal room doors (presumably)
+@export var required_key: Area2D = null
+var key_needed = false
+var required_key_name = ""
+
+# For the button puzzles
+@export var connected_buttons: Array[Area2D]
 @export var synced_buttons_needed = false
 @export var ordered_buttons_needed = false
 @export var required_buttons: Array[Area2D]
@@ -10,16 +18,47 @@ var pressed_buttons = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if required_key != null:
+		key_needed = true
+		required_key_name = required_key.name
+		print(required_key_name)
+	
 	for button in connected_buttons:
 		button.connect("button_object_emitted", on_button_object_emitted)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if synced_buttons_needed:
+	# For now, we assume that every door that needs a key will have a key connected to the door
+	# As a result, the required_key being changed to null means the key was picked up!
+	if key_needed:
+		# Checks for the required key and changes the wreath sprite accordingly
+		check_for_key()
+	
+	elif synced_buttons_needed:
 		check_synced_buttons()
 	
 	elif ordered_buttons_needed:
 		check_ordered_buttons()
+
+func check_for_key():
+	# Try to find the inventory first
+	if inventory == null:
+		inventory = find_inventory()
+	
+	# If the inventory is still not found
+	if inventory == null:
+		print("locked_door.gd : check_for_key() : inventory not found")
+		return
+	
+	var wreath = get_node("Wreath")
+	
+	for item in inventory.items:
+		if item.name == required_key_name:
+			wreath.play("glow")
+			return true
+	
+	wreath.play("no glow")
+	return false
 
 func check_synced_buttons():
 	var all_buttons_pressed = true
@@ -65,3 +104,30 @@ func on_button_object_emitted(button):
 	#print(button)
 	#print("---")
 	pressed_buttons.append(button)
+
+func find_inventory():
+	var root = get_tree().root.get_child(0)
+	var current_node = get_node(".")
+	
+	# Not really required, but basically limit the while loop to run up to 1000 times
+	# Currently, I don't think our game is 1000 parent nodes deep (at the moment, it's around 5-10 usually?)
+	const MAX_ITERATIONS = 1000
+	var safetyIndex = 0
+	
+	while safetyIndex < MAX_ITERATIONS:
+		#print(current_node.name)
+		
+		if current_node == root:
+			break
+		
+		# get_node will either be null if the filepath at that moment doesn't exist...
+		# ...or not null if the filepath exists!
+		inventory = current_node.get_node("UI/SharedInv/Inventory")
+		if inventory != null:
+			break
+		
+		# Go to the parent node of the current node we are at
+		current_node = current_node.get_node("..")
+		safetyIndex += 1
+	
+	return inventory

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bv44nvjtl34yi"]
 
-[ext_resource type="Script" uid="uid://clsnhf87kk1v5" path="res://scenes/reflecting_sun_light_ray.gd" id="1_i32y1"]
+[ext_resource type="Script" uid="uid://clsnhf87kk1v5" path="res://scripts/reflecting_sun_light_ray.gd" id="1_i32y1"]
 
 [node name="Reflecting Sun Light Ray" type="Node2D" unique_id=1697315052]
 script = ExtResource("1_i32y1")

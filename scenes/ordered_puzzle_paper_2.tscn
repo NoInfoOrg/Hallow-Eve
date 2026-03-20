@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://5ksk0750mv13"]
 
 [ext_resource type="Texture2D" uid="uid://djv6c0bas74lb" path="res://assets/sprites/level objs/paper_32x36.png" id="1_3cwo3"]
-[ext_resource type="Script" uid="uid://c2604o2kh8jc1" path="res://scenes/ordered_puzzle_paper.gd" id="1_rdnri"]
+[ext_resource type="Script" uid="uid://c2604o2kh8jc1" path="res://scripts/ordered_puzzle_paper.gd" id="1_rdnri"]
 [ext_resource type="PackedScene" uid="uid://b0n8v85bgliw4" path="res://scenes/ordered_puzzle_clue_2.tscn" id="3_xj8j5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rdnri"]

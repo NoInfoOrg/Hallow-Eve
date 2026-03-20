@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cyta5c5pqluy8"]
 
-[ext_resource type="Script" uid="uid://jd7a16cfru5e" path="res://scenes/blanket_ghost.gd" id="1_d62q1"]
+[ext_resource type="Script" uid="uid://jd7a16cfru5e" path="res://scripts/blanket_ghost.gd" id="1_d62q1"]
 [ext_resource type="Texture2D" uid="uid://brvjcmd70wftf" path="res://assets/sprites/enemy/BlanketGhost.png" id="1_n7qnd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n7qnd"]

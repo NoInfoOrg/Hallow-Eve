@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cpdp2be3sypsy"]
 
 [ext_resource type="Texture2D" uid="uid://btp6x1ltii7o8" path="res://assets/sprites/level objs/buttons/EveButton_Side_Selected_Yellow_On.png" id="1_gy872"]
-[ext_resource type="Script" uid="uid://dq2fd6o77oo2t" path="res://scenes/button.gd" id="1_h1oce"]
+[ext_resource type="Script" uid="uid://dq2fd6o77oo2t" path="res://scripts/button.gd" id="1_h1oce"]
 [ext_resource type="Texture2D" uid="uid://cndt85o05r0ff" path="res://assets/sprites/level objs/buttons/EveButton_Side_Selected_Yellow_Off.png" id="2_h1oce"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ymwyu"]

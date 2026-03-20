@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7335o2o2a47d"]
 
-[ext_resource type="Script" uid="uid://dt8m37ndhuuse" path="res://scenes/shapes_homework.gd" id="1_5h6li"]
+[ext_resource type="Script" uid="uid://dt8m37ndhuuse" path="res://scripts/shapes_homework.gd" id="1_5h6li"]
 [ext_resource type="Texture2D" uid="uid://l6sk3kw4oh1y" path="res://assets/popups/shapes_homework_question.png" id="1_7dmif"]
 [ext_resource type="Texture2D" uid="uid://bjsrhj5icgvq5" path="res://assets/popups/shapes_homework_question_under_black_light.png" id="3_3exqc"]
 
