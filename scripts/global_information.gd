@@ -3,6 +3,7 @@ extends Node
 
 # When testing with the SanityTest debugging in the UI, the last sanity icon empties at 2
 const MINIMUM_SANITY = 2
+const NO_MORE_SANITY_STRIKES = 0
 
 # Player Sanity Bars
 const FULL_STRIKE = 24
@@ -63,11 +64,11 @@ func deal_strike_damage_to_player(starting_node, player_name, damage_in_strikes)
 	# Assuming that, previously in the code, we sent player_name to be "Eve - P1" or "Willow - P2"
 	if player_name == "Eve - P1":
 		var eve_sanity_node = find_player_one_sanity(starting_node)
-		decrease_sanity(eve_sanity_node, damage_in_strikes, eve_health_strikes)
+		eve_health_strikes = decrease_sanity(eve_sanity_node, damage_in_strikes, eve_health_strikes)
 	
 	elif player_name == "Willow - P2":
 		var willow_sanity_node = find_player_two_sanity(starting_node)
-		decrease_sanity(willow_sanity_node, damage_in_strikes, willow_health_strikes)
+		willow_health_strikes = decrease_sanity(willow_sanity_node, damage_in_strikes, willow_health_strikes)
 	
 	else:
 		print("global_information.gd : deal_strike_damage_to_player() : player_name is not Eve - P1 or Willow - P2")
@@ -76,10 +77,11 @@ func decrease_sanity(sanity_node, damage_in_strikes, player_health_strikes):
 	var damage = damage_in_strikes * FULL_STRIKE
 	
 	# If a player reaches 0 sanity
-	if sanity_node.value - damage <= MINIMUM_SANITY:
+	#if sanity_node.value - damage <= MINIMUM_SANITY:
+	if player_health_strikes - damage_in_strikes <= NO_MORE_SANITY_STRIKES:
 		sanity_node.value = 0
 		print("GAME OVER")
-		return
+		return NO_MORE_SANITY_STRIKES
 	
 	sanity_node.value -= damage
 	
@@ -90,3 +92,5 @@ func decrease_sanity(sanity_node, damage_in_strikes, player_health_strikes):
 	# ...sanity icon and another, move the sanity value past that buffer
 	if ((prev_strikes / 1) - (player_health_strikes / 1) > 0):
 		sanity_node.value -= BUFFER_BETWEEN_SANITY_ICONS
+	
+	return player_health_strikes

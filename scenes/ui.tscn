@@ -28,26 +28,30 @@ z_index = 1
 position = Vector2(1056, 160)
 metadata/_edit_group_ = true
 
-[node name="P1Sanity" type="TextureProgressBar" parent="P1" unique_id=756704857]
-offset_right = 120.0
-offset_bottom = 370.0
+[node name="P1Sanity" type="TextureProgressBar" parent="P1" unique_id=1490061044]
+offset_left = -1048.0
+offset_top = -17.0
+offset_right = -948.0
+offset_bottom = 373.0
 scale = Vector2(0.75, 0.75)
 fill_mode = 3
-texture_under = ExtResource("2_cgfq5")
-texture_progress = ExtResource("3_7dvkv")
+texture_under = ExtResource("4_vdcm2")
+texture_progress = ExtResource("5_6rmj2")
 
 [node name="P2" type="Node2D" parent="." unique_id=1480691437]
 z_index = 1
 position = Vector2(8, 143)
 metadata/_edit_group_ = true
 
-[node name="P2Sanity" type="TextureProgressBar" parent="P2" unique_id=1490061044]
-offset_right = 1.0
-offset_bottom = 1.0
+[node name="P2Sanity" type="TextureProgressBar" parent="P2" unique_id=756704857]
+offset_left = 1048.0
+offset_top = 17.0
+offset_right = 1168.0
+offset_bottom = 387.0
 scale = Vector2(0.75, 0.75)
 fill_mode = 3
-texture_under = ExtResource("4_vdcm2")
-texture_progress = ExtResource("5_6rmj2")
+texture_under = ExtResource("2_cgfq5")
+texture_progress = ExtResource("3_7dvkv")
 
 [node name="SanityTest" type="Node" parent="." unique_id=207171836]
 
