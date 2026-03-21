@@ -21,6 +21,9 @@ const FULL_OPACITY_THRESHOLD = 150.0
 # This will probably be changed to a cone-shaped vision in the future
 const MAX_LINE_OF_SIGHT_DISTANCE = 800.0
 
+# Attack
+const SANITY_ATTACK_DAMAGE_IN_STRIKES = 1
+
 # Attack cooldown
 var timer = Timer.new()
 var is_in_attack_cooldown = false
@@ -76,6 +79,7 @@ func _physics_process(delta: float) -> void:
 		if collider.get("name") in ["Eve - P1", "Willow - P2"]:
 			if not is_in_attack_cooldown:
 				#print("Blanket Ghost attack on " + collider.get("name"))
+				GlobalInformation.deal_strike_damage_to_player(self, collider.get("name"), SANITY_ATTACK_DAMAGE_IN_STRIKES)
 				
 				blanket_ghost_attack.emit()
 				is_in_attack_cooldown = true

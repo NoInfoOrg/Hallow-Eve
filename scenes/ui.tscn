@@ -32,6 +32,7 @@ metadata/_edit_group_ = true
 offset_right = 120.0
 offset_bottom = 370.0
 scale = Vector2(0.75, 0.75)
+fill_mode = 3
 texture_under = ExtResource("2_cgfq5")
 texture_progress = ExtResource("3_7dvkv")
 
@@ -51,14 +52,12 @@ texture_progress = ExtResource("5_6rmj2")
 [node name="SanityTest" type="Node" parent="." unique_id=207171836]
 
 [node name="P1ScrollBar" type="HScrollBar" parent="SanityTest" unique_id=347635933]
-visible = false
 offset_left = 896.0
 offset_top = 568.0
 offset_right = 1148.0
 offset_bottom = 583.0
 
 [node name="P1ProgressBar" type="ProgressBar" parent="SanityTest" unique_id=1670185118]
-visible = false
 offset_left = 880.0
 offset_top = 600.0
 offset_right = 1144.0
