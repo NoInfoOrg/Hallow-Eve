@@ -10,11 +10,16 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	# Full sanity is like 98, like 100 doesn't really seem to change much of the sanity?
+	P1_Sanity.value = 98
+	P2_Sanity.value = 98
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#test_sanity_debug()
+	pass
+
+func test_sanity_debug():
 	P1_Prog.value = P1_Scroll.value
 	P1_Sanity.value = P1_Prog.value
 	

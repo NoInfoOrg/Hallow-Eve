@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="NoInfoGame"
-run/main_scene="uid://dy6vmnugwo4au"
+run/main_scene="uid://cm7a4a4nop8y0"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://bxl245j7738ni"
 
 [autoload]
 
 PhantomCameraManager="*uid://duq6jhf6unyis"
+GlobalInformation="*uid://b433wxpps0ux5"
 
 [editor]
 
