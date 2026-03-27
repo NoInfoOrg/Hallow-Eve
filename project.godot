@@ -18,28 +18,18 @@ config/icon="uid://bxl245j7738ni"
 [autoload]
 
 PhantomCameraManager="*uid://duq6jhf6unyis"
-<<<<<<< Updated upstream
-=======
 GlobalInformation="*uid://b433wxpps0ux5"
 Dialogic="*uid://ds2q0uclmolvu"
 
 [dialogic]
 
-directories/dch_directory={
-"FREDDY D": "res://FREDDY D.dch",
-"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
-}
-directories/dtl_directory={
-"tutorial": "res://tutorial.dtl",
-"tutorial2": "res://tutorial2.dtl",
-"tutorial3": "res://tutorial3.dtl"
-}
+directories/dch_directory={}
+directories/dtl_directory={}
 layout/style_directory={}
 glossary/default_case_sensitive=true
 layout/style_list=[]
 layout/default_style="Default"
 variables={}
->>>>>>> Stashed changes
 
 [editor]
 
@@ -48,11 +38,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-<<<<<<< Updated upstream
-enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
-=======
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/gdscript-linter/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
->>>>>>> Stashed changes
 
 [global_group]
 
@@ -123,8 +109,6 @@ ToggleDebuggingWindow={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":true,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":86,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
-<<<<<<< Updated upstream
-=======
 MenuButton={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":77,"key_label":0,"unicode":109,"location":0,"echo":false,"script":null)
@@ -139,7 +123,6 @@ dialogic_default_action={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
->>>>>>> Stashed changes
 
 [layer_names]
 
