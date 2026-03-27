@@ -66,7 +66,6 @@ func check_answer():
 	var answer = get_node("CanvasLayer/Answer Text Box")
 	
 	if answer.currentContent == correct_answer:
-		print("CORRECT ANSWER !!!")
 		homework.hide()
 		answer.hide()
 		homework_opened = false

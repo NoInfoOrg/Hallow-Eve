@@ -85,8 +85,17 @@ position = Vector2(991, 414)
 [node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("4_qakxd")]
 position = Vector2(435, 606)
 
+<<<<<<< Updated upstream
+[node name="Shapes Homework" parent="CanvasLayer" unique_id=1429891547 instance=ExtResource("14_c4e7b")]
+visible = false
+position = Vector2(573, 323)
+
 [node name="LockedDoor" parent="." unique_id=1400186033 instance=ExtResource("10_yc0ht")]
+=======
+[node name="LockedDoor" parent="." unique_id=1400186033 node_paths=PackedStringArray("required_key") instance=ExtResource("10_yc0ht")]
+>>>>>>> Stashed changes
 position = Vector2(-2, 2)
+required_key = NodePath("../key")
 
 [node name="Shapes Paper" parent="." unique_id=1319041526 instance=ExtResource("16_jx25j")]
 position = Vector2(760, 157)
