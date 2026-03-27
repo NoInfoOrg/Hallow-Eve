@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dp865ulo2ma7r"]
+
+[ext_resource type="Texture2D" uid="uid://taaglbvl72is" path="res://assets/tempSprites/mirror_temp.png" id="1_uem61"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6oms"]
+size = Vector2(24, 167)
+
+[node name="Light Reflecting Mirror" type="Area2D" unique_id=1655852933 groups=["Mirrors"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=655093587]
+scale = Vector2(0.46153843, 0.4234694)
+texture = ExtResource("1_uem61")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1207467592]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_b6oms")

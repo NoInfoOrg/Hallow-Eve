@@ -1,0 +1,41 @@
+[gd_scene format=4 uid="uid://cm7a4a4nop8y0"]
+
+[ext_resource type="TileSet" uid="uid://dt13bvgr5foh4" path="res://assets/tilesets/side_walls.tres" id="1_b446p"]
+[ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="2_tk40b"]
+[ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="3_ubyb4"]
+[ext_resource type="PackedScene" uid="uid://cyta5c5pqluy8" path="res://scenes/blanket_ghost.tscn" id="4_d1uk1"]
+[ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="5_tk40b"]
+[ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="6_ubyb4"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8xxs1"]
+vertices = PackedVector2Array(1143, 638.0078, 8.9765625, 639.97656, 340, 460, 940, 250, 290, 460, 940, 200, 1143, 9.9765625, 8.0078125, 8.0078125, 590, 200, 590, 250, 340, 230, 290, 230)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1), PackedInt32Array(3, 5, 6, 0), PackedInt32Array(7, 6, 5, 8), PackedInt32Array(9, 3, 2), PackedInt32Array(9, 2, 10, 8), PackedInt32Array(4, 1, 7, 11), PackedInt32Array(11, 7, 8, 10)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-2, -2, 1153, 0, 1153, 648, -1, 650)])
+
+[node name="Blanket Ghost Enemy Testing Environment" type="Node2D" unique_id=770288169]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1506282309]
+navigation_polygon = SubResource("NavigationPolygon_8xxs1")
+
+[node name="Side Walls - C" type="TileMapLayer" parent="NavigationRegion2D" unique_id=607139408]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAKAA4AAQAAAAgAAAAKAA0AAQAAAAgAAAAKAAwAAQAAAAgAAAAKAAsAAQAAAAgAAAAKAAoAAQAAAAgAAAAKAAkAAQAAAAgAAAAKAAgAAQAAAAgAAAAUAAcAAQAAAAIAAQAVAAcAAQAAAAIAAQAWAAcAAQAAAAIAAQAXAAcAAQAAAAIAAQAYAAcAAQAAAAIAAQAZAAcAAQAAAAIAAQAaAAcAAQAAAAIAAQAbAAcAAQAAAAIAAQAcAAcAAQAAAAIAAQAdAAcAAQAAAAIAAQAeAAcAAQAAAAIAAQA=")
+tile_set = ExtResource("1_b446p")
+
+[node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("2_tk40b")]
+position = Vector2(119, 152)
+
+[node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("3_ubyb4")]
+position = Vector2(195, 44)
+
+[node name="Blanket Ghost" parent="." unique_id=1059129714 node_paths=PackedStringArray("targets") instance=ExtResource("4_d1uk1")]
+position = Vector2(555, 435)
+targets = [NodePath("../Willow - P2"), NodePath("../Eve - P1")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1259255408]
+
+[node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("5_tk40b")]
+position = Vector2(452, 597)
+
+[node name="UI" parent="." unique_id=1522527901 instance=ExtResource("6_ubyb4")]

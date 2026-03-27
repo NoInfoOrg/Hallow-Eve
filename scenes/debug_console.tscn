@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://wgg2gorg83vj"]
 
-[ext_resource type="Script" uid="uid://cigr5c8rvew4i" path="res://scenes/debug_console.gd" id="1_hpx2j"]
-[ext_resource type="Script" uid="uid://c03tnt5gisiqm" path="res://scenes/line_edit.gd" id="2_2j26c"]
+[ext_resource type="Script" uid="uid://cigr5c8rvew4i" path="res://scripts/debug_console.gd" id="1_hpx2j"]
+[ext_resource type="Script" uid="uid://c03tnt5gisiqm" path="res://scripts/line_edit.gd" id="2_2j26c"]
+[ext_resource type="Texture2D" uid="uid://bcwnhgey5fwyr" path="res://assets/popups/debug_console_commands.png" id="3_whr0r"]
 
 [node name="Debug Console" type="Node2D" unique_id=1129319356]
 script = ExtResource("1_hpx2j")
@@ -16,3 +17,11 @@ offset_top = -26.0
 offset_right = 153.0
 offset_bottom = -3.0
 text = "Debugging Console:"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1658265552]
+
+[node name="Console Commands" type="Sprite2D" parent="CanvasLayer" unique_id=291201773]
+visible = false
+position = Vector2(601, 316)
+scale = Vector2(0.7587549, 0.75875485)
+texture = ExtResource("3_whr0r")

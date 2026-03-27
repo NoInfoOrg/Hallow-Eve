@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dfbiqnn4nnley"]
+
+[ext_resource type="Script" uid="uid://dq2fd6o77oo2t" path="res://scripts/button.gd" id="1_fdvx4"]
+[ext_resource type="Texture2D" uid="uid://bylm3mk43mnwc" path="res://assets/sprites/level objs/buttons/EveButton_Interactable_Blue_On.png" id="2_a0752"]
+[ext_resource type="Texture2D" uid="uid://btskshm74opx3" path="res://assets/sprites/level objs/buttons/EveButton_Selected_Yellow_On.png" id="2_s7q2g"]
+[ext_resource type="Texture2D" uid="uid://bhtdbow8m1twa" path="res://assets/sprites/level objs/buttons/EveButton_Selected_Yellow_Off.png" id="3_7ac78"]
+[ext_resource type="Texture2D" uid="uid://drlvg4e878p6" path="res://assets/sprites/level objs/buttons/EveButton_Interactable_Blue_Off.png" id="3_y611b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xxr8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s7q2g")
+}],
+"loop": true,
+"name": &"hovered+pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7ac78")
+}],
+"loop": true,
+"name": &"hovered+unpressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a0752")
+}],
+"loop": true,
+"name": &"unhovered+pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_y611b")
+}],
+"loop": true,
+"name": &"unhovered+unpressed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kw8m"]
+size = Vector2(79, 78)
+
+[node name="Spirit Button Blue Front" type="Area2D" unique_id=4992084 groups=["Spirit Buttons"]]
+collision_mask = 159
+script = ExtResource("1_fdvx4")
+
+[node name="Button" type="AnimatedSprite2D" parent="." unique_id=9945868]
+sprite_frames = SubResource("SpriteFrames_xxr8s")
+animation = &"unhovered+unpressed"
+
+[node name="Button Collision" type="CollisionShape2D" parent="." unique_id=1796500822]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_4kw8m")

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://clgl4g8cxa8s6"]
+
+[ext_resource type="Script" uid="uid://dq2fd6o77oo2t" path="res://scripts/button.gd" id="1_p358y"]
+[ext_resource type="Texture2D" uid="uid://bwnj1rvu3rrhv" path="res://assets/tempSprites/button_placeholders/communal_button_pressed.png" id="1_re6q4"]
+[ext_resource type="Texture2D" uid="uid://cs0lfkucm4fjl" path="res://assets/tempSprites/button_placeholders/communal_button_unpressed.png" id="2_p358y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l7e8n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_re6q4")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p358y")
+}],
+"loop": true,
+"name": &"unpressed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_re6q4"]
+size = Vector2(74, 50)
+
+[node name="Communal Button" type="Area2D" unique_id=1211763805 groups=["Communal Buttons"]]
+collision_layer = 223
+collision_mask = 223
+script = ExtResource("1_p358y")
+
+[node name="Button" type="AnimatedSprite2D" parent="." unique_id=2098056456]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_l7e8n")
+animation = &"unpressed"
+
+[node name="Button Collision" type="CollisionShape2D" parent="." unique_id=1551362988]
+shape = SubResource("RectangleShape2D_re6q4")

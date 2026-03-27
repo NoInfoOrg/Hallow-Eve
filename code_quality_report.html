@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GDScript Linter - Code Quality Report</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #1a1a2e; color: #eee; padding: 20px; line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; }
+h1 { color: #00d4ff; margin-bottom: 10px; }
+h2 { color: #888; font-size: 1.2em; margin: 20px 0 10px; border-bottom: 1px solid #333; padding-bottom: 5px; }
+.header { text-align: center; margin-bottom: 30px; }
+.subtitle { color: #888; font-size: 0.9em; }
+.filters { background: #16213e; border-radius: 8px; padding: 15px; margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 15px; align-items: center; }
+.filters label { color: #aaa; font-size: 0.95em; font-weight: bold; }
+.filters select, .filters input { background: #0f3460; border: 1px solid #333; color: #eee; padding: 8px 12px; border-radius: 4px; font-size: 0.9em; }
+.filters input { min-width: 400px; }
+.filters select:focus, .filters input:focus { outline: none; border-color: #00d4ff; }
+.filter-count { color: #00d4ff; font-weight: bold; margin-left: auto; }
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 30px; }
+.stat-card { background: #16213e; border-radius: 8px; padding: 15px; text-align: center; }
+.stat-card .value { font-size: 2em; font-weight: bold; }
+.stat-card .label { color: #888; font-size: 0.85em; }
+.stat-card.critical .value { color: #ff6b6b; }
+.stat-card.warning .value { color: #ffd93d; }
+.stat-card.info .value { color: #6bcb77; }
+.issues-section { margin-bottom: 30px; }
+.section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+.section-header .icon { font-size: 1.5em; }
+.section-header.critical { color: #ff6b6b; }
+.section-header.warning { color: #ffd93d; }
+.section-header.info { color: #6bcb77; }
+.section-header .count { font-size: 0.8em; color: #888; }
+.issue { background: #16213e; border-radius: 6px; padding: 12px 15px; margin-bottom: 8px; display: flex; flex-wrap: wrap; gap: 10px; }
+.issue.hidden { display: none; }
+.issue .location { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.85em; color: #00d4ff; min-width: 300px; word-break: break-all; }
+.issue .message { flex: 1; color: #ccc; }
+.issue .check-id { font-size: 0.75em; background: #0f3460; padding: 2px 8px; border-radius: 4px; color: #888; }
+.footer { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #333; color: #666; font-size: 0.85em; }
+.footer a { color: #00d4ff; text-decoration: none; }
+.no-results { text-align: center; color: #666; padding: 40px; }
+.context-section { background: #16213e; border-radius: 8px; padding: 20px; margin-bottom: 30px; border-left: 4px solid #00d4ff; }
+.context-section h2 { color: #00d4ff; margin-bottom: 15px; font-size: 1.1em; border: none; }
+.context-section pre { background: #0f3460; padding: 15px; border-radius: 4px; white-space: pre-wrap; word-wrap: break-word; font-family: 'Consolas', 'Monaco', monospace; font-size: 0.85em; color: #ccc; max-height: 300px; overflow-y: auto; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>🔷 GDScript Linter</h1>
+<p class="subtitle">Code Quality Report</p>
+</div>
+
+<div class="summary">
+<div class="stat-card"><div class="value">35</div><div class="label">Files Analyzed</div></div>
+<div class="stat-card"><div class="value">1294</div><div class="label">Lines of Code</div></div>
+<div class="stat-card critical"><div class="value">2</div><div class="label">Critical Issues</div></div>
+<div class="stat-card warning"><div class="value">36</div><div class="label">Warnings</div></div>
+<div class="stat-card info"><div class="value">162</div><div class="label">Info</div></div>
+<div class="stat-card"><div class="value">185</div><div class="label">Debt Score</div></div>
+</div>
+
+<div class="filters">
+<label>Severity:</label>
+<select id="severityFilter" onchange="onSeverityChange()">
+<option value="all">All Severities</option>
+<option value="critical">Critical</option>
+<option value="warning">Warning</option>
+<option value="info">Info</option>
+</select>
+<label>Type:</label>
+<select id="typeFilter" onchange="applyFilters()">
+<option value="all">All Types</option>
+</select>
+<label>File:</label>
+<input type="text" id="fileFilter" placeholder="Filter by filename..." oninput="applyFilters()">
+<span class="filter-count" id="filterCount"></span>
+</div>
+
+<div id="issuesContainer">
+<div class="context-section">
+<h2>📋 Analysis Context</h2>
+<pre>When analyzing linter issues, consider both quick fixes AND architectural improvements:
+
+1. **Evaluate the code holistically** - Before suggesting an ignore directive, ask:
+   - Could extraction improve testability or reusability?
+   - Does this file have multiple responsibilities that should be separated?
+   - Would a component/helper class make the code easier to extend?
+   - Is the complexity hiding a design problem?
+
+2. **Ignore directives are appropriate when:**
+   - Code is clean, readable, and slightly over a limit
+   - Extraction would add complexity without clear benefit
+   - The "violation" is inherent to the domain (e.g., large enum files)
+
+3. **Refactoring is appropriate when:**
+   - Multiple responsibilities are tangled together
+   - The same code section is frequently modified
+   - Testing requires mocking the entire class
+   - New features keep touching the same file
+
+Always explain your reasoning for recommending a refactor vs an ignore directive.
+
+**Required steps:**
+- Before adding any ignore directive, read `res://addons/gdscript-linter/docs/IGNORE_RULES.md` for correct syntax
+- After completing changes, run the linter via CLI using options in `res://addons/gdscript-linter/docs/CLI.md`</pre>
+</div>
+<div class="issues-section" data-severity="critical"><div class="section-header critical"><span class="icon">🔴</span><h2>Critical Issues (<span class="count">2</span>)</h2></div>
+<div class="issue" data-severity="critical" data-type="high-complexity" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:48</span><span class="message">Function 'check_box_collision' has complexity 24 (max 15)</span><span class="check-id">high-complexity</span></div>
+<div class="issue" data-severity="critical" data-type="high-complexity" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:51</span><span class="message">Function 'check_box_collision' has complexity 24 (max 15)</span><span class="check-id">high-complexity</span></div>
+</div>
+<div class="issues-section" data-severity="warning"><div class="section-header warning"><span class="icon">🟡</span><h2>Warnings (<span class="count">36</span>)</h2></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:50</span><span class="message">Debug print statement: print(new_light_ray.position)</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:51</span><span class="message">Debug print statement: print(new_light_ray.target_position)</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="long-function" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:13</span><span class="message">Function '_physics_process' exceeds 30 lines (47)</span><span class="check-id">long-function</span></div>
+<div class="issue" data-severity="warning" data-type="unused-variable" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:15</span><span class="message">Variable 'collider' is declared but never used</span><span class="check-id">unused-variable</span></div>
+<div class="issue" data-severity="warning" data-type="unused-variable" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:32</span><span class="message">Variable 'direction' is declared but never used</span><span class="check-id">unused-variable</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:89</span><span class="message">Debug print statement: print("danger type beat")</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:95</span><span class="message">Debug print statement: print(item.name)</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:97</span><span class="message">Debug print statement: print("key :D")</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="long-function" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:11</span><span class="message">Function '_physics_process' exceeds 30 lines (37)</span><span class="check-id">long-function</span></div>
+<div class="issue" data-severity="warning" data-type="high-complexity" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:11</span><span class="message">Function '_physics_process' has complexity 14 (warning at 10)</span><span class="check-id">high-complexity</span></div>
+<div class="issue" data-severity="warning" data-type="long-function" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:48</span><span class="message">Function 'check_box_collision' exceeds 30 lines (37)</span><span class="check-id">long-function</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scenes/shapes_paper.gd"><span class="location">res://scenes/shapes_paper.gd:69</span><span class="message">Debug print statement: print("CORRECT ANSWER !!!")</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="long-function" data-file="res://scenes/human_box.gd"><span class="location">res://scenes/human_box.gd:7</span><span class="message">Function '_physics_process' exceeds 30 lines (36)</span><span class="check-id">long-function</span></div>
+<div class="issue" data-severity="warning" data-type="high-complexity" data-file="res://scenes/human_box.gd"><span class="location">res://scenes/human_box.gd:7</span><span class="message">Function '_physics_process' has complexity 14 (warning at 10)</span><span class="check-id">high-complexity</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scenes/inventory.gd"><span class="location">res://scenes/inventory.gd:9</span><span class="message">Debug print statement: print("you got: ")</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scenes/inventory.gd"><span class="location">res://scenes/inventory.gd:12</span><span class="message">Debug print statement: print(count, ": ", item.name)</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scenes/camera_2d.gd"><span class="location">res://scenes/camera_2d.gd:5</span><span class="message">Debug print statement: print("entered")</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scenes/camera_2d.gd"><span class="location">res://scenes/camera_2d.gd:10</span><span class="message">Debug print statement: print("exited")</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="long-function" data-file="res://scenes/box.gd"><span class="location">res://scenes/box.gd:7</span><span class="message">Function '_physics_process' exceeds 30 lines (35)</span><span class="check-id">long-function</span></div>
+<div class="issue" data-severity="warning" data-type="high-complexity" data-file="res://scenes/box.gd"><span class="location">res://scenes/box.gd:7</span><span class="message">Function '_physics_process' has complexity 14 (warning at 10)</span><span class="check-id">high-complexity</span></div>
+<div class="issue" data-severity="warning" data-type="long-function" data-file="res://scenes/spirit_box.gd"><span class="location">res://scenes/spirit_box.gd:7</span><span class="message">Function '_physics_process' exceeds 30 lines (35)</span><span class="check-id">long-function</span></div>
+<div class="issue" data-severity="warning" data-type="high-complexity" data-file="res://scenes/spirit_box.gd"><span class="location">res://scenes/spirit_box.gd:7</span><span class="message">Function '_physics_process' has complexity 14 (warning at 10)</span><span class="check-id">high-complexity</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scenes/movement_cont.gd"><span class="location">res://scenes/movement_cont.gd:6</span><span class="message">Debug print statement: print("hi")</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:92</span><span class="message">Debug print statement: print("danger type beat")</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:98</span><span class="message">Debug print statement: print(item.name)</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:100</span><span class="message">Debug print statement: print("key :D")</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="long-function" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:15</span><span class="message">Function '_physics_process' exceeds 30 lines (36)</span><span class="check-id">long-function</span></div>
+<div class="issue" data-severity="warning" data-type="high-complexity" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:15</span><span class="message">Function '_physics_process' has complexity 15 (warning at 10)</span><span class="check-id">high-complexity</span></div>
+<div class="issue" data-severity="warning" data-type="long-function" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:51</span><span class="message">Function 'check_box_collision' exceeds 30 lines (37)</span><span class="check-id">long-function</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scripts/inventory.gd"><span class="location">res://scripts/inventory.gd:9</span><span class="message">Debug print statement: print("something happened btw")</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scripts/ghostItem.gd"><span class="location">res://scripts/ghostItem.gd:29</span><span class="message">Debug print statement: print("yo")</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scripts/ghostItem.gd"><span class="location">res://scripts/ghostItem.gd:31</span><span class="message">Debug print statement: print("mama did not make it")</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scripts/ghostItem.gd"><span class="location">res://scripts/ghostItem.gd:32</span><span class="message">Debug print statement: print("ITEM: ", item_info.name)</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scripts/ghostItem.gd"><span class="location">res://scripts/ghostItem.gd:33</span><span class="message">Debug print statement: print("Item text: ", item_info.texture)</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="print-statement" data-file="res://scripts/ghostItem.gd"><span class="location">res://scripts/ghostItem.gd:34</span><span class="message">Debug print statement: print("Path: ", item_info.resource_path)</span><span class="check-id">print-statement</span></div>
+<div class="issue" data-severity="warning" data-type="deep-nesting" data-file="res://scripts/inventoryui.gd"><span class="location">res://scripts/inventoryui.gd:17</span><span class="message">Function 'update' has 4 nesting levels (max 3)</span><span class="check-id">deep-nesting</span></div>
+</div>
+<div class="issues-section" data-severity="info"><div class="section-header info"><span class="icon">🔵</span><h2>Info (<span class="count">162</span>)</h2></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:15</span><span class="message">Variable 'collider' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:16</span><span class="message">Variable 'collision_point' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:17</span><span class="message">Variable 'local_collision_point' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="commented-code" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:23</span><span class="message">Commented-out code detected</span><span class="check-id">commented-code</span></div>
+<div class="issue" data-severity="info" data-type="commented-code" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:24</span><span class="message">Commented-out code detected</span><span class="check-id">commented-code</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:32</span><span class="message">Variable 'direction' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:33</span><span class="message">Variable 'normal' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:38</span><span class="message">Variable 'new_reflecting_sun_light_ray_scene' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:39</span><span class="message">Variable 'instance' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:41</span><span class="message">Variable 'new_light_ray' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:42</span><span class="message">Variable 'new_line_2d' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="long-line" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:54</span><span class="message">Line exceeds 120 chars (129)</span><span class="check-id">long-line</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:60</span><span class="message">Function 'initialize_line' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/reflecting_sun_light_ray.gd"><span class="location">res://scenes/reflecting_sun_light_ray.gd:66</span><span class="message">Function 'reinitialize_line' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="empty-function" data-file="res://scenes/shapes_homework.gd"><span class="location">res://scenes/shapes_homework.gd:8</span><span class="message">Function '_process' is empty or contains only 'pass'</span><span class="check-id">empty-function</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/menu_button.gd"><span class="location">res://scenes/menu_button.gd:4</span><span class="message">Variable 'menu_open' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/menu_button.gd"><span class="location">res://scenes/menu_button.gd:14</span><span class="message">Variable 'menu' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:12</span><span class="message">Variable 'direction' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="long-line" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:37</span><span class="message">Line exceeds 120 chars (122)</span><span class="check-id">long-line</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:56</span><span class="message">Variable 'collision' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:57</span><span class="message">Variable 'collision_box' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:60</span><span class="message">Variable 'normal' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:87</span><span class="message">Variable 'inventory' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:91</span><span class="message">Variable 'collision' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:92</span><span class="message">Variable 'door' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:93</span><span class="message">Variable 'door_verify' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:48</span><span class="message">Function 'check_box_collision' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/player2mv.gd"><span class="location">res://scenes/player2mv.gd:85</span><span class="message">Function 'check_to_open_door' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/button.gd"><span class="location">res://scenes/button.gd:4</span><span class="message">Variable 'players_detected' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/button.gd"><span class="location">res://scenes/button.gd:5</span><span class="message">Variable 'button_pressed' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/button.gd"><span class="location">res://scenes/button.gd:6</span><span class="message">Variable 'button_hovered' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/button.gd"><span class="location">res://scenes/button.gd:11</span><span class="message">Variable 'timer' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/button.gd"><span class="location">res://scenes/button.gd:70</span><span class="message">Variable 'button' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/button.gd"><span class="location">res://scenes/button.gd:71</span><span class="message">Variable 'specified_texture' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/button.gd"><span class="location">res://scenes/button.gd:35</span><span class="message">Function 'body_entry' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/button.gd"><span class="location">res://scenes/button.gd:44</span><span class="message">Function 'body_exit' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/button.gd"><span class="location">res://scenes/button.gd:52</span><span class="message">Function 'press_button' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/button.gd"><span class="location">res://scenes/button.gd:69</span><span class="message">Function 'change_button_texture' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/line_edit.gd"><span class="location">res://scenes/line_edit.gd:19</span><span class="message">Variable 'answer_box_position' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/line_edit.gd"><span class="location">res://scenes/line_edit.gd:21</span><span class="message">Variable 'leftmost_x' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/line_edit.gd"><span class="location">res://scenes/line_edit.gd:22</span><span class="message">Variable 'rightmost_x' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/line_edit.gd"><span class="location">res://scenes/line_edit.gd:24</span><span class="message">Variable 'leftmost_y' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/line_edit.gd"><span class="location">res://scenes/line_edit.gd:25</span><span class="message">Variable 'rightmost_y' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/line_edit.gd"><span class="location">res://scenes/line_edit.gd:27</span><span class="message">Variable 'in_x_bounds' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/line_edit.gd"><span class="location">res://scenes/line_edit.gd:28</span><span class="message">Variable 'in_y_bounds' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="empty-function" data-file="res://scenes/line_edit.gd"><span class="location">res://scenes/line_edit.gd:10</span><span class="message">Function '_process' is empty or contains only 'pass'</span><span class="check-id">empty-function</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/line_edit.gd"><span class="location">res://scenes/line_edit.gd:18</span><span class="message">Function 'clicked_outside_answer_box' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/shapes_paper.gd"><span class="location">res://scenes/shapes_paper.gd:4</span><span class="message">Variable 'players_detected' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/shapes_paper.gd"><span class="location">res://scenes/shapes_paper.gd:5</span><span class="message">Variable 'homework_opened' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="naming-signal" data-file="res://scenes/shapes_paper.gd"><span class="location">res://scenes/shapes_paper.gd:7</span><span class="message">Signal 'shapes_homework_viewed;' should be snake_case</span><span class="check-id">naming-signal</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/shapes_paper.gd"><span class="location">res://scenes/shapes_paper.gd:37</span><span class="message">Variable 'homework' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/shapes_paper.gd"><span class="location">res://scenes/shapes_paper.gd:38</span><span class="message">Variable 'answer' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/shapes_paper.gd"><span class="location">res://scenes/shapes_paper.gd:51</span><span class="message">Variable 'homework_sprite' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/shapes_paper.gd"><span class="location">res://scenes/shapes_paper.gd:55</span><span class="message">Variable 'inventory' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/shapes_paper.gd"><span class="location">res://scenes/shapes_paper.gd:63</span><span class="message">Variable 'correct_answer' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/shapes_paper.gd"><span class="location">res://scenes/shapes_paper.gd:65</span><span class="message">Variable 'homework' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/shapes_paper.gd"><span class="location">res://scenes/shapes_paper.gd:66</span><span class="message">Variable 'answer' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/shapes_paper.gd"><span class="location">res://scenes/shapes_paper.gd:27</span><span class="message">Function 'body_entry' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/shapes_paper.gd"><span class="location">res://scenes/shapes_paper.gd:32</span><span class="message">Function 'body_exit' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/shapes_paper.gd"><span class="location">res://scenes/shapes_paper.gd:36</span><span class="message">Function 'interact_with_homework' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/shapes_paper.gd"><span class="location">res://scenes/shapes_paper.gd:49</span><span class="message">Function 'show_homework' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/shapes_paper.gd"><span class="location">res://scenes/shapes_paper.gd:62</span><span class="message">Function 'check_answer' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/collectibles.gd"><span class="location">res://scenes/collectibles.gd:6</span><span class="message">Variable 'players_detected' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/collectibles.gd"><span class="location">res://scenes/collectibles.gd:7</span><span class="message">Variable 'curr_player' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/collectibles.gd"><span class="location">res://scenes/collectibles.gd:39</span><span class="message">Variable 'inv' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/collectibles.gd"><span class="location">res://scenes/collectibles.gd:28</span><span class="message">Function 'body_entry' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/collectibles.gd"><span class="location">res://scenes/collectibles.gd:33</span><span class="message">Function 'body_exit' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/collectibles.gd"><span class="location">res://scenes/collectibles.gd:37</span><span class="message">Function 'pickup' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/human_box.gd"><span class="location">res://scenes/human_box.gd:3</span><span class="message">Variable 'can_move' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/human_box.gd"><span class="location">res://scenes/human_box.gd:25</span><span class="message">Variable 'collision' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/human_box.gd"><span class="location">res://scenes/human_box.gd:26</span><span class="message">Variable 'collision_box' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/human_box.gd"><span class="location">res://scenes/human_box.gd:27</span><span class="message">Variable 'normal' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/human_box.gd"><span class="location">res://scenes/human_box.gd:44</span><span class="message">Variable 'colliding_with_another_box' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/human_box.gd"><span class="location">res://scenes/human_box.gd:47</span><span class="message">Variable 'collision' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/human_box.gd"><span class="location">res://scenes/human_box.gd:48</span><span class="message">Variable 'collision_box' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/human_box.gd"><span class="location">res://scenes/human_box.gd:43</span><span class="message">Function 'push_by_player' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="empty-function" data-file="res://scenes/player2.gd"><span class="location">res://scenes/player2.gd:10</span><span class="message">Function '_process' is empty or contains only 'pass'</span><span class="check-id">empty-function</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/inventory.gd"><span class="location">res://scenes/inventory.gd:10</span><span class="message">Variable 'count' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/inventory.gd"><span class="location">res://scenes/inventory.gd:17</span><span class="message">Variable 'index' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/box_collision.gd"><span class="location">res://scenes/box_collision.gd:6</span><span class="message">Variable 'box' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/box_collision.gd"><span class="location">res://scenes/box_collision.gd:18</span><span class="message">Variable 'instance' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="empty-function" data-file="res://scenes/box_collision.gd"><span class="location">res://scenes/box_collision.gd:14</span><span class="message">Function '_process' is empty or contains only 'pass'</span><span class="check-id">empty-function</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/box_collision.gd"><span class="location">res://scenes/box_collision.gd:17</span><span class="message">Function 'add_to_environment' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="empty-function" data-file="res://scenes/camera_2d.gd"><span class="location">res://scenes/camera_2d.gd:14</span><span class="message">Function '_process' is empty or contains only 'pass'</span><span class="check-id">empty-function</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/answer_text_box.gd"><span class="location">res://scenes/answer_text_box.gd:8</span><span class="message">Variable 'currentContent' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="empty-function" data-file="res://scenes/answer_text_box.gd"><span class="location">res://scenes/answer_text_box.gd:16</span><span class="message">Function '_process' is empty or contains only 'pass'</span><span class="check-id">empty-function</span></div>
+<div class="issue" data-severity="info" data-type="naming-function" data-file="res://scenes/answer_text_box.gd"><span class="location">res://scenes/answer_text_box.gd:19</span><span class="message">Private function '_on_LineEdit_text_entered' should be _snake_case</span><span class="check-id">naming-function</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/box.gd"><span class="location">res://scenes/box.gd:3</span><span class="message">Variable 'can_move' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/box.gd"><span class="location">res://scenes/box.gd:24</span><span class="message">Variable 'collision' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/box.gd"><span class="location">res://scenes/box.gd:25</span><span class="message">Variable 'collision_box' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/box.gd"><span class="location">res://scenes/box.gd:26</span><span class="message">Variable 'normal' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/box.gd"><span class="location">res://scenes/box.gd:43</span><span class="message">Variable 'colliding_with_another_box' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/box.gd"><span class="location">res://scenes/box.gd:46</span><span class="message">Variable 'collision' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/box.gd"><span class="location">res://scenes/box.gd:47</span><span class="message">Variable 'collision_box' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/box.gd"><span class="location">res://scenes/box.gd:42</span><span class="message">Function 'push_by_player' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/ordered_puzzle_paper.gd"><span class="location">res://scenes/ordered_puzzle_paper.gd:4</span><span class="message">Variable 'players_detected' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/ordered_puzzle_paper.gd"><span class="location">res://scenes/ordered_puzzle_paper.gd:5</span><span class="message">Variable 'note_opened' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="naming-signal" data-file="res://scenes/ordered_puzzle_paper.gd"><span class="location">res://scenes/ordered_puzzle_paper.gd:7</span><span class="message">Signal 'shapes_homework_viewed;' should be snake_case</span><span class="check-id">naming-signal</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/ordered_puzzle_paper.gd"><span class="location">res://scenes/ordered_puzzle_paper.gd:34</span><span class="message">Variable 'note' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/ordered_puzzle_paper.gd"><span class="location">res://scenes/ordered_puzzle_paper.gd:45</span><span class="message">Variable 'note_sprite' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/ordered_puzzle_paper.gd"><span class="location">res://scenes/ordered_puzzle_paper.gd:24</span><span class="message">Function 'body_entry' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/ordered_puzzle_paper.gd"><span class="location">res://scenes/ordered_puzzle_paper.gd:29</span><span class="message">Function 'body_exit' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/ordered_puzzle_paper.gd"><span class="location">res://scenes/ordered_puzzle_paper.gd:33</span><span class="message">Function 'interact_with_note' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/ordered_puzzle_paper.gd"><span class="location">res://scenes/ordered_puzzle_paper.gd:43</span><span class="message">Function 'show_note' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/paper.gd"><span class="location">res://scenes/paper.gd:4</span><span class="message">Variable 'players_detected' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="naming-signal" data-file="res://scenes/paper.gd"><span class="location">res://scenes/paper.gd:6</span><span class="message">Signal 'paper_viewed;' should be snake_case</span><span class="check-id">naming-signal</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/paper.gd"><span class="location">res://scenes/paper.gd:23</span><span class="message">Function 'body_entry' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/paper.gd"><span class="location">res://scenes/paper.gd:28</span><span class="message">Function 'body_exit' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/spirit_box.gd"><span class="location">res://scenes/spirit_box.gd:3</span><span class="message">Variable 'can_move' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/spirit_box.gd"><span class="location">res://scenes/spirit_box.gd:24</span><span class="message">Variable 'collision' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/spirit_box.gd"><span class="location">res://scenes/spirit_box.gd:25</span><span class="message">Variable 'collision_box' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/spirit_box.gd"><span class="location">res://scenes/spirit_box.gd:26</span><span class="message">Variable 'normal' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/spirit_box.gd"><span class="location">res://scenes/spirit_box.gd:43</span><span class="message">Variable 'colliding_with_another_box' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/spirit_box.gd"><span class="location">res://scenes/spirit_box.gd:46</span><span class="message">Variable 'collision' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/spirit_box.gd"><span class="location">res://scenes/spirit_box.gd:47</span><span class="message">Variable 'collision_box' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scenes/spirit_box.gd"><span class="location">res://scenes/spirit_box.gd:42</span><span class="message">Function 'push_by_player' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/debug_console.gd"><span class="location">res://scenes/debug_console.gd:8</span><span class="message">Variable 'debuggingWindowIsOpen' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="naming-function" data-file="res://scenes/debug_console.gd"><span class="location">res://scenes/debug_console.gd:26</span><span class="message">Private function '_on_LineEdit_text_entered' should be _snake_case</span><span class="check-id">naming-function</span></div>
+<div class="issue" data-severity="info" data-type="empty-function" data-file="res://scenes/sub_viewport.gd"><span class="location">res://scenes/sub_viewport.gd:11</span><span class="message">Function '_process' is empty or contains only 'pass'</span><span class="check-id">empty-function</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/settings_button.gd"><span class="location">res://scenes/settings_button.gd:3</span><span class="message">Variable 'settings_screen_is_open' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/settings_button.gd"><span class="location">res://scenes/settings_button.gd:7</span><span class="message">Variable 'settings_screen' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/settings_button.gd"><span class="location">res://scenes/settings_button.gd:15</span><span class="message">Variable 'settings_screen' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="empty-function" data-file="res://scenes/settings_button.gd"><span class="location">res://scenes/settings_button.gd:11</span><span class="message">Function '_process' is empty or contains only 'pass'</span><span class="check-id">empty-function</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scenes/movement_cont.gd"><span class="location">res://scenes/movement_cont.gd:3</span><span class="message">Variable 'shapes_homework_paper' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="empty-function" data-file="res://scripts/door.gd"><span class="location">res://scripts/door.gd:10</span><span class="message">Function '_process' is empty or contains only 'pass'</span><span class="check-id">empty-function</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/locked_door.gd"><span class="location">res://scripts/locked_door.gd:9</span><span class="message">Variable 'pressed_buttons' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/locked_door.gd"><span class="location">res://scripts/locked_door.gd:25</span><span class="message">Variable 'all_buttons_pressed' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/locked_door.gd"><span class="location">res://scripts/locked_door.gd:47</span><span class="message">Variable 'buttons_are_in_order' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scripts/locked_door.gd"><span class="location">res://scripts/locked_door.gd:24</span><span class="message">Function 'check_synced_buttons' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scripts/locked_door.gd"><span class="location">res://scripts/locked_door.gd:40</span><span class="message">Function 'check_ordered_buttons' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scripts/locked_door.gd"><span class="location">res://scripts/locked_door.gd:63</span><span class="message">Function 'on_button_object_emitted' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/player2mv.gd"><span class="location">res://scripts/player2mv.gd:9</span><span class="message">Variable 'direction' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scripts/player2mv.gd"><span class="location">res://scripts/player2mv.gd:13</span><span class="message">Function 'get_direction' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="long-line" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:12</span><span class="message">Line exceeds 120 chars (124)</span><span class="check-id">long-line</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:16</span><span class="message">Variable 'direction' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="long-line" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:41</span><span class="message">Line exceeds 120 chars (122)</span><span class="check-id">long-line</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:59</span><span class="message">Variable 'collision' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:60</span><span class="message">Variable 'collision_box' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:63</span><span class="message">Variable 'normal' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:90</span><span class="message">Variable 'inventory' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:94</span><span class="message">Variable 'collision' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:95</span><span class="message">Variable 'door' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:96</span><span class="message">Variable 'door_verify' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:51</span><span class="message">Function 'check_box_collision' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scripts/playermv.gd"><span class="location">res://scripts/playermv.gd:88</span><span class="message">Function 'check_to_open_door' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/inventory.gd"><span class="location">res://scripts/inventory.gd:14</span><span class="message">Variable 'index' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scripts/panel.gd"><span class="location">res://scripts/panel.gd:5</span><span class="message">Function 'update' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/ghostItem.gd"><span class="location">res://scripts/ghostItem.gd:5</span><span class="message">Variable 'player_detected' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/ghostItem.gd"><span class="location">res://scripts/ghostItem.gd:6</span><span class="message">Variable 'curr_player' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/ghostItem.gd"><span class="location">res://scripts/ghostItem.gd:35</span><span class="message">Variable 'inv' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scripts/ghostItem.gd"><span class="location">res://scripts/ghostItem.gd:19</span><span class="message">Function 'body_entry' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scripts/ghostItem.gd"><span class="location">res://scripts/ghostItem.gd:23</span><span class="message">Function 'body_exit' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scripts/ghostItem.gd"><span class="location">res://scripts/ghostItem.gd:28</span><span class="message">Function 'pickup' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/inventoryui.gd"><span class="location">res://scripts/inventoryui.gd:7</span><span class="message">Variable 'slots' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="magic-number" data-file="res://scripts/inventoryui.gd"><span class="location">res://scripts/inventoryui.gd:11</span><span class="message">Magic number 6 (consider using a named constant)</span><span class="check-id">magic-number</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/inventoryui.gd"><span class="location">res://scripts/inventoryui.gd:12</span><span class="message">Variable 'slotCell' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/inventoryui.gd"><span class="location">res://scripts/inventoryui.gd:19</span><span class="message">Variable 'icon' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/inventoryui.gd"><span class="location">res://scripts/inventoryui.gd:24</span><span class="message">Variable 'icon' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="magic-number" data-file="res://scripts/inventoryui.gd"><span class="location">res://scripts/inventoryui.gd:25</span><span class="message">Magic number 50 (consider using a named constant)</span><span class="check-id">magic-number</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/inventoryui.gd"><span class="location">res://scripts/inventoryui.gd:27</span><span class="message">Variable 'item' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-type-hint" data-file="res://scripts/inventoryui.gd"><span class="location">res://scripts/inventoryui.gd:31</span><span class="message">Variable 'loaded' has no type annotation</span><span class="check-id">missing-type-hint</span></div>
+<div class="issue" data-severity="info" data-type="missing-return-type" data-file="res://scripts/inventoryui.gd"><span class="location">res://scripts/inventoryui.gd:17</span><span class="message">Function 'update' has no return type annotation</span><span class="check-id">missing-return-type</span></div>
+</div>
+</div>
+<div id="noResults" class="no-results" style="display:none;">No issues match the current filters</div>
+
+<div class="footer">
+<p>Generated by <a href="https://poplava.itch.io">GDScript Linter</a> in 73ms</p>
+</div>
+</div>
+
+<script>
+// Type name mapping and severity->types data for linked filtering
+const TYPE_NAMES = {"missing-type-hint":"Missing Type Hint","commented-code":"Commented Code","print-statement":"Print Statement","long-line":"Long Line","long-function":"Long Function","missing-return-type":"Missing Return Type","unused-variable":"Unused Variable","empty-function":"Empty Function","high-complexity":"High Complexity","naming-signal":"Naming: Signal","naming-function":"Naming: Function","magic-number":"Magic Number","deep-nesting":"Deep Nesting"};
+const SEVERITY_TYPES = {"all":["commented-code","deep-nesting","empty-function","high-complexity","long-function","long-line","magic-number","missing-return-type","missing-type-hint","naming-function","naming-signal","print-statement","unused-variable"],"critical":["high-complexity"],"warning":["deep-nesting","high-complexity","long-function","print-statement","unused-variable"],"info":["commented-code","empty-function","long-line","magic-number","missing-return-type","missing-type-hint","naming-function","naming-signal"]};
+
+function populateTypeFilter(severity) {
+	const typeFilter = document.getElementById('typeFilter');
+	const prevValue = typeFilter.value;
+
+	// Clear and rebuild options
+	typeFilter.innerHTML = '<option value="all">All Types</option>';
+
+	const types = SEVERITY_TYPES[severity] || [];
+	types.forEach(checkId => {
+		const option = document.createElement('option');
+		option.value = checkId;
+		option.textContent = TYPE_NAMES[checkId] || checkId;
+		typeFilter.appendChild(option);
+	});
+
+	// Try to restore previous selection if it still exists
+	const options = Array.from(typeFilter.options);
+	const found = options.find(opt => opt.value === prevValue);
+	if (found) {
+		typeFilter.value = prevValue;
+	} else {
+		typeFilter.value = 'all';
+	}
+}
+
+function onSeverityChange() {
+	const severity = document.getElementById('severityFilter').value;
+	populateTypeFilter(severity);
+	applyFilters();
+}
+
+function applyFilters() {
+	const severity = document.getElementById('severityFilter').value;
+	const type = document.getElementById('typeFilter').value;
+	const file = document.getElementById('fileFilter').value.toLowerCase();
+
+	const issues = document.querySelectorAll('.issue');
+	let visibleCount = 0;
+
+	issues.forEach(issue => {
+		const issueSeverity = issue.dataset.severity;
+		const issueType = issue.dataset.type;
+		const issueFile = issue.dataset.file.toLowerCase();
+
+		const matchSeverity = severity === 'all' || issueSeverity === severity;
+		const matchType = type === 'all' || issueType === type;
+		const matchFile = file === '' || issueFile.includes(file);
+
+		if (matchSeverity && matchType && matchFile) {
+			issue.classList.remove('hidden');
+			visibleCount++;
+		} else {
+			issue.classList.add('hidden');
+		}
+	});
+
+	// Update section visibility and counts
+	document.querySelectorAll('.issues-section').forEach(section => {
+		const visibleInSection = section.querySelectorAll('.issue:not(.hidden)').length;
+		section.querySelector('.count').textContent = visibleInSection;
+		section.style.display = visibleInSection > 0 ? 'block' : 'none';
+	});
+
+	// Show/hide no results message
+	document.getElementById('noResults').style.display = visibleCount === 0 ? 'block' : 'none';
+
+	// Update filter count
+	const total = issues.length;
+	document.getElementById('filterCount').textContent = visibleCount === total ? '' : visibleCount + ' / ' + total + ' shown';
+}
+
+// Initialize
+populateTypeFilter('all');
+applyFilters();
+</script>
+</body>
+</html>

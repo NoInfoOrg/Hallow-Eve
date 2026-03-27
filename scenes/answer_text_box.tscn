@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cr6aiqw65fcow"]
 
-[ext_resource type="Script" uid="uid://b00g47c2q0cfk" path="res://scenes/answer_text_box.gd" id="1_8p8io"]
-[ext_resource type="Script" uid="uid://c03tnt5gisiqm" path="res://scenes/line_edit.gd" id="2_nn7dr"]
+[ext_resource type="Script" uid="uid://b00g47c2q0cfk" path="res://scripts/answer_text_box.gd" id="1_8p8io"]
+[ext_resource type="Script" uid="uid://c03tnt5gisiqm" path="res://scripts/line_edit.gd" id="2_nn7dr"]
 
 [node name="Answer Text Box" type="Node2D" unique_id=1803316721]
 script = ExtResource("1_8p8io")

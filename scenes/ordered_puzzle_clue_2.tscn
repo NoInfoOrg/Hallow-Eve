@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b0n8v85bgliw4"]
+
+[ext_resource type="Texture2D" uid="uid://dhnkvm7dr4vwl" path="res://assets/popups/ordered_button_puzzle/version_2_spirit_version_ordered_buttons_puzzle_note_hint.png" id="1_gkjkj"]
+[ext_resource type="Texture2D" uid="uid://by5ktw1bow78f" path="res://assets/popups/ordered_button_puzzle/version_2_human_version_ordered_buttons_puzzle_note_hint.png" id="2_5jyf0"]
+[ext_resource type="Texture2D" uid="uid://djghi2uw38u7i" path="res://assets/popups/ordered_button_puzzle/version_2_ordered_buttons_puzzle_note_hint.png" id="3_0y258"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ulyeo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gkjkj")
+}],
+"loop": true,
+"name": &"Eve",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5jyf0")
+}],
+"loop": true,
+"name": &"Willow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0y258")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Ordered Puzzle Clue" type="Node2D" unique_id=1699087742]
+
+[node name="Versions" type="AnimatedSprite2D" parent="." unique_id=287904433]
+sprite_frames = SubResource("SpriteFrames_ulyeo")

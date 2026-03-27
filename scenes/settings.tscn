@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dpmykk27ckpvf"]
+
+[ext_resource type="Script" uid="uid://dhyqa3bocy5m1" path="res://scripts/back_to_menu.gd" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://wusystxbx4io" path="res://scripts/toggle_inventory.gd" id="1_r6d6q"]
+
+[node name="Settings Screen" type="CanvasLayer" unique_id=1267861807]
+
+[node name="Control" type="Control" parent="." unique_id=8696036]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 201.0
+offset_top = 56.0
+offset_right = 241.0
+offset_bottom = 96.0
+metadata/_edit_group_ = true
+
+[node name="Panel" type="Panel" parent="Control" unique_id=897737851]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 135.0
+offset_right = 611.0
+offset_bottom = 395.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel" unique_id=869553438]
+layout_mode = 0
+offset_right = 428.0
+offset_bottom = 66.0
+
+[node name="Toggle Inventory" type="Button" parent="Control/Panel/VBoxContainer" unique_id=1603914495]
+layout_mode = 2
+text = "Hide Inventory"
+script = ExtResource("1_r6d6q")
+
+[node name="Spacer 1" type="Label" parent="Control/Panel/VBoxContainer" unique_id=1733995893]
+layout_mode = 2
+
+[node name="Master Volume" type="Label" parent="Control/Panel/VBoxContainer" unique_id=29631271]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="Master Volume Slider" type="HScrollBar" parent="Control/Panel/VBoxContainer" unique_id=181821311]
+layout_mode = 2
+
+[node name="Spacer 2" type="Label" parent="Control/Panel/VBoxContainer" unique_id=1506149287]
+layout_mode = 2
+
+[node name="Back to Menu" type="Button" parent="Control/Panel/VBoxContainer" unique_id=486492223]
+layout_mode = 2
+text = "Back to Menu"
+script = ExtResource("1_5p8wc")
+
+[connection signal="pressed" from="Control/Panel/VBoxContainer/Toggle Inventory" to="Control/Panel/VBoxContainer/Toggle Inventory" method="_on_pressed"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer/Back to Menu" to="Control/Panel/VBoxContainer/Back to Menu" method="_on_pressed"]
