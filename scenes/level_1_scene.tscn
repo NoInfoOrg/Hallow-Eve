@@ -15,7 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://c83a2a5ujdc16" path="res://scenes/shapes_paper.tscn" id="12_2ydo2"]
 [ext_resource type="Texture2D" uid="uid://dl2r3y450gx41" path="res://assets/sprites/environment/SleeplessChild_Bed-Complete.png" id="13_2ydo2"]
 [ext_resource type="PackedScene" uid="uid://bwd22jx5mssx0" path="res://scenes/black_light_flashlight_item.tscn" id="13_xb17u"]
+[ext_resource type="Texture2D" uid="uid://xtcv2jlm8wse" path="res://assets/sprites/environment/Nightstand.png" id="14_us6j8"]
 [ext_resource type="Texture2D" uid="uid://dkmocmuvlptk4" path="res://assets/tempSprites/key_placeholder.png" id="14_xb17u"]
+[ext_resource type="Texture2D" uid="uid://b35c3rfouw1qh" path="res://assets/sprites/environment/Toilet_Open.png" id="15_5yyo0"]
+[ext_resource type="Texture2D" uid="uid://cwigx0icmjdko" path="res://assets/sprites/environment/Sink_White.png" id="16_pqgcp"]
+[ext_resource type="Texture2D" uid="uid://dl2y76d8iqjfq" path="res://assets/sprites/environment/Tub.png" id="17_btg6x"]
 [ext_resource type="PackedScene" uid="uid://dwu4oi2tru041" path="res://scenes/collectibles.tscn" id="17_tqr37"]
 [ext_resource type="Script" path="res://scripts/item.gd" id="19_4ymq3"]
 [ext_resource type="Texture2D" uid="uid://butu7b2wedoks" path="res://assets/tempSprites/freddy_fazbear_shocked.png" id="19_e5gav"]
@@ -94,10 +98,10 @@ z_index = 9
 collision_mask = 4294967226
 slide_on_ceiling = false
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=781017762]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="MovementCont" unique_id=781017762]
 navigation_polygon = SubResource("NavigationPolygon_e5gav")
 
-[node name="Level 1 Floorplan" parent="NavigationRegion2D" unique_id=1850241566 instance=ExtResource("3_vdyla")]
+[node name="Level 1 Floorplan" parent="MovementCont/NavigationRegion2D" unique_id=1850241566 instance=ExtResource("3_vdyla")]
 position = Vector2(-442, -162)
 
 [node name="Human Box 1" parent="." unique_id=748287882 instance=ExtResource("7_cowtf")]
@@ -322,10 +326,37 @@ required_key = NodePath("../key-study")
 
 [node name="SleeplessChildRoom" type="Node2D" parent="." unique_id=919085109]
 
-[node name="Sprite2D" type="Sprite2D" parent="SleeplessChildRoom" unique_id=1146894750]
+[node name="Bed" type="Sprite2D" parent="SleeplessChildRoom" unique_id=1146894750]
 z_index = 6
-position = Vector2(-658, 1933)
+position = Vector2(-680, 1864)
+scale = Vector2(0.625, 0.625)
 texture = ExtResource("13_2ydo2")
+
+[node name="BedsideTable" type="Sprite2D" parent="SleeplessChildRoom" unique_id=716277504]
+z_index = 6
+position = Vector2(-470, 1806)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("14_us6j8")
+
+[node name="BathroomL1" type="Node2D" parent="." unique_id=418953043]
+
+[node name="Toliet" type="Sprite2D" parent="BathroomL1" unique_id=2000726194]
+z_index = 6
+position = Vector2(283, 795.99994)
+scale = Vector2(0.425, 0.425)
+texture = ExtResource("15_5yyo0")
+
+[node name="Sink" type="Sprite2D" parent="BathroomL1" unique_id=195883167]
+z_index = 10
+position = Vector2(124, 805)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("16_pqgcp")
+
+[node name="Tub" type="Sprite2D" parent="BathroomL1" unique_id=2141753036]
+z_index = 6
+position = Vector2(-197, 1189)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("17_btg6x")
 
 [node name="Shapes Paper" parent="." unique_id=1319041526 instance=ExtResource("12_2ydo2")]
 z_index = 3
