@@ -24,8 +24,8 @@ func _physics_process(delta: float) -> void:
 		var collision = get_slide_collision(i)
 		var collision_box = collision.get_collider()
 		var normal = collision.get_normal()
-		# print(normal)
 		
+
 		const LEFT_DIRECTION = Vector2(-1.0, 0.0)
 		const RIGHT_DIRECTION = Vector2(1.0, 0.0)
 		const UP_DIRECTION = Vector2(0.0, -1.0)

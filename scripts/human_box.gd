@@ -1,10 +1,21 @@
 extends CharacterBody2D
 
 var can_move = true
-
+var initial_positions = {}
 const MAX_PUSH_SPEED = 150.0
 
+func _ready() -> void:
+	var boxes = get_tree().get_nodes_in_group("Boxes")
+	for box in boxes:
+		initial_positions[box] = box.position
+		
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Refresh"):
+		reset()
+
 func _physics_process(delta: float) -> void:
+
 	if (velocity[0] > MAX_PUSH_SPEED):
 		velocity = Vector2(MAX_PUSH_SPEED, velocity[1])
 	elif (velocity[0] < -MAX_PUSH_SPEED):
@@ -39,10 +50,10 @@ func _physics_process(delta: float) -> void:
 				velocity = Vector2(0, 0)
 			elif velocity[1] != 0 and (normal == LEFT_DIRECTION or normal == RIGHT_DIRECTION):
 				velocity = Vector2(0, 0)
-
+		
 func push_by_player(direction, push_force):
 	var colliding_with_another_box = false
-	
+
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collision_box = collision.get_collider()
@@ -53,3 +64,9 @@ func push_by_player(direction, push_force):
 	
 	if not colliding_with_another_box:
 		velocity = direction * push_force
+		
+func reset():
+	for box in initial_positions:
+		box.position = initial_positions[box]
+		
+		
