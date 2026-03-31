@@ -65,10 +65,16 @@ func deal_strike_damage_to_player(starting_node, player_name, damage_in_strikes)
 	if player_name == "Eve - P1":
 		var eve_sanity_node = find_player_one_sanity(starting_node)
 		eve_health_strikes = decrease_sanity(eve_sanity_node, damage_in_strikes, eve_health_strikes)
+		
+		#print("NEW EVE BUFFER HEALTH IS: ")
+		#print(eve_health_strikes)
 	
 	elif player_name == "Willow - P2":
 		var willow_sanity_node = find_player_two_sanity(starting_node)
 		willow_health_strikes = decrease_sanity(willow_sanity_node, damage_in_strikes, willow_health_strikes)
+	
+		#print("NEW WILLOW BUFFER HEALTH IS: ")
+		#print(willow_health_strikes)
 	
 	else:
 		print("global_information.gd : deal_strike_damage_to_player() : player_name is not Eve - P1 or Willow - P2")
@@ -94,3 +100,18 @@ func decrease_sanity(sanity_node, damage_in_strikes, player_health_strikes):
 		sanity_node.value -= BUFFER_BETWEEN_SANITY_ICONS
 	
 	return player_health_strikes
+
+func insta_defeat_player(starting_node, player_name):
+	var insta_defeat_strike_amount = null
+	
+	if player_name == "Eve - P1":
+		insta_defeat_strike_amount = eve_health_strikes
+	
+	elif player_name == "Willow - P2":
+		insta_defeat_strike_amount = willow_health_strikes
+	
+	else:
+		print("insta_defeat_player : player_name is not Eve - P1 or Willow - P2")
+		return
+	
+	deal_strike_damage_to_player(starting_node, player_name, insta_defeat_strike_amount)
