@@ -36,3 +36,7 @@ rotation = 0.62133723
 
 [node name="Light Reflecting Mirror2" parent="." unique_id=1312982377 instance=ExtResource("6_13jue")]
 position = Vector2(952, 257)
+
+[node name="Light Reflecting Mirror3" parent="." unique_id=823444591 instance=ExtResource("6_13jue")]
+position = Vector2(699, 618)
+rotation = 1.5707964
