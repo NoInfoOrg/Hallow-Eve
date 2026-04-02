@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cqn40kyihmkj"]
+
+[ext_resource type="Script" uid="uid://c82uj2ppyd1lo" path="res://plushie.gd" id="1_2usf5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lm74q"]
+radius = 225.03555
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ma8tr"]
+radius = 26.0
+height = 62.0
+
+[node name="Plushie" type="CharacterBody2D" unique_id=741369988]
+script = ExtResource("1_2usf5")
+
+[node name="EnemySprite" type="Sprite2D" parent="." unique_id=995474584]
+
+[node name="DetectionZone" type="Area2D" parent="." unique_id=1780083783]
+collision_layer = 256
+collision_mask = 65
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone" unique_id=1056961871]
+shape = SubResource("CircleShape2D_lm74q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=626459341]
+position = Vector2(-1, 35)
+shape = SubResource("CapsuleShape2D_ma8tr")
+debug_color = Color(0.97292453, 0, 0.44096652, 0.41960785)
+
+[connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
+[connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]

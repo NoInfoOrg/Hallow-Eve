@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cd7gcsfuddwic" path="res://assets/spritesheets/p2/Willow_FullHealth_SpriteSheet.png" id="2_agjl5"]
 [ext_resource type="Script" uid="uid://5it8olpe6dgr" path="res://scripts/inventory.gd" id="3_agjl5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c08b3"]
-size = Vector2(68, 244)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agjl5"]
+radius = 14.0
+height = 188.0
 
 [sub_resource type="Animation" id="Animation_dj65e"]
 length = 0.001
@@ -97,15 +98,14 @@ collision_mask = 186
 script = ExtResource("1_agjl5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=922027651]
-position = Vector2(32, 122)
 scale = Vector2(0.49799198, 0.503992)
 texture = ExtResource("2_agjl5")
 hframes = 10
 vframes = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=862284075]
-position = Vector2(29, 125)
-shape = SubResource("RectangleShape2D_c08b3")
+position = Vector2(1, 30)
+shape = SubResource("CapsuleShape2D_agjl5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1640059439]
 root_node = NodePath("../Sprite2D")
