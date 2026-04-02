@@ -1,0 +1,50 @@
+[gd_scene format=4 uid="uid://c7ard73cuagsh"]
+
+[ext_resource type="TileSet" uid="uid://dt13bvgr5foh4" path="res://assets/tilesets/side_walls.tres" id="1_6q8gr"]
+[ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="2_7mxj0"]
+[ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="3_wad56"]
+[ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="5_qt408"]
+[ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="6_lc6yf"]
+[ext_resource type="PackedScene" uid="uid://cqn40kyihmkj" path="res://scenes/plushie.tscn" id="7_6q8gr"]
+[ext_resource type="PackedScene" path="res://scenes/game_over_screen.tscn" id="7_kmwlb"]
+[ext_resource type="Texture2D" uid="uid://b2imuhf0472ld" path="res://assets/sprites/enemy/Plushies_Freddy.png" id="8_7mxj0"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8xxs1"]
+vertices = PackedVector2Array(1143, 638.0078, 8.9765625, 639.97656, 340, 460, 940, 250, 290, 460, 940, 200, 1143, 9.9765625, 8.0078125, 8.0078125, 590, 200, 590, 250, 340, 230, 290, 230)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1), PackedInt32Array(3, 5, 6, 0), PackedInt32Array(7, 6, 5, 8), PackedInt32Array(9, 3, 2), PackedInt32Array(9, 2, 10, 8), PackedInt32Array(4, 1, 7, 11), PackedInt32Array(11, 7, 8, 10)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-2, -2, 1153, 0, 1153, 648, -1, 650)])
+
+[node name="Plushie Enemy Testing Environment" type="Node2D" unique_id=770288169]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1506282309]
+navigation_polygon = SubResource("NavigationPolygon_8xxs1")
+
+[node name="Side Walls - C" type="TileMapLayer" parent="NavigationRegion2D" unique_id=607139408]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAKAA4AAQAAAAgAAAAKAA0AAQAAAAgAAAAKAAwAAQAAAAgAAAAKAAsAAQAAAAgAAAAKAAoAAQAAAAgAAAAKAAkAAQAAAAgAAAAKAAgAAQAAAAgAAAAUAAcAAQAAAAIAAQAVAAcAAQAAAAIAAQAWAAcAAQAAAAIAAQAXAAcAAQAAAAIAAQAYAAcAAQAAAAIAAQAZAAcAAQAAAAIAAQAaAAcAAQAAAAIAAQAbAAcAAQAAAAIAAQAcAAcAAQAAAAIAAQAdAAcAAQAAAAIAAQAeAAcAAQAAAAIAAQA=")
+tile_set = ExtResource("1_6q8gr")
+
+[node name="Eve - P1" parent="." unique_id=810202292 groups=["Players"] instance=ExtResource("2_7mxj0")]
+position = Vector2(119, 152)
+
+[node name="Willow - P2" parent="." unique_id=882182450 groups=["Players"] instance=ExtResource("3_wad56")]
+position = Vector2(195, 44)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1259255408]
+
+[node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("5_qt408")]
+position = Vector2(452, 597)
+
+[node name="UI" parent="." unique_id=1522527901 instance=ExtResource("6_lc6yf")]
+
+[node name="Game Over Screen" parent="." unique_id=297437709 instance=ExtResource("7_kmwlb")]
+visible = false
+
+[node name="Plushie" parent="." unique_id=741369988 node_paths=PackedStringArray("targets") instance=ExtResource("7_6q8gr")]
+position = Vector2(685, 413)
+collision_layer = 0
+collision_mask = 65
+plushieSprite = ExtResource("8_7mxj0")
+speed = 80
+targets = [null, null]

@@ -58,6 +58,7 @@ Mirrors=""
 "Spirit Buttons"=""
 "Human Buttons"=""
 "Communal Buttons"=""
+Players=""
 
 [input]
 
@@ -150,6 +151,7 @@ Refresh={
 2d_physics/layer_5="Doors"
 2d_physics/layer_6="Interactables"
 2d_physics/layer_7="Player 2"
+2d_physics/layer_8="Enemies"
 
 [physics]
 

@@ -14,9 +14,10 @@ var player = null
 
 func _physics_process(delta: float) -> void:
 	if playerChase:
-		#var playerDirection = (player.position - position).normalized()
-		#position += playerDirection * speed * delta
-		position += (player.position - position) / speed	
+		var playerDirection = (player.position - position).normalized()
+		position += playerDirection * speed * delta
+		#position += (player.position - position)
+	
 func get_closest_target():
 	var current_lowest_distance = 0
 	var closest_target
