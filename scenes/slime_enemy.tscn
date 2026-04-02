@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://d1p1fj2ywtequ"]
+
+[ext_resource type="Script" uid="uid://b8g20vmojpavk" path="res://scripts/slime_enemy.gd" id="1_30a25"]
+[ext_resource type="Texture2D" uid="uid://du3qsia21f06q" path="res://assets/sprites/enemy/Slimes_Gumpy.png" id="2_fq0mw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2blxa"]
+radius = 182.01099
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hf6xp"]
+radius = 22.0
+height = 72.0
+
+[node name="Slime" type="CharacterBody2D" unique_id=2138321505]
+script = ExtResource("1_30a25")
+
+[node name="SlimeSprite2D" type="Sprite2D" parent="." unique_id=2022833721]
+texture = ExtResource("2_fq0mw")
+
+[node name="detection_area" type="Area2D" parent="." unique_id=309045752]
+collision_layer = 0
+collision_mask = 65
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area" unique_id=25697084]
+shape = SubResource("CircleShape2D_2blxa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1044554091]
+position = Vector2(0, 1)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_hf6xp")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
