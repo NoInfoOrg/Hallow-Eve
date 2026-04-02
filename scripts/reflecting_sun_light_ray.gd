@@ -14,61 +14,42 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if light_ray.is_colliding():
-		if reflecting_light_already_made:
+	check_for_collision(self)
+
+func check_for_collision(full_light_ray_instance):
+	var ray_cast = full_light_ray_instance.get_node("RayCast2D")
+	var ray_line = full_light_ray_instance.get_node("Line2D")
+	
+	if ray_cast.is_colliding():
+		if full_light_ray_instance.reflecting_light_already_made:
 			return
 		
-		var collider = light_ray.get_collider()
-		var collision_point = light_ray.get_collision_point()
+		var collider = ray_cast.get_collider()
+		var collision_point = ray_cast.get_collision_point()
 		var local_collision_point = to_local(collision_point)
 		
-		#print(collider)
-		#print(collision_point)
-		#print(local_collision_point)
-		
+		# Only make a reflection if the light ray is colliding with a mirror
 		if not collider.is_in_group("Mirrors"):
+			#print(collider)
 			return
 		
-		#if light_ray.target_position != local_collision_point or not collider.is_in_group("Mirrors"):
-		#if not collider.is_in_group("Mirrors"):
-			#print(1)
-			##light_ray.target_position = local_collision_point
-			#reinitialize_line(local_collision_point)
-			#return
-		
+		# Change the line art to show the light ray being stopped at what it is colliding with
 		reinitialize_line(local_collision_point)
 		
-		var direction = light_ray.target_position.normalized()
-		var normal = light_ray.get_collision_normal()
+		# Make a new reflected light ray
+		var direction = ray_cast.target_position.normalized()
+		var normal = ray_cast.get_collision_normal()
 		
-		print(local_collision_point)
-		print(normal)
+		#print(local_collision_point)
+		#print(normal)
 		
-		var new_reflecting_sun_light_ray_scene = load("res://scenes/reflecting_sun_light_ray.tscn")
-		var new_light_ray_instance = new_reflecting_sun_light_ray_scene.instantiate()
+		make_new_light_ray(local_collision_point, normal)
 		
-		var new_light_ray = new_light_ray_instance.get_node("RayCast2D")
-		var new_line_2d = new_light_ray_instance.get_node("Line2D")
-		
-		print(atan2(normal[1], normal[0]))
-		
-		var d = light_ray.target_position - light_ray.position
-		var test = d - (2 * d.dot(normal) * normal)
-		
-		new_light_ray.position = local_collision_point
-		#new_light_ray.target_position = local_collision_point * normal
-		new_light_ray.target_position = test
-		
-		add_child(new_light_ray_instance)
-		
-		new_light_ray.force_raycast_update()
-		new_light_ray_instance.initialize_line(new_line_2d, local_collision_point, test)
-		
-		reflecting_light_already_made = true
-		line_2d.default_color = Color.RED
+		full_light_ray_instance.reflecting_light_already_made = true
+		ray_line.default_color = Color.RED
 	else:
-		reflecting_light_already_made = false
-		line_2d.default_color = Color.GREEN
+		full_light_ray_instance.reflecting_light_already_made = false
+		ray_line.default_color = Color.GREEN
 
 func initialize_line(line, point_1, point_2):
 	line.points.clear()
@@ -79,4 +60,21 @@ func initialize_line(line, point_1, point_2):
 func reinitialize_line(new_target_position):
 	line_2d.remove_point(line_2d.points.size() - 1)
 	line_2d.add_point(new_target_position)
-	#line_2d.add_point(light_ray.target_position)
+
+func make_new_light_ray(local_collision_point, normal):
+	print("called")
+	var new_reflecting_sun_light_ray_scene = load("res://scenes/reflecting_sun_light_ray.tscn")
+	var new_light_ray_instance = new_reflecting_sun_light_ray_scene.instantiate()
+	
+	var new_light_ray = new_light_ray_instance.get_node("RayCast2D")
+	var new_line_2d = new_light_ray_instance.get_node("Line2D")
+	
+	var original_ray_vector = light_ray.target_position - light_ray.position
+	var reflected_ray_vector = original_ray_vector - (2 * original_ray_vector.dot(normal) * normal)
+	
+	new_light_ray.position = local_collision_point
+	new_light_ray.target_position = reflected_ray_vector - light_ray.target_position
+	
+	add_child(new_light_ray_instance)
+	
+	new_light_ray.force_raycast_update()

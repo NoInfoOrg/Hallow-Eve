@@ -11,11 +11,11 @@
 
 [node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("1_2yjx0")]
 z_index = 5
-position = Vector2(322, 358)
+position = Vector2(90, 542)
 
 [node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("2_omwey")]
 z_index = 5
-position = Vector2(202, 190)
+position = Vector2(938, 366)
 
 [node name="Floors - NC" type="TileMapLayer" parent="." unique_id=1523272456]
 scale = Vector2(0.5, 0.5)
