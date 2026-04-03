@@ -28,5 +28,8 @@ position = Vector2(0, 1)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_hf6xp")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1627548286]
+path_postprocessing = 1
+
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
