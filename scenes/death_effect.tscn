@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://7jxkqdicstki"]
+
+[sub_resource type="Gradient" id="Gradient_516on"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_koetp"]
+gradient = SubResource("Gradient_516on")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_e082k"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_0eoe3"]
+colors = PackedColorArray(1, 1, 1, 1, 0.21568628, 0.21568628, 0.21568628, 0)
+
+[node name="DeathEffect" type="CPUParticles2D" unique_id=513006106]
+emitting = false
+amount = 20
+texture = SubResource("GradientTexture2D_koetp")
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+damping_min = 50.0
+damping_max = 50.0
+scale_amount_curve = SubResource("Curve_e082k")
+color_ramp = SubResource("Gradient_0eoe3")

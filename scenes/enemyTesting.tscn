@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://8b0ioq60iydv"]
+
+[ext_resource type="PackedScene" uid="uid://cqn40kyihmkj" path="res://scenes/plushie.tscn" id="1_lconi"]
+[ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="2_34rbp"]
+[ext_resource type="Texture2D" uid="uid://b2imuhf0472ld" path="res://assets/sprites/enemy/Plushies_Freddy.png" id="2_jhfk4"]
+[ext_resource type="Script" uid="uid://cvy8perii5g6s" path="res://scripts/camera_2d.gd" id="3_jhfk4"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_qr7c8"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="5_yvfpo"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_kits0"]
+[ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="7_auncc"]
+[ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="8_ons3k"]
+
+[sub_resource type="Resource" id="Resource_217sy"]
+script = ExtResource("6_kits0")
+duration = 0.3
+transition = 4
+
+[node name="Node2D" type="Node2D" unique_id=1241053593]
+
+[node name="Plushie" parent="." unique_id=741369988 node_paths=PackedStringArray("targets") instance=ExtResource("1_lconi")]
+position = Vector2(-203, -54)
+collision_layer = 128
+collision_mask = 95
+plushieSprite = ExtResource("2_jhfk4")
+targets = [NodePath("../MovementCont/Eve - P1"), NodePath("../MovementCont/Willow - P2")]
+
+[node name="UI" parent="." unique_id=1522527901 instance=ExtResource("2_34rbp")]
+
+[node name="Camera Setup" type="Node" parent="." unique_id=791881979]
+
+[node name="Camera2D" type="Camera2D" parent="Camera Setup" unique_id=2075335158]
+top_level = true
+visibility_layer = 65
+z_index = 10
+zoom = Vector2(1.25, 1.25)
+editor_draw_limits = true
+script = ExtResource("3_jhfk4")
+
+[node name="PhantomCameraHost" type="Node" parent="Camera Setup/Camera2D" unique_id=1273033172]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("4_qr7c8")
+host_layers = 65
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera2D" type="Node2D" parent="Camera Setup" unique_id=1228697687 node_paths=PackedStringArray("follow_targets")]
+top_level = true
+script = ExtResource("5_yvfpo")
+priority = 10
+follow_mode = 3
+follow_targets = [null, null]
+zoom = Vector2(1.25, 1.25)
+tween_resource = SubResource("Resource_217sy")
+host_layers = 65
+follow_damping = true
+auto_zoom = true
+auto_zoom_min = 0.7
+auto_zoom_max = 1.25
+auto_zoom_margin = Vector4(400, 0, 400, 0)
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="MovementCont" type="Node2D" parent="." unique_id=832443195]
+position = Vector2(75, -19)
+
+[node name="Eve - P1" parent="MovementCont" unique_id=810202292 groups=["Players"] instance=ExtResource("7_auncc")]
+z_index = 9
+position = Vector2(125, -65)
+collision_mask = 4294967222
+slide_on_ceiling = false
+
+[node name="Willow - P2" parent="MovementCont" unique_id=882182450 groups=["Players"] instance=ExtResource("8_ons3k")]
+z_index = 9
+position = Vector2(234, -73)
+collision_mask = 4294967226
+slide_on_ceiling = false
