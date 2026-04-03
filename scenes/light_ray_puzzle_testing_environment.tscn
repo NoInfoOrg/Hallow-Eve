@@ -15,7 +15,7 @@ position = Vector2(90, 542)
 
 [node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("2_omwey")]
 z_index = 5
-position = Vector2(938, 366)
+position = Vector2(178, 486)
 
 [node name="Floors - NC" type="TileMapLayer" parent="." unique_id=1523272456]
 scale = Vector2(0.5, 0.5)
