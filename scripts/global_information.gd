@@ -50,7 +50,8 @@ func find_node(starting_node, node_path):
 	while safetyIndex < MAX_ITERATIONS:
 		#print(current_node.name)
 		
-		if current_node == root:
+		# Default cases that signify that the inventory is not found
+		if current_node == root or current_node == null:
 			break
 		
 		# get_node will either be null if the filepath at that moment doesn't exist...

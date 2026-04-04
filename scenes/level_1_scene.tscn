@@ -89,7 +89,6 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="MovementCont" type="Node2D" parent="." unique_id=2117843696]
 
 [node name="Eve - P1" parent="MovementCont" unique_id=810202292 instance=ExtResource("1_ihv73")]
-visible = false
 z_index = 9
 collision_mask = 4294967222
 slide_on_ceiling = false

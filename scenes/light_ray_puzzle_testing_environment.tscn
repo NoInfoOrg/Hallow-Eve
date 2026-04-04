@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://dt13bvgr5foh4" path="res://assets/tilesets/side_walls.tres" id="4_sppw5"]
 [ext_resource type="PackedScene" uid="uid://bv44nvjtl34yi" path="res://scenes/reflecting_sun_light_ray.tscn" id="5_r0l4k"]
 [ext_resource type="PackedScene" uid="uid://dp865ulo2ma7r" path="res://scenes/light_reflecting_mirror.tscn" id="6_13jue"]
+[ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="7_2vp2s"]
 
 [node name="Light Ray Puzzle Testing Environment" type="Node2D" unique_id=933515209]
 
@@ -33,10 +34,19 @@ position = Vector2(1078, 142)
 [node name="Light Reflecting Mirror" parent="." unique_id=1655852933 instance=ExtResource("6_13jue")]
 position = Vector2(81, 139)
 rotation = 0.62133723
+rotate_direction = "Clockwise"
 
 [node name="Light Reflecting Mirror2" parent="." unique_id=1312982377 instance=ExtResource("6_13jue")]
 position = Vector2(952, 257)
+rotate_direction = "Counterclockwise"
 
 [node name="Light Reflecting Mirror3" parent="." unique_id=823444591 instance=ExtResource("6_13jue")]
 position = Vector2(699, 618)
 rotation = 1.5707964
+rotate_direction = "Clockwise"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=569732224]
+
+[node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("7_2vp2s")]
+z_index = 10
+position = Vector2(414, 592)

@@ -5,9 +5,11 @@ extends Node2D
 @onready var label = $Label
 @onready var line_2d = $Line2D
 
-# For testing for now
+# Experimental variables, for testing for now
 var reflecting_light_already_made = false
 var ray_line_is_initialized = false
+var collided_mirror = null
+var collided_mirror_rotation = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,8 +30,24 @@ func check_for_collision(full_light_ray_instance):
 		var local_collision_point = to_local(collision_point)
 		
 		# If the light ray has already collided with the same mirror before, we don't need to add a reflection
-		if collider.is_in_group("Mirrors") and full_light_ray_instance.reflecting_light_already_made:
-			return
+		if collider.is_in_group("Mirrors"):
+			if collided_mirror == null:
+				collided_mirror = collider
+				collided_mirror_rotation = collider.rotation_degrees
+			
+			if full_light_ray_instance.reflecting_light_already_made:
+				if collided_mirror == collider and collided_mirror_rotation == collider.rotation_degrees:
+					return
+				
+				# Otherwise, update collided mirror variables to the new mirror/orientation
+				collided_mirror = collider
+				collided_mirror_rotation = collider.rotation_degrees
+				
+				# At this point, we assume that the light ray is still colliding with a mirror...
+				# ...it's just that the properties of the mirror changed.
+				remove_subsequent_light_ray_reflections(full_light_ray_instance)
+				full_light_ray_instance.reflecting_light_already_made = false
+				return
 		
 		# Change the line art to show the light ray being stopped at what it is colliding with
 		if not ray_line_is_initialized:
