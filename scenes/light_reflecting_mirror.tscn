@@ -1,21 +1,21 @@
 [gd_scene format=3 uid="uid://dp865ulo2ma7r"]
 
 [ext_resource type="Script" uid="uid://bwnfeho732lxs" path="res://scripts/light_reflecting_mirror.gd" id="1_b6oms"]
-[ext_resource type="Texture2D" uid="uid://taaglbvl72is" path="res://assets/tempSprites/mirror_temp.png" id="1_uem61"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6oms"]
-size = Vector2(24, 167)
+[ext_resource type="Texture2D" uid="uid://l0monfkojp4a" path="res://assets/sprites/level objs/MirrorsSingle_E.png" id="2_b6oms"]
 
 [node name="Light Reflecting Mirror" type="Area2D" unique_id=1655852933 groups=["Mirrors"]]
 script = ExtResource("1_b6oms")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=655093587]
-scale = Vector2(0.46153843, 0.4234694)
-texture = ExtResource("1_uem61")
+position = Vector2(1.1368684e-13, 0)
+scale = Vector2(0.98531467, 0.904043)
+texture = ExtResource("2_b6oms")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1207467592]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_b6oms")
+[node name="Front Side Collision" type="CollisionPolygon2D" parent="." unique_id=1050800917]
+polygon = PackedVector2Array(24, -1, 24, -11, 22, -22, 18, -33, 11, -42, 9, -36, 14, -25, 18, -14, 19, 2, -23, -1, 17, 16, 15, 26, 8, 36, 10, 43, 15, 36, 15, 36, 19, 29, 22, 21, 23, 11, 24, 6)
+
+[node name="Back Side Collision" type="CollisionPolygon2D" parent="." unique_id=2140228769 groups=["Mirror Back Side"]]
+polygon = PackedVector2Array(18, 25, 12, 37, 9, 50, 3, 53, -7, 53, -21, 46, -30, 29, -33, 18, -33, -2, -30, -19, -25, -34, -14, -50, -3, -53, 6, -51, 14, -41, 11, -35, 16, -25, 20, -7, 19, 9)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

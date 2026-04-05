@@ -8,7 +8,15 @@ var players_detected = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	# NOTE The idea is that I tried having a collision shape for the front of the mirror, and a
+	# collision shape for the back of the mirror. I started out by deactivating the back side
+	# collision so the light rays can all collide with the front side collision, and then
+	# reactivate the back side collision. As a result, ideally, any light ray that collided with
+	# the front side collision from the back of the mirror would now be inside the back side
+	# collision shape, and would essentially be invalid and would not produce subsequent
+	# reflections, meaning that only the light rays that collided with the mirror from the front
+	# side would have valid reflections.
+	get_node("Back Side Collision").disabled = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
