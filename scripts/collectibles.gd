@@ -1,16 +1,21 @@
 extends Area2D
 
 @export var item_info: Item
+@export var is_holding: bool = false
 @onready var key = $key
+@onready var holdable = $food
 
 var players_detected = []
 var curr_player = null
 
 func _ready():
-	if item_info and item_info.texture:
+	if is_holding:
+		if item_info and item_info.texture:
+			holdable.texture = item_info.texture
+	if item_info and item_info.texture and key:
 		key.texture = item_info.texture
 	
-	if name:
+	if name and item_info:
 		item_info.name = name
 	
 	body_entered.connect(body_entry)
@@ -36,6 +41,13 @@ func body_exit(body):
 
 func pickup(player):
 	if item_info:
+		if is_holding:
+			if player.hold(item_info):
+				queue_free()
+				print("Player: ", player.name, " is holding ", item_info.name)
+			else:
+				print("Player holding something")
+			return
 		#var inv = player.get_node("../UI/SharedInv/Inventory")
 		var inv = GlobalInformation.find_inventory(self)
 		if inv == null:
@@ -45,3 +57,5 @@ func pickup(player):
 		if inv:
 			inv.add_item(item_info)
 			queue_free()
+			
+			

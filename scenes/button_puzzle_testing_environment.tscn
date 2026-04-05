@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dfbiqnn4nnley" path="res://scenes/spirit_button_blue_front.tscn" id="3_a5rwl"]
 [ext_resource type="PackedScene" uid="uid://ccm85dx1kq2ay" path="res://scenes/human_button_orange_front.tscn" id="4_5ttts"]
 [ext_resource type="PackedScene" uid="uid://clgl4g8cxa8s6" path="res://scenes/communal_button.tscn" id="5_1csvh"]
-[ext_resource type="PackedScene" uid="uid://nmbgcgm0lqea" path="res://scenes/locked_door.tscn" id="6_1csvh"]
+[ext_resource type="PackedScene" uid="uid://b5evgada02h46" path="res://scenes/locked_door.tscn" id="6_1csvh"]
 [ext_resource type="PackedScene" uid="uid://5ksk0750mv13" path="res://scenes/ordered_puzzle_paper_2.tscn" id="7_mnaqv"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="8_m64xm"]
 

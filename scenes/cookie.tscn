@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://yeb1pahpvcjb"]
+
+[ext_resource type="Script" uid="uid://cnujf4336mq84" path="res://scripts/collectibles.gd" id="1_2rrt0"]
+[ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="2_on5vl"]
+[ext_resource type="Texture2D" uid="uid://dcrc88vnr5t6b" path="res://assets/tempSprites/Chocolate_Cookie.png" id="3_nc27e"]
+
+[sub_resource type="Resource" id="Resource_5dh7m"]
+script = ExtResource("2_on5vl")
+name = "cookie"
+texture = ExtResource("3_nc27e")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dxld2"]
+radius = 36.013885
+
+[node name="cookie" type="Area2D" unique_id=1516880953]
+collision_mask = 65
+script = ExtResource("1_2rrt0")
+item_info = SubResource("Resource_5dh7m")
+is_holding = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=155205317]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_dxld2")
+
+[node name="food" type="Sprite2D" parent="." unique_id=853440191]
+z_index = -2
+position = Vector2(1, 2)
+scale = Vector2(0.390625, 0.36328125)
+texture = ExtResource("3_nc27e")

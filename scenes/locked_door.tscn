@@ -27,7 +27,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcnc7"]
-size = Vector2(629, 363)
+size = Vector2(630.6666, 365.94446)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mq1x3"]
 size = Vector2(250, 9)
@@ -70,7 +70,7 @@ frame_progress = 0.7463639
 script = ExtResource("4_mq1x3")
 
 [node name="Closed Door Collision" type="CollisionShape2D" parent="." unique_id=578145236]
-position = Vector2(319.5, 180)
+position = Vector2(318.66666, 178.52779)
 shape = SubResource("RectangleShape2D_jcnc7")
 
 [node name="Opened Door Collision 1" type="CollisionShape2D" parent="." unique_id=1685277572]
