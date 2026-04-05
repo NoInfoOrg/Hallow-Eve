@@ -13,7 +13,6 @@ var collided_mirror_rotation = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#initialize_line(line_2d, light_ray.position, light_ray.target_position)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,6 +44,7 @@ func check_for_collision(full_light_ray_instance):
 				
 				# At this point, we assume that the light ray is still colliding with a mirror...
 				# ...it's just that the properties of the mirror changed.
+				print("got here")
 				remove_subsequent_light_ray_reflections(full_light_ray_instance)
 				full_light_ray_instance.reflecting_light_already_made = false
 				return
@@ -61,7 +61,6 @@ func check_for_collision(full_light_ray_instance):
 		# ...blocking it, stop the light ray at the colliding collider and remove any...
 		# ...reflections that were previously after
 		if not collider.is_in_group("Mirrors"):
-			#print(collider)
 			full_light_ray_instance.reflecting_light_already_made = false
 			remove_subsequent_light_ray_reflections(full_light_ray_instance)
 			return
@@ -70,9 +69,10 @@ func check_for_collision(full_light_ray_instance):
 		var direction = ray_cast.target_position.normalized()
 		var normal = ray_cast.get_collision_normal()
 		
-		#print(local_collision_point)
-		#print(normal)
-		
+		if normal == Vector2(0.0, 0.0):
+			print("reflecting_sun_light_ray.gd : light ray starts inside an object")
+			return
+			
 		make_new_light_ray(local_collision_point, normal)
 		
 		full_light_ray_instance.reflecting_light_already_made = true
@@ -101,12 +101,20 @@ func make_new_light_ray(local_collision_point, normal):
 	var original_ray_vector = light_ray.target_position - light_ray.position
 	var reflected_ray_vector = original_ray_vector - (2 * original_ray_vector.dot(normal) * normal)
 	
-	new_light_ray.position = local_collision_point
+	# I found that starting a new light ray right on top of the previous light ray's collider...
+	# ...can lead to Godot thinking that the new light ray is inside the collider and give a
+	# ...normal vector of (0.0, 0.0). As a result this small_offset will make a small offset...
+	# ...for the starting point of the reflected ray vector so it does not start inside a collider
+	var small_offset = (reflected_ray_vector.normalized() * 0.1)
+	new_light_ray.position = local_collision_point + small_offset
+	
+	# TODO Technically I think it should be like:
+	# (reflected_ray_vector - light_ray.target_position).normalized() * a big amount
+	# but otherwise it works for now, so we can change it if we need to
 	new_light_ray.target_position = reflected_ray_vector - light_ray.target_position
 	
-	new_light_ray.force_raycast_update()
 	add_child(new_light_ray_instance)
-	
+	new_light_ray.force_raycast_update()
 
 func remove_subsequent_light_ray_reflections(starting_node):
 	for child_node in starting_node.get_children():

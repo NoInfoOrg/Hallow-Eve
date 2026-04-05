@@ -29,6 +29,7 @@ func _on_body_exited(body: Node2D) -> void:
 		players_detected.erase(body.name)
 
 func turn_mirror():
+	# The rotation direction will be clockwise by default for now
 	var rotation_amount_in_degrees = 30
 	
 	if rotate_direction == "Counterclockwise":
