@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://dpmykk27ckpvf"]
 
 [ext_resource type="Script" uid="uid://dhyqa3bocy5m1" path="res://scripts/back_to_menu.gd" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://beb2hcrs5lc53" path="res://scripts/settings_screen.gd" id="1_6wm04"]
 [ext_resource type="Script" uid="uid://wusystxbx4io" path="res://scripts/toggle_inventory.gd" id="1_r6d6q"]
 
 [node name="Settings Screen" type="CanvasLayer" unique_id=1267861807]
+script = ExtResource("1_6wm04")
 
 [node name="Control" type="Control" parent="." unique_id=8696036]
 layout_mode = 3
@@ -40,8 +42,20 @@ text = "Master Volume"
 
 [node name="Master Volume Slider" type="HScrollBar" parent="Control/Panel/VBoxContainer" unique_id=181821311]
 layout_mode = 2
+max_value = 1.0
 
 [node name="Spacer 2" type="Label" parent="Control/Panel/VBoxContainer" unique_id=1506149287]
+layout_mode = 2
+
+[node name="Music Volume" type="Label" parent="Control/Panel/VBoxContainer" unique_id=907503157]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="Music Volume Slider" type="HScrollBar" parent="Control/Panel/VBoxContainer" unique_id=937399815]
+layout_mode = 2
+max_value = 1.0
+
+[node name="Spacer 3" type="Label" parent="Control/Panel/VBoxContainer" unique_id=836082575]
 layout_mode = 2
 
 [node name="Back to Menu" type="Button" parent="Control/Panel/VBoxContainer" unique_id=486492223]

@@ -18,7 +18,7 @@
 [ext_resource type="Script" uid="uid://ceex0idpm34yb" path="res://scripts/resume.gd" id="14_f7tlh"]
 [ext_resource type="Texture2D" uid="uid://bb25udxq20hi8" path="res://assets/ui elements/TextBox.png" id="14_h1mc3"]
 [ext_resource type="PackedScene" uid="uid://dpmykk27ckpvf" path="res://scenes/settings.tscn" id="15_8k7j3"]
-[ext_resource type="Script" uid="uid://8vb68x4k5osx" path="res://scripts/settings.gd" id="15_jkdwc"]
+[ext_resource type="Script" uid="uid://8vb68x4k5osx" path="res://scripts/settings_button.gd" id="15_jkdwc"]
 
 [node name="UI" type="CanvasLayer" unique_id=1522527901]
 script = ExtResource("1_8dubc")

@@ -438,6 +438,6 @@ z_index = 8
 position = Vector2(953, 2645)
 targets = [NodePath("../MovementCont/Eve - P1"), NodePath("../MovementCont/Willow - P2")]
 
-[node name="Ambient Music" type="AudioStreamPlayer" parent="." unique_id=1580217849]
+[node name="Ambient Music" type="AudioStreamPlayer" parent="." unique_id=1580217849 groups=["Music"]]
 stream = ExtResource("21_4to46")
 autoplay = true
