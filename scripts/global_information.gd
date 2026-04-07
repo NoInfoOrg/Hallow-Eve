@@ -28,10 +28,10 @@ func find_slots_inventory_node(starting_node):
 	return find_node(starting_node, "UI/SharedInv/Inv")
 
 func find_player_one_sanity(starting_node):
-	return find_node(starting_node, "UI/P1/P1Sanity")
+	return get_tree().root.find_child("P1Sanity", true, false)
 
 func find_player_two_sanity(starting_node):
-	return find_node(starting_node, "UI/P2/P2Sanity")
+	return get_tree().root.find_child("P2Sanity", true, false)
 
 func find_game_over_screen(starting_node):
 	return find_node(starting_node, "Game Over Screen")

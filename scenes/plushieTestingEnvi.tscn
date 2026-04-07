@@ -26,15 +26,17 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-2, -2, 1153, 0, 1153, 
 curve = SubResource("Curve2D_6q8gr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=30653445]
-position = Vector2(1049.1918, 299.02356)
-progress = 264.26056
+position = Vector2(826.0888, 555.35205)
+progress = 753.3843
 rotates = false
 
 [node name="Plushie" parent="Path2D/PathFollow2D" unique_id=741369988 node_paths=PackedStringArray("targets", "pathFollow") instance=ExtResource("7_6q8gr")]
-position = Vector2(-258.14294, -155.09001)
-velocity = Vector2(86.08718, 0)
+position = Vector2(41.224304, -215.69159)
+velocity = Vector2(-18.772808, 98.2221)
 targets = [NodePath("../../../Eve - P1"), NodePath("../../../Willow - P2")]
+plushieType = 0
 death_effect_scene = ExtResource("2_wad56")
+leaderRat = true
 pathFollow = NodePath("..")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." unique_id=1989520909]
@@ -47,10 +49,10 @@ tile_map_data = PackedByteArray("AAAKAA4AAQAAAAgAAAAKAA0AAQAAAAgAAAAKAAwAAQAAAAg
 tile_set = ExtResource("1_6q8gr")
 
 [node name="Eve - P1" parent="." unique_id=810202292 groups=["Players"] instance=ExtResource("2_7mxj0")]
-position = Vector2(911, 451)
+position = Vector2(219, 151)
 
 [node name="Willow - P2" parent="." unique_id=882182450 groups=["Players"] instance=ExtResource("3_wad56")]
-position = Vector2(268, -156)
+position = Vector2(1556, 395)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1259255408]
 

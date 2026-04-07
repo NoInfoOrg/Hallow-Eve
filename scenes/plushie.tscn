@@ -19,9 +19,14 @@ height = 124.0
 collision_layer = 128
 collision_mask = 65
 script = ExtResource("1_2usf5")
+plushieType = null
 death_effect_scene = null
+leaderRat = null
 metadata/_edit_horizontal_guides_ = [-52.0]
 metadata/_edit_vertical_guides_ = [31.0]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1101815876]
+debug_enabled = true
 
 [node name="EnemyCollider" type="CollisionShape2D" parent="." unique_id=1207424113]
 position = Vector2(-1, 8)
@@ -38,10 +43,9 @@ collision_mask = 65
 [node name="DetectCollider" type="CollisionShape2D" parent="DetectionZone" unique_id=1056961871]
 shape = SubResource("CircleShape2D_lm74q")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1101815876]
-debug_enabled = true
-
 [node name="AttackZone" type="Area2D" parent="." unique_id=1801466765]
+collision_layer = 128
+collision_mask = 65
 
 [node name="AttackCollider" type="CollisionShape2D" parent="AttackZone" unique_id=626459341]
 position = Vector2(-1, 8)
@@ -54,3 +58,4 @@ stream = ExtResource("3_j6flh")
 [connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
 [connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]
 [connection signal="body_entered" from="AttackZone" to="." method="_on_attack_zone_body_entered"]
+[connection signal="body_exited" from="AttackZone" to="." method="_on_attack_zone_body_exited"]
