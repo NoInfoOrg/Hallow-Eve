@@ -5,10 +5,11 @@ var players_detected = []
 var homework_opened = false
 
 signal hw_completed(hw_type)
-signal shapes_homework_viewed;
+signal shapes_homework_viewed; # <=== bro is C++ coded 
 var count : int
 @onready var homework = get_node("CanvasLayer/Homework")
 @onready var answer_box = get_node("CanvasLayer/Answer Text Box")
+var line : LineEdit
 @export var type : String
 @export var answer : String
 
@@ -17,13 +18,14 @@ func _ready():
 	body_entered.connect(body_entry)
 	body_exited.connect(body_exit)
 	count = 0
+	line = answer_box.get_node("LineEdit")
+	
+		
 
 
 func _process(delta: float):
-	if homework_opened:
+	if homework_opened and Input.is_action_just_pressed("Submit"):
 		check_answer()
-
-
 	for player in players_detected:
 		if Input.is_action_just_pressed("P1Grab") and player.name == "Eve - P1":
 			interact_with_homework()
@@ -49,11 +51,17 @@ func interact_with_homework():
 	if not homework_opened:
 		show_homework(homework)
 		answer_box.show()
+		get_tree().paused = true
+		answer_box.process_mode = Node.PROCESS_MODE_ALWAYS
+		if line:
+			line.grab_focus()
 		homework_opened = true
 	else:
 		homework.hide()
 		answer_box.hide()
 		homework_opened = false
+		get_tree().paused = false
+		
 
 func show_homework(homework):
 	# Show the default version by default
@@ -69,8 +77,11 @@ func show_homework(homework):
 	homework.show()
 
 func check_answer():
-	if answer_box.currentContent == answer:
-		
+
+	var curr = line.text
+	#print(line.text[0:len(line.text-1)], " :) ", answer) what is this madness?
+	if curr == answer:
+
 		# check if it's shape hw or math hw by the answer
 		if answer == "0":
 			hw_completed.emit("math")
@@ -80,7 +91,25 @@ func check_answer():
 		answer_box.hide()
 		homework_opened = false
 		queue_free()
+		get_tree().paused = false
+		return
 
+	if homework_opened:
+		var label = get_node("CanvasLayer/Answer Text Box/Label")
+		
+		if label:
+			label.text = "Incorrect. Please try again."
+			if line:
+				
+				line.grab_focus()
+				line.clear()
+
+
+
+				
+
+# get it to work so that it can be entered after wrong answer
+		
 #func check_answer_math():
 	#var correct_answer = "0"
 	#var homework = get_node("CanvasLayer/Homework")

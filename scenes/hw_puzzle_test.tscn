@@ -48,13 +48,15 @@ monitorable = false
 script = ExtResource("8_krhd7")
 
 [node name="Shapes Paper" parent="hw_checker" unique_id=1319041526 instance=ExtResource("6_3p5gt")]
+process_mode = 3
 z_index = -1
 position = Vector2(675, 435)
 type = "shapes"
 answer = "11"
 
 [node name="Math Paper" parent="hw_checker" unique_id=1982101640 instance=ExtResource("8_vestt")]
+process_mode = 3
 z_index = -1
-position = Vector2(246, 467)
+position = Vector2(281, 468)
 type = "math"
 answer = "0"

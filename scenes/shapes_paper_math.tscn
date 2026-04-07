@@ -23,10 +23,10 @@ shape = SubResource("RectangleShape2D_akf8h")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1115382]
 
 [node name="Answer Text Box" parent="CanvasLayer" unique_id=1803316721 instance=ExtResource("4_54m4e")]
-visible = false
-position = Vector2(869, 598)
+z_index = 1
+position = Vector2(392, 472)
 
 [node name="Homework" parent="CanvasLayer" unique_id=1429891547 instance=ExtResource("4_p541e")]
-position = Vector2(586, 307)
+position = Vector2(520, 291)
 
 [connection signal="shapes_homework_viewed" from="." to="." method="_on_shapes_homework_viewed"]

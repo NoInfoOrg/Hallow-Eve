@@ -21,11 +21,9 @@ shape = SubResource("RectangleShape2D_akf8h")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1115382]
 
 [node name="Homework" parent="CanvasLayer" unique_id=1429891547 instance=ExtResource("3_6u2yd")]
-visible = false
 position = Vector2(597, 322)
 
 [node name="Answer Text Box" parent="CanvasLayer" unique_id=1803316721 instance=ExtResource("4_la1ke")]
-visible = false
-position = Vector2(869, 598)
+position = Vector2(486, 582)
 
 [connection signal="shapes_homework_viewed" from="." to="." method="_on_shapes_homework_viewed"]
