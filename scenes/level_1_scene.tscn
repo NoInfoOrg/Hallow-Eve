@@ -32,9 +32,9 @@ duration = 0.3
 transition = 4
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_e5gav"]
-vertices = PackedVector2Array(1768, -152, 1768, 429, 1048, 429, -372, -152, 1048, 509, 1088, 509, 1088, 838, 828, 4749, 588, 4169, 1348, 838, 1348, 4169, 1108, 4749, 1428, 4169, 1428, 4138, 2728, 4138, 2728, 4749, 1948, 4749, 1528, 5128, 1948, 4829, 2068, 4829, 2068, 5128, 1428, 6549, 2728, 5128, 2728, 6549, 1428, 5128, 1528, 4829, 1668, 4829, 1668, 4749, 758, 5128, 1108, 4829, 1228, 4829, 1228, 5128, 588, 5709, 1348, 5128, 1348, 5709, 588, 5128, 758, 4829, 828, 4829, -1272, 6669, -152, 5128, 208, 4829, 388, 4829, 388, 5128, -632, 6549, -752, 6669, -1272, 6789, 508, 5128, 508, 6549, -632, 6669, -752, 6789, -1392, 6669, -1392, 6549, -1512, 6549, -1512, 5128, -152, 4829, -12, 4829, -12, 4749, -972, 4749, -972, 4138, -852, 4138, -852, 3809, -672, 3809, -312, 4138, -672, 3729, -972, 3729, -972, 3478, -272, 3478, -272, 3729, -452, 3729, -452, 3809, -312, 3809, 508, 4138, 508, 4169, 208, 4749, 588, 838, 828, 838, 828, 509, 888, 509, -32, 509, 108, 509, 108, 838, 508, 838, 508, 1449, 208, 1449, -152, 1828, 208, 1529, 318, 1529, 318, 1828, 168, 3069, 508, 1828, 508, 3069, 388, 3069, 388, 3149, 508, 3149, 508, 3729, -192, 3729, -12, 3478, -192, 3478, -12, 3149, 168, 3149, -972, 3069, -972, 1828, -152, 1529, -72, 1529, -72, 1449, -372, 1449, -372, 509, -192, 509, -32, 429, -192, 429, -372, 429, 888, 429, 1348, 6549, 588, 6549, 588, 6118, 1348, 6118, 1768, 1529, 1788, 1529, 1788, 1828, 2308, 1828, 2308, 2009, 2488, 2009, 2488, 2129, 2608, 2129, 2608, 2249, 2728, 2249, 2728, 3729, 1428, 3729, 1428, 1529, 1608, 1529, 1608, 1449, 1428, 1449, 1428, 838, 1768, 838, 2808, 6629, 3263, 6964.0703, -1946.6328, 7002.922, -672, 6869, 3263, -571, 2808, 2169, 2688, 2169, 2688, 2049, 2568, 2049, 2568, 1929, 2388, 1929, 2388, 1449, 1848, 1449, 1848, -531, -1672.3594, -571, -452, -531, -452, 1449, -1052, 1449, -1052, 4749, -1592, 4749, -1592, 6629, -1472, 6629, -1472, 6749, -1352, 6749, -1352, 6869, -672, 6749, -552, 6749, -552, 6629)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(7, 8, 6, 9, 10, 11), PackedInt32Array(12, 13, 14, 15, 16), PackedInt32Array(17, 18, 19, 20, 21), PackedInt32Array(20, 22, 23, 21), PackedInt32Array(21, 24, 17), PackedInt32Array(17, 25, 26), PackedInt32Array(18, 17, 26, 16), PackedInt32Array(16, 26, 27), PackedInt32Array(12, 16, 27), PackedInt32Array(12, 27, 11, 10), PackedInt32Array(28, 29, 30, 31, 32), PackedInt32Array(31, 33, 34, 32), PackedInt32Array(32, 35, 28), PackedInt32Array(28, 36, 37), PackedInt32Array(29, 28, 37, 11), PackedInt32Array(11, 37, 7), PackedInt32Array(38, 39, 40, 41, 42, 43, 44, 45), PackedInt32Array(42, 46, 47, 43), PackedInt32Array(43, 48, 44), PackedInt32Array(44, 49, 45), PackedInt32Array(38, 50, 51, 39), PackedInt32Array(51, 52, 53, 39), PackedInt32Array(39, 54, 55), PackedInt32Array(56, 57, 58, 59), PackedInt32Array(56, 59, 60, 61, 62), PackedInt32Array(63, 64, 65, 66), PackedInt32Array(66, 67, 68), PackedInt32Array(63, 66, 68, 61), PackedInt32Array(61, 68, 69), PackedInt32Array(69, 70, 62), PackedInt32Array(56, 62, 71, 72, 73), PackedInt32Array(8, 74, 75), PackedInt32Array(75, 76, 77, 6), PackedInt32Array(78, 79, 80), PackedInt32Array(80, 81, 82, 83), PackedInt32Array(84, 85, 86, 87, 88), PackedInt32Array(87, 89, 90, 91), PackedInt32Array(92, 93, 94, 95, 96), PackedInt32Array(95, 97, 96), PackedInt32Array(96, 98, 99), PackedInt32Array(92, 96, 99, 91), PackedInt32Array(91, 99, 88, 87), PackedInt32Array(88, 100, 101, 84), PackedInt32Array(84, 102, 103), PackedInt32Array(85, 84, 103, 83), PackedInt32Array(83, 103, 104, 80), PackedInt32Array(80, 104, 105, 106, 107), PackedInt32Array(78, 80, 107), PackedInt32Array(108, 78, 107, 109), PackedInt32Array(109, 110, 3), PackedInt32Array(40, 39, 55, 73), PackedInt32Array(73, 55, 56), PackedInt32Array(108, 109, 3), PackedInt32Array(61, 69, 62), PackedInt32Array(7, 73, 72, 8), PackedInt32Array(6, 8, 75), PackedInt32Array(4, 6, 77), PackedInt32Array(2, 4, 77, 111), PackedInt32Array(3, 2, 111), PackedInt32Array(3, 111, 108), PackedInt32Array(112, 113, 114, 115), PackedInt32Array(116, 117, 118), PackedInt32Array(118, 119, 120), PackedInt32Array(120, 121, 122), PackedInt32Array(122, 123, 124), PackedInt32Array(124, 125, 126, 127), PackedInt32Array(127, 128, 129, 118), PackedInt32Array(130, 131, 132, 133), PackedInt32Array(130, 133, 116, 129), PackedInt32Array(129, 116, 118), PackedInt32Array(124, 127, 118, 120, 122), PackedInt32Array(134, 135, 136, 137), PackedInt32Array(138, 135, 134, 139), PackedInt32Array(139, 140, 141, 138), PackedInt32Array(141, 142, 143, 138), PackedInt32Array(143, 144, 145, 138), PackedInt32Array(145, 146, 147, 138), PackedInt32Array(148, 138, 147, 149), PackedInt32Array(149, 150, 151, 148), PackedInt32Array(151, 152, 153, 148), PackedInt32Array(154, 155, 156, 136), PackedInt32Array(156, 157, 158, 136), PackedInt32Array(137, 159, 160), PackedInt32Array(160, 161, 134), PackedInt32Array(137, 160, 134), PackedInt32Array(158, 137, 136), PackedInt32Array(154, 136, 148, 153)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-1682, -581, 3273, -581, 3273, 6974, -1957, 7013)])
+vertices = PackedVector2Array(-1112, 2889, -1692, 2889, -1692, 2488, -1112, 2488, -152, 2889, -1032, 2889, -1032, 2488, -152, 2488, 348, 2549, 348, 2488, 868, 2488, 868, 2549, 948, 2549, 948, 2488, 1348, 2488, 1348, 2889, 948, 2889, 948, 2769, 868, 2769, 868, 2889, -72, 2889, 268, 2549, -72, 838, 268, 838, -152, 2109, -1692, 2109, -1692, 1498, -152, 1498, 1348, 2109, 348, 2109, 348, 1498, 1348, 1498, -1754.0313, 1149, -1754.9922, -528.9922, -512, -528.21094, -1712, 1148, -512, 1148, -1712, 1149, 708, 1148, 708, -527.4375, 1406, -527, 1388, 1148, 1406.9609, 1149, 1388, 1149, -152, 1148, -432, 1148, -432, 838, -152, 838, 628, 1148, 348, 1148, 348, 838, 628, 838, 628, 429, -432, 429, -432, -152, 628, -152)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(15, 16, 17), PackedInt32Array(12, 15, 17, 11), PackedInt32Array(11, 17, 18, 8), PackedInt32Array(8, 18, 19, 20, 21), PackedInt32Array(21, 20, 22, 23), PackedInt32Array(24, 25, 26, 27), PackedInt32Array(28, 29, 30, 31), PackedInt32Array(32, 33, 34, 35), PackedInt32Array(34, 36, 35), PackedInt32Array(32, 35, 37), PackedInt32Array(38, 39, 40, 41), PackedInt32Array(41, 40, 42, 43), PackedInt32Array(44, 45, 46, 47), PackedInt32Array(48, 49, 50, 51), PackedInt32Array(52, 53, 54, 55)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1765, -539, 1416, -537, 1418, 2959, -1763, 2959)])
 
 [sub_resource type="Resource" id="Resource_fw0ep"]
 script = ExtResource("19_4ymq3")
@@ -89,7 +89,6 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="MovementCont" type="Node2D" parent="." unique_id=2117843696]
 
 [node name="Eve - P1" parent="MovementCont" unique_id=810202292 instance=ExtResource("1_ihv73")]
-visible = false
 z_index = 9
 collision_mask = 4294967222
 slide_on_ceiling = false
@@ -342,34 +341,23 @@ z_index = 10
 position = Vector2(416, 603)
 
 [node name="Tutorial-Hall Door" parent="." unique_id=1400186033 node_paths=PackedStringArray("required_key") instance=ExtResource("11_g77a3")]
-position = Vector2(672, 502)
+position = Vector2(-216.00002, 503)
 required_key = NodePath("../key-tutorial-hall")
 
 [node name="Tutorial-Bathroom Door" parent="." unique_id=267403858 instance=ExtResource("11_g77a3")]
-position = Vector2(-384, 502)
+position = Vector2(-570, 503)
 
 [node name="Bathroom-SleeplessChildRoom Door" parent="." unique_id=2043261125 instance=ExtResource("11_g77a3")]
-position = Vector2(-234, 1490.0001)
+position = Vector2(-550, 1173)
 
 [node name="ExtraBedroom-Closet Door" parent="." unique_id=1913979400 instance=ExtResource("11_g77a3")]
-position = Vector2(1361.0001, 1489)
+position = Vector2(219, 1170.0001)
 
 [node name="SleeplessChildRoom-Closet Door" parent="." unique_id=56108777 instance=ExtResource("11_g77a3")]
-position = Vector2(-38, 3141)
+position = Vector2(-919.00006, 2153)
 
 [node name="Hall-Bathroom Door" parent="." unique_id=703234654 instance=ExtResource("11_g77a3")]
-position = Vector2(-870, 3802)
-
-[node name="Hall-MasterBedroom Door" parent="." unique_id=435501283 instance=ExtResource("11_g77a3")]
-position = Vector2(-168, 4792)
-
-[node name="Hall-Storage Door" parent="." unique_id=388552782 node_paths=PackedStringArray("required_key") instance=ExtResource("11_g77a3")]
-position = Vector2(693.00006, 4792)
-required_key = NodePath("../key-storage")
-
-[node name="Hall-Study Door" parent="." unique_id=1813639858 node_paths=PackedStringArray("required_key") instance=ExtResource("11_g77a3")]
-position = Vector2(1511, 4790.0005)
-required_key = NodePath("../key-study")
+position = Vector2(-1717, 2160)
 
 [node name="SleeplessChildRoom" type="Node2D" parent="." unique_id=919085109]
 
@@ -389,13 +377,13 @@ texture = ExtResource("14_us6j8")
 
 [node name="Toliet" type="Sprite2D" parent="BathroomL1" unique_id=2000726194]
 z_index = 6
-position = Vector2(283, 795.99994)
+position = Vector2(-237.00006, 919.99994)
 scale = Vector2(0.425, 0.425)
 texture = ExtResource("15_5yyo0")
 
 [node name="Sink" type="Sprite2D" parent="BathroomL1" unique_id=195883167]
 z_index = 10
-position = Vector2(124, 805)
+position = Vector2(-349, 916)
 scale = Vector2(0.32, 0.32)
 texture = ExtResource("16_pqgcp")
 
@@ -407,11 +395,11 @@ texture = ExtResource("17_btg6x")
 
 [node name="Shapes Paper" parent="." unique_id=1319041526 instance=ExtResource("12_2ydo2")]
 z_index = 3
-position = Vector2(1880, 5459)
+position = Vector2(244, 2769)
 
 [node name="Black Light Flashlight Item" parent="." unique_id=603767252 instance=ExtResource("13_xb17u")]
 z_index = 4
-position = Vector2(1992, 5493)
+position = Vector2(75, 2628)
 
 [node name="Key Placeholder" type="Sprite2D" parent="." unique_id=1361209313]
 visible = false
@@ -436,7 +424,7 @@ position = Vector2(643, 4634)
 
 [node name="Blanket Ghost" parent="." unique_id=1059129714 node_paths=PackedStringArray("targets") instance=ExtResource("20_e5gav")]
 z_index = 8
-position = Vector2(953, 2645)
+position = Vector2(86, 2193)
 targets = [NodePath("../MovementCont/Eve - P1"), NodePath("../MovementCont/Willow - P2")]
 
 [node name="Ambient Music" type="AudioStreamPlayer" parent="." unique_id=1580217849]

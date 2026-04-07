@@ -306,8 +306,10 @@ func move_to_path(delta: float) -> void:
 	# otherwise the plushie still needs to move toward the path
 	else:
 		velocity = direction.normalized() * normalSpeed
-		
+
+# moves the plushie toward a target player
 func move_toward_target(playerLocation: Vector2, speed: float):
+	
 	navAgent.target_position = playerLocation
 	var nextLocation = navAgent.get_next_path_position()
 	var direction = nextLocation - global_position
