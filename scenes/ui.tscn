@@ -189,7 +189,7 @@ layout_mode = 0
 offset_right = 590.0
 offset_bottom = 423.0
 
-[node name="TextureRect" type="TextureRect" parent="MenuButton/Menu/Control/Panel" unique_id=1101996236]
+[node name="Menu Background" type="TextureRect" parent="MenuButton/Menu/Control/Panel" unique_id=1101996236]
 layout_mode = 0
 offset_left = -7.0
 offset_top = -6.0
