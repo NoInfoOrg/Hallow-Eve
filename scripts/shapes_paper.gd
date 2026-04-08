@@ -12,6 +12,7 @@ var count : int
 var line : LineEdit
 @export var type : String
 @export var answer : String
+var currPlayer = null
 
 func _ready():
 	# INFO Shoutout Chris that's him
@@ -24,13 +25,17 @@ func _ready():
 
 
 func _process(delta: float):
-	if homework_opened and Input.is_action_just_pressed("Submit"):
+	if homework_opened and Input.is_action_just_pressed("P1Drop") and currPlayer == "Eve":
+		check_answer()
+	if homework_opened and Input.is_action_just_pressed("P2Drop") and currPlayer == "Willow":
 		check_answer()
 	for player in players_detected:
 		if Input.is_action_just_pressed("P1Grab") and player.name == "Eve - P1":
+			currPlayer = "Eve"
 			interact_with_homework()
 			break
 		elif Input.is_action_just_pressed("P2Grab") and player.name == "Willow - P2":
+			currPlayer = "Willow"
 			interact_with_homework()
 			break
 
@@ -64,6 +69,11 @@ func interact_with_homework():
 		
 
 func show_homework(homework):
+	var label = get_node("CanvasLayer/Answer Text Box/Label")
+	if currPlayer == "Eve":
+		label.text = "Type answer and press \"Q\" to submit"
+	elif currPlayer == "Willow":
+		label.text = "Type answer and press \"Shift\" to submit"
 	# Show the default version by default
 	var homework_sprite = homework.get_node("Versions")
 	homework_sprite.play("default")
@@ -99,6 +109,7 @@ func check_answer():
 		
 		if label:
 			label.text = "Incorrect. Please try again."
+			
 			if line:
 				
 				line.grab_focus()
