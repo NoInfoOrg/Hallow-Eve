@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://blc2wqvr525qk"]
+
+[ext_resource type="Script" uid="uid://oy2eobmj4y7q" path="res://scripts/locked_door.gd" id="1_2ibvm"]
+[ext_resource type="TileSet" uid="uid://byb3asue4yfo3" path="res://assets/tilesets/wallsnc.tres" id="2_2ibvm"]
+[ext_resource type="Texture2D" uid="uid://dnfynyaipi0iu" path="res://assets/sprites/level objs/Wreath_Glow.png" id="2_nfgqb"]
+[ext_resource type="Texture2D" uid="uid://c4qt2hqx5inn2" path="res://assets/sprites/level objs/Wreath_NoGlow.png" id="3_2ibvm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wel5i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nfgqb")
+}],
+"loop": true,
+"name": &"glow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2ibvm")
+}],
+"loop": true,
+"name": &"no glow",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ibvm"]
+size = Vector2(308.79974, 330.01382)
+
+[node name="DoorOpen" type="StaticBody2D" unique_id=1322021479 groups=["Doors"]]
+z_index = 10
+collision_layer = 256
+collision_mask = 255
+script = ExtResource("1_2ibvm")
+
+[node name="ClosedDoor" type="TileMapLayer" parent="." unique_id=2103292742 groups=["Walls"]]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray(0, 0, 3, 0, 0, 0, 1, 0, 3, 0, 0, 0, 0, 0, 4, 0, 0, 0, 1, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0, 1, 0, 5, 0, 0, 0, 0, 0)
+tile_set = ExtResource("2_2ibvm")
+rendering_quadrant_size = 10
+
+[node name="OpenDoor" type="TileMapLayer" parent="." unique_id=937500666 groups=["Walls"]]
+visible = false
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray(0, 0, 3, 0, 0, 0, 2, 0, 3, 0, 0, 0, 0, 0, 4, 0, 0, 0, 2, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0, 2, 0, 5, 0, 0, 0, 0, 0)
+tile_set = ExtResource("2_2ibvm")
+rendering_quadrant_size = 10
+
+[node name="Wreath" type="AnimatedSprite2D" parent="." unique_id=1250554276]
+z_index = 20
+position = Vector2(279.85474, 72.81197)
+scale = Vector2(0.5587121, 0.55871207)
+sprite_frames = SubResource("SpriteFrames_wel5i")
+animation = &"no glow"
+
+[node name="Closed Door Collision" type="CollisionShape2D" parent="." unique_id=287673992]
+position = Vector2(280.00647, 165.00691)
+shape = SubResource("RectangleShape2D_2ibvm")
+debug_color = Color(5.0055983e-06, 0.6362591, 0.41103232, 0.41960785)

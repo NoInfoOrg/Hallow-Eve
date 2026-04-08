@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b5evgada02h46" path="res://scenes/locked_door.tscn" id="6_1csvh"]
 [ext_resource type="PackedScene" uid="uid://5ksk0750mv13" path="res://scenes/ordered_puzzle_paper_2.tscn" id="7_mnaqv"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="8_m64xm"]
+[ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="9_had4t"]
 
 [node name="Button Puzzle Testing Environment" type="Node2D" unique_id=837361566]
 
@@ -57,3 +58,5 @@ position = Vector2(640, 567)
 
 [node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("8_m64xm")]
 position = Vector2(438, 608)
+
+[node name="UI" parent="." unique_id=1522527901 instance=ExtResource("9_had4t")]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cdb5iv2ftog18"]
 
-[ext_resource type="PackedScene" uid="uid://x3cewmdbavm4" path="res://scenes/level_2_floorplan.tscn" id="1_dhe5w"]
+[ext_resource type="PackedScene" uid="uid://dr5tr08n1qkmp" path="res://scenes/level_2_floorplan.tscn" id="1_dhe5w"]
 [ext_resource type="Script" uid="uid://cvy8perii5g6s" path="res://scripts/camera_2d.gd" id="1_l75xx"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_w3v4c"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_l75xx"]
@@ -9,6 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="5_st00f"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="7_76qun"]
 [ext_resource type="PackedScene" uid="uid://b5evgada02h46" path="res://scenes/locked_door.tscn" id="9_bh3am"]
+[ext_resource type="Texture2D" uid="uid://b35c3rfouw1qh" path="res://assets/sprites/environment/Toilet_Open.png" id="10_k5nr0"]
+[ext_resource type="Texture2D" uid="uid://cwigx0icmjdko" path="res://assets/sprites/environment/Sink_White.png" id="11_st00f"]
+[ext_resource type="Texture2D" uid="uid://dl2y76d8iqjfq" path="res://assets/sprites/environment/Tub.png" id="12_q0cgm"]
+[ext_resource type="Texture2D" uid="uid://bi4kxsjfhqsix" path="res://assets/sprites/environment/WallLamp_FL1_On.png" id="13_scbhx"]
+[ext_resource type="Texture2D" uid="uid://dbwmlb07t8pal" path="res://assets/sprites/environment/Storage_Picture2.png" id="14_a4sca"]
+[ext_resource type="Texture2D" uid="uid://bwtk13ov5a0yu" path="res://assets/sprites/environment/Storage_Picture1.png" id="15_il02f"]
+[ext_resource type="Texture2D" uid="uid://cj26n0g3vxh6k" path="res://assets/tilesets/WindowEvening1.png" id="16_dgqk8"]
+[ext_resource type="PackedScene" uid="uid://c2kw81potgo61" path="res://scenes/ballroom_table.tscn" id="21_dgqk8"]
 
 [sub_resource type="Resource" id="Resource_w3v4c"]
 script = ExtResource("3_bh3am")
@@ -22,6 +30,7 @@ physics_interpolation_mode = 1
 top_level = true
 visibility_layer = 65
 z_index = 10
+position = Vector2(-871.5, -465)
 zoom = Vector2(1.25, 1.25)
 process_callback = 0
 editor_draw_limits = true
@@ -36,6 +45,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="Camera Setup" unique_id=1288342988 node_paths=PackedStringArray("follow_targets")]
 top_level = true
+position = Vector2(-871.5, -465)
 script = ExtResource("2_l75xx")
 priority = 10
 follow_mode = 3
@@ -55,11 +65,12 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Eve - P1" parent="MovementCont" unique_id=810202292 instance=ExtResource("4_k5nr0")]
 z_index = 9
+position = Vector2(-796, -459)
 collision_mask = 190
 
 [node name="Willow - P2" parent="MovementCont" unique_id=882182450 instance=ExtResource("5_st00f")]
 z_index = 9
-collision_layer = 64
+position = Vector2(-947, -471)
 collision_mask = 190
 
 [node name="Level 2 Floorplan" parent="." unique_id=786862080 instance=ExtResource("1_dhe5w")]
@@ -72,10 +83,79 @@ z_index = 10
 position = Vector2(416, 603)
 
 [node name="Hall-LibraryStatueRoom Door" parent="." unique_id=1400186033 instance=ExtResource("9_bh3am")]
-position = Vector2(-673.00006, -1249.0001)
+position = Vector2(-2624, -2078)
 
 [node name="LockedDoor" parent="." unique_id=2139845666 instance=ExtResource("9_bh3am")]
-position = Vector2(-2058, -1249)
+position = Vector2(-2640, -2502)
 
 [node name="LockedDoor2" parent="." unique_id=889521707 instance=ExtResource("9_bh3am")]
-position = Vector2(-524, 405)
+position = Vector2(-2637, -2906)
+
+[node name="Bathroom" type="Node2D" parent="." unique_id=1010007110]
+
+[node name="Toliet" type="Sprite2D" parent="Bathroom" unique_id=662466425]
+z_index = 6
+position = Vector2(-1842.9999, -1258)
+scale = Vector2(0.485, 0.485)
+texture = ExtResource("10_k5nr0")
+
+[node name="Sink" type="Sprite2D" parent="Bathroom" unique_id=347882189]
+z_index = 6
+position = Vector2(-1692, -1265)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_st00f")
+
+[node name="Tub" type="Sprite2D" parent="Bathroom" unique_id=114163602]
+z_index = 6
+position = Vector2(-1457, -1250)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_q0cgm")
+
+[node name="Lamp" type="Sprite2D" parent="Bathroom" unique_id=1381236179]
+z_index = 4
+position = Vector2(-1692, -1444)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_scbhx")
+
+[node name="Picture1" type="Sprite2D" parent="Bathroom" unique_id=952776675]
+z_index = 4
+position = Vector2(-1840, -1426)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_a4sca")
+
+[node name="Picture2" type="Sprite2D" parent="Bathroom" unique_id=1016623925]
+z_index = 5
+position = Vector2(-1347, -1439)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_il02f")
+
+[node name="Window1" type="Sprite2D" parent="Bathroom" unique_id=253674176]
+z_index = 6
+position = Vector2(-1460, -1418)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_dgqk8")
+
+[node name="Hallway" type="Node2D" parent="." unique_id=218206702]
+
+[node name="Picture2" type="Sprite2D" parent="Hallway" unique_id=486050137]
+z_index = 5
+position = Vector2(-225, -805)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("15_il02f")
+
+[node name="Ballroom" type="Node2D" parent="." unique_id=1231814047]
+
+[node name="BallroomTable" parent="Ballroom" unique_id=163624167 instance=ExtResource("21_dgqk8")]
+position = Vector2(-1908, 200)
+tableType = 3
+
+[node name="BallroomTable2" parent="Ballroom" unique_id=1065221308 instance=ExtResource("21_dgqk8")]
+position = Vector2(-1062, 200)
+tableType = 2
+
+[node name="BallroomTable3" parent="Ballroom" unique_id=1631750859 instance=ExtResource("21_dgqk8")]
+position = Vector2(-1908, -91)
+
+[node name="BallroomTable4" parent="Ballroom" unique_id=55832319 instance=ExtResource("21_dgqk8")]
+position = Vector2(-1062, -91)
+tableType = 1

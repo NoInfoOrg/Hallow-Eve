@@ -66,7 +66,6 @@ position = Vector2(317.75, 178.00002)
 scale = Vector2(0.56116074, 0.5530303)
 sprite_frames = SubResource("SpriteFrames_mq1x3")
 animation = &"closed"
-frame_progress = 0.7463639
 script = ExtResource("4_mq1x3")
 
 [node name="Closed Door Collision" type="CollisionShape2D" parent="." unique_id=578145236]

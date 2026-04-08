@@ -82,7 +82,12 @@ func check_synced_buttons():
 	# If all required buttons are pressed, open the door
 	if all_buttons_pressed:
 		# Change the door image to be opened
-		get_node("Door").play("open")
+		# get_node("Door").play("open")
+		if has_node("OpenDoor"):
+			get_node("OpenDoor").visible = true
+			
+		if has_node("ClosedDoor"):
+			get_node("ClosedDoor").visible = false
 		
 		# Change the door collision so players can enter the door
 		get_node("Closed Door Collision").set_deferred("disabled", true)
@@ -102,8 +107,12 @@ func check_ordered_buttons():
 	
 	if buttons_are_in_order:
 		# Change the door image to be opened
-		get_node("Door").play("open")
-		
+		# get_node("Door").play("open")
+		if has_node("OpenDoor"):
+			get_node("OpenDoor").visible = true
+			
+		if has_node("ClosedDoor"):
+			get_node("ClosedDoor").visible = false
 		# Change the door collision so players can enter the door
 		get_node("Closed Door Collision").set_deferred("disabled", true)
 	
