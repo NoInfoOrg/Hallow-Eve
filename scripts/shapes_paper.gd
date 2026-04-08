@@ -109,11 +109,16 @@ func check_answer():
 		
 		if label:
 			label.text = "Incorrect. Please try again."
-			
-			if line:
-				
+			if line:	
 				line.grab_focus()
-				line.clear()
+				line.clear()			
+			await get_tree().create_timer(1.5).timeout
+			if currPlayer == "Eve":
+				label.text = "Type answer and press \"Q\" to submit"
+			elif currPlayer == "Willow":
+				label.text = "Type answer and press \"Shift\" to submit"
+			
+
 
 
 
