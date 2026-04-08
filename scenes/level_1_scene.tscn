@@ -90,16 +90,16 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="MovementCont" type="Node2D" parent="." unique_id=2117843696]
 
-[node name="Eve - P1" parent="MovementCont" unique_id=810202292 groups=["Players"] instance=ExtResource("1_ihv73")]
+[node name="Eve - P1" parent="MovementCont" unique_id=810202292 instance=ExtResource("1_ihv73")]
 z_index = 9
 position = Vector2(68.92456, 130.34113)
-collision_mask = 4294967220
+collision_mask = 4294967226
 slide_on_ceiling = false
 
-[node name="Willow - P2" parent="MovementCont" unique_id=882182450 groups=["Players"] instance=ExtResource("2_d0nkq")]
+[node name="Willow - P2" parent="MovementCont" unique_id=882182450 instance=ExtResource("2_d0nkq")]
 z_index = 9
 position = Vector2(176.9065, 169.80463)
-collision_mask = 4294967224
+collision_mask = 4294967226
 slide_on_ceiling = false
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="MovementCont" unique_id=781017762]

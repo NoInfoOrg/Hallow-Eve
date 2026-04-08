@@ -61,6 +61,9 @@ Mirrors=""
 Players=""
 Walls=""
 "Environment Assets"=""
+Enemies=""
+AttackBox=""
+HurtBox=""
 
 [input]
 
@@ -171,6 +174,9 @@ Submit={
 2d_physics/layer_8="Enemies"
 2d_physics/layer_9="Doors"
 2d_physics/layer_10="EnvironmentAssets"
+2d_physics/layer_11="Hurtbox"
+2d_physics/layer_12="AttackBox"
+2d_physics/layer_13="DetectionZone"
 
 [physics]
 
