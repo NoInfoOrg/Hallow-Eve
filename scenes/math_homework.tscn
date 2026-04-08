@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://xrbj62gw4wa5"]
+
+[ext_resource type="Script" uid="uid://dt8m37ndhuuse" path="res://scripts/shapes_homework.gd" id="1_tjweh"]
+[ext_resource type="Texture2D" uid="uid://dwhstbb4yblxv" path="res://assets/popups/Screenshot 2026-04-04 135733.png" id="4_x0u21"]
+[ext_resource type="Texture2D" uid="uid://ktdhhc5a4bs7" path="res://assets/popups/Screenshot 2026-04-04 135657.png" id="5_1qd1p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sqol7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_x0u21")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_1qd1p")
+}],
+"loop": true,
+"name": &"under_black_light",
+"speed": 5.0
+}]
+
+[node name="Math Homework" type="Node2D" unique_id=1966067721]
+script = ExtResource("1_tjweh")
+
+[node name="versions" type="AnimatedSprite2D" parent="." unique_id=651216631]
+position = Vector2(5.2452087e-06, -6.67572e-06)
+scale = Vector2(1.2987655, 1.2342159)
+sprite_frames = SubResource("SpriteFrames_sqol7")
+animation = &"under_black_light"

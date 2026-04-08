@@ -1,9 +1,10 @@
 extends LineEdit
 
 
+var content = ""
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,6 +15,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if clicked_outside_answer_box(event.position):
 			release_focus()
+
 
 func clicked_outside_answer_box(mouse_position: Vector2):
 	var answer_box_position = get_global_rect()

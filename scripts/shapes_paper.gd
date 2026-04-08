@@ -4,22 +4,38 @@ extends Area2D
 var players_detected = []
 var homework_opened = false
 
-signal shapes_homework_viewed;
+signal hw_completed(hw_type)
+signal shapes_homework_viewed; # <=== bro is C++ coded 
+var count : int
+@onready var homework = get_node("CanvasLayer/Homework")
+@onready var answer_box = get_node("CanvasLayer/Answer Text Box")
+var line : LineEdit
+@export var type : String
+@export var answer : String
+var currPlayer = null
 
 func _ready():
 	# INFO Shoutout Chris that's him
 	body_entered.connect(body_entry)
 	body_exited.connect(body_exit)
+	count = 0
+	line = answer_box.get_node("LineEdit")
+	
+		
+
 
 func _process(delta: float):
-	if homework_opened:
+	if homework_opened and Input.is_action_just_pressed("P1Drop") and currPlayer == "Eve":
 		check_answer()
-	
+	if homework_opened and Input.is_action_just_pressed("P2Drop") and currPlayer == "Willow":
+		check_answer()
 	for player in players_detected:
 		if Input.is_action_just_pressed("P1Grab") and player.name == "Eve - P1":
+			currPlayer = "Eve"
 			interact_with_homework()
 			break
 		elif Input.is_action_just_pressed("P2Grab") and player.name == "Willow - P2":
+			currPlayer = "Willow"
 			interact_with_homework()
 			break
 
@@ -34,25 +50,36 @@ func body_exit(body):
 		players_detected.erase(body)
 
 func interact_with_homework():
-	var homework = get_node("CanvasLayer/Shapes Homework")
-	var answer = get_node("CanvasLayer/Answer Text Box")
+	#var homework = get_node("CanvasLayer/Homework")
+	#var answer = get_node("CanvasLayer/Answer Text Box")
 	
 	if not homework_opened:
 		show_homework(homework)
-		answer.show()
+		answer_box.show()
+		get_tree().paused = true
+		answer_box.process_mode = Node.PROCESS_MODE_ALWAYS
+		if line:
+			line.grab_focus()
 		homework_opened = true
 	else:
 		homework.hide()
-		answer.hide()
+		answer_box.hide()
 		homework_opened = false
+		get_tree().paused = false
+		
 
 func show_homework(homework):
+	var label = get_node("CanvasLayer/Answer Text Box/Label")
+	if currPlayer == "Eve":
+		label.text = "Type answer and press \"Q\" to submit"
+	elif currPlayer == "Willow":
+		label.text = "Type answer and press \"Shift\" to submit"
 	# Show the default version by default
 	var homework_sprite = homework.get_node("Versions")
 	homework_sprite.play("default")
 	
 	# If the players have the black light, show the black light version
-	var inventory = get_node("../UI/SharedInv/Inventory")
+	var inventory = get_node("../../UI/SharedInv/Inventory")
 	for item in inventory.items:
 		if item.name == "Black Light Flashlight Item":
 			homework_sprite.play("under_black_light")
@@ -60,12 +87,52 @@ func show_homework(homework):
 	homework.show()
 
 func check_answer():
-	var correct_answer = "11"
-	
-	var homework = get_node("CanvasLayer/Shapes Homework")
-	var answer = get_node("CanvasLayer/Answer Text Box")
-	
-	if answer.currentContent == correct_answer:
+
+	var curr = line.text
+	#print(line.text[0:len(line.text-1)], " :) ", answer) what is this madness?
+	if curr == answer:
+
+		# check if it's shape hw or math hw by the answer
+		if answer == "0":
+			hw_completed.emit("math")
+		elif answer == "11":
+			hw_completed.emit("shapes")
 		homework.hide()
-		answer.hide()
+		answer_box.hide()
 		homework_opened = false
+		queue_free()
+		get_tree().paused = false
+		return
+
+	if homework_opened:
+		var label = get_node("CanvasLayer/Answer Text Box/Label")
+		
+		if label:
+			label.text = "Incorrect. Please try again."
+			if line:	
+				line.grab_focus()
+				line.clear()			
+			await get_tree().create_timer(1.5).timeout
+			if currPlayer == "Eve":
+				label.text = "Type answer and press \"Q\" to submit"
+			elif currPlayer == "Willow":
+				label.text = "Type answer and press \"Shift\" to submit"
+			
+
+
+
+
+				
+
+# get it to work so that it can be entered after wrong answer
+		
+#func check_answer_math():
+	#var correct_answer = "0"
+	#var homework = get_node("CanvasLayer/Homework")
+	#var answer = get_node("CanvasLayer/Answer Text Box")
+	#
+	#if answer.currentContent == correct_answer:
+		#homework.hide()
+		#answer.hide()
+		#homework_opened = false
+		#queue_free()

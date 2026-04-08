@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c6sr43xrr6lfo"]
+
+[ext_resource type="Script" uid="uid://cnujf4336mq84" path="res://scripts/collectibles.gd" id="1_v3c84"]
+[ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="2_lgmwv"]
+[ext_resource type="Texture2D" uid="uid://b5nncvhqu0fem" path="res://assets/tempSprites/Eclair_Coconut.png" id="3_mq6lw"]
+
+[sub_resource type="Resource" id="Resource_nu23a"]
+script = ExtResource("2_lgmwv")
+name = "eclair"
+texture = ExtResource("3_mq6lw")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dxld2"]
+radius = 36.013885
+
+[node name="eclair" type="Area2D" unique_id=1560238848]
+collision_mask = 65
+script = ExtResource("1_v3c84")
+item_info = SubResource("Resource_nu23a")
+is_holding = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=191732908]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_dxld2")
+
+[node name="food" type="Sprite2D" parent="." unique_id=1231127953]
+z_index = -2
+position = Vector2(-4, 5)
+scale = Vector2(0.390625, 0.36328125)
+texture = ExtResource("3_mq6lw")

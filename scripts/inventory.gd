@@ -26,3 +26,4 @@ func remove_item(remItem: Item) -> bool:
 
 func get_inv_size() -> int:
 	return items.size()
+	

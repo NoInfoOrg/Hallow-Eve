@@ -351,7 +351,6 @@ z_index = 4
 position = Vector2(75, 2628)
 
 [node name="Key Placeholder" type="Sprite2D" parent="." unique_id=1361209313]
-visible = false
 z_index = 5
 position = Vector2(783, 5194)
 scale = Vector2(0.14522077, 0.14522079)

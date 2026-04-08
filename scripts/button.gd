@@ -56,7 +56,6 @@ func press_button():
 	# The button will be unpressed in two seconds
 	timer.wait_time = 2.0
 	timer.start()
-	
 	# This is mainly for the ordered button puzzle at the moment
 	button_object_emitted.emit(self)
 
