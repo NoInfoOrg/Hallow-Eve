@@ -125,7 +125,7 @@ radius = 9.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_agjl5"]
 size = Vector2(47.537415, 24.288254)
 
-[node name="Willow - P2" type="CharacterBody2D" unique_id=882182450]
+[node name="Willow - P2" type="CharacterBody2D" unique_id=882182450 groups=["Players"]]
 collision_layer = 64
 collision_mask = 440
 script = ExtResource("1_agjl5")

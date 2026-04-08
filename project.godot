@@ -60,6 +60,7 @@ Mirrors=""
 "Communal Buttons"=""
 Players=""
 Walls=""
+"Environment Assets"=""
 
 [input]
 
@@ -154,6 +155,7 @@ Refresh={
 2d_physics/layer_7="Player 2"
 2d_physics/layer_8="Enemies"
 2d_physics/layer_9="Doors"
+2d_physics/layer_10="EnvironmentAssets"
 
 [physics]
 

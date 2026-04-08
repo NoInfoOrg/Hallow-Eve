@@ -1,6 +1,9 @@
+@tool
 extends Node2D
 
 # AF - Sprite set up is based on MJ's code for loading enemy assets
+
+enum TableType {Decorations, Flowers, EmptyPlate, FoodPlate}
 
 @export var tableType: TableType:
 	set(value):
@@ -8,7 +11,6 @@ extends Node2D
 		setup_table()
 		
 		
-enum TableType {Decorations, Flowers, EmptyPlate, FoodPlate}
 
 var tableSprites = {
 	TableType.Decorations: preload("res://assets/sprites/environment/BallroomTable_Decorations.png"),
@@ -19,7 +21,7 @@ var tableSprites = {
 
 func setup_table():
 	if $Table != null:
-		$Table.texture = tableSprites.get(TableType)
+		$Table.texture = tableSprites.get(tableType)
 	else:
 		return
 # Called when the node enters the scene tree for the first time.

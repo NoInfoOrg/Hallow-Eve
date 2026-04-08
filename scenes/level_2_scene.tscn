@@ -16,12 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dbwmlb07t8pal" path="res://assets/sprites/environment/Storage_Picture2.png" id="14_a4sca"]
 [ext_resource type="Texture2D" uid="uid://bwtk13ov5a0yu" path="res://assets/sprites/environment/Storage_Picture1.png" id="15_il02f"]
 [ext_resource type="Texture2D" uid="uid://cj26n0g3vxh6k" path="res://assets/tilesets/WindowEvening1.png" id="16_dgqk8"]
-[ext_resource type="Texture2D" uid="uid://du7r1pqspmiex" path="res://assets/sprites/environment/BallroomTable_Flowers.png" id="17_gmwjh"]
-[ext_resource type="Texture2D" uid="uid://b8ojl3e1g28ap" path="res://assets/sprites/environment/Ballroom_Chair-Side.png" id="18_a4sca"]
-[ext_resource type="Texture2D" uid="uid://d0poh2bjxx5c8" path="res://assets/sprites/environment/BallroomTable_Decorations.png" id="18_rcw3s"]
-[ext_resource type="Texture2D" uid="uid://b40qlyul1c7ot" path="res://assets/sprites/environment/Ballroom_Chair-Front.png" id="19_il02f"]
 [ext_resource type="PackedScene" uid="uid://c2kw81potgo61" path="res://scenes/ballroom_table.tscn" id="21_dgqk8"]
-[ext_resource type="Script" uid="uid://bciptxwus7cg" path="res://scripts/ballroomtable.gd" id="22_dgqk8"]
 
 [sub_resource type="Resource" id="Resource_w3v4c"]
 script = ExtResource("3_bh3am")
@@ -150,67 +145,17 @@ texture = ExtResource("15_il02f")
 
 [node name="Ballroom" type="Node2D" parent="." unique_id=1231814047]
 
-[node name="Table1" type="Node2D" parent="Ballroom" unique_id=1166325790]
-
-[node name="Table" type="Sprite2D" parent="Ballroom/Table1" unique_id=1270535088]
-z_index = 5
-position = Vector2(-1683, 104)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("17_gmwjh")
-
-[node name="LChair" type="Sprite2D" parent="Ballroom/Table1" unique_id=2115464957]
-z_index = 4
-position = Vector2(-1849, 99)
-rotation = -6.2831855
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("18_a4sca")
-flip_h = true
-
-[node name="FChair" type="Sprite2D" parent="Ballroom/Table1" unique_id=1607688591]
-z_index = 4
-position = Vector2(-1682, 49)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("19_il02f")
-
-[node name="RChair" type="Sprite2D" parent="Ballroom/Table1" unique_id=948458546]
-z_index = 4
-position = Vector2(-1514, 99)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("18_a4sca")
-
-[node name="Table2" type="Node2D" parent="Ballroom" unique_id=1380058118]
-
-[node name="Table" type="Sprite2D" parent="Ballroom/Table2" unique_id=217488749]
-z_index = 5
-position = Vector2(-844, 112)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("18_rcw3s")
-metadata/_edit_group_ = true
-
-[node name="LChair" type="Sprite2D" parent="Ballroom/Table2" unique_id=1555173854]
-z_index = 4
-position = Vector2(-1010, 107)
-rotation = -6.2831855
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("18_a4sca")
-flip_h = true
-metadata/_edit_group_ = true
-
-[node name="FChair" type="Sprite2D" parent="Ballroom/Table2" unique_id=681948262]
-z_index = 4
-position = Vector2(-843, 57)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("19_il02f")
-metadata/_edit_group_ = true
-
-[node name="RChair" type="Sprite2D" parent="Ballroom/Table2" unique_id=476514868]
-z_index = 4
-position = Vector2(-675, 107)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("18_a4sca")
-metadata/_edit_group_ = true
-
 [node name="BallroomTable" parent="Ballroom" unique_id=163624167 instance=ExtResource("21_dgqk8")]
-position = Vector2(-1885, 191)
-script = ExtResource("22_dgqk8")
+position = Vector2(-1908, 200)
+tableType = 3
+
+[node name="BallroomTable2" parent="Ballroom" unique_id=1065221308 instance=ExtResource("21_dgqk8")]
+position = Vector2(-1062, 200)
 tableType = 2
+
+[node name="BallroomTable3" parent="Ballroom" unique_id=1631750859 instance=ExtResource("21_dgqk8")]
+position = Vector2(-1908, -91)
+
+[node name="BallroomTable4" parent="Ballroom" unique_id=55832319 instance=ExtResource("21_dgqk8")]
+position = Vector2(-1062, -91)
+tableType = 1

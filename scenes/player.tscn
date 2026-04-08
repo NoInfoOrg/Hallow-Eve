@@ -98,7 +98,7 @@ height = 128.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(22, 17.137268)
 
-[node name="Eve - P1" type="CharacterBody2D" unique_id=810202292]
+[node name="Eve - P1" type="CharacterBody2D" unique_id=810202292 groups=["Players"]]
 collision_mask = 436
 script = ExtResource("1_g2els")
 

@@ -163,9 +163,9 @@ func check_to_open_door():
 			door.get_node("Closed Door Collision").set_deferred("disabled", true)
 
 func _on_feet_zone_body_entered(playerBody: Node2D) -> void:
-	if playerBody.is_in_group("Walls") or playerBody.is_in_group("Doors"):
+	if playerBody.is_in_group("Walls") or playerBody.is_in_group("Doors") or playerBody.is_in_group("Environment Assets"):
 		feetCollidingWithWall = true
 
 func _on_feet_zone_body_exited(playerBody: Node2D) -> void:
-	if playerBody.is_in_group("Walls") or playerBody.is_in_group("Doors"):
+	if playerBody.is_in_group("Walls") or playerBody.is_in_group("Doors") or playerBody.is_in_group("Environment Assets"):
 		feetCollidingWithWall = false

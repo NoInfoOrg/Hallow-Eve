@@ -8217,37 +8217,57 @@ texture_region_size = Vector2i(140, 660)
 texture = ExtResource("4_ucm7u")
 texture_region_size = Vector2i(140, 660)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1du4m"]
 texture = ExtResource("5_r07dk")
 texture_region_size = Vector2i(140, 660)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cjss2"]
 texture = ExtResource("6_7wb0s")
 texture_region_size = Vector2i(140, 660)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 2:0/0 = 0
 3:0/0 = 0
 4:0/0 = 0
 5:0/0 = 0
 6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 
 [resource]
 tile_size = Vector2i(140, 660)
