@@ -22,19 +22,24 @@ func _ready():
 	willow_health_strikes = MAX_PLAYER_HEALTH_STRIKES
 
 func find_inventory(starting_node):
-	return find_node(starting_node, "UI/SharedInv/Inventory")
+	#return find_node(starting_node, "UI/SharedInv/Inventory")
+	return starting_node.get_tree().root.find_child("Inventory", true, false)
 
 func find_slots_inventory_node(starting_node):
-	return find_node(starting_node, "UI/SharedInv/Inv")
+	#return find_node(starting_node, "UI/SharedInv/Inv")
+	return starting_node.get_tree().root.find_child("Inv", true, false)
 
 func find_player_one_sanity(starting_node):
-	return get_tree().root.find_child("P1Sanity", true, false)
+	#return get_tree().root.find_child("P1Sanity", true, false)
+	return starting_node.get_tree().root.find_child("P1Sanity", true, false)
 
 func find_player_two_sanity(starting_node):
-	return get_tree().root.find_child("P2Sanity", true, false)
+	#return get_tree().root.find_child("P2Sanity", true, false)
+	return starting_node.get_tree().root.find_child("P2Sanity", true, false)
 
 func find_game_over_screen(starting_node):
-	return find_node(starting_node, "Game Over Screen")
+	#return find_node(starting_node, "Game Over Screen")
+	return starting_node.get_tree().root.find_child("Game Over Screen", true, false)
 
 func find_node(starting_node, node_path):
 	var root = get_tree().root.get_child(0)

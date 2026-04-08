@@ -95,8 +95,11 @@ height = 72.0
 radius = 17.0
 height = 128.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(22, 17.137268)
+
 [node name="Eve - P1" type="CharacterBody2D" unique_id=810202292]
-collision_mask = 182
+collision_mask = 436
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1709103146]
@@ -120,3 +123,14 @@ debug_color = Color(0.8633379, 0.00062319695, 0.8686948, 0.41960785)
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_qhqgy")
 debug_color = Color(0.86254627, 0.0006378287, 0.87069386, 0.41960785)
+
+[node name="FeetZone" type="Area2D" parent="." unique_id=965064117]
+collision_layer = 0
+collision_mask = 258
+
+[node name="FeetCollider" type="CollisionShape2D" parent="FeetZone" unique_id=1645975222]
+position = Vector2(0, 56.568634)
+shape = SubResource("RectangleShape2D_g2els")
+
+[connection signal="body_entered" from="FeetZone" to="." method="_on_feet_zone_body_entered"]
+[connection signal="body_exited" from="FeetZone" to="." method="_on_feet_zone_body_exited"]

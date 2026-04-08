@@ -59,6 +59,7 @@ Mirrors=""
 "Human Buttons"=""
 "Communal Buttons"=""
 Players=""
+Walls=""
 
 [input]
 
@@ -152,6 +153,7 @@ Refresh={
 2d_physics/layer_6="Interactables"
 2d_physics/layer_7="Player 2"
 2d_physics/layer_8="Enemies"
+2d_physics/layer_9="Doors"
 
 [physics]
 

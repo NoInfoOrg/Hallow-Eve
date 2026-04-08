@@ -19,10 +19,8 @@ script = ExtResource("1_rms2y")
 item_info = SubResource("Resource_paja6")
 
 [node name="key" type="Sprite2D" parent="." unique_id=421251763]
-position = Vector2(132, 563)
 scale = Vector2(0.25975358, 0.28284183)
 texture = ExtResource("2_baflr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=745278897]
-position = Vector2(128, 565)
 shape = SubResource("CircleShape2D_rcoyj")
