@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://blc2wqvr525qk"]
 
 [ext_resource type="Script" uid="uid://oy2eobmj4y7q" path="res://scripts/locked_door.gd" id="1_2ibvm"]
-[ext_resource type="TileSet" uid="uid://byb3asue4yfo3" path="res://assets/tilesets/wallsnc.tres" id="2_2ibvm"]
+[ext_resource type="TileSet" uid="uid://dlg0m12qthrcs" path="res://assets/tilesets/wallsnc.tres" id="2_2ibvm"]
 [ext_resource type="Texture2D" uid="uid://dnfynyaipi0iu" path="res://assets/sprites/level objs/Wreath_Glow.png" id="2_nfgqb"]
 [ext_resource type="Texture2D" uid="uid://c4qt2hqx5inn2" path="res://assets/sprites/level objs/Wreath_NoGlow.png" id="3_2ibvm"]
+[ext_resource type="Texture2D" uid="uid://csrx52yl3r00i" path="res://assets/tilesets/WallFrontDoor-Open_1.png" id="5_wel5i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wel5i"]
 animations = [{
@@ -27,8 +28,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ibvm"]
 size = Vector2(308.79974, 330.01382)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wel5i"]
+size = Vector2(93.82114, 329.50635)
+
 [node name="DoorOpen" type="StaticBody2D" unique_id=1322021479 groups=["Doors"]]
-z_index = 10
+z_index = 3
 collision_layer = 256
 collision_mask = 255
 script = ExtResource("1_2ibvm")
@@ -57,3 +61,19 @@ animation = &"no glow"
 position = Vector2(280.00647, 165.00691)
 shape = SubResource("RectangleShape2D_2ibvm")
 debug_color = Color(5.0055983e-06, 0.6362591, 0.41103232, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1532604505]
+position = Vector2(383.47186, 164.88257)
+shape = SubResource("RectangleShape2D_wel5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1197827182]
+position = Vector2(176.9621, 165.0544)
+shape = SubResource("RectangleShape2D_wel5i")
+
+[node name="UpperDoorFrame" type="Sprite2D" parent="." unique_id=383859544]
+z_index = 11
+position = Vector2(279.57166, 22.2005)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_wel5i")
+region_enabled = true
+region_rect = Rect2(424, 0, 272, 88)

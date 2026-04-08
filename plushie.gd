@@ -137,43 +137,6 @@ func get_diagonal_distance(target):
 		
 		return diagonal_distance
 
-# checks if detection zone is entered by player
-func _on_detection_zone_body_entered(playerBody: Node2D) -> void:
-	# check the object in the detection zone is a player
-	if playerBody.is_in_group("Players"):
-		# set player to the current player in the detection zone and begin chase
-		player = playerBody
-		playerChase = true
-		# check if the first time something has been detected and the rat is the leader
-		if !initialSqueak and leaderRat:
-			# gen a random number of rats
-			var rng = RandomNumberGenerator.new()
-			var randomNum = rng.randi_range(1, 4)
-			for i in randomNum:
-				# spawn minion rat
-				call_deferred("rat_swarm_attack")
-			# check for sound and not currently playing
-			if detectionSound and not detectionSound.playing:
-				# play the sound !
-				detectionSound.play()
-				initialSqueak = !initialSqueak
-
-# checks if the player has left the detection zone
-func _on_detection_zone_body_exited(playerBody: Node2D) -> void:
-	# check if the player exiting is the current player
-	if playerBody == player:
-		# set player to null as there is no player in the zone
-		player = null
-		# check if rat is the leader
-		if leaderRat:
-			# if it is then toggle the chase
-			playerChase = false
-		# check if path follow is toggled
-		if pathFollow:
-			# return to path 
-			returnLocation = pathFollow.global_position
-			returnToPath = true
-
 # defines rocco movement behavior (patrolling unless detecting a player)
 func rocco_behavior(delta: float) -> void:
 	# check if the player is being chased
@@ -329,15 +292,67 @@ func plushie_death():
 	deathEffect.emitting = true
 	queue_free()
 
-func _on_attack_zone_body_entered(playerBody: Node2D) -> void:
-	if playerBody.is_in_group("Players"):
-		player = playerBody
-		var playerName = playerBody.name
+#func _on_attack_zone_body_entered(body: Node2D) -> void:
+	#if body.is_in_group("Players"):
+		#player = body
+		#var playerName = body.name
+		#GlobalInformation.deal_strike_damage_to_player(self, playerName, damage)
+		#plushieAttack.emit()
+		#plushie_death()
+#
+#
+#func _on_attack_zone_body_exited(body: Node2D) -> void:
+	#if body == player:
+		#player = null
+
+func _on_attack_zone_area_entered(area: Area2D) -> void:
+	if area.is_in_group("HurtBox"):
+		player = area.get_parent()
+		var playerName = player.name
 		GlobalInformation.deal_strike_damage_to_player(self, playerName, damage)
 		plushieAttack.emit()
 		plushie_death()
 
 
-func _on_attack_zone_body_exited(playerBody: Node2D) -> void:
-	if playerBody == player:
+func _on_attack_zone_area_exited(area: Area2D) -> void:
+	pass
+
+# checks if detection zone is entered by player
+func _on_detection_zone_area_entered(area: Area2D) -> void:
+	# check the object in the detection zone is a player
+	if area.is_in_group("HurtBox"):
+		print("ow")
+		# set player to the current player in the detection zone and begin chase
+		player = area.get_parent()
+		playerChase = true
+		# check if the first time something has been detected and the rat is the leader
+		if !initialSqueak and leaderRat:
+			# gen a random number of rats
+			var rng = RandomNumberGenerator.new()
+			rng.randomize()
+			var randomNum = rng.randi_range(1, 4)
+			for i in range(randomNum):
+				# spawn minion rat
+				await get_tree().create_timer(0.2).timeout
+				call_deferred("rat_swarm_attack")
+			# check for sound and not currently playing
+			if detectionSound and not detectionSound.playing:
+				# play the sound !
+				detectionSound.play()
+				initialSqueak = !initialSqueak
+
+# checks if the player has left the detection zone
+func _on_detection_zone_area_exited(area: Area2D) -> void:
+		# check if the player exiting is the current player
+	if area.get_parent() == player:
+		# set player to null as there is no player in the zone
 		player = null
+		# check if rat is the leader
+		if leaderRat:
+			# if it is then toggle the chase
+			playerChase = false
+		# check if path follow is toggled
+		if pathFollow:
+			# return to path 
+			returnLocation = pathFollow.global_position
+			returnToPath = true

@@ -16,9 +16,6 @@ var idle_right = null
 var idle_up = null
 var idle_down = null
 
-# for wall collision
-var feetCollidingWithWall = false
-
 # INFO: Assuming that the player starts out facing to the front
 var lastDirection : String = "S"
 
@@ -30,9 +27,6 @@ var lastDirection : String = "S"
 func _physics_process(delta):
 	var direction = Input.get_vector(move_left_action, move_right_action, move_up_action, move_down_action)
 	velocity = direction * SPEED
-	
-	if feetCollidingWithWall and velocity.y < 0:
-		velocity.y = 0 
 	
 	move_and_slide()
 	
@@ -162,10 +156,9 @@ func check_to_open_door():
 			# Change the door collision so players can enter the door
 			door.get_node("Closed Door Collision").set_deferred("disabled", true)
 
-func _on_feet_zone_body_entered(playerBody: Node2D) -> void:
-	if playerBody.is_in_group("Walls") or playerBody.is_in_group("Doors") or playerBody.is_in_group("Environment Assets"):
-		feetCollidingWithWall = true
+func _on_hit_box_zone_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
 
-func _on_feet_zone_body_exited(playerBody: Node2D) -> void:
-	if playerBody.is_in_group("Walls") or playerBody.is_in_group("Doors") or playerBody.is_in_group("Environment Assets"):
-		feetCollidingWithWall = false
+
+func _on_hit_box_zone_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.

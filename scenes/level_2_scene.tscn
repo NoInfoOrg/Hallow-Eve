@@ -66,12 +66,12 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="Eve - P1" parent="MovementCont" unique_id=810202292 instance=ExtResource("4_k5nr0")]
 z_index = 9
 position = Vector2(-796, -459)
-collision_mask = 190
+collision_mask = 958
 
 [node name="Willow - P2" parent="MovementCont" unique_id=882182450 instance=ExtResource("5_st00f")]
 z_index = 9
 position = Vector2(-947, -471)
-collision_mask = 190
+collision_mask = 958
 
 [node name="Level 2 Floorplan" parent="." unique_id=786862080 instance=ExtResource("1_dhe5w")]
 position = Vector2(133, 67)
@@ -146,16 +146,20 @@ texture = ExtResource("15_il02f")
 [node name="Ballroom" type="Node2D" parent="." unique_id=1231814047]
 
 [node name="BallroomTable" parent="Ballroom" unique_id=163624167 instance=ExtResource("21_dgqk8")]
+z_index = 5
 position = Vector2(-1908, 200)
 tableType = 3
 
 [node name="BallroomTable2" parent="Ballroom" unique_id=1065221308 instance=ExtResource("21_dgqk8")]
+z_index = 5
 position = Vector2(-1062, 200)
 tableType = 2
 
 [node name="BallroomTable3" parent="Ballroom" unique_id=1631750859 instance=ExtResource("21_dgqk8")]
+z_index = 5
 position = Vector2(-1908, -91)
 
 [node name="BallroomTable4" parent="Ballroom" unique_id=55832319 instance=ExtResource("21_dgqk8")]
+z_index = 5
 position = Vector2(-1062, -91)
 tableType = 1
