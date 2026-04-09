@@ -393,9 +393,158 @@ position = Vector2(-197, 1189)
 scale = Vector2(0.395, 0.395)
 texture = ExtResource("17_btg6x")
 
+<<<<<<< Updated upstream
 [node name="Shapes Paper" parent="." unique_id=1319041526 instance=ExtResource("12_2ydo2")]
 z_index = 3
 position = Vector2(244, 2769)
+=======
+[node name="Nightstand2" type="Node2D" parent="SleeplessChildRoom" unique_id=1813389879]
+position = Vector2(-1586, 1405)
+script = ExtResource("12_us6j8")
+roomType = 8
+asset = 5
+
+[node name="Nightstand4" type="Node2D" parent="SleeplessChildRoom" unique_id=1336841116]
+position = Vector2(-533, 1357)
+script = ExtResource("12_us6j8")
+roomType = 10
+asset = 3
+
+[node name="Nightstand10" type="Node2D" parent="SleeplessChildRoom" unique_id=119086821]
+position = Vector2(-652, 1817)
+script = ExtResource("12_us6j8")
+roomType = 6
+asset = 2
+
+[node name="Nightstand5" type="Node2D" parent="SleeplessChildRoom" unique_id=788737884]
+position = Vector2(-652, 1872)
+script = ExtResource("12_us6j8")
+roomType = 8
+asset = 1
+
+[node name="Nightstand6" type="Node2D" parent="SleeplessChildRoom" unique_id=1040347601]
+position = Vector2(-895, 1426)
+script = ExtResource("12_us6j8")
+asset = 14
+
+[node name="Nightstand7" type="Node2D" parent="SleeplessChildRoom" unique_id=838167027]
+position = Vector2(-718, 1346)
+script = ExtResource("12_us6j8")
+roomType = 12
+asset = 3
+
+[node name="Nightstand8" type="Node2D" parent="SleeplessChildRoom" unique_id=624129274]
+position = Vector2(-1393, 1347)
+script = ExtResource("12_us6j8")
+roomType = 12
+asset = 3
+
+[node name="Nightstand9" type="Node2D" parent="SleeplessChildRoom" unique_id=150719187]
+position = Vector2(-1394, 1437)
+script = ExtResource("12_us6j8")
+roomType = 12
+asset = 4
+
+[node name="Nightstand11" type="Node2D" parent="SleeplessChildRoom" unique_id=1951317591]
+position = Vector2(-717, 1437)
+script = ExtResource("12_us6j8")
+roomType = 12
+asset = 4
+
+[node name="Nightstand12" type="Node2D" parent="SleeplessChildRoom" unique_id=734438840]
+position = Vector2(-737, 1409)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("12_us6j8")
+roomType = 9
+asset = 1
+
+[node name="Nightstand13" type="Node2D" parent="SleeplessChildRoom" unique_id=514182522]
+position = Vector2(-1395, 1424)
+script = ExtResource("12_us6j8")
+asset = 7
+
+[node name="Nightstand14" type="Node2D" parent="SleeplessChildRoom" unique_id=1517523777]
+position = Vector2(-848, 1943)
+script = ExtResource("12_us6j8")
+asset = 15
+
+[node name="Nightstand15" type="Node2D" parent="SleeplessChildRoom" unique_id=1498693065]
+position = Vector2(-455, 1874)
+script = ExtResource("12_us6j8")
+asset = 15
+
+[node name="Nightstand16" type="Node2D" parent="SleeplessChildRoom" unique_id=149994543]
+position = Vector2(-1172, 2001)
+script = ExtResource("12_us6j8")
+asset = 20
+
+[node name="Nightstand17" type="Node2D" parent="SleeplessChildRoom" unique_id=1250206807]
+position = Vector2(-1583, 1914)
+script = ExtResource("12_us6j8")
+asset = 20
+
+[node name="Nightstand18" type="Node2D" parent="SleeplessChildRoom" unique_id=1672926890]
+position = Vector2(-1453, 1651)
+script = ExtResource("12_us6j8")
+asset = 20
+
+[node name="Nightstand19" type="Node2D" parent="SleeplessChildRoom" unique_id=1839272518]
+position = Vector2(-1496, 1725)
+script = ExtResource("12_us6j8")
+asset = 9
+
+[node name="Nightstand20" type="Node2D" parent="SleeplessChildRoom" unique_id=1743939846]
+position = Vector2(-919, 1540)
+script = ExtResource("12_us6j8")
+asset = 11
+
+[node name="Nightstand21" type="Node2D" parent="SleeplessChildRoom" unique_id=1170720026]
+position = Vector2(-867, 1567)
+script = ExtResource("12_us6j8")
+asset = 10
+
+[node name="Nightstand22" type="Node2D" parent="SleeplessChildRoom" unique_id=1317076119]
+position = Vector2(-987, 1683)
+script = ExtResource("12_us6j8")
+asset = 8
+
+[node name="Nightstand23" type="Node2D" parent="SleeplessChildRoom" unique_id=1509558853]
+position = Vector2(-1192, 2051)
+script = ExtResource("12_us6j8")
+asset = 7
+
+[node name="Bathroom1" type="Node2D" parent="." unique_id=418953043]
+z_index = 4
+position = Vector2(1901, -766)
+
+[node name="Bathroom2" type="Node2D" parent="." unique_id=1817539420]
+z_index = 4
+position = Vector2(1248, -683)
+
+[node name="Toliet" type="Node2D" parent="Bathroom2" unique_id=1647806721]
+position = Vector2(-2403, 3131)
+script = ExtResource("12_us6j8")
+roomType = 1
+asset = 1
+
+[node name="Sink" type="Node2D" parent="Bathroom2" unique_id=1340599920]
+position = Vector2(-2526, 3124)
+script = ExtResource("12_us6j8")
+roomType = 1
+asset = 0
+
+[node name="Shower" type="Node2D" parent="Bathroom2" unique_id=225965202]
+position = Vector2(-2848, 3057)
+script = ExtResource("12_us6j8")
+roomType = 1
+asset = 3
+
+[node name="Tub" type="Node2D" parent="Bathroom2" unique_id=764736807]
+position = Vector2(-2504, 3479)
+script = ExtResource("12_us6j8")
+roomType = 1
+asset = 4
+>>>>>>> Stashed changes
 
 [node name="Black Light Flashlight Item" parent="." unique_id=603767252 instance=ExtResource("13_xb17u")]
 z_index = 4
