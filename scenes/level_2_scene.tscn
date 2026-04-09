@@ -16,7 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://dbwmlb07t8pal" path="res://assets/sprites/environment/Storage_Picture2.png" id="14_a4sca"]
 [ext_resource type="Texture2D" uid="uid://bwtk13ov5a0yu" path="res://assets/sprites/environment/Storage_Picture1.png" id="15_il02f"]
 [ext_resource type="Texture2D" uid="uid://cj26n0g3vxh6k" path="res://assets/tilesets/WindowEvening1.png" id="16_dgqk8"]
-[ext_resource type="PackedScene" uid="uid://c2kw81potgo61" path="res://scenes/ballroom_table.tscn" id="21_dgqk8"]
+[ext_resource type="PackedScene" uid="uid://dlpkdokkcpyhd" path="res://scenes/asset.tscn" id="18_q0cgm"]
+[ext_resource type="PackedScene" uid="uid://c2kw81potgo61" path="res://scenes/ballroom_table_decorations_complete.tscn" id="21_dgqk8"]
 
 [sub_resource type="Resource" id="Resource_w3v4c"]
 script = ExtResource("3_bh3am")
@@ -148,12 +149,10 @@ texture = ExtResource("15_il02f")
 [node name="BallroomTable" parent="Ballroom" unique_id=163624167 instance=ExtResource("21_dgqk8")]
 z_index = 5
 position = Vector2(-1908, 200)
-tableType = 3
 
 [node name="BallroomTable2" parent="Ballroom" unique_id=1065221308 instance=ExtResource("21_dgqk8")]
 z_index = 5
 position = Vector2(-1062, 200)
-tableType = 2
 
 [node name="BallroomTable3" parent="Ballroom" unique_id=1631750859 instance=ExtResource("21_dgqk8")]
 z_index = 5
@@ -162,4 +161,10 @@ position = Vector2(-1908, -91)
 [node name="BallroomTable4" parent="Ballroom" unique_id=55832319 instance=ExtResource("21_dgqk8")]
 z_index = 5
 position = Vector2(-1062, -91)
-tableType = 1
+
+[node name="Asset" parent="Ballroom" unique_id=1069070680 instance=ExtResource("18_q0cgm")]
+z_index = 4
+position = Vector2(-658.1188, -758.2943)
+roomType = 7
+assetIndex = 3
+assetIndex = 3

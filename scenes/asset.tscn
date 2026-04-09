@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://dlpkdokkcpyhd"]
 
-[node name="Asset" type="StaticBody2D" unique_id=1069070680]
+[ext_resource type="Script" uid="uid://bciptxwus7cg" path="res://scripts/asset.gd" id="1_7qnt1"]
+
+[node name="Asset" type="Node2D" unique_id=1276397181]
+script = ExtResource("1_7qnt1")
+roomType = 1
+assetIndex = 1
+assetIndex = 1

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bk68rsualmeq0"]
+
+[ext_resource type="Texture2D" uid="uid://ccdl5jmig46sd" path="res://assets/sprites/environment/Bed.png" id="1_akt7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky1t1"]
+size = Vector2(201.81816, 287.95844)
+
+[node name="Bed" type="StaticBody2D" unique_id=95508403 groups=["Environment Assets"]]
+collision_layer = 512
+collision_mask = 0
+
+[node name="AssetSprite" type="Sprite2D" parent="." unique_id=30522664]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_akt7f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=57343574]
+position = Vector2(-0.6363735, -4.459469)
+shape = SubResource("RectangleShape2D_ky1t1")
+debug_color = Color(0.9800469, 0, 0.38690174, 0.41960785)
