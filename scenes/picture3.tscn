@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cgj2xkmfprx8l"]
+
+[ext_resource type="Texture2D" uid="uid://r1ifierpota7" path="res://assets/sprites/environment/Storage_Picture3.png" id="1_kqxom"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qx105"]
+radius = 27.014519
+height = 133.05519
+
+[node name="Picture3" type="StaticBody2D" unique_id=95508403 groups=["Environment Assets"]]
+collision_layer = 512
+collision_mask = 0
+
+[node name="AssetSprite" type="Sprite2D" parent="." unique_id=30522664]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kqxom")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=57343574]
+position = Vector2(-0.34607697, 0.00023651123)
+shape = SubResource("CapsuleShape2D_qx105")
+debug_color = Color(0.9800469, 0, 0.38690174, 0.41960785)
