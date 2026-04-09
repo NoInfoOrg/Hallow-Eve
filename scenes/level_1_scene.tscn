@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="9_d18id"]
 [ext_resource type="PackedScene" uid="uid://b5rhclw6ern25" path="res://scenes/spirit_box.tscn" id="10_lg53w"]
 [ext_resource type="PackedScene" uid="uid://c83a2a5ujdc16" path="res://scenes/shapes_paper.tscn" id="12_2ydo2"]
-[ext_resource type="Script" uid="uid://bciptxwus7cg" path="res://scripts/asset.gd" id="12_us6j8"]
+[ext_resource type="Script" path="res://scripts/asset.gd" id="12_us6j8"]
 [ext_resource type="PackedScene" uid="uid://bwd22jx5mssx0" path="res://scenes/black_light_flashlight_item.tscn" id="13_xb17u"]
 [ext_resource type="Texture2D" uid="uid://dkmocmuvlptk4" path="res://assets/tempSprites/key_placeholder.png" id="14_xb17u"]
 [ext_resource type="PackedScene" uid="uid://dwu4oi2tru041" path="res://scenes/collectibles.tscn" id="17_tqr37"]
@@ -21,9 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cyta5c5pqluy8" path="res://scenes/blanket_ghost.tscn" id="20_e5gav"]
 [ext_resource type="AudioStream" uid="uid://bwhb2ox30cpdq" path="res://music/test_hur_hur_hur.wav" id="21_4to46"]
 [ext_resource type="PackedScene" uid="uid://blc2wqvr525qk" path="res://scenes/door_open.tscn" id="21_5yyo0"]
-[ext_resource type="PackedScene" uid="uid://fcp66n68vghv" path="res://scenes/sleepless_child.tscn" id="24_ock1t"]
-[ext_resource type="Script" uid="uid://d1ehvit7dlsc6" path="res://scenes/hw_checker.gd" id="25_pqgcp"]
-[ext_resource type="Script" uid="uid://6xmvem06apff" path="res://scripts/player.gd" id="25_us6j8"]
+[ext_resource type="Script" path="res://scenes/hw_checker.gd" id="25_pqgcp"]
 [ext_resource type="PackedScene" uid="uid://bfphydknonny6" path="res://scenes/shapes_paper_math.tscn" id="27_btg6x"]
 
 [sub_resource type="Resource" id="Resource_d0nkq"]
@@ -574,6 +572,3 @@ z_index = 3
 position = Vector2(375, 2724)
 type = "math"
 answer = "0"
-
-[node name="SleeplessChild" parent="hw_checker" unique_id=464654720 instance=ExtResource("24_ock1t")]
-script = ExtResource("25_us6j8")
