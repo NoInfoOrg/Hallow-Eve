@@ -21,8 +21,13 @@
 [ext_resource type="PackedScene" uid="uid://cyta5c5pqluy8" path="res://scenes/blanket_ghost.tscn" id="20_e5gav"]
 [ext_resource type="AudioStream" uid="uid://bwhb2ox30cpdq" path="res://music/test_hur_hur_hur.wav" id="21_4to46"]
 [ext_resource type="PackedScene" uid="uid://blc2wqvr525qk" path="res://scenes/door_open.tscn" id="21_5yyo0"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="PackedScene" uid="uid://fcp66n68vghv" path="res://scenes/sleepless_child.tscn" id="24_ock1t"]
 [ext_resource type="Script" path="res://scenes/hw_checker.gd" id="25_pqgcp"]
+[ext_resource type="Script" uid="uid://6xmvem06apff" path="res://scripts/player.gd" id="25_us6j8"]
 [ext_resource type="PackedScene" uid="uid://bfphydknonny6" path="res://scenes/shapes_paper_math.tscn" id="27_btg6x"]
+>>>>>>> Stashed changes
 
 [sub_resource type="Resource" id="Resource_d0nkq"]
 script = ExtResource("3_d0nkq")
@@ -554,6 +559,8 @@ targets = [NodePath("../MovementCont/Eve - P1"), NodePath("../MovementCont/Willo
 [node name="Ambient Music" type="AudioStreamPlayer" parent="." unique_id=1580217849]
 stream = ExtResource("21_4to46")
 autoplay = true
+<<<<<<< Updated upstream
+=======
 
 [node name="hw_checker" type="Node2D" parent="." unique_id=680393000 node_paths=PackedStringArray("key")]
 script = ExtResource("25_pqgcp")
@@ -572,3 +579,7 @@ z_index = 3
 position = Vector2(375, 2724)
 type = "math"
 answer = "0"
+
+[node name="SleeplessChild" parent="hw_checker" unique_id=464654720 instance=ExtResource("24_ock1t")]
+script = ExtResource("25_us6j8")
+>>>>>>> Stashed changes

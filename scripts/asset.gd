@@ -157,17 +157,15 @@ enum WindowAssetTypes {
 @export var roomType: RoomType:
 	set(value):
 		roomType = value
-		asset = 0
-		clear_children()
-		place_current_asset()
 		if Engine.is_editor_hint():
+			asset = BedroomAssetTypes.WallLampOff
+			place_asset()
 			notify_property_list_changed()
 
-var asset: int = 0:
+var asset:
 	set(value):
 		asset = value
-		clear_children()
-		place_current_asset()
+		place_asset()
 
 const assetScenes = {
 	RoomType.Bedroom: {
@@ -274,22 +272,14 @@ const assetScenes = {
 	},
 }
 
-func place_asset(assetType: int) -> void:
-	if !assetScenes.has(roomType):
+func place_asset():
+	clear_children()
+	if !assetScenes.has(roomType) or !assetScenes[roomType].has(asset):
 		return
-	if !assetScenes[roomType].has(assetType):
-		return
-	var scene = assetScenes[roomType][assetType]
-	var instance = scene.instantiate()
-	add_child(instance)
-
-func place_current_asset():
-	if !assetScenes.has(roomType):
-		return
-	var keys = assetScenes[roomType].keys()
-	if asset >= 0:
-		if asset < keys.size():
-			place_asset(keys[asset])
+	else:
+		var scene = assetScenes[roomType][asset]
+		var instance = scene.instantiate()
+		add_child(instance)
 
 func _get_property_list():
 	var properties = []
@@ -307,14 +297,14 @@ func _get_property_list():
 
 func _set(property, value):
 	if property == "asset":
-		asset = value
 		if Engine.is_editor_hint():
 			clear_children()
 			if assetScenes.has(roomType):
 				var keys = assetScenes[roomType].keys()
-				if asset >= 0:
-					if asset < keys.size():
-						place_asset(keys[asset])
+				if value >= 0:
+					if value < keys.size():
+						asset = keys[value]
+						place_asset()
 		return true
 	return false
 
