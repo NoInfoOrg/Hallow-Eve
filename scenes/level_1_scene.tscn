@@ -311,43 +311,36 @@ position = Vector2(416, 603)
 [node name="SleeplessChildRoom" type="Node2D" parent="." unique_id=919085109]
 z_index = 4
 
-[node name="Bed" type="Sprite2D" parent="SleeplessChildRoom" unique_id=1146894750]
-z_index = 6
-position = Vector2(-680, 1864)
-scale = Vector2(0.625, 0.625)
-texture = ExtResource("13_2ydo2")
+[node name="SleeplessChildBed" type="Node2D" parent="SleeplessChildRoom" unique_id=1737714632]
+position = Vector2(-1062, 1500)
+script = ExtResource("12_us6j8")
+asset = 2
 
-[node name="BedsideTable" type="Sprite2D" parent="SleeplessChildRoom" unique_id=716277504]
-z_index = 6
-position = Vector2(-470, 1806)
-scale = Vector2(0.52, 0.52)
-texture = ExtResource("14_us6j8")
+[node name="Nightstand" type="Node2D" parent="SleeplessChildRoom" unique_id=1526013712]
+position = Vector2(-893, 1487)
+script = ExtResource("12_us6j8")
+asset = 16
 
-[node name="BathroomL1" type="Node2D" parent="." unique_id=418953043]
+[node name="PinkBunny" type="Node2D" parent="SleeplessChildRoom" unique_id=96168242]
+position = Vector2(-1049, 1523)
+script = ExtResource("12_us6j8")
+asset = 9
 
-[node name="Toliet" type="Sprite2D" parent="BathroomL1" unique_id=2000726194]
-z_index = 6
-position = Vector2(-237.00006, 919.99994)
-scale = Vector2(0.425, 0.425)
-texture = ExtResource("15_5yyo0")
+[node name="Armchair" type="Node2D" parent="SleeplessChildRoom" unique_id=58660773]
+position = Vector2(-1241, 1484)
+script = ExtResource("12_us6j8")
+asset = 6
 
-[node name="Sink" type="Sprite2D" parent="BathroomL1" unique_id=195883167]
-z_index = 10
-position = Vector2(-349, 916)
-scale = Vector2(0.32, 0.32)
-texture = ExtResource("16_pqgcp")
+[node name="SleeplessChildBed2" type="Node2D" parent="SleeplessChildRoom" unique_id=1240140207]
+position = Vector2(-895, 1336)
+script = ExtResource("12_us6j8")
+asset = 0
 
-[node name="Tub" type="Sprite2D" parent="BathroomL1" unique_id=2141753036]
-z_index = 6
-position = Vector2(-197, 1189)
-scale = Vector2(0.395, 0.395)
-texture = ExtResource("17_btg6x")
+[node name="SleeplessChildBed3" type="Node2D" parent="SleeplessChildRoom" unique_id=1179628035]
+position = Vector2(-1233, 1336)
+script = ExtResource("12_us6j8")
+asset = 0
 
-<<<<<<< Updated upstream
-[node name="Shapes Paper" parent="." unique_id=1319041526 instance=ExtResource("12_2ydo2")]
-z_index = 3
-position = Vector2(244, 2769)
-=======
 [node name="Nightstand2" type="Node2D" parent="SleeplessChildRoom" unique_id=1813389879]
 position = Vector2(-1586, 1405)
 script = ExtResource("12_us6j8")
@@ -453,16 +446,6 @@ position = Vector2(-867, 1567)
 script = ExtResource("12_us6j8")
 asset = 10
 
-[node name="Nightstand22" type="Node2D" parent="SleeplessChildRoom" unique_id=1317076119]
-position = Vector2(-987, 1683)
-script = ExtResource("12_us6j8")
-asset = 8
-
-[node name="Nightstand23" type="Node2D" parent="SleeplessChildRoom" unique_id=1509558853]
-position = Vector2(-1192, 2051)
-script = ExtResource("12_us6j8")
-asset = 7
-
 [node name="Bathroom1" type="Node2D" parent="." unique_id=418953043]
 z_index = 4
 position = Vector2(1901, -766)
@@ -494,7 +477,6 @@ position = Vector2(-2504, 3479)
 script = ExtResource("12_us6j8")
 roomType = 1
 asset = 4
->>>>>>> Stashed changes
 
 [node name="Black Light Flashlight Item" parent="." unique_id=603767252 instance=ExtResource("13_xb17u")]
 z_index = 4
