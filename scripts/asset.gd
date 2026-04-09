@@ -53,7 +53,8 @@ enum BedroomAssetTypes{
 	Nightstand,
 	Bed,
 	Mirror,
-	Clock
+	Clock,
+	PlushiesGroup,
 }
 
 enum BathroomAssetTypes {
@@ -190,6 +191,7 @@ const assetScenes = {
 		BedroomAssetTypes.Bed: preload("res://scenes/bed.tscn"),
 		BedroomAssetTypes.Mirror: preload("res://scenes/mirror.tscn"),
 		BedroomAssetTypes.Clock: preload("res://scenes/clock.tscn"),
+		BedroomAssetTypes.PlushiesGroup: preload("res://scenes/plushiegroup.tscn"),
 	},
 	RoomType.Bathroom: {
 		BathroomAssetTypes.Sink: preload("res://scenes/sink.tscn"),
