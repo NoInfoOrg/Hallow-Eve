@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://xxcq31q7daec"]
+
+[ext_resource type="Script" uid="uid://cnujf4336mq84" path="res://scripts/collectibles.gd" id="1_gtut2"]
+[ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="2_7w6h7"]
+[ext_resource type="Texture2D" uid="uid://bf76c4168tdsu" path="res://assets/tempSprites/shocked blue emoji_r2_c1.png" id="3_rplhe"]
+
+[sub_resource type="Resource" id="Resource_pwq3w"]
+script = ExtResource("2_7w6h7")
+name = "R2C1"
+texture = ExtResource("3_rplhe")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dxld2"]
+radius = 48.010414
+
+[node name="R2C1" type="Area2D" unique_id=2121536287]
+z_index = -2
+collision_mask = 65
+script = ExtResource("1_gtut2")
+item_info = SubResource("Resource_pwq3w")
+is_holding = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=70584781]
+position = Vector2(-18, 19)
+shape = SubResource("CircleShape2D_dxld2")
+
+[node name="food" type="Sprite2D" parent="." unique_id=1281713633]
+position = Vector2(-35, 32)
+scale = Vector2(0.375, 0.33007813)
+texture = ExtResource("3_rplhe")

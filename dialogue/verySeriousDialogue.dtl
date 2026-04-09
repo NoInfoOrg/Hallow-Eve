@@ -1,0 +1,24 @@
+join Will left [z_index="100"]
+Will: Hey Eve, guess what?
+leave Will
+join Eve (Eve 0 Deg) left [z_index="100"]
+Eve: ...
+Eve: What
+leave Eve
+join Will left
+Will: This video is sponsored by
+leave Will
+join Eve (Eve 0 Deg) left [z_index="100"]
+Eve: Don't say it
+leave Eve
+join Will left [z_index="100"]
+Will: Raid Shadow Legends
+leave Will
+join "FREDDY D" (Res://Blankie) left [z_index="100"]
+"FREDDY D" (Res://Blankie): Blanket Ben here to save the day!
+leave "FREDDY D"
+join Will left [z_index="100"]
+Will: Who are you?
+leave Will
+join "FREDDY D" (Res://Blankie) left [z_index="100"]
+"FREDDY D": I just said I'm Blanket Ben, Wilbert.

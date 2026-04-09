@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var paper_math = get_node("Math Paper")
 @onready var paper_shapes = get_node("Shapes Paper")
-@onready var key = get_node("../key")
+@export var key : Area2D
 var answer_key = {"math": false, "shapes": false}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

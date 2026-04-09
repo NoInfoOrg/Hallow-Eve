@@ -63,13 +63,14 @@ func pickup_box(player):
 		return
 	# so good it got a sequel :O
 	var overlord2 = get_node("../../../VBoxContainer")
-	if overlord2.not_green(Box_Index):
-		player.hold(hold_item)
-		hold_item = ""
-		overlord2.curr[Box_Index] = ""
-		overlord2.rects[Box_Index].color = Color("#aa6b07")
-		item_pic.visible = false
-		full = false
-	
+	if overlord2.has_method("not_green"):
+		if overlord2.not_green(Box_Index):
+			player.hold(hold_item)
+			hold_item = ""
+			overlord2.curr[Box_Index] = ""
+			overlord2.rects[Box_Index].color = Color("#aa6b07")
+			item_pic.visible = false
+			full = false
+		
 
 		
