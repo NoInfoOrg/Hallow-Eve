@@ -53,8 +53,6 @@ stream = ExtResource("3_j6flh")
 
 [connection signal="area_entered" from="DetectionZone" to="." method="_on_detection_zone_area_entered"]
 [connection signal="area_exited" from="DetectionZone" to="." method="_on_detection_zone_area_exited"]
-[connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
-[connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]
 [connection signal="area_entered" from="AttackZone" to="." method="_on_attack_zone_area_entered"]
 [connection signal="area_exited" from="AttackZone" to="." method="_on_attack_zone_area_exited"]
 [connection signal="body_entered" from="AttackZone" to="." method="_on_attack_zone_body_entered"]
