@@ -163,9 +163,9 @@ const assetScenes = {
 		BedroomAssetTypes.WallLampOff: preload("res://scenes/wall_lamp_off.tscn"),
 		BedroomAssetTypes.WallLampOn: preload("res://scenes/wall_lamp_on.tscn"),
 		BedroomAssetTypes.SleeplessChildBedComplete: preload("res://scenes/sleepless_child_bed_complete.tscn"),
-		#BedroomAssetTypes.SleeplessChildBedBack: preload(),
-		#BedroomAssetTypes.SleeplessChildBedFront: preload(),
-		#BedroomAssetTypes.SleeplessChildBedPoles: preload(),
+		BedroomAssetTypes.SleeplessChildBedBack: preload("res://scenes/sleepless_child_bed_poles.tscn"),
+		BedroomAssetTypes.SleeplessChildBedFront: preload("res://scenes/sleepless_child_bed_front.tscn"),
+		BedroomAssetTypes.SleeplessChildBedPoles: preload("res://scenes/sleepless_child_bed_back.tscn"),
 		BedroomAssetTypes.KidsArmchair: preload("res://scenes/kids_armchair.tscn"),
 		BedroomAssetTypes.PlushiesLayingWhite: preload("res://scenes/plushie_laying_white.tscn"),
 		BedroomAssetTypes.PlushiesLayingPurple: preload("res://scenes/plushie_laying_purple.tscn"),
@@ -200,20 +200,20 @@ const assetScenes = {
 	RoomType.Freezer: {
 		FreezerAssetTypes.Rack: preload("res://scenes/freezer_rack.tscn"),
 	},
-	#RoomType.Pantry: {
-		#PantryAssetTypes.Rack: preload(),
-	#},
-	#RoomType.FamilyRoom: {
-		#FamilyRoomAssetTypes.CouchFront: preload(),
-		#FamilyRoomAssetTypes.CouchSide: preload(),
-		#FamilyRoomAssetTypes.TableBooks: preload(),
-		#FamilyRoomAssetTypes.TableEmpty: preload(),
-	#},
-	#RoomType.DiningRoom: {
-		#DiningRoomAssetTypes.ChairSide: preload(),
-		#DiningRoomAssetTypes.ChairBack: preload(),
-		#DiningRoomAssetTypes.ChairFront: preload(),
-	#},
+	RoomType.Pantry: {
+		PantryAssetTypes.Rack: preload("res://scenes/pantry_rack.tscn"),
+	},
+	RoomType.FamilyRoom: {
+		FamilyRoomAssetTypes.CouchFront: preload("res://scenes/couch_front.tscn"),
+		FamilyRoomAssetTypes.CouchSide: preload("res://scenes/couch_side.tscn"),
+		FamilyRoomAssetTypes.TableBooks: preload("res://scenes/table_books.tscn"),
+		FamilyRoomAssetTypes.TableEmpty: preload("res://scenes/table_empty.tscn"),
+	},
+	RoomType.DiningRoom: {
+		DiningRoomAssetTypes.ChairSide: preload("res://scenes/chair_side.tscn"),
+		DiningRoomAssetTypes.ChairBack: preload("res://scenes/chair_back.tscn"),
+		DiningRoomAssetTypes.ChairFront: preload("res://scenes/chair_front.tscn"),
+	},
 	RoomType.Ballroom: {
 		BallroomAssetTypes.TableDecorationsComplete: preload("res://scenes/ballroom_table_decorations_complete.tscn"),
 		BallroomAssetTypes.TableFlowersComplete: preload("res://scenes/ballroom_table_flowers_complete.tscn"),
@@ -223,17 +223,36 @@ const assetScenes = {
 	#RoomType.Library: {
 		#LibraryAssetTypes.TableBooks: preload(),
 		#LibraryAssetTypes.TableBooksAndPaper: preload(),
-		#
+		#LibraryAssetTypes.TableEmpty: preload(),
+		#LibraryAssetTypes.TablePaper: preload(),
+		#LibraryAssetTypes.BookcaseEmpty: preload(),
+		#LibraryAssetTypes.BookcaseFull: preload(),
 	#},
 	#RoomType.Study: {
-		#
+		#StudyAssetTypes.Desk: preload(),
+		#StudyAssetTypes.CandleLampOff: preload(),
+		#StudyAssetTypes.CandleLampOn: preload(),
+		#StudyAssetTypes.ChairFrontPlastic: preload(),
+		#StudyAssetTypes.ChairFrontFelt: preload(),
+		#StudyAssetTypes.ChairSideFelt: preload(),
+		#StudyAssetTypes.ChairSideMuchroom: preload(),
+		#StudyAssetTypes.LampOrangeOff: preload(),
+		#StudyAssetTypes.LampOrangeOn: preload(),
+		#StudyAssetTypes.LampBlackOff: preload(),
+		#StudyAssetTypes.LampBlackOn: preload(),
 	#},
 	#RoomType.Storage: {
-		#
+		#StorageAssetTypes.BrokenStatue2: preload(),
+		#StorageAssetTypes.BrokenStatue3: preload(),
+		#StorageAssetTypes.Picture1: preload(),
+		#StorageAssetTypes.Picture2: preload(),
+		#StorageAssetTypes.Picture3: preload(),
 	#},
 	#RoomType.SittingArea: {
-		#
-	#}
+		#SittingAreaAssetTypes.Loveseat: preload(),
+		#SittingAreaAssetTypes.ArmchairFront: preload(),
+		#SittingAreaAssetTypes.ArmchairSide: preload(),
+	#},
 }
 
 	

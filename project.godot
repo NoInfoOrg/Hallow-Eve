@@ -21,6 +21,11 @@ PhantomCameraManager="*uid://duq6jhf6unyis"
 GlobalInformation="*uid://b433wxpps0ux5"
 Dialogic="*uid://ds2q0uclmolvu"
 
+[debug]
+
+shapes/navigation/2d/geometry_edge_color=Color(0.5019608, 1, 1, 0)
+shapes/navigation/2d/geometry_face_color=Color(0.5019608, 1, 1, 0)
+
 [dialogic]
 
 directories/dch_directory={

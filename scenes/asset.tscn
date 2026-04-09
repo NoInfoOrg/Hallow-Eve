@@ -5,5 +5,5 @@
 [node name="Asset" type="Node2D" unique_id=1276397181]
 script = ExtResource("1_7qnt1")
 roomType = 1
-assetIndex = 1
-assetIndex = 1
+assetIndex = 4
+assetIndex = 4
