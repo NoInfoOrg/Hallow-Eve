@@ -369,7 +369,7 @@ position = Vector2(1248, -683)
 position = Vector2(-2403, 3131)
 script = ExtResource("12_us6j8")
 roomType = 1
-asset = 0
+asset = 1
 
 [node name="Sink" type="Node2D" parent="Bathroom2" unique_id=1340599920]
 position = Vector2(-2526, 3124)
@@ -381,13 +381,13 @@ asset = 0
 position = Vector2(-2848, 3057)
 script = ExtResource("12_us6j8")
 roomType = 1
-asset = 0
+asset = 3
 
 [node name="Tub" type="Node2D" parent="Bathroom2" unique_id=764736807]
 position = Vector2(-2504, 3479)
 script = ExtResource("12_us6j8")
 roomType = 1
-asset = 0
+asset = 4
 
 [node name="Black Light Flashlight Item" parent="." unique_id=603767252 instance=ExtResource("13_xb17u")]
 z_index = 4
