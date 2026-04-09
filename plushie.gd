@@ -292,19 +292,7 @@ func plushie_death():
 	deathEffect.emitting = true
 	queue_free()
 
-#func _on_attack_zone_body_entered(body: Node2D) -> void:
-	#if body.is_in_group("Players"):
-		#player = body
-		#var playerName = body.name
-		#GlobalInformation.deal_strike_damage_to_player(self, playerName, damage)
-		#plushieAttack.emit()
-		#plushie_death()
-#
-#
-#func _on_attack_zone_body_exited(body: Node2D) -> void:
-	#if body == player:
-		#player = null
-
+# checks if attack zone is entered by player
 func _on_attack_zone_area_entered(area: Area2D) -> void:
 	if area.is_in_group("HurtBox"):
 		player = area.get_parent()
@@ -313,7 +301,7 @@ func _on_attack_zone_area_entered(area: Area2D) -> void:
 		plushieAttack.emit()
 		plushie_death()
 
-
+# checks if the player has left the attack zone
 func _on_attack_zone_area_exited(area: Area2D) -> void:
 	pass
 
