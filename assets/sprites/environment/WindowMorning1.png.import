@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq3x7lnonv3li"
-path="res://.godot/imported/WindowNoon1.png-22b6263a171b58ad09fe4b6ea42f92ed.ctex"
+uid="uid://c6px5to48rgks"
+path="res://.godot/imported/WindowMorning1.png-3964c96437b10729246b08a8109d4b2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/WindowNoon1.png"
-dest_files=["res://.godot/imported/WindowNoon1.png-22b6263a171b58ad09fe4b6ea42f92ed.ctex"]
+source_file="res://assets/sprites/environment/WindowMorning1.png"
+dest_files=["res://.godot/imported/WindowMorning1.png-3964c96437b10729246b08a8109d4b2a.ctex"]
 
 [params]
 

@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bi4kxsjfhqsix" path="res://assets/sprites/environment/WallLamp_FL1_On.png" id="13_scbhx"]
 [ext_resource type="Texture2D" uid="uid://dbwmlb07t8pal" path="res://assets/sprites/environment/Storage_Picture2.png" id="14_a4sca"]
 [ext_resource type="Texture2D" uid="uid://bwtk13ov5a0yu" path="res://assets/sprites/environment/Storage_Picture1.png" id="15_il02f"]
-[ext_resource type="Texture2D" uid="uid://cj26n0g3vxh6k" path="res://assets/tilesets/WindowEvening1.png" id="16_dgqk8"]
+[ext_resource type="Texture2D" uid="uid://cj26n0g3vxh6k" path="res://assets/sprites/environment/WindowEvening1.png" id="16_dgqk8"]
 [ext_resource type="PackedScene" uid="uid://dlpkdokkcpyhd" path="res://scenes/asset.tscn" id="18_q0cgm"]
 [ext_resource type="PackedScene" uid="uid://c2kw81potgo61" path="res://scenes/ballroom_table_decorations_complete.tscn" id="21_dgqk8"]
 
@@ -164,7 +164,4 @@ position = Vector2(-1062, -91)
 
 [node name="Asset" parent="Ballroom" unique_id=1069070680 instance=ExtResource("18_q0cgm")]
 z_index = 4
-position = Vector2(-658.1188, -758.2943)
-roomType = 7
-assetIndex = 3
-assetIndex = 3
+position = Vector2(-575.5967, -681.7618)

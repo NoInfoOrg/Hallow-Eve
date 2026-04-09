@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b7dye52prbk2u"]
 
-[ext_resource type="Texture2D" uid="uid://cmrn0d061ae6a" path="res://assets/tilesets/StairsDown1.png" id="1_pt62h"]
-[ext_resource type="Texture2D" uid="uid://cao84hnsuu6sw" path="res://assets/tilesets/StairsSide.png" id="2_isdbm"]
+[ext_resource type="Texture2D" uid="uid://cmrn0d061ae6a" path="res://assets/sprites/environment/StairsDown1.png" id="1_pt62h"]
+[ext_resource type="Texture2D" uid="uid://cao84hnsuu6sw" path="res://assets/sprites/environment/StairsSide.png" id="2_isdbm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pt62h"]
 size = Vector2(578, 144)

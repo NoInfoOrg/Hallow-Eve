@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cao84hnsuu6sw"
-path="res://.godot/imported/StairsSide.png-85cd2ceed49abaf932dfeee20028564b.ctex"
+uid="uid://bqwg8eur387gx"
+path="res://.godot/imported/WindowFrame1.png-670827dccb96fd320f46bc1bc43fb7aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/StairsSide.png"
-dest_files=["res://.godot/imported/StairsSide.png-85cd2ceed49abaf932dfeee20028564b.ctex"]
+source_file="res://assets/sprites/environment/WindowFrame1.png"
+dest_files=["res://.godot/imported/WindowFrame1.png-670827dccb96fd320f46bc1bc43fb7aa.ctex"]
 
 [params]
 

@@ -13,7 +13,8 @@ enum RoomType {
 	Library,
 	Study,
 	Storage,
-	SittingArea
+	SittingArea,
+	Windows
 }
 
 const roomEnums = {
@@ -28,7 +29,8 @@ const roomEnums = {
 	RoomType.Library: LibraryAssetTypes,
 	RoomType.Study: StudyAssetTypes,
 	RoomType.Storage: StorageAssetTypes,
-	RoomType.SittingArea: SittingAreaAssetTypes
+	RoomType.SittingArea: SittingAreaAssetTypes,
+	RoomType.Windows: WindowAssetTypes
 }
 
 enum BedroomAssetTypes{
@@ -143,20 +145,28 @@ enum SittingAreaAssetTypes {
 	ArmchairSide
 }
 
+enum WindowAssetTypes {
+	Morning,
+	Noon,
+	Evening,
+	Night,
+	Frame
+}
+
 @export var roomType: RoomType:
 	set(value):
 		roomType = value
-		assetIndex = 0
+		asset = 0
 		clear_children()
-		spawn_current_asset()
+		place_current_asset()
 		if Engine.is_editor_hint():
 			notify_property_list_changed()
-		
-@export var assetIndex: int = 0:
+
+var asset: int = 0:
 	set(value):
-		assetIndex = value
+		asset = value
 		clear_children()
-		spawn_current_asset()
+		place_current_asset()
 
 const assetScenes = {
 	RoomType.Bedroom: {
@@ -253,10 +263,16 @@ const assetScenes = {
 		SittingAreaAssetTypes.ArmchairFront: preload("res://scenes/armchair_front.tscn"),
 		SittingAreaAssetTypes.ArmchairSide: preload("res://scenes/armchair_side.tscn"),
 	},
+	RoomType.Windows: {
+		WindowAssetTypes.Morning: preload("res://scenes/window_morning.tscn"),
+		WindowAssetTypes.Noon: preload("res://scenes/window_noon.tscn"),
+		WindowAssetTypes.Evening: preload("res://scenes/window_evening.tscn"),
+		WindowAssetTypes.Night: preload("res://scenes/window_night.tscn"),
+		WindowAssetTypes.Frame: preload("res://scenes/window_frame.tscn"),
+	},
 }
 
-	
-func spawn_asset(assetType: int) -> void:
+func place_asset(assetType: int) -> void:
 	if !assetScenes.has(roomType):
 		return
 	if !assetScenes[roomType].has(assetType):
@@ -264,40 +280,39 @@ func spawn_asset(assetType: int) -> void:
 	var scene = assetScenes[roomType][assetType]
 	var instance = scene.instantiate()
 	add_child(instance)
-	
-func spawn_current_asset():
+
+func place_current_asset():
 	if !assetScenes.has(roomType):
 		return
 	var keys = assetScenes[roomType].keys()
-	if assetIndex >= 0 and assetIndex < keys.size():
-		spawn_asset(keys[assetIndex])
-	
+	if asset >= 0:
+		if asset < keys.size():
+			place_asset(keys[asset])
+
 func _get_property_list():
 	var properties = []
-	var enum_string = ""
+	var enumString = ""
 	if roomEnums.has(roomType):
-		enum_string = ",".join(roomEnums[roomType].keys())
+		enumString = ",".join(roomEnums[roomType].keys())
 	properties.append({
-		"name": "assetIndex",
+		"name": "asset",
 		"type": TYPE_INT,
 		"usage": PROPERTY_USAGE_EDITOR | PROPERTY_USAGE_STORAGE,
 		"hint": PROPERTY_HINT_ENUM,
-		"hint_string": enum_string
+		"hint_string": enumString
 	})
 	return properties
 
 func _set(property, value):
-	if property == "assetIndex":
-		assetIndex = value
-		
+	if property == "asset":
+		asset = value
 		if Engine.is_editor_hint():
 			clear_children()
-			
 			if assetScenes.has(roomType):
 				var keys = assetScenes[roomType].keys()
-				
-				if assetIndex >= 0 and assetIndex < keys.size():
-					spawn_asset(keys[assetIndex])
+				if asset >= 0:
+					if asset < keys.size():
+						place_asset(keys[asset])
 		return true
 	return false
 

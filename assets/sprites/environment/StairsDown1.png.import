@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj26n0g3vxh6k"
-path="res://.godot/imported/WindowEvening1.png-78bedb0e13874ab2e5d1d564e6a2a456.ctex"
+uid="uid://cmrn0d061ae6a"
+path="res://.godot/imported/StairsDown1.png-49a8cb501fbb2fea957670a071fbe768.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/WindowEvening1.png"
-dest_files=["res://.godot/imported/WindowEvening1.png-78bedb0e13874ab2e5d1d564e6a2a456.ctex"]
+source_file="res://assets/sprites/environment/StairsDown1.png"
+dest_files=["res://.godot/imported/StairsDown1.png-49a8cb501fbb2fea957670a071fbe768.ctex"]
 
 [params]
 

@@ -4,8 +4,8 @@
 [ext_resource type="TileSet" uid="uid://ch1a3evpneqaq" path="res://assets/tilesets/walls.tres" id="2_24pm6"]
 [ext_resource type="TileSet" uid="uid://dt13bvgr5foh4" path="res://assets/tilesets/side_walls.tres" id="3_4ie26"]
 [ext_resource type="Texture2D" uid="uid://dpcpq1vlrmhra" path="res://assets/tempSprites/level1_draft.png" id="4_24pm6"]
-[ext_resource type="Texture2D" uid="uid://cmrn0d061ae6a" path="res://assets/tilesets/StairsDown1.png" id="7_8qfjr"]
-[ext_resource type="Texture2D" uid="uid://cao84hnsuu6sw" path="res://assets/tilesets/StairsSide.png" id="8_buxqu"]
+[ext_resource type="Texture2D" uid="uid://cmrn0d061ae6a" path="res://assets/sprites/environment/StairsDown1.png" id="7_8qfjr"]
+[ext_resource type="Texture2D" uid="uid://cao84hnsuu6sw" path="res://assets/sprites/environment/StairsSide.png" id="8_buxqu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pt62h"]
 size = Vector2(578, 144)
