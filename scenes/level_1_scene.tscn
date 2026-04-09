@@ -343,11 +343,6 @@ position = Vector2(-197, 1189)
 scale = Vector2(0.395, 0.395)
 texture = ExtResource("17_btg6x")
 
-<<<<<<< Updated upstream
-[node name="Shapes Paper" parent="." unique_id=1319041526 instance=ExtResource("12_2ydo2")]
-z_index = 3
-position = Vector2(244, 2769)
-=======
 [node name="Nightstand2" type="Node2D" parent="SleeplessChildRoom" unique_id=1813389879]
 position = Vector2(-1586, 1405)
 script = ExtResource("12_us6j8")
@@ -494,7 +489,6 @@ position = Vector2(-2504, 3479)
 script = ExtResource("12_us6j8")
 roomType = 1
 asset = 4
->>>>>>> Stashed changes
 
 [node name="Black Light Flashlight Item" parent="." unique_id=603767252 instance=ExtResource("13_xb17u")]
 z_index = 4
