@@ -62,14 +62,14 @@ Mirrors=""
 "Human Buttons"=""
 "Communal Buttons"=""
 Players=""
-"Mirror Front Side"=""
-"Mirror Back Side"=""
-Music=""
 Walls=""
 "Environment Assets"=""
 Enemies=""
 AttackBox=""
 HurtBox=""
+"Mirror Front Side"=""
+"Mirror Back Side"=""
+Music=""
 
 [input]
 

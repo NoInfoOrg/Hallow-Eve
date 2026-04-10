@@ -6,11 +6,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnlnb"]
 size = Vector2(348, 38)
 
-[sub_resource type="Gradient" id="Gradient_q6gtu"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ow21u"]
-gradient = SubResource("Gradient_q6gtu")
-
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ow21u"]
 points = PackedVector2Array(206, 317, 270, 317, 270, -157, -2.0000153, -131, -4, 1, 146, 79.99999)
 
@@ -33,10 +28,9 @@ debug_color = Color(0.9966505, 0, 0.19243264, 0.41960785)
 texture = ExtResource("2_ow21u")
 
 [node name="DetectionZone" type="Area2D" parent="." unique_id=732796113]
-position = Vector2(180, -82)
+position = Vector2(180, -78)
 collision_layer = 4096
 collision_mask = 1024
-metadata/_edit_group_ = true
 
 [node name="DetectCollider2" type="CollisionPolygon2D" parent="DetectionZone" unique_id=69796751]
 show_behind_parent = true
@@ -46,9 +40,6 @@ polygon = PackedVector2Array(0, 0, 715, -85, 715, 180)
 color = Color(0.9372549, 0.85882354, 0.5764706, 1)
 polygon = PackedVector2Array(0, 0, 715, -85, 715, 180)
 uv = PackedVector2Array(0, 0, 715, -85, 715, 180)
-
-[node name="Sprite2D" type="Sprite2D" parent="DetectionZone/DetectCollider2" unique_id=115455848]
-texture = SubResource("GradientTexture2D_ow21u")
 
 [node name="AttackZone" type="Area2D" parent="." unique_id=757406806]
 collision_layer = 2048

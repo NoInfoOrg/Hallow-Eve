@@ -279,6 +279,8 @@ func place_asset():
 	else:
 		var scene = assetScenes[roomType][asset]
 		var instance = scene.instantiate()
+		var assetName = roomEnums[roomType].keys()[asset]
+		self.name = assetName
 		add_child(instance)
 
 func _get_property_list():
