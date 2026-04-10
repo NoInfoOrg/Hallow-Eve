@@ -17,6 +17,8 @@ func _ready() -> void:
 	var overlord = get_node("../../../VBoxContainer")
 	if overlord:
 		overlord.connect("empty_box", empty_da_box)
+	else:
+		overlord = get_node("../../../GridContainer")
 
 func _process(delta: float) -> void:
 		for player in players_detected:
@@ -60,17 +62,31 @@ func empty_da_box(index):
 
 func pickup_box(player):
 	if not full:
+		print("box not full")
 		return
 	# so good it got a sequel :O
 	var overlord2 = get_node("../../../VBoxContainer")
-	if overlord2.has_method("not_green"):
-		if overlord2.not_green(Box_Index):
-			player.hold(hold_item)
+	var overlord3 = get_node("../../../GridContainer")
+	if overlord2:
+		if overlord2.has_method("not_green"):
+			if overlord2.not_green(Box_Index):
+				# can only pick up things when inv is empty (hold() function returns true)
+				if player.hold(hold_item):
+					hold_item = ""
+					overlord2.curr[Box_Index] = ""
+					overlord2.rects[Box_Index].color = Color("#aa6b07")
+					item_pic.visible = false
+					full = false
+				else:
+					return
+	if overlord3:		
+		if player.hold(hold_item):
 			hold_item = ""
-			overlord2.curr[Box_Index] = ""
-			overlord2.rects[Box_Index].color = Color("#aa6b07")
+			overlord3.curr[Box_Index] = ""
 			item_pic.visible = false
 			full = false
+		else:
+			return
 		
 
 		

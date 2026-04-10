@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="2_olwqp"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="3_olwqp"]
-[ext_resource type="Script" path="res://scenes/NOT_wordle.gd" id="4_5dh7m"]
-[ext_resource type="Script" path="res://scenes/box.gd" id="4_bu2ep"]
+[ext_resource type="Script" uid="uid://bn3sfa1mweg2y" path="res://scenes/NOT_wordle.gd" id="4_5dh7m"]
+[ext_resource type="Script" uid="uid://dg621rcq7e50c" path="res://scenes/box.gd" id="4_bu2ep"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="5_dxld2"]
 [ext_resource type="Texture2D" uid="uid://bm4t55gq24oag" path="res://assets/tempSprites/angry.png" id="6_rww21"]
 [ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="7_4ykxm"]
@@ -179,9 +179,6 @@ position = Vector2(523, 354)
 [node name="eclair" parent="." unique_id=1560238848 instance=ExtResource("10_2luog")]
 position = Vector2(381, 130)
 
-[node name="gingerbread" parent="." unique_id=2121536287 instance=ExtResource("11_wk5qs")]
-position = Vector2(359, 444)
-
 [node name="cookie" parent="." unique_id=1516880953 instance=ExtResource("12_j4bxu")]
 position = Vector2(135, 296)
 
@@ -196,6 +193,9 @@ position = Vector2(209, 561)
 
 [node name="cream" parent="." unique_id=124739378 instance=ExtResource("16_qxijn")]
 position = Vector2(145, 115)
+
+[node name="gingerbread" parent="." unique_id=661992867 instance=ExtResource("11_wk5qs")]
+position = Vector2(377, 427)
 
 [node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("3_olwqp")]
 position = Vector2(272, 129)
