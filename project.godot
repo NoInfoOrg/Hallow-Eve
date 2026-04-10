@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="NoInfoGame"
-run/main_scene="uid://easa742dilkq"
+run/main_scene="uid://dj43mwij5mnb6"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://bxl245j7738ni"
 
@@ -24,13 +24,16 @@ Dialogic="*uid://ds2q0uclmolvu"
 [dialogic]
 
 directories/dch_directory={
-"FREDDY D": "res://FREDDY D.dch",
+"Eve": "res://dialogue/Eve.dch",
+"FREDDY D": "res://dialogue/FREDDY D.dch",
+"Will": "res://dialogue/Will.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
-"tutorial": "res://tutorial.dtl",
-"tutorial2": "res://tutorial2.dtl",
-"tutorial3": "res://tutorial3.dtl"
+"tutorial": "res://dialogue/tutorial.dtl",
+"tutorial2": "res://dialogue/tutorial2.dtl",
+"tutorial3": "res://dialogue/tutorial3.dtl",
+"verySeriousDialogue": "res://dialogue/verySeriousDialogue.dtl"
 }
 layout/style_directory={}
 glossary/default_case_sensitive=true
@@ -62,6 +65,11 @@ Players=""
 "Mirror Front Side"=""
 "Mirror Back Side"=""
 Music=""
+Walls=""
+"Environment Assets"=""
+Enemies=""
+AttackBox=""
+HurtBox=""
 
 [input]
 
@@ -139,6 +147,21 @@ Refresh={
 "events": [null, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":74,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+P1Drop={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+P2Drop={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+Submit={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":79,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [layer_names]
 
@@ -155,6 +178,11 @@ Refresh={
 2d_physics/layer_6="Interactables"
 2d_physics/layer_7="Player 2"
 2d_physics/layer_8="Enemies"
+2d_physics/layer_9="Doors"
+2d_physics/layer_10="EnvironmentAssets"
+2d_physics/layer_11="Hurtbox"
+2d_physics/layer_12="AttackBox"
+2d_physics/layer_13="DetectionZone"
 
 [physics]
 

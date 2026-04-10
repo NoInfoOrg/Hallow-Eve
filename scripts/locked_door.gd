@@ -18,13 +18,30 @@ var pressed_buttons = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# homeboy so good it got the trilogy 
+	var overlord3 = get_node("../VBoxContainer")
+	# they're selling out on this one fr
+	var overlord4 = get_node("../GridContainer")
+	if overlord3:
+		print("homeboy spotted")
+		overlord3.connect("puzzle_complete", on_puzzle_completion)
+	if overlord4:
+		print("homeboy spotted")
+		overlord4.connect("puzzle_complete", on_puzzle_completion)
+	
+	var paper = get_node("../hw_checker/Shapes Paper")
+	var paper2 = get_node("../hw_checker/Math Paper")
+	if paper and paper2:
+		print("lol")
+		paper.connect("correc", on_paper_correct)
 	if required_key != null:
 		key_needed = true
 		required_key_name = required_key.name
 		print(required_key_name)
 	
 	for button in connected_buttons:
-		button.connect("button_object_emitted", on_button_object_emitted)
+		if button:
+			button.connect("button_object_emitted", on_button_object_emitted)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -71,7 +88,12 @@ func check_synced_buttons():
 	# If all required buttons are pressed, open the door
 	if all_buttons_pressed:
 		# Change the door image to be opened
-		get_node("Door").play("open")
+		# get_node("Door").play("open")
+		if has_node("OpenDoor"):
+			get_node("OpenDoor").visible = true
+			
+		if has_node("ClosedDoor"):
+			get_node("ClosedDoor").visible = false
 		
 		# Change the door collision so players can enter the door
 		get_node("Closed Door Collision").set_deferred("disabled", true)
@@ -91,8 +113,12 @@ func check_ordered_buttons():
 	
 	if buttons_are_in_order:
 		# Change the door image to be opened
-		get_node("Door").play("open")
-		
+		# get_node("Door").play("open")
+		if has_node("OpenDoor"):
+			get_node("OpenDoor").visible = true
+			
+		if has_node("ClosedDoor"):
+			get_node("ClosedDoor").visible = false
 		# Change the door collision so players can enter the door
 		get_node("Closed Door Collision").set_deferred("disabled", true)
 	
@@ -104,3 +130,17 @@ func on_button_object_emitted(button):
 	#print(button)
 	#print("---")
 	pressed_buttons.append(button)
+	
+func on_puzzle_completion():
+	# shoutout to Nick for opening this door (a gentelman fr)
+		# Change the door image to be opened
+		get_node("Door").play("open")
+		
+		# Change the door collision so players can enter the door
+		get_node("Closed Door Collision").set_deferred("disabled", true)
+func on_paper_correct():
+	var key = get_node("../key")
+	if key:
+		key.visible = true
+		key.monitoring = true
+		key.monitorable = true

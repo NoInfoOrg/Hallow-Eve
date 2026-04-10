@@ -26,7 +26,8 @@ var lastDirection : String = "S"
 # INFO Sources:
 # https://forum.godotengine.org/t/how-to-properly-change-the-sprite-depending-on-facing-direction-and-other-situations/19024
 # https://forum.godotengine.org/t/how-do-i-change-sprite-texture-in-gdscript/51473
-
+	
+		
 func _physics_process(delta):
 	var direction = Input.get_vector(move_left_action, move_right_action, move_up_action, move_down_action)
 	velocity = direction * SPEED
@@ -156,7 +157,19 @@ func check_to_open_door():
 				return
 			
 			# Change the door image to be opened
-			door.get_node("Door").play("open")
+			# door.get_node("Door").play("open")
+			if door.has_node("OpenDoor"):
+				door.get_node("OpenDoor").visible = true
+			
+			if door.has_node("ClosedDoor"):
+				door.get_node("ClosedDoor").visible = false
 			
 			# Change the door collision so players can enter the door
 			door.get_node("Closed Door Collision").set_deferred("disabled", true)
+
+func _on_hit_box_zone_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_hit_box_zone_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.

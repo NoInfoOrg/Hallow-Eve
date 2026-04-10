@@ -4,9 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dc5tlmj4oedwf" path="res://assets/sprites/enemy/Plushies_Rocco.png" id="2_2usf5"]
 [ext_resource type="AudioStream" uid="uid://w77aouii508j" path="res://assets/music/sound effects/rat_squeak.mp3" id="3_j6flh"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2usf5"]
-radius = 27.0
-height = 116.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j6flh"]
+size = Vector2(37, 18)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lm74q"]
 radius = 225.03555
@@ -15,33 +14,34 @@ radius = 225.03555
 radius = 30.0
 height = 124.0
 
-[node name="Plushie" type="CharacterBody2D" unique_id=741369988]
+[node name="Plushie" type="CharacterBody2D" unique_id=741369988 groups=["Enemies"]]
 collision_layer = 128
-collision_mask = 65
+collision_mask = 859
 script = ExtResource("1_2usf5")
-death_effect_scene = null
 metadata/_edit_horizontal_guides_ = [-52.0]
 metadata/_edit_vertical_guides_ = [31.0]
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1101815876]
+debug_enabled = true
+
 [node name="EnemyCollider" type="CollisionShape2D" parent="." unique_id=1207424113]
-position = Vector2(-1, 8)
-shape = SubResource("CapsuleShape2D_2usf5")
-debug_color = Color(0.92510253, 4.736066e-05, 0.679437, 0.41960785)
+position = Vector2(-0.5, 55)
+shape = SubResource("RectangleShape2D_j6flh")
+debug_color = Color(0.9966505, 0, 0.19243264, 0.41960785)
 
 [node name="EnemySprite" type="Sprite2D" parent="." unique_id=995474584]
 texture = ExtResource("2_2usf5")
 
 [node name="DetectionZone" type="Area2D" parent="." unique_id=1780083783]
-collision_layer = 128
-collision_mask = 65
+collision_layer = 4096
+collision_mask = 1024
 
 [node name="DetectCollider" type="CollisionShape2D" parent="DetectionZone" unique_id=1056961871]
 shape = SubResource("CircleShape2D_lm74q")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1101815876]
-debug_enabled = true
-
 [node name="AttackZone" type="Area2D" parent="." unique_id=1801466765]
+collision_layer = 2048
+collision_mask = 1024
 
 [node name="AttackCollider" type="CollisionShape2D" parent="AttackZone" unique_id=626459341]
 position = Vector2(-1, 8)
@@ -51,6 +51,9 @@ debug_color = Color(0.24520513, 0.5061181, 1, 0.41960785)
 [node name="DetectionSound" type="AudioStreamPlayer2D" parent="." unique_id=1974948312]
 stream = ExtResource("3_j6flh")
 
-[connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
-[connection signal="body_exited" from="DetectionZone" to="." method="_on_detection_zone_body_exited"]
+[connection signal="area_entered" from="DetectionZone" to="." method="_on_detection_zone_area_entered"]
+[connection signal="area_exited" from="DetectionZone" to="." method="_on_detection_zone_area_exited"]
+[connection signal="area_entered" from="AttackZone" to="." method="_on_attack_zone_area_entered"]
+[connection signal="area_exited" from="AttackZone" to="." method="_on_attack_zone_area_exited"]
 [connection signal="body_entered" from="AttackZone" to="." method="_on_attack_zone_body_entered"]
+[connection signal="body_exited" from="AttackZone" to="." method="_on_attack_zone_body_exited"]

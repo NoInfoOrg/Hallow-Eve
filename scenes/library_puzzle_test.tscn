@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://dj43mwij5mnb6"]
+
+[ext_resource type="Script" uid="uid://dpwcwjd47m1u2" path="res://scenes/library_puzzle_test.gd" id="1_s4kka"]
+[ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="1_v5ur1"]
+[ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="2_anhhc"]
+[ext_resource type="Texture2D" uid="uid://cp4oeoa5ea086" path="res://assets/sprites/environment/Library_Statue.png" id="3_djufp"]
+[ext_resource type="PackedScene" uid="uid://xqk7loowo4yi" path="res://scenes/gingerbread.tscn" id="4_16vdr"]
+[ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="5_i2v5i"]
+[ext_resource type="Texture2D" uid="uid://iexe0kts0kdr" path="res://assets/tempSprites/shocked blue emoji_r1_c1.png" id="6_l20yl"]
+[ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="6_mfsa7"]
+[ext_resource type="PackedScene" uid="uid://7kl4s2y0srbw" path="res://scenes/R1C2.tscn" id="7_yt3ih"]
+[ext_resource type="PackedScene" uid="uid://xxcq31q7daec" path="res://scenes/R2C1.tscn" id="8_l20yl"]
+[ext_resource type="PackedScene" uid="uid://cl543ovm3ytx1" path="res://scenes/R2C2.tscn" id="9_yt3ih"]
+[ext_resource type="Script" uid="uid://dg621rcq7e50c" path="res://scenes/box.gd" id="10_atjyf"]
+[ext_resource type="Script" uid="uid://c0ifywssehaxc" path="res://scenes/puzzlin.gd" id="11_aspes"]
+[ext_resource type="PackedScene" uid="uid://dfbiqnn4nnley" path="res://scenes/spirit_button_blue_front.tscn" id="13_yttjf"]
+[ext_resource type="PackedScene" uid="uid://b5evgada02h46" path="res://scenes/locked_door.tscn" id="15_idfpp"]
+
+[sub_resource type="Resource" id="Resource_h236m"]
+script = ExtResource("5_i2v5i")
+name = "R1C1"
+texture = ExtResource("6_l20yl")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4kka"]
+size = Vector2(64.5, 65)
+
+[node name="LibraryPuzzleTest" type="Node2D" unique_id=1711566229]
+script = ExtResource("1_s4kka")
+
+[node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("1_v5ur1")]
+z_index = 9
+position = Vector2(366, 120)
+collision_mask = 190
+
+[node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("2_anhhc")]
+z_index = 9
+position = Vector2(155, 145)
+collision_mask = 190
+
+[node name="SadStatue" type="Sprite2D" parent="." unique_id=1840292118]
+position = Vector2(977.00006, 282.00003)
+scale = Vector2(0.5535714, 0.45454547)
+texture = ExtResource("3_djufp")
+
+[node name="R1C1" parent="." unique_id=2121536287 instance=ExtResource("4_16vdr")]
+position = Vector2(148, 328)
+item_info = SubResource("Resource_h236m")
+
+[node name="R1C2" parent="." unique_id=1039079539 instance=ExtResource("7_yt3ih")]
+position = Vector2(487, 264)
+
+[node name="R2C1" parent="." unique_id=835243786 instance=ExtResource("8_l20yl")]
+position = Vector2(311, 535)
+
+[node name="R2C2" parent="." unique_id=807445806 instance=ExtResource("9_yt3ih")]
+position = Vector2(853, 534)
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=857605778]
+offset_left = 519.0
+offset_top = 447.0
+offset_right = 649.0
+offset_bottom = 574.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = -1
+columns = 2
+script = ExtResource("11_aspes")
+
+[node name="Panel" type="Panel" parent="GridContainer" unique_id=786680462]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Panel" unique_id=1405963948]
+position = Vector2(-466, -281)
+script = ExtResource("10_atjyf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Panel/Area2D" unique_id=1096692685]
+position = Vector2(498, 313)
+shape = SubResource("RectangleShape2D_s4kka")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Panel" unique_id=1868173529]
+layout_mode = 0
+offset_right = 65.0
+offset_bottom = 65.0
+stretch_mode = 5
+
+[node name="Panel2" type="Panel" parent="GridContainer" unique_id=1313236853]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Panel2" unique_id=1690669154]
+script = ExtResource("10_atjyf")
+Box_Index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Panel2/Area2D" unique_id=149897613]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_s4kka")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Panel2" unique_id=1092795752]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 64.0
+offset_bottom = 63.0
+
+[node name="Panel3" type="Panel" parent="GridContainer" unique_id=1311773489]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Panel3" unique_id=2040941889]
+script = ExtResource("10_atjyf")
+Box_Index = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Panel3/Area2D" unique_id=1538705728]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_s4kka")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Panel3" unique_id=1959003444]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 65.0
+
+[node name="Panel4" type="Panel" parent="GridContainer" unique_id=555129543]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Panel4" unique_id=1598171241]
+script = ExtResource("10_atjyf")
+Box_Index = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Panel4/Area2D" unique_id=224757792]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_s4kka")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Panel4" unique_id=59837354]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 65.0
+
+[node name="UI" parent="." unique_id=1522527901 instance=ExtResource("6_mfsa7")]
+
+[node name="ResetButton" parent="." unique_id=4992084 instance=ExtResource("13_yttjf")]
+position = Vector2(497, 69)
+
+[node name="LockedDoor2" parent="." unique_id=1400186033 node_paths=PackedStringArray("connected_buttons", "required_buttons") instance=ExtResource("15_idfpp")]
+z_index = -18
+position = Vector2(580, 6)
+connected_buttons = [null, null, null, null]
+ordered_buttons_needed = true
+required_buttons = [null, null, null, null]

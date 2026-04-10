@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dgu42t38r0l4u"]
+
+[ext_resource type="Texture2D" uid="uid://bfmmo6wi0uqhs" path="res://assets/sprites/environment/DiningRoom_Chair-Side.png" id="1_mtnc6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky1t1"]
+size = Vector2(86.63598, 169.26865)
+
+[node name="ChairSide" type="StaticBody2D" unique_id=95508403 groups=["Environment Assets"]]
+collision_layer = 512
+collision_mask = 0
+
+[node name="AssetSprite" type="Sprite2D" parent="." unique_id=30522664]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_mtnc6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=57343574]
+position = Vector2(-0.14404106, 0.15306854)
+shape = SubResource("RectangleShape2D_ky1t1")
+debug_color = Color(0.9800469, 0, 0.38690174, 0.41960785)

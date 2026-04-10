@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://fcp66n68vghv"]
+
+[ext_resource type="Script" uid="uid://bx8cigaojg5jm" path="res://scripts/sleepless_child.gd" id="1_q6gtu"]
+[ext_resource type="Texture2D" uid="uid://buosry7jrjeg7" path="res://assets/sprites/enemy/Blankie.png" id="2_ow21u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnlnb"]
+size = Vector2(348, 38)
+
+[sub_resource type="Gradient" id="Gradient_q6gtu"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ow21u"]
+gradient = SubResource("Gradient_q6gtu")
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ow21u"]
+points = PackedVector2Array(206, 317, 270, 317, 270, -157, -2.0000153, -131, -4, 1, 146, 79.99999)
+
+[node name="SleeplessChild" type="CharacterBody2D" unique_id=464654720 groups=["Enemies"]]
+scale = Vector2(0.5, 0.5)
+collision_layer = 128
+collision_mask = 989
+script = ExtResource("1_q6gtu")
+metadata/_custom_type_script = "uid://6xmvem06apff"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=718689405]
+debug_enabled = true
+
+[node name="EnemyCollider" type="CollisionShape2D" parent="." unique_id=1553151172]
+position = Vector2(44, 121)
+shape = SubResource("RectangleShape2D_xnlnb")
+debug_color = Color(0.9966505, 0, 0.19243264, 0.41960785)
+
+[node name="EnemySprite" type="Sprite2D" parent="." unique_id=278392545]
+texture = ExtResource("2_ow21u")
+
+[node name="DetectionZone" type="Area2D" parent="." unique_id=732796113]
+position = Vector2(180, -82)
+collision_layer = 4096
+collision_mask = 1024
+metadata/_edit_group_ = true
+
+[node name="DetectCollider2" type="CollisionPolygon2D" parent="DetectionZone" unique_id=69796751]
+show_behind_parent = true
+polygon = PackedVector2Array(0, 0, 715, -85, 715, 180)
+
+[node name="Polygon2D" type="Polygon2D" parent="DetectionZone/DetectCollider2" unique_id=1044377934]
+color = Color(0.9372549, 0.85882354, 0.5764706, 1)
+polygon = PackedVector2Array(0, 0, 715, -85, 715, 180)
+uv = PackedVector2Array(0, 0, 715, -85, 715, 180)
+
+[node name="Sprite2D" type="Sprite2D" parent="DetectionZone/DetectCollider2" unique_id=115455848]
+texture = SubResource("GradientTexture2D_ow21u")
+
+[node name="AttackZone" type="Area2D" parent="." unique_id=757406806]
+collision_layer = 2048
+collision_mask = 1024
+
+[node name="AttackCollider" type="CollisionShape2D" parent="AttackZone" unique_id=75791294]
+visible = false
+position = Vector2(77, -133)
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_ow21u")
+debug_color = Color(0.24520513, 0.5061181, 1, 0.41960785)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=338077246]
+position = Vector2(188, -66)
+offset = Vector2(1.67, 0)
+zoom = Vector2(6.46, 6.46)
+
+[connection signal="area_entered" from="DetectionZone" to="." method="_on_detection_zone_area_entered"]
+[connection signal="area_exited" from="DetectionZone" to="." method="_on_detection_zone_area_exited"]
+[connection signal="area_entered" from="AttackZone" to="." method="_on_attack_zone_area_entered"]
+[connection signal="area_exited" from="AttackZone" to="." method="_on_attack_zone_area_exited"]

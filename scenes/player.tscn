@@ -155,16 +155,15 @@ _data = {
 &"RESET": SubResource("Animation_d2wvv")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(15.860273, 54.54544)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
-radius = 31.0
-height = 72.0
+radius = 27.745758
+height = 132.08711
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
-radius = 17.0
-height = 128.0
-
-[node name="Eve - P1" type="CharacterBody2D" unique_id=810202292]
-collision_mask = 182
+[node name="Eve - P1" type="CharacterBody2D" unique_id=810202292 groups=["Players"]]
+collision_mask = 954
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1709103146]
@@ -179,12 +178,19 @@ libraries/ = SubResource("AnimationLibrary_3v2ag")
 
 [node name="inventory" type="Node2D" parent="." unique_id=1023187329]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2061515730]
-position = Vector2(2, -31)
-shape = SubResource("CapsuleShape2D_g2els")
+[node name="FeetCollider" type="CollisionShape2D" parent="." unique_id=2061515730]
+position = Vector2(0.5077667, 57.79917)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_g2els")
 debug_color = Color(0.8633379, 0.00062319695, 0.8686948, 0.41960785)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=2027805585]
-position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_qhqgy")
-debug_color = Color(0.86254627, 0.0006378287, 0.87069386, 0.41960785)
+[node name="HurtBoxZone" type="Area2D" parent="." unique_id=78636449 groups=["HurtBox"]]
+collision_layer = 1024
+collision_mask = 2048
+
+[node name="HurtBoxCollider" type="CollisionShape2D" parent="HurtBoxZone" unique_id=22954035]
+position = Vector2(0.9634094, -0.54706573)
+shape = SubResource("CapsuleShape2D_g2els")
+
+[connection signal="body_entered" from="HurtBoxZone" to="." method="_on_hit_box_zone_body_entered"]
+[connection signal="body_exited" from="HurtBoxZone" to="." method="_on_hit_box_zone_body_exited"]

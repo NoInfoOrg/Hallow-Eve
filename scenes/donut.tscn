@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://1443ff3s2af"]
+
+[ext_resource type="Script" uid="uid://cnujf4336mq84" path="res://scripts/collectibles.gd" id="1_duj3u"]
+[ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="2_x5jx2"]
+[ext_resource type="Texture2D" uid="uid://bkooksl0880jh" path="res://assets/tempSprites/Pink_Donut.png" id="3_gik3f"]
+
+[sub_resource type="Resource" id="Resource_8duds"]
+script = ExtResource("2_x5jx2")
+name = "donut"
+texture = ExtResource("3_gik3f")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dxld2"]
+radius = 36.013885
+
+[node name="donut" type="Area2D" unique_id=237885986]
+collision_mask = 65
+script = ExtResource("1_duj3u")
+item_info = SubResource("Resource_8duds")
+is_holding = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=264725037]
+z_index = -2
+position = Vector2(-4, 4)
+shape = SubResource("CircleShape2D_dxld2")
+
+[node name="food" type="Sprite2D" parent="." unique_id=256315765]
+position = Vector2(0, 1)
+scale = Vector2(0.390625, 0.36328125)
+texture = ExtResource("3_gik3f")

@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://del2572uijvwp"]
+
+[ext_resource type="PackedScene" uid="uid://dey2vhefcg2jr" path="res://scenes/plushie_laying_brown.tscn" id="1_388qb"]
+[ext_resource type="PackedScene" uid="uid://c3hnbc5b7psmo" path="res://scenes/plushie_laying_pink.tscn" id="2_8c5gl"]
+[ext_resource type="PackedScene" uid="uid://i8sj6voslmdr" path="res://scenes/plushie_laying_purple.tscn" id="3_kctpt"]
+[ext_resource type="PackedScene" uid="uid://btrfdx4gddi7n" path="res://scenes/plushie_laying_white.tscn" id="4_53qhe"]
+[ext_resource type="PackedScene" uid="uid://v38v8xk663r1" path="res://scenes/plushie_propped_brown.tscn" id="5_2qx0m"]
+[ext_resource type="PackedScene" uid="uid://drievey3t0mbw" path="res://scenes/plushie_propped_pink.tscn" id="6_obecm"]
+[ext_resource type="PackedScene" uid="uid://dw5sb6gf72bvy" path="res://scenes/plushie_propped_purple.tscn" id="7_t26rp"]
+[ext_resource type="PackedScene" uid="uid://l28fca5u7xgj" path="res://scenes/plushie_propped_white.tscn" id="8_2hif1"]
+
+[node name="Plushiegroup" type="StaticBody2D" unique_id=1850562469]
+position = Vector2(1, 4)
+
+[node name="PlushieProppedWhite" parent="." unique_id=95508403 instance=ExtResource("8_2hif1")]
+position = Vector2(76, -25)
+
+[node name="PlushieLayingPink" parent="." unique_id=1404063379 instance=ExtResource("2_8c5gl")]
+position = Vector2(64, 10)
+
+[node name="PlushieProppedBrown" parent="." unique_id=1954826410 instance=ExtResource("5_2qx0m")]
+position = Vector2(61, -17)
+
+[node name="PlushieProppedPink" parent="." unique_id=1648531279 instance=ExtResource("6_obecm")]
+position = Vector2(89, -16)
+
+[node name="PlushieProppedPurple" parent="." unique_id=1505603005 instance=ExtResource("7_t26rp")]
+position = Vector2(78, 1)
+
+[node name="PlushieLayingBrown2" parent="." unique_id=1189311573 instance=ExtResource("1_388qb")]
+position = Vector2(52, 12)
+
+[node name="PlushieLayingWhite" parent="." unique_id=1907737087 instance=ExtResource("4_53qhe")]
+position = Vector2(45, 26)
+
+[node name="PlushieLayingBrown" parent="." unique_id=382267056 instance=ExtResource("1_388qb")]
+position = Vector2(118, 24)
+
+[node name="PlushieProppedPink2" parent="." unique_id=681110367 instance=ExtResource("6_obecm")]
+position = Vector2(100, 4)
+
+[node name="PlushieLayingPink2" parent="." unique_id=411322701 instance=ExtResource("2_8c5gl")]
+position = Vector2(94, 14)
+
+[node name="PlushieLayingPurple" parent="." unique_id=36341373 instance=ExtResource("3_kctpt")]
+position = Vector2(92, 26)

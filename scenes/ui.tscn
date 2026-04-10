@@ -39,6 +39,7 @@ position = Vector2(1056, 160)
 metadata/_edit_group_ = true
 
 [node name="P1Sanity" type="TextureProgressBar" parent="P1" unique_id=1490061044]
+unique_name_in_owner = true
 offset_left = -1048.0
 offset_top = -17.0
 offset_right = -948.0
@@ -54,6 +55,7 @@ position = Vector2(8, 143)
 metadata/_edit_group_ = true
 
 [node name="P2Sanity" type="TextureProgressBar" parent="P2" unique_id=756704857]
+unique_name_in_owner = true
 offset_left = 1048.0
 offset_top = 17.0
 offset_right = 1168.0

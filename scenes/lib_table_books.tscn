@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dlwmqh6auu8ku"]
+
+[ext_resource type="Texture2D" uid="uid://c8c5pm3gh7wq" path="res://assets/sprites/environment/Library_Table-Books.png" id="1_pghf6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky1t1"]
+size = Vector2(235.10336, 139.70728)
+
+[node name="LibTableBooks" type="StaticBody2D" unique_id=95508403 groups=["Environment Assets"]]
+collision_layer = 512
+collision_mask = 0
+
+[node name="AssetSprite" type="Sprite2D" parent="." unique_id=30522664]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pghf6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=57343574]
+position = Vector2(0.3092308, 0.6721325)
+shape = SubResource("RectangleShape2D_ky1t1")
+debug_color = Color(0.9800469, 0, 0.38690174, 0.41960785)

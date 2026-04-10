@@ -1,10 +1,10 @@
 [gd_resource type="TileSet" format=3 uid="uid://c1vwn8b2j8jl8"]
 
-[ext_resource type="Texture2D" uid="uid://cj26n0g3vxh6k" path="res://assets/tilesets/WindowEvening1.png" id="1_j5h4o"]
-[ext_resource type="Texture2D" uid="uid://bqwg8eur387gx" path="res://assets/tilesets/WindowFrame1.png" id="2_0yes7"]
-[ext_resource type="Texture2D" uid="uid://c6px5to48rgks" path="res://assets/tilesets/WindowMorning1.png" id="3_k33ui"]
-[ext_resource type="Texture2D" uid="uid://j521elgc6st2" path="res://assets/tilesets/WindowNight1.png" id="4_2q0y8"]
-[ext_resource type="Texture2D" uid="uid://cq3x7lnonv3li" path="res://assets/tilesets/WindowNoon1.png" id="5_q5v5d"]
+[ext_resource type="Texture2D" uid="uid://cj26n0g3vxh6k" path="res://assets/sprites/environment/WindowEvening1.png" id="1_j5h4o"]
+[ext_resource type="Texture2D" uid="uid://bqwg8eur387gx" path="res://assets/sprites/environment/WindowFrame1.png" id="2_0yes7"]
+[ext_resource type="Texture2D" uid="uid://c6px5to48rgks" path="res://assets/sprites/environment/WindowMorning1.png" id="3_k33ui"]
+[ext_resource type="Texture2D" uid="uid://j521elgc6st2" path="res://assets/sprites/environment/WindowNight1.png" id="4_2q0y8"]
+[ext_resource type="Texture2D" uid="uid://cq3x7lnonv3li" path="res://assets/sprites/environment/WindowNoon1.png" id="5_q5v5d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h8cw6"]
 texture = ExtResource("1_j5h4o")
