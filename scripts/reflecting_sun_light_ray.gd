@@ -10,7 +10,7 @@ var reflecting_light_already_made = false
 var ray_line_is_initialized = false
 var collided_mirror = null
 var collided_mirror_rotation = null
-var test = false
+var test = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,6 +34,7 @@ func check_for_collision(full_light_ray_instance):
 			if test:
 				collider.get_node("Back Side Collision").disabled = true
 				test = false
+				return
 				
 			if collided_mirror == null:
 				collided_mirror = collider
@@ -73,7 +74,7 @@ func check_for_collision(full_light_ray_instance):
 		
 		# At this point, we assume taht the collider is a mirror
 		# Turn on the mirror's backside collision, so if the light ray is colliding with the...
-		# ...mirror from the back, the reflected light ray will start inside the backside...
+		# ...mirror from thew back, the reflected light ray will start inside the backside...
 		# ...collision and will be invalid
 		# WARNING This is super experimental, double-check that this actually works
 		collider.get_node("Back Side Collision").disabled = false
@@ -118,7 +119,7 @@ func make_new_light_ray(local_collision_point, normal):
 	# ...can lead to Godot thinking that the new light ray is inside the collider and give a
 	# ...normal vector of (0.0, 0.0). As a result this small_offset will make a small offset...
 	# ...for the starting point of the reflected ray vector so it does not start inside a collider
-	var small_offset = (reflected_ray_vector.normalized() * 0.05)
+	var small_offset = (reflected_ray_vector.normalized() * 0.03)
 	new_light_ray.position = local_collision_point + small_offset
 	
 	# TODO Technically I think it should be like:
