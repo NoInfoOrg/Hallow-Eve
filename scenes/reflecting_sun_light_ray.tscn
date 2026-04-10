@@ -8,6 +8,7 @@ script = ExtResource("1_i32y1")
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=917382279]
 z_index = 10
 target_position = Vector2(-1100, 0)
+hit_from_inside = true
 collide_with_areas = true
 
 [node name="Line2D" type="Line2D" parent="." unique_id=2013656093]

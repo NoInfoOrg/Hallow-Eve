@@ -1,17 +1,27 @@
 [gd_scene format=3 uid="uid://dpmykk27ckpvf"]
 
 [ext_resource type="Script" uid="uid://dhyqa3bocy5m1" path="res://scripts/back_to_menu.gd" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://beb2hcrs5lc53" path="res://scripts/settings_screen.gd" id="1_6wm04"]
 [ext_resource type="Script" uid="uid://wusystxbx4io" path="res://scripts/toggle_inventory.gd" id="1_r6d6q"]
+[ext_resource type="Texture2D" uid="uid://imtoiw307a8p" path="res://assets/ui elements/settings/Settings_MenuBG.png" id="2_f4mfi"]
+[ext_resource type="PackedScene" uid="uid://lwvh16rh2rn7" path="res://scenes/master_volume.tscn" id="3_gis3k"]
+[ext_resource type="Texture2D" uid="uid://diy5gvnqua1ja" path="res://assets/ui elements/settings/Settings_MenuText_Master.png" id="4_83j8s"]
+[ext_resource type="Texture2D" uid="uid://drabb8tugaflm" path="res://assets/ui elements/settings/Settings_Return.png" id="4_es4n0"]
+[ext_resource type="Texture2D" uid="uid://die4r5cidbmx3" path="res://assets/ui elements/settings/Settings_MenuText_Music.png" id="6_am25x"]
+[ext_resource type="PackedScene" uid="uid://c4frtynrnxa4m" path="res://scenes/music_volume.tscn" id="8_gjs24"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_es4n0"]
 
 [node name="Settings Screen" type="CanvasLayer" unique_id=1267861807]
+script = ExtResource("1_6wm04")
 
 [node name="Control" type="Control" parent="." unique_id=8696036]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 201.0
-offset_top = 56.0
-offset_right = 241.0
-offset_bottom = 96.0
+offset_left = 59.0
+offset_top = -4.0
+offset_right = 99.0
+offset_bottom = 36.0
 metadata/_edit_group_ = true
 
 [node name="Panel" type="Panel" parent="Control" unique_id=897737851]
@@ -21,33 +31,85 @@ offset_top = 135.0
 offset_right = 611.0
 offset_bottom = 395.0
 
+[node name="Menu Background" type="TextureRect" parent="Control/Panel" unique_id=1246785167]
+layout_mode = 0
+offset_right = 650.0
+offset_bottom = 392.0
+texture = ExtResource("2_f4mfi")
+expand_mode = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel" unique_id=869553438]
 layout_mode = 0
-offset_right = 428.0
-offset_bottom = 66.0
+offset_left = 163.0
+offset_right = 481.0
+offset_bottom = 382.0
+
+[node name="Spacer 1" type="Label" parent="Control/Panel/VBoxContainer" unique_id=1733995893]
+layout_mode = 2
 
 [node name="Toggle Inventory" type="Button" parent="Control/Panel/VBoxContainer" unique_id=1603914495]
 layout_mode = 2
 text = "Hide Inventory"
 script = ExtResource("1_r6d6q")
 
-[node name="Spacer 1" type="Label" parent="Control/Panel/VBoxContainer" unique_id=1733995893]
-layout_mode = 2
+[node name="Master Volume Title" type="Sprite2D" parent="Control/Panel/VBoxContainer" unique_id=1817775410]
+position = Vector2(160.33331, 95.00001)
+scale = Vector2(0.5666664, 0.56666636)
+texture = ExtResource("4_83j8s")
 
-[node name="Master Volume" type="Label" parent="Control/Panel/VBoxContainer" unique_id=29631271]
-layout_mode = 2
-text = "Master Volume"
+[node name="Master Volume" parent="Control/Panel/VBoxContainer" unique_id=1974866346 instance=ExtResource("3_gis3k")]
+position = Vector2(159, 136.00002)
 
-[node name="Master Volume Slider" type="HScrollBar" parent="Control/Panel/VBoxContainer" unique_id=181821311]
-layout_mode = 2
+[node name="Music Volume Title" type="Sprite2D" parent="Control/Panel/VBoxContainer" unique_id=1786976439]
+position = Vector2(159, 195)
+scale = Vector2(0.59999996, 0.59999996)
+texture = ExtResource("6_am25x")
+
+[node name="Music Volume" parent="Control/Panel/VBoxContainer" unique_id=903240015 instance=ExtResource("8_gjs24")]
+position = Vector2(159, 240)
 
 [node name="Spacer 2" type="Label" parent="Control/Panel/VBoxContainer" unique_id=1506149287]
 layout_mode = 2
 
+[node name="Spacer 3" type="Label" parent="Control/Panel/VBoxContainer" unique_id=836082575]
+layout_mode = 2
+
+[node name="Spacer 4" type="Label" parent="Control/Panel/VBoxContainer" unique_id=1868213522]
+layout_mode = 2
+
+[node name="Spacer 5" type="Label" parent="Control/Panel/VBoxContainer" unique_id=1315776063]
+layout_mode = 2
+
+[node name="Spacer 6" type="Label" parent="Control/Panel/VBoxContainer" unique_id=1232471103]
+layout_mode = 2
+
+[node name="Spacer 7" type="Label" parent="Control/Panel/VBoxContainer" unique_id=2021728351]
+layout_mode = 2
+
+[node name="Spacer 8" type="Label" parent="Control/Panel/VBoxContainer" unique_id=486556528]
+layout_mode = 2
+
+[node name="Spacer 9" type="Label" parent="Control/Panel/VBoxContainer" unique_id=433012486]
+layout_mode = 2
+
 [node name="Back to Menu" type="Button" parent="Control/Panel/VBoxContainer" unique_id=486492223]
 layout_mode = 2
-text = "Back to Menu"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_es4n0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_es4n0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_es4n0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_es4n0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_es4n0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_es4n0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_es4n0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_es4n0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_es4n0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_es4n0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_es4n0")
+icon = ExtResource("4_es4n0")
+icon_alignment = 1
 script = ExtResource("1_5p8wc")
 
 [connection signal="pressed" from="Control/Panel/VBoxContainer/Toggle Inventory" to="Control/Panel/VBoxContainer/Toggle Inventory" method="_on_pressed"]
+[connection signal="button_down" from="Control/Panel/VBoxContainer/Back to Menu" to="Control/Panel/VBoxContainer/Back to Menu" method="_on_button_down"]
+[connection signal="button_up" from="Control/Panel/VBoxContainer/Back to Menu" to="Control/Panel/VBoxContainer/Back to Menu" method="_on_button_up"]
 [connection signal="pressed" from="Control/Panel/VBoxContainer/Back to Menu" to="Control/Panel/VBoxContainer/Back to Menu" method="_on_pressed"]

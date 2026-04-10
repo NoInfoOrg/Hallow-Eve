@@ -17,8 +17,18 @@
 [ext_resource type="Script" uid="uid://dvc7yomb50ty" path="res://scripts/quit.gd" id="14_cof4p"]
 [ext_resource type="Script" uid="uid://ceex0idpm34yb" path="res://scripts/resume.gd" id="14_f7tlh"]
 [ext_resource type="Texture2D" uid="uid://bb25udxq20hi8" path="res://assets/ui elements/TextBox.png" id="14_h1mc3"]
+[ext_resource type="Texture2D" uid="uid://imtoiw307a8p" path="res://assets/ui elements/settings/Settings_MenuBG.png" id="14_rlppe"]
 [ext_resource type="PackedScene" uid="uid://dpmykk27ckpvf" path="res://scenes/settings.tscn" id="15_8k7j3"]
-[ext_resource type="Script" uid="uid://8vb68x4k5osx" path="res://scripts/settings.gd" id="15_jkdwc"]
+[ext_resource type="Texture2D" uid="uid://drabb8tugaflm" path="res://assets/ui elements/settings/Settings_Return.png" id="15_catpy"]
+[ext_resource type="Script" uid="uid://8vb68x4k5osx" path="res://scripts/settings_button.gd" id="15_jkdwc"]
+[ext_resource type="Texture2D" uid="uid://dghuumlbc8hf3" path="res://assets/ui elements/settings/Settings_MainMenuButton.png" id="16_kupmu"]
+[ext_resource type="Texture2D" uid="uid://bke6hqpt84f6n" path="res://assets/ui elements/settings/Settings_ExitButton.png" id="19_ycmcx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41akx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_catpy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ycmcx"]
 
 [node name="UI" type="CanvasLayer" unique_id=1522527901]
 script = ExtResource("1_8dubc")
@@ -181,27 +191,78 @@ layout_mode = 0
 offset_right = 590.0
 offset_bottom = 423.0
 
+[node name="Menu Background" type="TextureRect" parent="MenuButton/Menu/Control/Panel" unique_id=1101996236]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -6.0
+offset_right = 597.0
+offset_bottom = 431.0
+texture = ExtResource("14_rlppe")
+expand_mode = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuButton/Menu/Control/Panel" unique_id=331149323]
 layout_mode = 0
-offset_right = 590.0
-offset_bottom = 423.0
+offset_left = 141.0
+offset_top = 51.0
+offset_right = 451.0
+offset_bottom = 391.0
 
 [node name="Resume" type="Button" parent="MenuButton/Menu/Control/Panel/VBoxContainer" unique_id=2012321918]
 layout_mode = 2
-text = "Resume"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_41akx")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_41akx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_41akx")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_41akx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_41akx")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_41akx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_41akx")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_41akx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_41akx")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_41akx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_41akx")
+icon = ExtResource("15_catpy")
 script = ExtResource("14_f7tlh")
+
+[node name="Spacer 1" type="Label" parent="MenuButton/Menu/Control/Panel/VBoxContainer" unique_id=23679210]
+layout_mode = 2
 
 [node name="Settings" type="Button" parent="MenuButton/Menu/Control/Panel/VBoxContainer" unique_id=188100735]
 layout_mode = 2
-text = "Settings"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_catpy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_catpy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_catpy")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_catpy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_catpy")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_catpy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_catpy")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_catpy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_catpy")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_catpy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_catpy")
+icon = ExtResource("16_kupmu")
+icon_alignment = 1
 script = ExtResource("15_jkdwc")
 
 [node name="Settings Screen" parent="MenuButton/Menu/Control/Panel/VBoxContainer/Settings" unique_id=1267861807 instance=ExtResource("15_8k7j3")]
 visible = false
 
+[node name="Spacer 2" type="Label" parent="MenuButton/Menu/Control/Panel/VBoxContainer" unique_id=1945423925]
+layout_mode = 2
+
 [node name="Quit" type="Button" parent="MenuButton/Menu/Control/Panel/VBoxContainer" unique_id=829429541]
 layout_mode = 2
-text = "Quit"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ycmcx")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ycmcx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ycmcx")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ycmcx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ycmcx")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ycmcx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ycmcx")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ycmcx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ycmcx")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ycmcx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ycmcx")
+icon = ExtResource("19_ycmcx")
 script = ExtResource("14_cof4p")
 
 [node name="DialogueBox" type="Node2D" parent="." unique_id=1775988295]
@@ -233,6 +294,12 @@ grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("13_h1mc3")
 
+[connection signal="button_down" from="MenuButton/Menu/Control/Panel/VBoxContainer/Resume" to="MenuButton/Menu/Control/Panel/VBoxContainer/Resume" method="_on_button_down"]
+[connection signal="button_up" from="MenuButton/Menu/Control/Panel/VBoxContainer/Resume" to="MenuButton/Menu/Control/Panel/VBoxContainer/Resume" method="_on_button_up"]
 [connection signal="pressed" from="MenuButton/Menu/Control/Panel/VBoxContainer/Resume" to="MenuButton" method="_on_resume_pressed"]
+[connection signal="button_down" from="MenuButton/Menu/Control/Panel/VBoxContainer/Settings" to="MenuButton/Menu/Control/Panel/VBoxContainer/Settings" method="_on_button_down"]
+[connection signal="button_up" from="MenuButton/Menu/Control/Panel/VBoxContainer/Settings" to="MenuButton/Menu/Control/Panel/VBoxContainer/Settings" method="_on_button_up"]
 [connection signal="pressed" from="MenuButton/Menu/Control/Panel/VBoxContainer/Settings" to="MenuButton/Menu/Control/Panel/VBoxContainer/Settings" method="_on_pressed"]
+[connection signal="button_down" from="MenuButton/Menu/Control/Panel/VBoxContainer/Quit" to="MenuButton/Menu/Control/Panel/VBoxContainer/Quit" method="_on_button_down"]
+[connection signal="button_up" from="MenuButton/Menu/Control/Panel/VBoxContainer/Quit" to="MenuButton/Menu/Control/Panel/VBoxContainer/Quit" method="_on_button_up"]
 [connection signal="pressed" from="MenuButton/Menu/Control/Panel/VBoxContainer/Quit" to="MenuButton/Menu/Control/Panel/VBoxContainer/Quit" method="_on_quit_pressed"]

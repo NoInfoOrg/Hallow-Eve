@@ -11,6 +11,11 @@ func _ready():
 	idle_right = "Willow_Right"
 	idle_up = "Willow_Up"
 	idle_down = "Willow_Down"
+	walk_left = "Willow_Left"
+	walk_right = "Willow_Right"
+	walk_up = "Willow_Up"
+	walk_down = "Willow_Down"
+
 func hold(holdable):
 	if hold_inv.get_inv_size() != 0:
 		print("ERROR already holding: ", hold_inv.items[0].name)

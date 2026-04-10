@@ -15,6 +15,10 @@ var idle_left = null
 var idle_right = null
 var idle_up = null
 var idle_down = null
+var walk_left = null
+var walk_right = null
+var walk_up = null
+var walk_down = null
 
 # INFO: Assuming that the player starts out facing to the front
 var lastDirection : String = "S"
@@ -41,30 +45,37 @@ func _physics_process(delta):
 	var moving_down = Input.is_action_pressed(move_down_action)
 	
 	if moving_left and not (moving_up or moving_down):
-		$AnimationPlayer.play(idle_left)
+		$AnimationPlayer.play(walk_left)
 		lastDirection = "A"
 		check_box_collision(-PUSH_FORCE, 0, delta)
 		
 	elif moving_right and not (moving_up or moving_down):
-		$AnimationPlayer.play(idle_right)
+		$AnimationPlayer.play(walk_right)
 		lastDirection = "D"
 		check_box_collision(PUSH_FORCE, 0, delta)
 		
 	elif moving_up and not (moving_left or moving_right):
-		$AnimationPlayer.play(idle_up)
+		$AnimationPlayer.play(walk_up)
 		lastDirection = "W"
 		check_box_collision(0, -PUSH_FORCE, delta)
 		
 	elif moving_down and not (moving_left or moving_right):
-		$AnimationPlayer.play(idle_down)
+		$AnimationPlayer.play(walk_down)
 		lastDirection = "S"
 		check_box_collision(0, PUSH_FORCE, delta)
 	
 	# INFO meant to return animation to idle, but [DESTROYS] the debugger - Lizz
 	# INFO I think this fixes it? But I don't know if this is what you had in mind - Nick
-	#elif velocity == Vector2.ZERO:
-		#$AnimationPlayer.play("Eve_Idle_" + lastDirection)
-	
+	elif velocity == Vector2.ZERO:
+		if lastDirection == "W":
+			$AnimationPlayer.play(idle_up)
+		elif lastDirection == "A":
+			$AnimationPlayer.play(idle_left)
+		elif lastDirection == "S":
+			$AnimationPlayer.play(idle_down)
+		elif lastDirection == "D":
+			$AnimationPlayer.play(idle_right)
+
 func check_box_collision(x_push, y_push, delta):
 	for i in get_slide_collision_count():
 		# Make sure the player is actually moving in the direction they are pushing

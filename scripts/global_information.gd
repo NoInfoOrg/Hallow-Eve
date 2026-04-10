@@ -15,11 +15,22 @@ const MAX_PLAYER_HEALTH_STRIKES = 3
 var eve_health_strikes = 0
 var willow_health_strikes = 0
 
+# Game volumes
+const MINIMUM_LINEAR_VOLUME = 0.0
+const MAXIMUM_LINEAR_VOLUME = 1.0
+
+var current_master_volume_linear = 1.0
+var current_music_volume_linear = 1.0
+
 func _ready():
 	# Start the players out with full health (assuming this will be at the very start of the game)
 	# We currently have 3 sanity icons, so I guess full health = 3 sanity icons full
 	eve_health_strikes = MAX_PLAYER_HEALTH_STRIKES
 	willow_health_strikes = MAX_PLAYER_HEALTH_STRIKES
+	
+	# Start the game with max volume
+	current_master_volume_linear = 1.0
+	current_music_volume_linear = 1.0
 
 func find_inventory(starting_node):
 	#return find_node(starting_node, "UI/SharedInv/Inventory")
@@ -56,7 +67,8 @@ func find_node(starting_node, node_path):
 	while safetyIndex < MAX_ITERATIONS:
 		#print(current_node.name)
 		
-		if current_node == root:
+		# Default cases that signify that the inventory is not found
+		if current_node == root or current_node == null:
 			break
 		
 		# get_node will either be null if the filepath at that moment doesn't exist...
@@ -158,3 +170,79 @@ func get_defeat_message() -> String:
 func reset_player_information():
 	eve_health_strikes = MAX_PLAYER_HEALTH_STRIKES
 	willow_health_strikes = MAX_PLAYER_HEALTH_STRIKES
+
+## Game volumes
+#const MINIMUM_LINEAR_VOLUME = 0.0
+#const MAXIMUM_LINEAR_VOLUME = 1.0
+#
+#var current_master_volume_linear = 1.0
+#var current_music_volume_linear = 1.0
+
+func increase_volume(volume_to_increase: String) -> void:
+	# Lizz so far has drawn 10 textures for the volume settings, so 1.0 / 10 = 0.1
+	const INCREASE_AMOUNT = 0.1
+	
+	if volume_to_increase == "Master Volume":
+		if current_master_volume_linear + INCREASE_AMOUNT > MAXIMUM_LINEAR_VOLUME:
+			return
+		
+		current_master_volume_linear += INCREASE_AMOUNT
+		reduce_volumes(get_tree().root)
+		return
+		
+	elif volume_to_increase == "Music Volume":
+		if current_music_volume_linear + INCREASE_AMOUNT > MAXIMUM_LINEAR_VOLUME:
+			return
+		
+		current_music_volume_linear += INCREASE_AMOUNT
+		reduce_volumes(get_tree().root)
+		return
+		
+	else:
+		return
+
+func decrease_volume(volume_to_decrease: String) -> void:
+	# Lizz so far has drawn 10 textures for the volume settings, so 1.0 / 10 = 0.1
+	const DECREASE_AMOUNT = 0.1
+	
+	if volume_to_decrease == "Master Volume":
+		if current_master_volume_linear - DECREASE_AMOUNT < MINIMUM_LINEAR_VOLUME:
+			return
+		
+		current_master_volume_linear -= DECREASE_AMOUNT
+		reduce_volumes(get_tree().root)
+		return
+		
+	elif volume_to_decrease == "Music Volume":
+		if current_music_volume_linear - DECREASE_AMOUNT < MINIMUM_LINEAR_VOLUME:
+			return
+		
+		current_music_volume_linear -= DECREASE_AMOUNT
+		reduce_volumes(get_tree().root)
+		return
+		
+	else:
+		return
+
+func increase_master_volume() -> void:
+	increase_volume("Master Volume")
+
+func increase_music_volume() -> void:
+	increase_volume("Music Volume")
+
+func decrease_master_volume() -> void:
+	decrease_volume("Master Volume")
+
+func decrease_music_volume() -> void:
+	decrease_volume("Music Volume")
+
+func reduce_volumes(starting_node):
+	for child_node in starting_node.get_children():
+		if child_node is AudioStreamPlayer:
+			if child_node.is_in_group("Music"):
+				child_node.set_volume_linear(current_master_volume_linear * current_music_volume_linear)
+			
+			else:
+				child_node.set_volume_linear(current_master_volume_linear)
+		
+		reduce_volumes(child_node)
