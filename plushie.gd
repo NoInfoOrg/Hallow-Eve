@@ -309,7 +309,6 @@ func _on_attack_zone_area_exited(area: Area2D) -> void:
 func _on_detection_zone_area_entered(area: Area2D) -> void:
 	# check the object in the detection zone is a player
 	if area.is_in_group("HurtBox"):
-		print("ow")
 		# set player to the current player in the detection zone and begin chase
 		player = area.get_parent()
 		playerChase = true

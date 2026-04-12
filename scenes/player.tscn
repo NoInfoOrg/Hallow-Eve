@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://pv6eoafrval0" path="res://scripts/eve.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://c3yp04fpvc4tm" path="res://assets/sprites/p1/Eve_FullHealth_SpriteSheet.png" id="2_g2els"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
+radius = 7.7961845
+height = 48.56122
+
 [sub_resource type="Animation" id="Animation_qhqgy"]
 resource_name = "Eve_Idle_A"
 tracks/0/type = "value"
@@ -155,21 +159,25 @@ _data = {
 &"RESET": SubResource("Animation_d2wvv")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(15.860273, 54.54544)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
 radius = 27.745758
 height = 132.08711
 
 [node name="Eve - P1" type="CharacterBody2D" unique_id=810202292 groups=["Players"]]
+y_sort_enabled = true
 collision_mask = 954
 script = ExtResource("1_g2els")
 
+[node name="FeetCollider" type="CollisionShape2D" parent="." unique_id=2061515730]
+position = Vector2(1.210729e-07, 10.3485985)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qhqgy")
+debug_color = Color(0.8633379, 0.00062319695, 0.8686948, 0.41960785)
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1709103146]
-position = Vector2(1.0000076, -0.9999924)
 scale = Vector2(0.50701755, 0.51086956)
 texture = ExtResource("2_g2els")
+offset = Vector2(0, -95.31)
 hframes = 10
 vframes = 10
 
@@ -178,13 +186,8 @@ libraries/ = SubResource("AnimationLibrary_3v2ag")
 
 [node name="inventory" type="Node2D" parent="." unique_id=1023187329]
 
-[node name="FeetCollider" type="CollisionShape2D" parent="." unique_id=2061515730]
-position = Vector2(0.5077667, 57.79917)
-rotation = 1.5707964
-shape = SubResource("RectangleShape2D_g2els")
-debug_color = Color(0.8633379, 0.00062319695, 0.8686948, 0.41960785)
-
 [node name="HurtBoxZone" type="Area2D" parent="." unique_id=78636449 groups=["HurtBox"]]
+position = Vector2(1.210729e-07, -47.899822)
 collision_layer = 1024
 collision_mask = 2048
 

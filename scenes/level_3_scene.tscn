@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bawfooa2k0qij"]
 
 [ext_resource type="Script" uid="uid://cvy8perii5g6s" path="res://scripts/camera_2d.gd" id="1_2es0a"]
+[ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="1_is5o6"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_50ut1"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_is5o6"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_vmqa7"]
@@ -14,15 +15,25 @@
 script = ExtResource("4_vmqa7")
 
 [node name="Level 3 Scene" type="Node2D" unique_id=1691588298]
+metadata/_edit_horizontal_guides_ = [2362.7485]
 
-[node name="Camera Setup" type="Node" parent="." unique_id=1515192114]
+[node name="UI" parent="." unique_id=1522527901 instance=ExtResource("1_is5o6")]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1984080884]
+
+[node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("8_cqgif")]
+z_index = 10
+position = Vector2(416, 603)
+
+[node name="Camera Setup" type="Node2D" parent="." unique_id=229661617]
 
 [node name="Camera2D" type="Camera2D" parent="Camera Setup" unique_id=1733770106]
 physics_interpolation_mode = 1
 top_level = true
 visibility_layer = 65
 z_index = 10
-position = Vector2(942, 1152)
+position = Vector2(453.06744, 2468.4475)
 zoom = Vector2(1.25, 1.25)
 process_callback = 0
 editor_draw_limits = true
@@ -37,11 +48,11 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="Camera Setup" unique_id=1543930101 node_paths=PackedStringArray("follow_targets")]
 top_level = true
-position = Vector2(942, 1152)
+position = Vector2(453.06744, 2468.4475)
 script = ExtResource("3_is5o6")
 priority = 10
 follow_mode = 3
-follow_targets = [NodePath("../../MovementCont/Eve - P1"), NodePath("../../MovementCont/Willow - P2")]
+follow_targets = [NodePath("../../Objects/MovementCont/Eve - P1"), NodePath("../../Objects/MovementCont/Willow - P2")]
 zoom = Vector2(1.25, 1.25)
 tween_resource = SubResource("Resource_cvgtb")
 host_layers = 65
@@ -53,374 +64,431 @@ auto_zoom_margin = Vector4(4, 0, 4, 0)
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="MovementCont" type="Node2D" parent="." unique_id=483291084]
+[node name="Map" type="Node2D" parent="." unique_id=1275712703]
 
-[node name="Eve - P1" parent="MovementCont" unique_id=810202292 instance=ExtResource("5_k1e2j")]
-z_index = 9
-position = Vector2(1005, 1173)
+[node name="Level 3 Floorplan" parent="Map" unique_id=1045888620 instance=ExtResource("7_jqvr8")]
+
+[node name="Objects" type="Node2D" parent="." unique_id=64838976]
+y_sort_enabled = true
+
+[node name="MovementCont" type="Node2D" parent="Objects" unique_id=483291084]
+y_sort_enabled = true
+
+[node name="Eve - P1" parent="Objects/MovementCont" unique_id=810202292 instance=ExtResource("5_k1e2j")]
+position = Vector2(692.96484, 2485.8657)
 collision_mask = 958
 
-[node name="Willow - P2" parent="MovementCont" unique_id=882182450 instance=ExtResource("6_38li5")]
-z_index = 9
-position = Vector2(879, 1131)
+[node name="Willow - P2" parent="Objects/MovementCont" unique_id=882182450 instance=ExtResource("6_38li5")]
+position = Vector2(213.17004, 2451.0293)
 collision_mask = 958
 
-[node name="Level 3 Floorplan" parent="." unique_id=1045888620 instance=ExtResource("7_jqvr8")]
+[node name="Enemies" type="Node2D" parent="Objects" unique_id=1189972395]
+y_sort_enabled = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1984080884]
+[node name="Assets" type="Node2D" parent="Objects" unique_id=1137190688]
+y_sort_enabled = true
 
-[node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("8_cqgif")]
-z_index = 10
-position = Vector2(416, 603)
+[node name="Library" type="Node2D" parent="Objects/Assets" unique_id=429075250]
+y_sort_enabled = true
 
-[node name="Assets" type="Node2D" parent="." unique_id=1137190688]
+[node name="Bookcases" type="Node2D" parent="Objects/Assets/Library" unique_id=1183745744]
+y_sort_enabled = true
 
-[node name="Library" type="Node2D" parent="Assets" unique_id=429075250]
-z_index = 4
-
-[node name="Bookcases" type="Node2D" parent="Assets/Library" unique_id=1183745744]
-
-[node name="ThreeBookCases" type="Node2D" parent="Assets/Library/Bookcases" unique_id=485473429]
+[node name="ThreeBookCases" type="Node2D" parent="Objects/Assets/Library/Bookcases" unique_id=485473429]
+y_sort_enabled = true
 position = Vector2(-11, -10)
 
-[node name="BookcaseFull" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases" unique_id=76162379]
-position = Vector2(-977, 1375)
+[node name="BookcaseFull" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases" unique_id=76162379]
+y_sort_enabled = true
+position = Vector2(-977, 1492.6212)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 5
 
-[node name="BookcaseFull6" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases" unique_id=1876306429]
-position = Vector2(-824, 1374)
+[node name="BookcaseFull6" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases" unique_id=1876306429]
+y_sort_enabled = true
+position = Vector2(-824, 1491.6212)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 5
 
-[node name="BookcaseFull2" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases" unique_id=1573820899]
-position = Vector2(-1130, 1374)
+[node name="BookcaseFull2" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases" unique_id=1573820899]
+y_sort_enabled = true
+position = Vector2(-1130, 1491.6212)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 5
 
-[node name="TableEmpty" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases" unique_id=787739714]
-position = Vector2(-967, 1488)
+[node name="TableEmpty" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases" unique_id=787739714]
+y_sort_enabled = true
+position = Vector2(-967, 1528.7417)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 2
 
-[node name="ThreeBookCases2" type="Node2D" parent="Assets/Library/Bookcases" unique_id=2064015264]
+[node name="ThreeBookCases2" type="Node2D" parent="Objects/Assets/Library/Bookcases" unique_id=2064015264]
+y_sort_enabled = true
 position = Vector2(264, -821)
 
-[node name="BookcaseFull" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases2" unique_id=1746550201]
-position = Vector2(-977, 1374)
+[node name="BookcaseFull" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases2" unique_id=1746550201]
+y_sort_enabled = true
+position = Vector2(-977, 1491.6212)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 5
 
-[node name="BookcaseFull2" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases2" unique_id=821082698]
-position = Vector2(-1130, 1374)
+[node name="BookcaseFull2" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases2" unique_id=821082698]
+y_sort_enabled = true
+position = Vector2(-1130, 1491.6212)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 5
 
-[node name="ThreeBookCases3" type="Node2D" parent="Assets/Library/Bookcases" unique_id=1351777002]
+[node name="ThreeBookCases3" type="Node2D" parent="Objects/Assets/Library/Bookcases" unique_id=1351777002]
+y_sort_enabled = true
 position = Vector2(723, -821)
 
-[node name="BookcaseFull" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases3" unique_id=39412294]
-position = Vector2(-977, 1374)
+[node name="BookcaseFull" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases3" unique_id=39412294]
+y_sort_enabled = true
+position = Vector2(-977, 1491.6212)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 5
 
-[node name="BookcaseFull3" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases3" unique_id=34354995]
-position = Vector2(-824, 1374)
+[node name="BookcaseFull3" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases3" unique_id=34354995]
+y_sort_enabled = true
+position = Vector2(-824, 1491.6212)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 5
 
-[node name="TableBooks" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases3" unique_id=1527287072]
-position = Vector2(-896, 1519)
+[node name="TableBooks" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases3" unique_id=1527287072]
+y_sort_enabled = true
+position = Vector2(-896, 1533.7417)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 0
 
-[node name="ThreeBookCases7" type="Node2D" parent="Assets/Library/Bookcases" unique_id=971496238]
+[node name="ThreeBookCases7" type="Node2D" parent="Objects/Assets/Library/Bookcases" unique_id=971496238]
+y_sort_enabled = true
 position = Vector2(111, -449)
 
-[node name="BookcaseFull" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases7" unique_id=754644517]
-position = Vector2(-977, 1374)
+[node name="BookcaseFull" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases7" unique_id=754644517]
+y_sort_enabled = true
+position = Vector2(-977, 1491.6212)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 5
 
-[node name="BookcaseFull2" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases7" unique_id=2135337873]
-position = Vector2(-824, 1374)
+[node name="BookcaseFull2" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases7" unique_id=2135337873]
+y_sort_enabled = true
+position = Vector2(-824, 1491.6212)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 5
 
-[node name="TableBooksAndPaper" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases7" unique_id=1617637576]
-position = Vector2(-898, 1515)
+[node name="TableBooksAndPaper" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases7" unique_id=1617637576]
+y_sort_enabled = true
+position = Vector2(-898, 1529.7417)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 1
 
-[node name="ThreeBookCases8" type="Node2D" parent="Assets/Library/Bookcases" unique_id=1129790761]
+[node name="ThreeBookCases8" type="Node2D" parent="Objects/Assets/Library/Bookcases" unique_id=1129790761]
+y_sort_enabled = true
 position = Vector2(725, -440)
 
-[node name="BookcaseFull" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases8" unique_id=1979035405]
-position = Vector2(-977, 1374)
+[node name="BookcaseFull" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases8" unique_id=1979035405]
+y_sort_enabled = true
+position = Vector2(-977, 1491.6212)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 5
 
-[node name="BookcaseFull2" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases8" unique_id=1267503431]
-position = Vector2(-824, 1374)
+[node name="BookcaseFull2" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases8" unique_id=1267503431]
+y_sort_enabled = true
+position = Vector2(-824, 1491.6212)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 5
 
-[node name="TablePaper" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases8" unique_id=1193952292]
-position = Vector2(-1522, 1130)
+[node name="TablePaper" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases8" unique_id=1193952292]
+y_sort_enabled = true
+position = Vector2(-1522, 1147.7417)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 3
 
-[node name="ThreeBookCases4" type="Node2D" parent="Assets/Library/Bookcases" unique_id=1020782049]
+[node name="ThreeBookCases4" type="Node2D" parent="Objects/Assets/Library/Bookcases" unique_id=1020782049]
+y_sort_enabled = true
 position = Vector2(695, 366)
 
-[node name="BookcaseFull" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases4" unique_id=1383721150]
-position = Vector2(-977, 1375)
+[node name="BookcaseFull" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases4" unique_id=1383721150]
+y_sort_enabled = true
+position = Vector2(-977, 1492.6212)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 5
 
-[node name="BookcaseFull3" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases4" unique_id=1706302051]
-position = Vector2(-824, 1374)
+[node name="BookcaseFull3" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases4" unique_id=1706302051]
+y_sort_enabled = true
+position = Vector2(-824, 1491.6212)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 5
 
-[node name="BookcaseFull2" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases4" unique_id=34127265]
-position = Vector2(-1130, 1374)
+[node name="BookcaseFull2" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases4" unique_id=34127265]
+y_sort_enabled = true
+position = Vector2(-1130, 1491.6212)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 5
 
-[node name="TableBooks" type="Node2D" parent="Assets/Library/Bookcases/ThreeBookCases4" unique_id=1330882083]
-position = Vector2(-974, 1501)
+[node name="TableBooks" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases4" unique_id=1330882083]
+y_sort_enabled = true
+position = Vector2(-974, 1534.7417)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 0
 
-[node name="Study" type="Node2D" parent="Assets" unique_id=1431045782]
-z_index = 4
+[node name="Study" type="Node2D" parent="Objects/Assets" unique_id=1431045782]
+y_sort_enabled = true
 
-[node name="ChairFrontPlastic" type="Node2D" parent="Assets/Study" unique_id=1167286385]
-position = Vector2(-1159, 2276)
+[node name="ChairFrontPlastic" type="Node2D" parent="Objects/Assets/Study" unique_id=1167286385]
+y_sort_enabled = true
+position = Vector2(-1157.3895, 2326.731)
 script = ExtResource("9_50ut1")
 roomType = 9
 asset = 3
 
-[node name="BookcaseFull" type="Node2D" parent="Assets/Study" unique_id=1458059543]
-position = Vector2(-677, 2186)
+[node name="BookcaseFull" type="Node2D" parent="Objects/Assets/Study" unique_id=1458059543]
+y_sort_enabled = true
+position = Vector2(-677, 2319.224)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 5
 
-[node name="BookcaseFull2" type="Node2D" parent="Assets/Study" unique_id=1535116203]
-position = Vector2(-221, 2188)
+[node name="BookcaseFull2" type="Node2D" parent="Objects/Assets/Study" unique_id=1535116203]
+y_sort_enabled = true
+position = Vector2(-221, 2321.224)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 5
 
-[node name="LampOrangeOn" type="Node2D" parent="Assets/Study" unique_id=1703760045]
-position = Vector2(-817, 2207)
+[node name="LampOrangeOn" type="Node2D" parent="Objects/Assets/Study" unique_id=1703760045]
+y_sort_enabled = true
+position = Vector2(-817, 2333.0881)
 script = ExtResource("9_50ut1")
 roomType = 9
 asset = 8
 
-[node name="BookcaseFull3" type="Node2D" parent="Assets/Study" unique_id=700547242]
-position = Vector2(-677, 2186)
-script = ExtResource("9_50ut1")
-roomType = 8
-asset = 5
-
-[node name="TablePaper" type="Node2D" parent="Assets/Study" unique_id=803053708]
-position = Vector2(-962, 2524)
+[node name="TablePaper" type="Node2D" parent="Objects/Assets/Study" unique_id=803053708]
+y_sort_enabled = true
+position = Vector2(-962, 2520)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 3
 
-[node name="Desk2" type="Node2D" parent="Assets/Study" unique_id=661908183]
+[node name="Desk2" type="Node2D" parent="Objects/Assets/Study" unique_id=661908183]
+y_sort_enabled = true
 position = Vector2(0, -113)
 
-[node name="ChairFrontFelt" type="Node2D" parent="Assets/Study/Desk2" unique_id=841124775]
-position = Vector2(-438, 2364)
+[node name="ChairFrontFelt" type="Node2D" parent="Objects/Assets/Study/Desk2" unique_id=841124775]
+y_sort_enabled = true
+position = Vector2(-438, 2427.31)
 script = ExtResource("9_50ut1")
 roomType = 9
 asset = 4
 
-[node name="ChairSideFelt" type="Node2D" parent="Assets/Study/Desk2" unique_id=1858401825]
-position = Vector2(-665, 2432)
+[node name="ChairSideFelt" type="Node2D" parent="Objects/Assets/Study/Desk2" unique_id=1858401825]
+y_sort_enabled = true
+position = Vector2(-665, 2530.7407)
 script = ExtResource("9_50ut1")
 roomType = 9
 asset = 5
 
-[node name="ChairSideFelt2" type="Node2D" parent="Assets/Study/Desk2" unique_id=120323651]
-position = Vector2(-205, 2432)
+[node name="ChairSideFelt2" type="Node2D" parent="Objects/Assets/Study/Desk2" unique_id=120323651]
+y_sort_enabled = true
+position = Vector2(-205, 2530.7407)
 rotation = 3.1415927
 scale = Vector2(1, -1)
 script = ExtResource("9_50ut1")
 roomType = 9
 asset = 5
 
-[node name="Desk" type="Node2D" parent="Assets/Study/Desk2" unique_id=1366544308]
-position = Vector2(-438, 2458)
+[node name="Desk" type="Node2D" parent="Objects/Assets/Study/Desk2" unique_id=1366544308]
+y_sort_enabled = true
+position = Vector2(-438, 2525.8176)
 script = ExtResource("9_50ut1")
 roomType = 9
 asset = 0
 
-[node name="ChairSideMushroom" type="Node2D" parent="Assets/Study" unique_id=1806599827]
+[node name="ChairSideMushroom" type="Node2D" parent="Objects/Assets/Study" unique_id=1806599827]
+y_sort_enabled = true
 position = Vector2(-1138, 2548)
 script = ExtResource("9_50ut1")
 roomType = 9
 asset = 6
 
-[node name="ChairSideMushroom2" type="Node2D" parent="Assets/Study" unique_id=1699112288]
+[node name="ChairSideMushroom2" type="Node2D" parent="Objects/Assets/Study" unique_id=1699112288]
+y_sort_enabled = true
 position = Vector2(-784, 2548)
 script = ExtResource("9_50ut1")
 roomType = 9
 asset = 6
 
-[node name="Clock" type="Node2D" parent="Assets/Study" unique_id=829571468]
+[node name="Clock" type="Node2D" parent="Objects/Assets/Study" unique_id=829571468]
+y_sort_enabled = true
 position = Vector2(-1160, 2095)
 script = ExtResource("9_50ut1")
 asset = 19
 
-[node name="Picture3" type="Node2D" parent="Assets/Study" unique_id=471871329]
+[node name="Picture3" type="Node2D" parent="Objects/Assets/Study" unique_id=471871329]
+y_sort_enabled = true
 position = Vector2(-70, 2141)
 script = ExtResource("9_50ut1")
 roomType = 10
 asset = 4
 
-[node name="Bathroom" type="Node2D" parent="Assets" unique_id=363655490]
-z_index = 4
+[node name="Bathroom" type="Node2D" parent="Objects/Assets" unique_id=363655490]
+y_sort_enabled = true
 
-[node name="Sink" type="Node2D" parent="Assets/Bathroom" unique_id=479165577]
+[node name="Sink" type="Node2D" parent="Objects/Assets/Bathroom" unique_id=479165577]
+y_sort_enabled = true
 position = Vector2(113, -22)
 script = ExtResource("9_50ut1")
 roomType = 1
 asset = 0
 
-[node name="ToiletOpen" type="Node2D" parent="Assets/Bathroom" unique_id=1885007021]
+[node name="ToiletOpen" type="Node2D" parent="Objects/Assets/Bathroom" unique_id=1885007021]
+y_sort_enabled = true
 position = Vector2(352, -21)
 script = ExtResource("9_50ut1")
 roomType = 1
 asset = 1
 
-[node name="Morning" type="Node2D" parent="Assets/Bathroom" unique_id=254750901]
+[node name="Morning" type="Node2D" parent="Objects/Assets/Bathroom" unique_id=254750901]
+y_sort_enabled = true
 position = Vector2(235, -179)
 script = ExtResource("9_50ut1")
 roomType = 12
 asset = 0
 
-[node name="Storage Room" type="Node2D" parent="Assets" unique_id=1873759061]
-z_index = 4
+[node name="Storage Room" type="Node2D" parent="Objects/Assets" unique_id=1873759061]
+y_sort_enabled = true
 
-[node name="BookcaseEmpty" type="Node2D" parent="Assets/Storage Room" unique_id=883850982]
-position = Vector2(545, 1552)
+[node name="BookcaseEmpty" type="Node2D" parent="Objects/Assets/Storage Room" unique_id=883850982]
+y_sort_enabled = true
+position = Vector2(545, 1660.1538)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 4
 
-[node name="BookcaseEmpty2" type="Node2D" parent="Assets/Storage Room" unique_id=661866795]
-position = Vector2(706, 1552)
+[node name="BookcaseEmpty2" type="Node2D" parent="Objects/Assets/Storage Room" unique_id=661866795]
+y_sort_enabled = true
+position = Vector2(706, 1660.1538)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 4
 
-[node name="BrokenStatue2" type="Node2D" parent="Assets/Storage Room" unique_id=1601196482]
-position = Vector2(582, 1616)
+[node name="BrokenStatue2" type="Node2D" parent="Objects/Assets/Storage Room" unique_id=1601196482]
+y_sort_enabled = true
+position = Vector2(582, 1724.1538)
 script = ExtResource("9_50ut1")
 roomType = 10
 asset = 0
 
-[node name="BrokenStatue3" type="Node2D" parent="Assets/Storage Room" unique_id=883277405]
-position = Vector2(878, 1591)
+[node name="BrokenStatue3" type="Node2D" parent="Objects/Assets/Storage Room" unique_id=883277405]
+y_sort_enabled = true
+position = Vector2(878, 1699.1538)
 script = ExtResource("9_50ut1")
 roomType = 10
 asset = 1
 
-[node name="Picture2" type="Node2D" parent="Assets/Storage Room" unique_id=2002905803]
+[node name="Picture2" type="Node2D" parent="Objects/Assets/Storage Room" unique_id=2002905803]
+y_sort_enabled = true
 position = Vector2(963, 1438)
 script = ExtResource("9_50ut1")
 roomType = 10
 asset = 3
 
-[node name="Family Room" type="Node2D" parent="Assets" unique_id=1335066661]
-z_index = 4
+[node name="Family Room" type="Node2D" parent="Objects/Assets" unique_id=1335066661]
+y_sort_enabled = true
 
-[node name="BookcaseFull" type="Node2D" parent="Assets/Family Room" unique_id=602454858]
-position = Vector2(1086, 866)
+[node name="BookcaseFull" type="Node2D" parent="Objects/Assets/Family Room" unique_id=602454858]
+y_sort_enabled = true
+position = Vector2(1086, 1000.0619)
 script = ExtResource("9_50ut1")
 roomType = 8
 asset = 5
 
-[node name="LampBlackOff" type="Node2D" parent="Assets/Family Room" unique_id=1438481222]
-position = Vector2(544, 896)
+[node name="LampBlackOff" type="Node2D" parent="Objects/Assets/Family Room" unique_id=1438481222]
+y_sort_enabled = true
+position = Vector2(544, 1011.1514)
 script = ExtResource("9_50ut1")
 roomType = 9
 asset = 9
 
-[node name="CouchArea" type="Node2D" parent="Assets/Family Room" unique_id=31217539]
+[node name="CouchArea" type="Node2D" parent="Objects/Assets/Family Room" unique_id=31217539]
+y_sort_enabled = true
 position = Vector2(-65, 316)
 
-[node name="CouchSide" type="Node2D" parent="Assets/Family Room/CouchArea" unique_id=1214754443]
-position = Vector2(1154, 744)
+[node name="CouchSide" type="Node2D" parent="Objects/Assets/Family Room/CouchArea" unique_id=1214754443]
+y_sort_enabled = true
+position = Vector2(1154, 800.95215)
 script = ExtResource("9_50ut1")
 roomType = 5
 asset = 1
 
-[node name="CouchFront" type="Node2D" parent="Assets/Family Room/CouchArea" unique_id=1604311668]
-position = Vector2(857, 663)
+[node name="CouchFront" type="Node2D" parent="Objects/Assets/Family Room/CouchArea" unique_id=1604311668]
+y_sort_enabled = true
+position = Vector2(857, 687.79834)
 script = ExtResource("9_50ut1")
 roomType = 5
 asset = 0
 
-[node name="PlushiesLayingPurple" type="Node2D" parent="Assets/Family Room/CouchArea" unique_id=1470105320]
-position = Vector2(889, 640)
+[node name="PlushiesLayingPurple" type="Node2D" parent="Objects/Assets/Family Room/CouchArea" unique_id=1470105320]
+y_sort_enabled = true
+position = Vector2(889, 661.6335)
 script = ExtResource("9_50ut1")
 asset = 8
 
-[node name="TableBooks" type="Node2D" parent="Assets/Family Room/CouchArea" unique_id=1845698168]
-position = Vector2(862, 758)
+[node name="TableBooks" type="Node2D" parent="Objects/Assets/Family Room/CouchArea" unique_id=1845698168]
+y_sort_enabled = true
+position = Vector2(862, 814.95215)
 script = ExtResource("9_50ut1")
 roomType = 5
 asset = 2
 
-[node name="Picture1" type="Node2D" parent="Assets/Family Room" unique_id=453377134]
+[node name="Picture1" type="Node2D" parent="Objects/Assets/Family Room" unique_id=453377134]
+y_sort_enabled = true
 position = Vector2(715, 795)
 script = ExtResource("9_50ut1")
 roomType = 10
 asset = 2
 
-[node name="Picture2" type="Node2D" parent="Assets/Family Room" unique_id=1725900862]
+[node name="Picture2" type="Node2D" parent="Objects/Assets/Family Room" unique_id=1725900862]
+y_sort_enabled = true
 position = Vector2(852, 802)
 script = ExtResource("9_50ut1")
 roomType = 10
 asset = 3
 
-[node name="Hallway" type="Node2D" parent="Assets" unique_id=865069982]
-z_index = 4
+[node name="Hallway" type="Node2D" parent="Objects/Assets" unique_id=865069982]
+y_sort_enabled = true
 
-[node name="ArmchairFront" type="Node2D" parent="Assets/Hallway" unique_id=628448565]
-position = Vector2(634, 2263)
+[node name="ArmchairFront" type="Node2D" parent="Objects/Assets/Hallway" unique_id=628448565]
+y_sort_enabled = true
+position = Vector2(634, 2331.205)
 script = ExtResource("9_50ut1")
 roomType = 11
 asset = 1
 
-[node name="Picture2" type="Node2D" parent="Assets/Hallway" unique_id=1312819080]
+[node name="Picture2" type="Node2D" parent="Objects/Assets/Hallway" unique_id=1312819080]
+y_sort_enabled = true
 position = Vector2(636, 2082)
 script = ExtResource("9_50ut1")
 roomType = 10
 asset = 3
+
+[node name="Puzzle Items" type="Node2D" parent="Objects" unique_id=1333187888]

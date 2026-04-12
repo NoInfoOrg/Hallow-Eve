@@ -29,8 +29,8 @@ func _ready() -> void:
 		print("homeboy spotted")
 		overlord4.connect("puzzle_complete", on_puzzle_completion)
 	
-	var paper = get_node("../hw_checker/Shapes Paper")
-	var paper2 = get_node("../hw_checker/Math Paper")
+	var paper = get_tree().current_scene.find_child("Shapes Paper", true, false)
+	var paper2 = get_tree().current_scene.find_child("Math Paper", true, false)
 	if paper and paper2:
 		print("lol")
 		paper.connect("correc", on_paper_correct)

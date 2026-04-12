@@ -3,17 +3,18 @@
 [ext_resource type="Texture2D" uid="uid://23duva4b4bqu" path="res://assets/sprites/environment/Kitchen_Counter-1-No-Corner.png" id="1_lfx3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ky1t1"]
-size = Vector2(124.687325, 117.895676)
+size = Vector2(124.687325, 27.932297)
 
 [node name="CounterNoCorner" type="StaticBody2D" unique_id=95508403 groups=["Environment Assets"]]
+y_sort_enabled = true
 collision_layer = 512
 collision_mask = 0
 
 [node name="AssetSprite" type="Sprite2D" parent="." unique_id=30522664]
+position = Vector2(0, -45.07477)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_lfx3g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=57343574]
-position = Vector2(-6.9807377, 0.1120491)
 shape = SubResource("RectangleShape2D_ky1t1")
 debug_color = Color(0.9800469, 0, 0.38690174, 0.41960785)

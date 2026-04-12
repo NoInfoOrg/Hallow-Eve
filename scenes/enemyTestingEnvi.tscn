@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://c7ard73cuagsh"]
 
-[ext_resource type="PackedScene" uid="uid://cqn40kyihmkj" path="res://scenes/plushie.tscn" id="1_4lc4g"]
 [ext_resource type="TileSet" uid="uid://dt13bvgr5foh4" path="res://assets/tilesets/side_walls.tres" id="2_al0y8"]
 [ext_resource type="PackedScene" uid="uid://fcp66n68vghv" path="res://scenes/sleepless_child.tscn" id="2_w4snr"]
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="3_w4snr"]
@@ -11,9 +10,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_6q8gr"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1038, 35, 0, 0, 0, 0, 1060, 554, 0, 0, 0, 0, 195, 559, 0, 0, 0, 0, 218, 227, 0, 0, 0, 0, 437, 198, 0, 0, 0, 0, 541, 217, 0, 0, 0, 0, 554, 277, 0, 0, 0, 0, 743, 286, 0, 0, 0, 0, 974, 269, 0, 0, 0, 0, 964, 174, 0, 0, 0, 0, 1038, 35)
+"points": PackedVector2Array(0, 0, 0, 0, 1060, 554, 0, 0, 0, 0, 105, 566, 1.1789742, 5.8948708, -1.1789742, -5.8948708, 98, 115, 0, 0, 0, 0, 550, 115, 0, 0, 0, 0, 1085, 116, 0, 0, 0, 0, 1060, 554)
 }
-point_count = 11
+point_count = 6
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6q8gr"]
 vertices = PackedVector2Array(1143, 638.0078, 8.9765625, 639.97656, 340, 460, 940, 250, 290, 460, 940, 200, 1143, 9.9765625, 8.0078125, 8.0078125, 590, 200, 590, 250, 340, 230, 290, 230)
@@ -26,21 +25,19 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-2, -2, 1153, 0, 1153, 
 curve = SubResource("Curve2D_6q8gr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=30653445]
-position = Vector2(826.0888, 555.35205)
+position = Vector2(306.67273, 563.46594)
 progress = 753.3843
 rotates = false
 
-[node name="Plushie" parent="Path2D/PathFollow2D" unique_id=741369988 node_paths=PackedStringArray("targets", "pathFollow") instance=ExtResource("1_4lc4g")]
-visible = false
-position = Vector2(41.224304, -215.69159)
-velocity = Vector2(-18.772808, 98.2221)
+[node name="SleeplessChild" parent="Path2D/PathFollow2D" unique_id=464654720 node_paths=PackedStringArray("targets", "pathFollow") instance=ExtResource("2_w4snr")]
+collision_mask = 985
+alertColor = Color(0.9254902, 0, 0, 0.4627451)
+rotationSpeed = 1.0
+rotationAngle = 90
 targets = [NodePath("../../../Eve - P1"), NodePath("../../../Willow - P2")]
 pathFollow = NodePath("..")
 
-[node name="SleeplessChild" parent="Path2D/PathFollow2D" unique_id=464654720 instance=ExtResource("2_w4snr")]
-
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." unique_id=1989520909]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_6q8gr")
 
 [node name="Side Walls - C" type="TileMapLayer" parent="NavigationRegion2D2" unique_id=1502709729]
@@ -50,7 +47,7 @@ tile_map_data = PackedByteArray("AAAKAA4AAQAAAAgAAAAKAA0AAQAAAAgAAAAKAAwAAQAAAAg
 tile_set = ExtResource("2_al0y8")
 
 [node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("3_w4snr")]
-position = Vector2(1001, 544)
+position = Vector2(-99, 199)
 
 [node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("4_mhq85")]
 position = Vector2(1556, 395)

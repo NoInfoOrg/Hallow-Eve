@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://imtoiw307a8p" path="res://assets/ui elements/settings/Settings_MenuBG.png" id="14_rlppe"]
 [ext_resource type="PackedScene" uid="uid://dpmykk27ckpvf" path="res://scenes/settings.tscn" id="15_8k7j3"]
 [ext_resource type="Texture2D" uid="uid://drabb8tugaflm" path="res://assets/ui elements/settings/Settings_Return.png" id="15_catpy"]
-[ext_resource type="Script" uid="uid://8vb68x4k5osx" path="res://scripts/settings_button.gd" id="15_jkdwc"]
+[ext_resource type="Script" path="res://scripts/settings_button.gd" id="15_jkdwc"]
 [ext_resource type="Texture2D" uid="uid://dghuumlbc8hf3" path="res://assets/ui elements/settings/Settings_MainMenuButton.png" id="16_kupmu"]
 [ext_resource type="Texture2D" uid="uid://bke6hqpt84f6n" path="res://assets/ui elements/settings/Settings_ExitButton.png" id="19_ycmcx"]
 

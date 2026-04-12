@@ -4,37 +4,36 @@
 [ext_resource type="Texture2D" uid="uid://b8ojl3e1g28ap" path="res://assets/sprites/environment/Ballroom_Chair-Side.png" id="2_02wam"]
 [ext_resource type="Texture2D" uid="uid://b40qlyul1c7ot" path="res://assets/sprites/environment/Ballroom_Chair-Front.png" id="3_dwf3g"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky1t1"]
-size = Vector2(395.0097, 233.69528)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lkyn"]
+size = Vector2(395.0097, 95.48688)
 
 [node name="BallroomTableDecorationsComplete" type="StaticBody2D" unique_id=95508403 groups=["Environment Assets"]]
-z_index = 3
+y_sort_enabled = true
 collision_layer = 512
 collision_mask = 0
 
 [node name="Table" type="Sprite2D" parent="." unique_id=30522664]
-position = Vector2(223, 163)
+position = Vector2(-2.203476, -52.8304)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_5lkyn")
 
 [node name="LChair" type="Sprite2D" parent="." unique_id=813322831]
-position = Vector2(57, 158)
+position = Vector2(-168.20348, -57.8304)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_02wam")
 flip_h = true
 
 [node name="FChair" type="Sprite2D" parent="." unique_id=1081252262]
 z_index = -1
-position = Vector2(224, 108)
+position = Vector2(-1.203476, -107.8304)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_dwf3g")
 
 [node name="RChair" type="Sprite2D" parent="." unique_id=1429160918]
-position = Vector2(392, 158)
+position = Vector2(166.79652, -57.8304)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_02wam")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=57343574]
-position = Vector2(224.48032, 146.15233)
-shape = SubResource("RectangleShape2D_ky1t1")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1365721846]
+shape = SubResource("RectangleShape2D_5lkyn")
 debug_color = Color(0.9800469, 0, 0.38690174, 0.41960785)

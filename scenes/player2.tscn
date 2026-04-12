@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cd7gcsfuddwic" path="res://assets/spritesheets/p2/Willow_FullHealth_SpriteSheet.png" id="2_agjl5"]
 [ext_resource type="Script" uid="uid://5it8olpe6dgr" path="res://scripts/inventory.gd" id="3_agjl5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_agjl5"]
-size = Vector2(69.17944, 34.12057)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agjl5"]
+radius = 17.141754
+height = 64.54245
 
 [sub_resource type="Animation" id="Animation_dj65e"]
 length = 0.001
@@ -96,20 +97,23 @@ radius = 34.21982
 height = 241.25253
 
 [node name="Willow - P2" type="CharacterBody2D" unique_id=882182450 groups=["Players"]]
+y_sort_enabled = true
 collision_layer = 64
 collision_mask = 954
 script = ExtResource("1_agjl5")
 
+[node name="FeetCollider" type="CollisionShape2D" parent="." unique_id=862284075]
+position = Vector2(0, 8.5)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_agjl5")
+debug_color = Color(0.087395035, 0.649167, 0, 0.41960785)
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=922027651]
 scale = Vector2(0.49799198, 0.503992)
 texture = ExtResource("2_agjl5")
+offset = Vector2(0, -197.55)
 hframes = 10
 vframes = 10
-
-[node name="FeetCollider" type="CollisionShape2D" parent="." unique_id=862284075]
-position = Vector2(0.5007324, 107.785034)
-shape = SubResource("RectangleShape2D_agjl5")
-debug_color = Color(0.087395035, 0.649167, 0, 0.41960785)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1640059439]
 root_node = NodePath("../Sprite2D")
@@ -119,6 +123,7 @@ libraries/ = SubResource("AnimationLibrary_24gv0")
 script = ExtResource("3_agjl5")
 
 [node name="HurtBoxZone" type="Area2D" parent="." unique_id=390291488 groups=["HurtBox"]]
+position = Vector2(0, -100.824165)
 collision_layer = 1024
 collision_mask = 2048
 

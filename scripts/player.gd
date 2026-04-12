@@ -173,3 +173,13 @@ func _on_hit_box_zone_body_entered(body: Node2D) -> void:
 
 func _on_hit_box_zone_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
+
+func current_camera():
+	if GlobalInformation.current_scene == "level_1_scene":
+		pass
+	elif GlobalInformation.current_scene == "level_2_scene":
+		pass
+	elif GlobalInformation.current_scene == "level_3_scene":
+		pass
+	else:
+		pass

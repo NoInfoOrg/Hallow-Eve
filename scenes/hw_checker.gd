@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var paper_math = get_node("Math Paper")
-@onready var paper_shapes = get_node("Shapes Paper")
+@onready var paper_math = get_tree().current_scene.find_child("Math Paper", true, false)
+@onready var paper_shapes = get_tree().current_scene.find_child("Shapes Paper", true, false)
 @export var key : Area2D
 var answer_key = {"math": false, "shapes": false}
 # Called when the node enters the scene tree for the first time.

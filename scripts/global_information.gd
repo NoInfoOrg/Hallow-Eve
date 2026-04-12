@@ -22,6 +22,16 @@ const MAXIMUM_LINEAR_VOLUME = 1.0
 var current_master_volume_linear = 1.0
 var current_music_volume_linear = 1.0
 
+# level change
+var current_scene = "level_1_scene"
+var transition_scene = false
+
+var player_exit_level_1_posx = 0
+var player_exit_level_1_posy = 0
+var player_start_posx = 0
+var player_start_posy = 0
+
+
 func _ready():
 	# Start the players out with full health (assuming this will be at the very start of the game)
 	# We currently have 3 sanity icons, so I guess full health = 3 sanity icons full
@@ -246,3 +256,15 @@ func reduce_volumes(starting_node):
 				child_node.set_volume_linear(current_master_volume_linear)
 		
 		reduce_volumes(child_node)
+
+func complete_change_scenes():
+	if transition_scene == true:
+		transition_scene = false
+		if current_scene == "level_1_scene":
+			current_scene = "level_2_scene"
+		elif current_scene == "level_2_scene":
+			current_scene = "level_3_scene"
+		else:
+			current_scene = "level_1_scene"
+			
+	

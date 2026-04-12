@@ -3,7 +3,7 @@
 extends Node2D
 
 @onready var line_edit: LineEdit = $LineEdit
-@onready var label: Label = $label
+@onready var label: Label = $Label
 
 var currentContent : String
 
