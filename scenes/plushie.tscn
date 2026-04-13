@@ -22,7 +22,6 @@ metadata/_edit_horizontal_guides_ = [-52.0]
 metadata/_edit_vertical_guides_ = [31.0]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1101815876]
-debug_enabled = true
 
 [node name="EnemyCollider" type="CollisionShape2D" parent="." unique_id=1207424113]
 position = Vector2(-0.5, 55)

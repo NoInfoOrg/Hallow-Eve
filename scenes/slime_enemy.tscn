@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://du3qsia21f06q" path="res://assets/sprites/enemy/Slimes_Gumpy.png" id="2_fq0mw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hf6xp"]
-radius = 6.0
-height = 78.0
+radius = 7.0
+height = 82.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2blxa"]
 radius = 182.01099
@@ -28,7 +28,7 @@ path_postprocessing = 1
 
 [node name="SlimeSprite2D" type="Sprite2D" parent="." unique_id=2022833721]
 texture = ExtResource("2_fq0mw")
-offset = Vector2(0, -17.39)
+offset = Vector2(0, -17.8)
 
 [node name="EnemyCollider" type="CollisionShape2D" parent="." unique_id=1044554091]
 rotation = -1.5707964
@@ -55,6 +55,7 @@ shape = SubResource("CapsuleShape2D_30a25")
 debug_color = Color(0.99999994, 0.0034026997, 0.067405075, 0.41960785)
 
 [node name="WarningParticles" type="CPUParticles2D" parent="." unique_id=613030804]
+modulate = Color(0, 1, 0, 1)
 show_behind_parent = true
 position = Vector2(0, -40)
 scale = Vector2(2.5, 2.5)
