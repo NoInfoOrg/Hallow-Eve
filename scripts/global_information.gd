@@ -22,6 +22,9 @@ const MAXIMUM_LINEAR_VOLUME = 1.0
 var current_master_volume_linear = 1.0
 var current_music_volume_linear = 1.0
 
+# Setting State
+var is_in_main_menu: bool = true  # Assuming we start in the main menu
+
 # level change
 var current_scene = "level_1_scene"
 var transition_scene = false
@@ -30,7 +33,6 @@ var player_exit_level_1_posx = 0
 var player_exit_level_1_posy = 0
 var player_start_posx = 0
 var player_start_posy = 0
-
 
 func _ready():
 	# Start the players out with full health (assuming this will be at the very start of the game)

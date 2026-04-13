@@ -9,4 +9,5 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_pressed() -> void:
+	GlobalInformation.is_in_main_menu = false
 	get_tree().change_scene_to_file("res://scenes/level_1_scene.tscn")
