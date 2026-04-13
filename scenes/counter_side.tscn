@@ -2,18 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://d28mro2pc2mim" path="res://assets/sprites/environment/Kitchen_Counter-Side.png" id="1_i0l2s"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky1t1"]
-size = Vector2(124.72326, 306.25592)
-
 [node name="CounterSide" type="StaticBody2D" unique_id=95508403 groups=["Environment Assets"]]
+y_sort_enabled = true
 collision_layer = 512
 collision_mask = 0
 
 [node name="AssetSprite" type="Sprite2D" parent="." unique_id=30522664]
+position = Vector2(3.0735474, 147.55096)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_i0l2s")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=57343574]
-position = Vector2(0.5276699, 0.7734413)
-shape = SubResource("RectangleShape2D_ky1t1")
-debug_color = Color(0.9800469, 0, 0.38690174, 0.41960785)
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=932922969]
+polygon = PackedVector2Array(64.84759, 26.114326, 65.02766, 301.5996, -43.069084, 300.7529, -59.270523, 190.37753, -10.110852, 26.125923)

@@ -29,8 +29,8 @@ func _ready() -> void:
 		print("homeboy spotted")
 		overlord4.connect("puzzle_complete", on_puzzle_completion)
 	
-	var paper = get_node("../hw_checker/Shapes Paper")
-	var paper2 = get_node("../hw_checker/Math Paper")
+	var paper = get_tree().current_scene.find_child("Shapes Paper", true, false)
+	var paper2 = get_tree().current_scene.find_child("Math Paper", true, false)
 	if paper and paper2:
 		print("lol")
 		paper.connect("correc", on_paper_correct)
@@ -113,7 +113,6 @@ func check_ordered_buttons():
 	
 	if buttons_are_in_order:
 		# Change the door image to be opened
-		# get_node("Door").play("open")
 		if has_node("OpenDoor"):
 			get_node("OpenDoor").visible = true
 			
@@ -134,10 +133,15 @@ func on_button_object_emitted(button):
 func on_puzzle_completion():
 	# shoutout to Nick for opening this door (a gentelman fr)
 		# Change the door image to be opened
-		get_node("Door").play("open")
+		if has_node("OpenDoor"):
+			get_node("OpenDoor").visible = true
+			
+		if has_node("ClosedDoor"):
+			get_node("ClosedDoor").visible = false
 		
 		# Change the door collision so players can enter the door
 		get_node("Closed Door Collision").set_deferred("disabled", true)
+
 func on_paper_correct():
 	var key = get_node("../key")
 	if key:

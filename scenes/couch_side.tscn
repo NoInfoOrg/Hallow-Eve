@@ -3,17 +3,18 @@
 [ext_resource type="Texture2D" uid="uid://bntdy5wwai780" path="res://assets/sprites/environment/FamilyRoom_Couch-Side.png" id="1_qbvfw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ky1t1"]
-size = Vector2(194.06702, 188.41425)
+size = Vector2(194.06702, 109.9872)
 
 [node name="CouchSide" type="StaticBody2D" unique_id=95508403 groups=["Environment Assets"]]
+y_sort_enabled = true
 collision_layer = 512
 collision_mask = 0
 
 [node name="AssetSprite" type="Sprite2D" parent="." unique_id=30522664]
+position = Vector2(0, -39.25621)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_qbvfw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=57343574]
-position = Vector2(0.31527328, 0.11102295)
 shape = SubResource("RectangleShape2D_ky1t1")
 debug_color = Color(0.9800469, 0, 0.38690174, 0.41960785)

@@ -3,17 +3,18 @@
 [ext_resource type="Texture2D" uid="uid://cub0xbck5xhco" path="res://assets/sprites/environment/KidsArmchair.png" id="1_l24d1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ky1t1"]
-size = Vector2(94.282845, 131.81818)
+size = Vector2(94.282845, 57.53885)
 
 [node name="KidsArmchair" type="StaticBody2D" unique_id=95508403 groups=["Environment Assets"]]
+y_sort_enabled = true
 collision_layer = 512
 collision_mask = 0
 
 [node name="AssetSprite" type="Sprite2D" parent="." unique_id=30522664]
+position = Vector2(0, -37.53263)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_l24d1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=57343574]
-position = Vector2(0.1815548, 0.36364365)
 shape = SubResource("RectangleShape2D_ky1t1")
 debug_color = Color(0.9800469, 0, 0.38690174, 0.41960785)

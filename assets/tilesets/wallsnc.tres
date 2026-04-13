@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" format=3 uid="uid://dlg0m12qthrcs"]
+[gd_resource type="TileSet" format=3 uid="uid://b6l5c1kfdkpev"]
 
 [ext_resource type="Texture2D" uid="uid://ckb7ga6qd6wup" path="res://assets/tilesets/WallFront1.png" id="1_bitur"]
 [ext_resource type="Texture2D" uid="uid://dotuupmoavmhg" path="res://assets/tilesets/WallFrontDoor-Closed_1.png" id="2_rdoc4"]

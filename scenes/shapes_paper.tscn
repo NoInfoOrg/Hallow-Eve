@@ -8,9 +8,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_akf8h"]
 size = Vector2(32, 36)
 
-[node name="Shapes Paper" type="Area2D" unique_id=1319041526]
+[node name="Shapes Paper" type="Area2D" unique_id=1319041526 node_paths=PackedStringArray("homework", "answer_box")]
 collision_mask = 65
 script = ExtResource("1_akf8h")
+homework = NodePath("CanvasLayer/Homework")
+answer_box = NodePath("CanvasLayer/Answer Text Box")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1197953842]
 texture = ExtResource("1_px4bd")

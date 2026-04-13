@@ -1,21 +1,25 @@
 [gd_scene format=3 uid="uid://fcp66n68vghv"]
 
-[ext_resource type="Script" uid="uid://bx8cigaojg5jm" path="res://scenes/sleepless_child.gd" id="1_q6gtu"]
+[ext_resource type="Script" uid="uid://bx8cigaojg5jm" path="res://scripts/sleepless_child.gd" id="1_q6gtu"]
 [ext_resource type="Texture2D" uid="uid://buosry7jrjeg7" path="res://assets/sprites/enemy/Blankie.png" id="2_ow21u"]
+[ext_resource type="Script" uid="uid://bo744wpycscqd" path="res://addons/vision_cone_2d/vision_cone_2d.gd" id="3_xnlnb"]
+[ext_resource type="Script" uid="uid://b88iifj2svjwc" path="res://addons/vision_cone_2d/cone_editor_helper.gd" id="4_docxh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnlnb"]
 size = Vector2(348, 38)
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_q6gtu"]
-points = PackedVector2Array(770, -132, 769, 363, 69, 223, -2, -8)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_docxh"]
+size = Vector2(102, 66)
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ow21u"]
-points = PackedVector2Array(206, 317, 270, 317, 270, -157, -2.0000153, -131, -4, 1, 146, 79.99999)
-
-[node name="SleeplessChild" type="CharacterBody2D" unique_id=464654720 groups=["Enemies"]]
+[node name="SleeplessChild" type="CharacterBody2D" unique_id=464654720 node_paths=PackedStringArray("visionRenderer") groups=["Enemies"]]
+scale = Vector2(0.5, 0.5)
 collision_layer = 128
 collision_mask = 989
 script = ExtResource("1_q6gtu")
+visionRenderer = NodePath("VisionCone2D/VisionConeRenderer")
+alertColor = Color(1, 0, 0, 0.43137255)
+isRotating = true
+rotationAngle = 180
 metadata/_custom_type_script = "uid://6xmvem06apff"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=718689405]
@@ -29,26 +33,43 @@ debug_color = Color(0.9966505, 0, 0.19243264, 0.41960785)
 [node name="EnemySprite" type="Sprite2D" parent="." unique_id=278392545]
 texture = ExtResource("2_ow21u")
 
-[node name="DetectionZone" type="Area2D" parent="." unique_id=732796113]
-position = Vector2(-1, 0)
-collision_layer = 4096
-collision_mask = 1024
-
-[node name="DetectCollider" type="CollisionShape2D" parent="DetectionZone" unique_id=693348161]
-position = Vector2(146, -109)
-shape = SubResource("ConvexPolygonShape2D_q6gtu")
-
 [node name="AttackZone" type="Area2D" parent="." unique_id=757406806]
 collision_layer = 2048
 collision_mask = 1024
 
-[node name="AttackCollider" type="CollisionShape2D" parent="AttackZone" unique_id=75791294]
+[node name="AttackCollider" type="CollisionPolygon2D" parent="AttackZone" unique_id=983877886]
 position = Vector2(77, -133)
 rotation = 1.5707964
-shape = SubResource("ConvexPolygonShape2D_ow21u")
-debug_color = Color(0.24520513, 0.5061181, 1, 0.41960785)
+polygon = PackedVector2Array(-3.0000153, -151, 269, -151, 269, 204.99998, 205, 205, 203, 157, 97, 4.9999924, -3, 5)
 
-[connection signal="area_entered" from="DetectionZone" to="." method="_on_detection_zone_area_entered"]
-[connection signal="area_exited" from="DetectionZone" to="." method="_on_detection_zone_area_exited"]
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="AttackZone" unique_id=483462692]
+position = Vector2(-179, 103)
+shape = SubResource("RectangleShape2D_docxh")
+
+[node name="VisionCone2D" type="Node2D" parent="." unique_id=1561157771 node_paths=PackedStringArray("write_collision_polygon", "write_polygon2d")]
+position = Vector2(154, -88)
+script = ExtResource("3_xnlnb")
+angle_deg = 90
+collision_layer_mask = 266
+write_collision_polygon = NodePath("VisionConeArea/VisionConeCollider")
+write_polygon2d = NodePath("VisionConeRenderer")
+debug_lines = true
+debug_shape = true
+
+[node name="VisionConeRenderer" type="Polygon2D" parent="VisionCone2D" unique_id=420618088]
+color = Color(0.3137255, 1, 1, 0.5921569)
+
+[node name="VisionConeArea" type="Area2D" parent="VisionCone2D" unique_id=1552165199]
+collision_layer = 2048
+collision_mask = 1024
+monitorable = false
+
+[node name="VisionConeCollider" type="CollisionPolygon2D" parent="VisionCone2D/VisionConeArea" unique_id=95603711]
+
+[node name="DebugDraw" type="Node2D" parent="VisionCone2D" unique_id=1489982671]
+script = ExtResource("4_docxh")
+
 [connection signal="area_entered" from="AttackZone" to="." method="_on_attack_zone_area_entered"]
 [connection signal="area_exited" from="AttackZone" to="." method="_on_attack_zone_area_exited"]
+[connection signal="area_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_area_entered"]
+[connection signal="area_exited" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_area_exited"]

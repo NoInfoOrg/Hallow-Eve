@@ -3,17 +3,18 @@
 [ext_resource type="Texture2D" uid="uid://b82noxwims4jf" path="res://assets/sprites/environment/Study_CandleLamp-On.png" id="1_i4yvi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ky1t1"]
-size = Vector2(27.21142, 103.586365)
+size = Vector2(27.21142, 12.137016)
 
 [node name="CandleLampOn" type="StaticBody2D" unique_id=95508403 groups=["Environment Assets"]]
+y_sort_enabled = true
 collision_layer = 512
 collision_mask = 0
 
 [node name="AssetSprite" type="Sprite2D" parent="." unique_id=30522664]
+position = Vector2(0, -49.945374)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_i4yvi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=57343574]
-position = Vector2(0.045474052, 3.8707561)
 shape = SubResource("RectangleShape2D_ky1t1")
 debug_color = Color(0.9800469, 0, 0.38690174, 0.41960785)

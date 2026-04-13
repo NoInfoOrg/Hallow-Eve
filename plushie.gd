@@ -24,7 +24,7 @@ var plushieAttributes = {
 		"sprite": preload("res://assets/sprites/enemy/Plushies_Rocco.png"),
 		"normalSpeed": 100,
 		"secondarySpeed": 125,
-		"damage": 0.25
+		"damage": 1
 	},
 	PlushieType.Cat: {
 		"sprite": preload("res://assets/sprites/enemy/Plushies_Cat.png"),
@@ -48,7 +48,7 @@ var plushieAttributes = {
 		"sprite": preload("res://assets/sprites/enemy/Plushies_Rocco.png"),
 		"normalSpeed": 140,
 		"secondarySpeed": 160,
-		"damage": 0.1
+		"damage": 0.5
 	}
 }
 
@@ -292,19 +292,7 @@ func plushie_death():
 	deathEffect.emitting = true
 	queue_free()
 
-#func _on_attack_zone_body_entered(body: Node2D) -> void:
-	#if body.is_in_group("Players"):
-		#player = body
-		#var playerName = body.name
-		#GlobalInformation.deal_strike_damage_to_player(self, playerName, damage)
-		#plushieAttack.emit()
-		#plushie_death()
-#
-#
-#func _on_attack_zone_body_exited(body: Node2D) -> void:
-	#if body == player:
-		#player = null
-
+# checks if attack zone is entered by player
 func _on_attack_zone_area_entered(area: Area2D) -> void:
 	if area.is_in_group("HurtBox"):
 		player = area.get_parent()
@@ -313,7 +301,7 @@ func _on_attack_zone_area_entered(area: Area2D) -> void:
 		plushieAttack.emit()
 		plushie_death()
 
-
+# checks if the player has left the attack zone
 func _on_attack_zone_area_exited(area: Area2D) -> void:
 	pass
 
@@ -321,7 +309,6 @@ func _on_attack_zone_area_exited(area: Area2D) -> void:
 func _on_detection_zone_area_entered(area: Area2D) -> void:
 	# check the object in the detection zone is a player
 	if area.is_in_group("HurtBox"):
-		print("ow")
 		# set player to the current player in the detection zone and begin chase
 		player = area.get_parent()
 		playerChase = true

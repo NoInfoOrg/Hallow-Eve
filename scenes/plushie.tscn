@@ -32,7 +32,7 @@ debug_color = Color(0.9966505, 0, 0.19243264, 0.41960785)
 [node name="EnemySprite" type="Sprite2D" parent="." unique_id=995474584]
 texture = ExtResource("2_2usf5")
 
-[node name="DetectionZone" type="Area2D" parent="." unique_id=1780083783]
+[node name="DetectionZone" type="Area2D" parent="." unique_id=1780083783 groups=["Enemy Detection Zone"]]
 collision_layer = 4096
 collision_mask = 1024
 

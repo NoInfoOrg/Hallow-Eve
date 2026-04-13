@@ -7,8 +7,8 @@ var homework_opened = false
 signal hw_completed(hw_type)
 signal shapes_homework_viewed; # <=== bro is C++ coded 
 var count : int
-@onready var homework = get_node("CanvasLayer/Homework")
-@onready var answer_box = get_node("CanvasLayer/Answer Text Box")
+@export var homework: Node2D
+@export var answer_box: Node2D
 var line : LineEdit
 @export var type : String
 @export var answer : String
@@ -79,7 +79,7 @@ func show_homework(homework):
 	homework_sprite.play("default")
 	
 	# If the players have the black light, show the black light version
-	var inventory = get_node("../../UI/SharedInv/Inventory")
+	var inventory = GlobalInformation.find_inventory(self)
 	for item in inventory.items:
 		if item.name == "Black Light Flashlight Item":
 			homework_sprite.play("under_black_light")
