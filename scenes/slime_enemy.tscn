@@ -3,33 +3,72 @@
 [ext_resource type="Script" uid="uid://b8g20vmojpavk" path="res://scripts/slime_enemy.gd" id="1_30a25"]
 [ext_resource type="Texture2D" uid="uid://du3qsia21f06q" path="res://assets/sprites/enemy/Slimes_Gumpy.png" id="2_fq0mw"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hf6xp"]
+radius = 6.0
+height = 78.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_2blxa"]
 radius = 182.01099
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hf6xp"]
-radius = 22.0
-height = 72.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_30a25"]
+radius = 25.0
+height = 88.0
 
-[node name="Slime" type="CharacterBody2D" unique_id=2138321505]
+[sub_resource type="Curve" id="Curve_30a25"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Slime" type="CharacterBody2D" unique_id=2138321505 groups=["Enemies"]]
+collision_layer = 128
+collision_mask = 987
 script = ExtResource("1_30a25")
-
-[node name="SlimeSprite2D" type="Sprite2D" parent="." unique_id=2022833721]
-texture = ExtResource("2_fq0mw")
-
-[node name="detection_area" type="Area2D" parent="." unique_id=309045752]
-collision_layer = 0
-collision_mask = 65
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area" unique_id=25697084]
-shape = SubResource("CircleShape2D_2blxa")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1044554091]
-position = Vector2(0, 1)
-rotation = -1.5707964
-shape = SubResource("CapsuleShape2D_hf6xp")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1627548286]
 path_postprocessing = 1
 
-[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[node name="SlimeSprite2D" type="Sprite2D" parent="." unique_id=2022833721]
+texture = ExtResource("2_fq0mw")
+offset = Vector2(0, -17.39)
+
+[node name="EnemyCollider" type="CollisionShape2D" parent="." unique_id=1044554091]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_hf6xp")
+debug_color = Color(0.2807796, 0.63156956, 1.92523e-07, 0.41960785)
+
+[node name="DetectionZone" type="Area2D" parent="." unique_id=309045752 groups=["Enemy Detection Zone"]]
+collision_layer = 4096
+collision_mask = 1024
+
+[node name="DetectCollider" type="CollisionShape2D" parent="DetectionZone" unique_id=25697084]
+position = Vector2(0, -23)
+shape = SubResource("CircleShape2D_2blxa")
+
+[node name="AttackZone" type="Area2D" parent="." unique_id=761461613]
+position = Vector2(0, -7)
+collision_layer = 2048
+collision_mask = 1024
+
+[node name="AttackCollider" type="CollisionShape2D" parent="AttackZone" unique_id=1229468790]
+position = Vector2(0, -10)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_30a25")
+debug_color = Color(0.99999994, 0.0034026997, 0.067405075, 0.41960785)
+
+[node name="WarningParticles" type="CPUParticles2D" parent="." unique_id=613030804]
+show_behind_parent = true
+position = Vector2(0, -40)
+scale = Vector2(2.5, 2.5)
+amount = 10
+speed_scale = 0.5
+local_coords = true
+direction = Vector2(0, -1)
+spread = 55.0
+gravity = Vector2(0, -50)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+scale_amount_curve = SubResource("Curve_30a25")
+
+[connection signal="area_entered" from="DetectionZone" to="." method="_on_detection_zone_area_entered"]
+[connection signal="area_exited" from="DetectionZone" to="." method="_on_detection_zone_area_exited"]
+[connection signal="area_entered" from="AttackZone" to="." method="_on_attack_zone_area_entered"]
+[connection signal="area_exited" from="AttackZone" to="." method="_on_attack_zone_area_exited"]

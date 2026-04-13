@@ -71,6 +71,8 @@ HurtBox=""
 "Mirror Front Side"=""
 "Mirror Back Side"=""
 Music=""
+"Enemy Detection Zone"=""
+UI=""
 
 [input]
 

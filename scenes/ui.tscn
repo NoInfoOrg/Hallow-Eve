@@ -30,20 +30,23 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ycmcx"]
 
-[node name="UI" type="CanvasLayer" unique_id=1522527901]
+[node name="UI" type="CanvasLayer" unique_id=1522527901 groups=["UI"]]
 script = ExtResource("1_8dubc")
+metadata/_edit_horizontal_guides_ = [7.0]
+metadata/_edit_vertical_guides_ = [8.0]
+
+[node name="HideUITimer" type="Timer" parent="." unique_id=54894310]
 
 [node name="P1" type="Node2D" parent="." unique_id=1549037820]
 z_index = 1
-position = Vector2(1056, 160)
+position = Vector2(8, 133)
+scale = Vector2(0.6, 0.6)
 metadata/_edit_group_ = true
 
 [node name="P1Sanity" type="TextureProgressBar" parent="P1" unique_id=1490061044]
 unique_name_in_owner = true
-offset_left = -1048.0
-offset_top = -17.0
-offset_right = -948.0
-offset_bottom = 373.0
+offset_right = 100.0
+offset_bottom = 390.0
 scale = Vector2(0.75, 0.75)
 fill_mode = 3
 texture_under = ExtResource("4_vdcm2")
@@ -51,15 +54,14 @@ texture_progress = ExtResource("5_6rmj2")
 
 [node name="P2" type="Node2D" parent="." unique_id=1480691437]
 z_index = 1
-position = Vector2(8, 143)
+position = Vector2(1098, 140)
+scale = Vector2(0.6, 0.6)
 metadata/_edit_group_ = true
 
 [node name="P2Sanity" type="TextureProgressBar" parent="P2" unique_id=756704857]
 unique_name_in_owner = true
-offset_left = 1048.0
-offset_top = 17.0
-offset_right = 1168.0
-offset_bottom = 387.0
+offset_right = 120.0
+offset_bottom = 370.0
 scale = Vector2(0.75, 0.75)
 fill_mode = 3
 texture_under = ExtResource("2_cgfq5")
@@ -96,10 +98,10 @@ offset_bottom = 635.0
 [node name="SharedInv" type="Control" parent="." unique_id=436860684]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 552.0
-offset_top = 20.0
-offset_right = 552.0
-offset_bottom = 20.0
+offset_left = 670.0
+offset_top = 19.0
+offset_right = 670.0
+offset_bottom = 19.0
 scale = Vector2(0.75, 0.75)
 
 [node name="Inventory" type="Node2D" parent="SharedInv" unique_id=400344352]
@@ -112,11 +114,10 @@ anchors_preset = -1
 anchor_left = 0.266
 anchor_right = 0.395
 anchor_bottom = 0.56
-offset_left = 21.333374
-offset_top = 14.666668
-offset_right = 549.3334
-offset_bottom = 80.0
+offset_right = 528.0
+offset_bottom = 65.33333
 grow_horizontal = 2
+scale = Vector2(0.75, 0.75)
 script = ExtResource("6_p7vwb")
 inventory = NodePath("../Inventory")
 container = NodePath("InvSlots")
@@ -134,6 +135,7 @@ offset_left = -6.8640003
 offset_top = -5.161333
 offset_right = 6.8639526
 offset_bottom = 6.79467
+scale = Vector2(0.75, 0.75)
 theme_override_constants/h_separation = 75
 theme_override_constants/v_separation = 75
 columns = 6
@@ -142,20 +144,22 @@ columns = 6
 layout_mode = 0
 offset_right = 567.0
 offset_bottom = 94.0
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("9_7dvkv")
 
 [node name="BackInvImage" type="TextureRect" parent="SharedInv" unique_id=2120236392]
 show_behind_parent = true
 layout_mode = 0
-offset_left = 8.00002
-offset_top = 5.333332
-offset_right = 561.0
-offset_bottom = 88.33333
+offset_left = 5.333313
+offset_top = 4.0
+offset_right = 558.3333
+offset_bottom = 87.0
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("10_qsv74")
 
 [node name="PocketWatch" type="Node2D" parent="." unique_id=979694871]
-position = Vector2(8, 478.00003)
-scale = Vector2(0.75, 0.75)
+position = Vector2(8, 513)
+scale = Vector2(0.6, 0.6)
 metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="PocketWatch" unique_id=1693372238]
@@ -164,8 +168,8 @@ offset_bottom = 40.0
 texture = ExtResource("11_vsj0x")
 
 [node name="MenuButton" type="Node2D" parent="." unique_id=367305255]
-position = Vector2(1064, 20)
-scale = Vector2(0.75, 0.75)
+position = Vector2(1093, 17)
+scale = Vector2(0.6, 0.6)
 script = ExtResource("12_h1mc3")
 metadata/_edit_group_ = true
 
@@ -277,8 +281,8 @@ offset_bottom = 40.0
 texture = ExtResource("14_h1mc3")
 
 [node name="ProgressTracker" type="Node2D" parent="." unique_id=1134032675]
-position = Vector2(420.00003, 73)
-scale = Vector2(0.75, 0.75)
+position = Vector2(338, 60.000004)
+scale = Vector2(0.6, 0.6)
 metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="ProgressTracker" unique_id=187890823]

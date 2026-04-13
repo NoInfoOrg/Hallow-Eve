@@ -40,12 +40,13 @@ position = Vector2(787, 469)
 [node name="key" parent="." unique_id=1417814454 instance=ExtResource("9_2dc0j")]
 visible = false
 z_index = -1
-position = Vector2(805, -133)
+position = Vector2(1000.2865, 482.72662)
 monitoring = false
 monitorable = false
 
-[node name="hw_checker" type="Node2D" parent="." unique_id=1631011990]
+[node name="hw_checker" type="Node2D" parent="." unique_id=1631011990 node_paths=PackedStringArray("key")]
 script = ExtResource("8_krhd7")
+key = NodePath("../key")
 
 [node name="Shapes Paper" parent="hw_checker" unique_id=1319041526 instance=ExtResource("6_3p5gt")]
 process_mode = 3

@@ -163,6 +163,9 @@ _data = {
 radius = 27.745758
 height = 132.08711
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 323.7143
+
 [node name="Eve - P1" type="CharacterBody2D" unique_id=810202292 groups=["Players"]]
 y_sort_enabled = true
 collision_mask = 954
@@ -192,8 +195,17 @@ collision_layer = 1024
 collision_mask = 2048
 
 [node name="HurtBoxCollider" type="CollisionShape2D" parent="HurtBoxZone" unique_id=22954035]
-position = Vector2(0.9634094, -0.54706573)
 shape = SubResource("CapsuleShape2D_g2els")
+
+[node name="EnemyDetectionZone" type="Area2D" parent="." unique_id=1220174054]
+position = Vector2(0, -39.493958)
+collision_layer = 4096
+collision_mask = 4096
+
+[node name="EnemyDetectionZoneCollider" type="CollisionShape2D" parent="EnemyDetectionZone" unique_id=1821129802]
+shape = SubResource("CircleShape2D_g2els")
 
 [connection signal="body_entered" from="HurtBoxZone" to="." method="_on_hit_box_zone_body_entered"]
 [connection signal="body_exited" from="HurtBoxZone" to="." method="_on_hit_box_zone_body_exited"]
+[connection signal="area_entered" from="EnemyDetectionZone" to="." method="_on_enemy_detection_zone_area_entered"]
+[connection signal="area_exited" from="EnemyDetectionZone" to="." method="_on_enemy_detection_zone_area_exited"]

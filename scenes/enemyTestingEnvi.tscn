@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://c7ard73cuagsh"]
 
 [ext_resource type="TileSet" uid="uid://dt13bvgr5foh4" path="res://assets/tilesets/side_walls.tres" id="2_al0y8"]
+[ext_resource type="PackedScene" uid="uid://cqn40kyihmkj" path="res://scenes/plushie.tscn" id="2_mhq85"]
 [ext_resource type="PackedScene" uid="uid://fcp66n68vghv" path="res://scenes/sleepless_child.tscn" id="2_w4snr"]
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="3_w4snr"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="4_mhq85"]
@@ -30,10 +31,15 @@ progress = 753.3843
 rotates = false
 
 [node name="SleeplessChild" parent="Path2D/PathFollow2D" unique_id=464654720 node_paths=PackedStringArray("targets", "pathFollow") instance=ExtResource("2_w4snr")]
+visible = false
 collision_mask = 985
 alertColor = Color(0.9254902, 0, 0, 0.4627451)
 rotationSpeed = 1.0
 rotationAngle = 90
+targets = [NodePath("../../../Eve - P1"), NodePath("../../../Willow - P2")]
+pathFollow = NodePath("..")
+
+[node name="Plushie" parent="Path2D/PathFollow2D" unique_id=741369988 node_paths=PackedStringArray("targets", "pathFollow") instance=ExtResource("2_mhq85")]
 targets = [NodePath("../../../Eve - P1"), NodePath("../../../Willow - P2")]
 pathFollow = NodePath("..")
 
@@ -47,7 +53,7 @@ tile_map_data = PackedByteArray("AAAKAA4AAQAAAAgAAAAKAA0AAQAAAAgAAAAKAAwAAQAAAAg
 tile_set = ExtResource("2_al0y8")
 
 [node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("3_w4snr")]
-position = Vector2(-99, 199)
+position = Vector2(476, 255)
 
 [node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("4_mhq85")]
 position = Vector2(1556, 395)

@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name Player
 
+@onready var ui = get_tree().get_first_node_in_group("UI")
+var enemy_count = 0
+
 # Constants
 const SPEED = 300.0
 const PUSH_FORCE = 150.0
@@ -170,9 +173,41 @@ func check_to_open_door():
 func _on_hit_box_zone_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
 
-
 func _on_hit_box_zone_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
+
+func _on_enemy_detection_zone_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Enemy Detection Zone"):
+		enemy_count += 1
+		if ui:
+			ui.show_ui()
+			ui.hide_timer.stop()
+
+func _on_enemy_detection_zone_area_exited(area: Area2D) -> void:
+	if area.is_in_group("Enemy Detection Zone"):
+		enemy_count -= 1
+		if enemy_count <= 0:
+			enemy_count = 0
+			if ui:
+				check_player_safety()
+				
+func check_player_safety():
+	if not ui:
+		return
+	
+	var players = get_tree().get_nodes_in_group("Players")
+	var in_danger = false
+	var low_health = GlobalInformation.eve_health_strikes <= 1 or GlobalInformation.willow_health_strikes <= 1
+	
+	for player in players:
+		if player.enemy_count > 0:
+			in_danger = true
+			break
+	if in_danger or low_health:
+		ui.show_ui()
+		ui.hide_timer.stop()
+	else:
+		ui.hide_timer.start()
 
 func current_camera():
 	if GlobalInformation.current_scene == "level_1_scene":
