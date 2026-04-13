@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b6hx81hbjkln1"]
 
+[ext_resource type="Script" uid="uid://beqpojb8jfj57" path="res://scripts/main_menu.gd" id="1_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://imtoiw307a8p" path="res://assets/ui elements/settings/Settings_MenuBG.png" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://bls2ajfr0bq48" path="res://scripts/main_menu_settings_button.gd" id="2_8ln24"]
 [ext_resource type="Texture2D" uid="uid://bke6hqpt84f6n" path="res://assets/ui elements/settings/Settings_ExitButton.png" id="2_ekxnf"]
@@ -7,10 +8,12 @@
 [ext_resource type="Script" uid="uid://dvc7yomb50ty" path="res://scripts/quit.gd" id="3_bqqt6"]
 [ext_resource type="PackedScene" uid="uid://dpmykk27ckpvf" path="res://scenes/settings.tscn" id="3_rtw2f"]
 [ext_resource type="Script" uid="uid://cqpnp8civ3evg" path="res://scripts/credits_button.gd" id="5_oa1go"]
+[ext_resource type="PackedScene" uid="uid://dmmvcuxa7eajm" path="res://scenes/music.tscn" id="9_5dd4i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
 
 [node name="Main Menu" type="Node2D" unique_id=1146238979]
+script = ExtResource("1_jk1qb")
 
 [node name="Control" type="Control" parent="." unique_id=942049353]
 layout_mode = 3
@@ -95,6 +98,8 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_bqqt6")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bqqt6")
 icon = ExtResource("2_ekxnf")
 script = ExtResource("3_bqqt6")
+
+[node name="Music" parent="." unique_id=371888300 instance=ExtResource("9_5dd4i")]
 
 [connection signal="pressed" from="Control/Panel/VBoxContainer/Start Game" to="Control/Panel/VBoxContainer/Start Game" method="_on_pressed"]
 [connection signal="pressed" from="Control/Panel/VBoxContainer/Settings" to="Control/Panel/VBoxContainer/Settings" method="_on_pressed"]

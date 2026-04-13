@@ -64,6 +64,9 @@ func find_game_over_screen(starting_node):
 	#return find_node(starting_node, "Game Over Screen")
 	return starting_node.get_tree().root.find_child("Game Over Screen", true, false)
 
+func find_music_node(starting_node):
+	return starting_node.get_tree().root.find_child("Music", true, false)
+
 # maybe defunct
 func find_node(starting_node, node_path):
 	var root = get_tree().root.get_child(0)

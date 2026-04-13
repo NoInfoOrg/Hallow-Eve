@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dmmvcuxa7eajm"]
+
+[ext_resource type="AudioStream" uid="uid://jfhmjtbgni3v" path="res://music/Halloween_Type_Beat.wav" id="1_05ggv"]
+[ext_resource type="AudioStream" uid="uid://bwhb2ox30cpdq" path="res://music/test_hur_hur_hur.wav" id="2_ibx2e"]
+
+[node name="Music" type="Node2D" unique_id=371888300]
+
+[node name="Ambient Music" type="Node2D" parent="." unique_id=546709020]
+
+[node name="Main Music Halloween Theme" type="AudioStreamPlayer" parent="Ambient Music" unique_id=2076701356 groups=["Music"]]
+stream = ExtResource("1_05ggv")
+
+[node name="Test Hur Hur Hur" type="AudioStreamPlayer" parent="Ambient Music" unique_id=1609378156 groups=["Music"]]
+stream = ExtResource("2_ibx2e")
+autoplay = true
+
+[node name="Sound Effects" type="Node2D" parent="." unique_id=1716875863]

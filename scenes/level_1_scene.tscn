@@ -18,8 +18,8 @@
 [ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="19_4ymq3"]
 [ext_resource type="Texture2D" uid="uid://butu7b2wedoks" path="res://assets/tempSprites/freddy_fazbear_shocked.png" id="19_e5gav"]
 [ext_resource type="PackedScene" uid="uid://cyta5c5pqluy8" path="res://scenes/blanket_ghost.tscn" id="20_e5gav"]
-[ext_resource type="AudioStream" uid="uid://bwhb2ox30cpdq" path="res://music/test_hur_hur_hur.wav" id="21_4to46"]
 [ext_resource type="PackedScene" uid="uid://blc2wqvr525qk" path="res://scenes/door_open.tscn" id="21_5yyo0"]
+[ext_resource type="PackedScene" uid="uid://dmmvcuxa7eajm" path="res://scenes/music.tscn" id="22_b322n"]
 [ext_resource type="Script" uid="uid://d1ehvit7dlsc6" path="res://scenes/hw_checker.gd" id="25_pqgcp"]
 [ext_resource type="PackedScene" uid="uid://bfphydknonny6" path="res://scenes/shapes_paper_math.tscn" id="27_btg6x"]
 
@@ -619,6 +619,4 @@ position = Vector2(375, 2724)
 type = "math"
 answer = "0"
 
-[node name="Ambient Music" type="AudioStreamPlayer" parent="." unique_id=1580217849 groups=["Music"]]
-stream = ExtResource("21_4to46")
-autoplay = true
+[node name="Music" parent="." unique_id=371888300 instance=ExtResource("22_b322n")]
