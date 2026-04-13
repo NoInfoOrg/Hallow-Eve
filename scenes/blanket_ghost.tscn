@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cyta5c5pqluy8"]
+
+[ext_resource type="Script" uid="uid://jd7a16cfru5e" path="res://scripts/blanket_ghost.gd" id="1_d62q1"]
+[ext_resource type="Texture2D" uid="uid://brvjcmd70wftf" path="res://assets/sprites/enemy/BlanketGhost.png" id="1_n7qnd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n7qnd"]
+radius = 93.0
+height = 384.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d62q1"]
+radius = 1042.5098
+
+[node name="Blanket Ghost" type="CharacterBody2D" unique_id=1059129714 groups=["Enemies"]]
+scale = Vector2(0.5, 0.5)
+collision_layer = 128
+collision_mask = 65
+script = ExtResource("1_d62q1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1902821316]
+texture = ExtResource("1_n7qnd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=610367037]
+shape = SubResource("CapsuleShape2D_n7qnd")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1073695054]
+path_postprocessing = 1
+
+[node name="DetectionZone" type="Area2D" parent="." unique_id=2028534692 groups=["Enemy Detection Zone"]]
+collision_layer = 4096
+collision_mask = 1024
+
+[node name="DetectCollider" type="CollisionShape2D" parent="DetectionZone" unique_id=247260043]
+shape = SubResource("CircleShape2D_d62q1")
+
+[connection signal="area_entered" from="DetectionZone" to="." method="_on_detection_zone_area_entered"]
+[connection signal="area_exited" from="DetectionZone" to="." method="_on_detection_zone_area_exited"]

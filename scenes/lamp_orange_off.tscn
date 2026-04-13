@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cqiyp4srh0886"]
+
+[ext_resource type="Texture2D" uid="uid://dthr7qeob6ret" path="res://assets/sprites/environment/Lamp_Orange_Off.png" id="1_pps4l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky1t1"]
+size = Vector2(69.23273, 23.8293)
+
+[node name="LampOrangeOff" type="StaticBody2D" unique_id=95508403 groups=["Environment Assets"]]
+y_sort_enabled = true
+collision_layer = 512
+collision_mask = 0
+
+[node name="AssetSprite" type="Sprite2D" parent="." unique_id=30522664]
+position = Vector2(0, -110.52398)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pps4l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=57343574]
+shape = SubResource("RectangleShape2D_ky1t1")
+debug_color = Color(0.9800469, 0, 0.38690174, 0.41960785)

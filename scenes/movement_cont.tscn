@@ -1,16 +1,19 @@
 [gd_scene format=3 uid="uid://i6fcwca1kki2"]
 
+[ext_resource type="Script" uid="uid://baijfl086k6tq" path="res://scripts/movement_cont.gd" id="1_bxgl3"]
 [ext_resource type="Resource" uid="uid://dvxwubxmqyn0j" path="res://assets/temp/key.tres" id="2_papty"]
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="2_qakxd"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="3_464wy"]
 [ext_resource type="PackedScene" uid="uid://dwu4oi2tru041" path="res://scenes/collectibles.tscn" id="3_pibr7"]
-[ext_resource type="PackedScene" path="res://scenes/debug_console.tscn" id="4_qakxd"]
-[ext_resource type="Script" uid="uid://5it8olpe6dgr" path="res://scenes/inventory.gd" id="5_464wy"]
-[ext_resource type="PackedScene" uid="uid://ckrf5goc0ul3o" path="res://inv_ui.tscn" id="5_papty"]
-[ext_resource type="PackedScene" path="res://scenes/spirit_box.tscn" id="6_papty"]
+[ext_resource type="PackedScene" uid="uid://k3afniuq4kul" path="res://scenes/pencil_item.tscn" id="4_8ru5a"]
+[ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="4_qakxd"]
+[ext_resource type="PackedScene" uid="uid://bwd22jx5mssx0" path="res://scenes/black_light_flashlight_item.tscn" id="5_b7gnf"]
+[ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="6_grxhu"]
+[ext_resource type="PackedScene" uid="uid://b5rhclw6ern25" path="res://scenes/spirit_box.tscn" id="6_papty"]
 [ext_resource type="PackedScene" uid="uid://b7y82qoyrdjis" path="res://scenes/box.tscn" id="7_7q3w4"]
-[ext_resource type="PackedScene" path="res://scenes/human_box.tscn" id="7_valbq"]
-[ext_resource type="PackedScene" uid="uid://nmbgcgm0lqea" path="res://locked_door.tscn" id="10_yc0ht"]
+[ext_resource type="PackedScene" uid="uid://c616w2s1ho401" path="res://scenes/human_box.tscn" id="7_valbq"]
+[ext_resource type="PackedScene" uid="uid://b5evgada02h46" path="res://scenes/locked_door.tscn" id="10_yc0ht"]
+[ext_resource type="PackedScene" uid="uid://c83a2a5ujdc16" path="res://scenes/shapes_paper.tscn" id="16_jx25j"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_olwqp"]
 
@@ -23,24 +26,31 @@ distance = -6.0
 distance = -92.0
 
 [node name="MovementCont" type="Node2D" unique_id=2117843696]
+script = ExtResource("1_bxgl3")
 
-[node name="collectibles" parent="." unique_id=1417814454 instance=ExtResource("3_pibr7")]
+[node name="key" parent="." unique_id=1417814454 instance=ExtResource("3_pibr7")]
 item_info = ExtResource("2_papty")
 
-[node name="collectibles2" parent="." unique_id=436517533 instance=ExtResource("3_pibr7")]
+[node name="fake_key" parent="." unique_id=436517533 instance=ExtResource("3_pibr7")]
 position = Vector2(773, -17)
 
+[node name="Pencil Item" parent="." unique_id=876747062 instance=ExtResource("4_8ru5a")]
+position = Vector2(671, 164)
+
+[node name="Black Light Flashlight Item" parent="." unique_id=603767252 instance=ExtResource("5_b7gnf")]
+position = Vector2(669, 252)
+
 [node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("2_qakxd")]
+z_index = 9
 position = Vector2(678, 537)
-collision_mask = 190
 
 [node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("3_464wy")]
-position = Vector2(261, 387)
-collision_layer = 64
-collision_mask = 190
-up_direction = Vector2(0.98458165, -0.17492567)
+z_index = 9
+position = Vector2(325, 385)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1875371505]
+collision_layer = 255
+collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=13519396]
 rotation = 1.5707964
@@ -59,17 +69,7 @@ position = Vector2(1059, 292)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_rww21")
 
-[node name="Inventory" type="Node2D" parent="." unique_id=1733337758]
-script = ExtResource("5_464wy")
-
-[node name="InvUI" parent="." unique_id=352140929 node_paths=PackedStringArray("inventory") instance=ExtResource("5_papty")]
-anchor_right = 0.75600004
-anchor_bottom = 0.0
-offset_left = 628.0
-offset_top = 3.0
-offset_right = 1089.0
-offset_bottom = 71.0
-inventory = NodePath("../Inventory")
+[node name="UI" parent="." unique_id=274633659 instance=ExtResource("6_grxhu")]
 
 [node name="Box" parent="." unique_id=748287882 groups=["Human Boxes"] instance=ExtResource("7_7q3w4")]
 position = Vector2(664, 414)
@@ -85,4 +85,22 @@ position = Vector2(991, 414)
 [node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("4_qakxd")]
 position = Vector2(435, 606)
 
+<<<<<<< Updated upstream
+[node name="Shapes Homework" parent="CanvasLayer" unique_id=1429891547 instance=ExtResource("14_c4e7b")]
+visible = false
+position = Vector2(573, 323)
+
 [node name="LockedDoor" parent="." unique_id=1400186033 instance=ExtResource("10_yc0ht")]
+=======
+[node name="LockedDoor" parent="." unique_id=1400186033 node_paths=PackedStringArray("required_key") instance=ExtResource("10_yc0ht")]
+>>>>>>> Stashed changes
+position = Vector2(-2, 2)
+required_key = NodePath("../key")
+
+[node name="Shapes Paper" parent="." unique_id=1319041526 instance=ExtResource("16_jx25j")]
+position = Vector2(760, 157)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=839850962]
+position = Vector2(-178, 300)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=829869771]

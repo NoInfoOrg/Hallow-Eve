@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b4d6blejdjp0n"]
+
+[ext_resource type="Texture2D" uid="uid://djv6c0bas74lb" path="res://assets/sprites/level objs/paper_32x36.png" id="1_ldlei"]
+[ext_resource type="Script" uid="uid://cpyj8d6cypm43" path="res://scripts/paper.gd" id="1_vas6c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldlei"]
+size = Vector2(32, 36)
+
+[node name="paper" type="Area2D" unique_id=1783184541]
+script = ExtResource("1_vas6c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1821891443]
+texture = ExtResource("1_ldlei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1984544001]
+shape = SubResource("RectangleShape2D_ldlei")

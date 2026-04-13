@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://2ocgprlgi4c0"]
+
+[ext_resource type="Script" uid="uid://dol5q0k3e3jle" path="res://scripts/shapes_paper.gd" id="1_cplkj"]
+[ext_resource type="Texture2D" uid="uid://bndti3b6rr2ph" path="res://assets/sprites/level objs/paper.png" id="2_hnkqe"]
+[ext_resource type="PackedScene" uid="uid://cr6aiqw65fcow" path="res://scenes/answer_text_box.tscn" id="3_u36t2"]
+[ext_resource type="PackedScene" uid="uid://xrbj62gw4wa5" path="res://scenes/math_homework.tscn" id="4_j8j8a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akf8h"]
+size = Vector2(32, 36)
+
+[node name="Shapes Paper" type="Area2D" unique_id=1319041526]
+collision_mask = 65
+script = ExtResource("1_cplkj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1197953842]
+texture = ExtResource("2_hnkqe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128575460]
+shape = SubResource("RectangleShape2D_akf8h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1115382]
+
+[node name="Answer Text Box" parent="CanvasLayer" unique_id=1803316721 instance=ExtResource("3_u36t2")]
+visible = false
+position = Vector2(869, 598)
+
+[node name="Math Homework" parent="CanvasLayer" unique_id=1966067721 instance=ExtResource("4_j8j8a")]
+
+[connection signal="shapes_homework_viewed" from="." to="." method="_on_shapes_homework_viewed"]

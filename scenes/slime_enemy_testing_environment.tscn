@@ -1,0 +1,44 @@
+[gd_scene format=4 uid="uid://c5q37ac2g7wtj"]
+
+[ext_resource type="TileSet" uid="uid://dt13bvgr5foh4" path="res://assets/tilesets/side_walls.tres" id="1_kl7v6"]
+[ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="2_iydpl"]
+[ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="3_ttqws"]
+[ext_resource type="PackedScene" uid="uid://d1p1fj2ywtequ" path="res://scenes/slime_enemy.tscn" id="4_kl7v6"]
+[ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="5_jde5a"]
+[ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="6_efojn"]
+[ext_resource type="PackedScene" path="res://scenes/game_over_screen.tscn" id="7_mutye"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8xxs1"]
+vertices = PackedVector2Array(1143, 638.0078, 8.9765625, 639.97656, 340, 460, 940, 250, 290, 460, 940, 200, 1143, 9.9765625, 8.0078125, 8.0078125, 590, 200, 590, 250, 340, 230, 290, 230)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1), PackedInt32Array(3, 5, 6, 0), PackedInt32Array(7, 6, 5, 8), PackedInt32Array(9, 3, 2), PackedInt32Array(9, 2, 10, 8), PackedInt32Array(4, 1, 7, 11), PackedInt32Array(11, 7, 8, 10)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-2, -2, 1153, 0, 1153, 648, -1, 650)])
+
+[node name="Blanket Ghost Enemy Testing Environment" type="Node2D" unique_id=770288169]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1506282309]
+navigation_polygon = SubResource("NavigationPolygon_8xxs1")
+
+[node name="Side Walls - C" type="TileMapLayer" parent="NavigationRegion2D" unique_id=607139408]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAKAA4AAQAAAAgAAAAKAA0AAQAAAAgAAAAKAAwAAQAAAAgAAAAKAAsAAQAAAAgAAAAKAAoAAQAAAAgAAAAKAAkAAQAAAAgAAAAKAAgAAQAAAAgAAAAUAAcAAQAAAAIAAQAVAAcAAQAAAAIAAQAWAAcAAQAAAAIAAQAXAAcAAQAAAAIAAQAYAAcAAQAAAAIAAQAZAAcAAQAAAAIAAQAaAAcAAQAAAAIAAQAbAAcAAQAAAAIAAQAcAAcAAQAAAAIAAQAdAAcAAQAAAAIAAQAeAAcAAQAAAAIAAQA=")
+tile_set = ExtResource("1_kl7v6")
+
+[node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("2_iydpl")]
+position = Vector2(1075, 430)
+
+[node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("3_ttqws")]
+position = Vector2(164, 197)
+
+[node name="Slime" parent="." unique_id=2138321505 instance=ExtResource("4_kl7v6")]
+position = Vector2(490, 326)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1259255408]
+
+[node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("5_jde5a")]
+position = Vector2(452, 597)
+
+[node name="UI" parent="." unique_id=1522527901 instance=ExtResource("6_efojn")]
+
+[node name="Game Over Screen" parent="." unique_id=297437709 instance=ExtResource("7_mutye")]
+visible = false

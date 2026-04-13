@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://cphkguivqa6gt"]
 
-[ext_resource type="Script" uid="uid://dmlgolxi1fkcv" path="res://scenes/player2mv.gd" id="1_c08b3"]
+[ext_resource type="Script" uid="uid://d2kffjtlxbgq" path="res://scripts/willow.gd" id="1_agjl5"]
 [ext_resource type="Texture2D" uid="uid://cd7gcsfuddwic" path="res://assets/spritesheets/p2/Willow_FullHealth_SpriteSheet.png" id="2_agjl5"]
-[ext_resource type="Script" uid="uid://5it8olpe6dgr" path="res://scenes/inventory.gd" id="3_agjl5"]
+[ext_resource type="Script" uid="uid://5it8olpe6dgr" path="res://scripts/inventory.gd" id="3_agjl5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c08b3"]
-size = Vector2(68, 244)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agjl5"]
+radius = 17.141754
+height = 64.54245
 
 [sub_resource type="Animation" id="Animation_dj65e"]
 length = 0.001
@@ -91,19 +92,31 @@ _data = {
 &"Willow_Up": SubResource("Animation_3ejgl")
 }
 
-[node name="Willow - P2" type="CharacterBody2D" unique_id=882182450]
-script = ExtResource("1_c08b3")
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dj65e"]
+radius = 34.21982
+height = 241.25253
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_agjl5"]
+radius = 323.7143
+
+[node name="Willow - P2" type="CharacterBody2D" unique_id=882182450 groups=["Players"]]
+y_sort_enabled = true
+collision_layer = 64
+collision_mask = 954
+script = ExtResource("1_agjl5")
+
+[node name="FeetCollider" type="CollisionShape2D" parent="." unique_id=862284075]
+position = Vector2(0, 8.5)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_agjl5")
+debug_color = Color(0.087395035, 0.649167, 0, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=922027651]
-position = Vector2(32, 122)
 scale = Vector2(0.49799198, 0.503992)
 texture = ExtResource("2_agjl5")
+offset = Vector2(0, -197.55)
 hframes = 10
 vframes = 10
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=862284075]
-position = Vector2(29, 125)
-shape = SubResource("RectangleShape2D_c08b3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1640059439]
 root_node = NodePath("../Sprite2D")
@@ -111,3 +124,25 @@ libraries/ = SubResource("AnimationLibrary_24gv0")
 
 [node name="inventory" type="Node2D" parent="." unique_id=447718021]
 script = ExtResource("3_agjl5")
+
+[node name="HurtBoxZone" type="Area2D" parent="." unique_id=390291488 groups=["HurtBox"]]
+position = Vector2(0, -100.824165)
+collision_layer = 1024
+collision_mask = 2048
+
+[node name="HurtBoxCollider" type="CollisionShape2D" parent="HurtBoxZone" unique_id=986710581]
+position = Vector2(0.65289307, 3.4297485)
+shape = SubResource("CapsuleShape2D_dj65e")
+
+[node name="EnemyDetectionZone" type="Area2D" parent="." unique_id=1104270427]
+position = Vector2(0, -39.493958)
+collision_layer = 4096
+collision_mask = 4096
+
+[node name="EnemyDetectionZoneCollider" type="CollisionShape2D" parent="EnemyDetectionZone" unique_id=1440897277]
+shape = SubResource("CircleShape2D_agjl5")
+
+[connection signal="body_entered" from="HurtBoxZone" to="." method="_on_hit_box_zone_body_entered"]
+[connection signal="body_exited" from="HurtBoxZone" to="." method="_on_hit_box_zone_body_exited"]
+[connection signal="area_entered" from="EnemyDetectionZone" to="." method="_on_enemy_detection_zone_area_entered"]
+[connection signal="area_exited" from="EnemyDetectionZone" to="." method="_on_enemy_detection_zone_area_exited"]

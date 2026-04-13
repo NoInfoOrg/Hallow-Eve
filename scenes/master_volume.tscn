@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://lwvh16rh2rn7"]
+
+[ext_resource type="SpriteFrames" uid="uid://b22jxyxnkddns" path="res://assets/ui elements/settings/volume bar/volume_bar_sprite_frame.tres" id="1_0r2x4"]
+[ext_resource type="Script" uid="uid://c684qs0b8dmg0" path="res://scripts/volume_left_arrow.gd" id="13_6ycia"]
+[ext_resource type="Texture2D" uid="uid://cx0hgpp6shg3y" path="res://assets/ui elements/settings/volume bar/Settings_VolumeArrow_Left.png" id="13_eaghy"]
+[ext_resource type="Script" uid="uid://1g1orn3ibkdl" path="res://scripts/volume_right_arrow.gd" id="15_oqwbl"]
+[ext_resource type="Texture2D" uid="uid://cs0ua0kfy3wh" path="res://assets/ui elements/settings/volume bar/Settings_VolumeArrow_Right.png" id="15_rik5p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oqwbl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eaghy"]
+
+[node name="Master Volume" type="Node2D" unique_id=1974866346]
+scale = Vector2(0.7, 0.7)
+
+[node name="Volume Meter" type="AnimatedSprite2D" parent="." unique_id=1728743118]
+scale = Vector2(0.7, 0.7)
+sprite_frames = ExtResource("1_0r2x4")
+animation = &"10"
+
+[node name="Left Arrow" type="Button" parent="." unique_id=216900088]
+offset_left = -216.60715
+offset_top = -24.642853
+offset_right = -188.60715
+offset_bottom = 43.357147
+scale = Vector2(0.7, 0.7)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oqwbl")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_oqwbl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oqwbl")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_oqwbl")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_oqwbl")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_oqwbl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oqwbl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_oqwbl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_oqwbl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_oqwbl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_oqwbl")
+icon = ExtResource("13_eaghy")
+script = ExtResource("13_6ycia")
+metadata/_edit_use_anchors_ = true
+
+[node name="Right Arrow" type="Button" parent="." unique_id=1783707438]
+offset_left = 203.21436
+offset_top = -23.392853
+offset_right = 231.21436
+offset_bottom = 44.607147
+scale = Vector2(0.7, 0.7)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eaghy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_eaghy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_eaghy")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_eaghy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_eaghy")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_eaghy")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_eaghy")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_eaghy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_eaghy")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_eaghy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eaghy")
+icon = ExtResource("15_rik5p")
+script = ExtResource("15_oqwbl")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="Left Arrow" to="Left Arrow" method="_on_button_down"]
+[connection signal="button_up" from="Left Arrow" to="Left Arrow" method="_on_button_up"]
+[connection signal="pressed" from="Left Arrow" to="Left Arrow" method="_on_pressed"]
+[connection signal="button_down" from="Right Arrow" to="Right Arrow" method="_on_button_down"]
+[connection signal="button_up" from="Right Arrow" to="Right Arrow" method="_on_button_up"]
+[connection signal="pressed" from="Right Arrow" to="Right Arrow" method="_on_pressed"]

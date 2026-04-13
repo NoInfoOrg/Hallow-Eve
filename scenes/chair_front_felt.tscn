@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bw7fy3pht8uqh"]
+
+[ext_resource type="Texture2D" uid="uid://ba5ly744m3836" path="res://assets/sprites/environment/ChairFront_Felt-Abomination.png" id="1_43h4p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky1t1"]
+size = Vector2(134.26364, 95.169495)
+
+[node name="ChairFrontFelt" type="StaticBody2D" unique_id=95508403 groups=["Environment Assets"]]
+y_sort_enabled = true
+collision_layer = 512
+collision_mask = 0
+
+[node name="AssetSprite" type="Sprite2D" parent="." unique_id=30522664]
+position = Vector2(0, -44.706337)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_43h4p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=57343574]
+shape = SubResource("RectangleShape2D_ky1t1")
+debug_color = Color(0.9800469, 0, 0.38690174, 0.41960785)

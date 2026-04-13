@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://brk3r67f15aaw"]
+
+[ext_resource type="Texture2D" uid="uid://d38uh1tbwnqm2" path="res://assets/sprites/environment/ChairFront_Plastic.png" id="1_lvnhx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky1t1"]
+size = Vector2(71.23743, 30.291473)
+
+[node name="ChairFrontPlastic" type="StaticBody2D" unique_id=95508403 groups=["Environment Assets"]]
+y_sort_enabled = true
+collision_layer = 512
+collision_mask = 0
+
+[node name="AssetSprite" type="Sprite2D" parent="." unique_id=30522664]
+position = Vector2(0, -45.4941)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_lvnhx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=57343574]
+shape = SubResource("RectangleShape2D_ky1t1")
+debug_color = Color(0.9800469, 0, 0.38690174, 0.41960785)

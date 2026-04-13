@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dx5mud7jyi7ar"]
+
+[ext_resource type="Texture2D" uid="uid://d1vqeidbh284e" path="res://assets/sprites/level objs/buttons/EveButton_Side_Interactable_Blue_On.png" id="1_7yjr5"]
+[ext_resource type="Script" uid="uid://dq2fd6o77oo2t" path="res://scripts/button.gd" id="1_objs7"]
+[ext_resource type="Texture2D" uid="uid://b7vwn8rdm73wn" path="res://assets/sprites/level objs/buttons/EveButton_Side_Interactable_Blue_Off.png" id="2_objs7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eyucw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7yjr5")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_objs7")
+}],
+"loop": true,
+"name": &"unpressed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vehb3"]
+size = Vector2(15, 64)
+
+[node name="Spirit Button Blue Side" type="Area2D" unique_id=1756259583 groups=["Spirit Buttons"]]
+collision_mask = 159
+script = ExtResource("1_objs7")
+
+[node name="Button" type="AnimatedSprite2D" parent="." unique_id=1362083626]
+sprite_frames = SubResource("SpriteFrames_eyucw")
+animation = &"unpressed"
+
+[node name="Button Collision" type="CollisionShape2D" parent="." unique_id=2038062167]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_vehb3")

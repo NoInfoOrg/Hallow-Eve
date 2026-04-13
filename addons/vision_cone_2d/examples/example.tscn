@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://cgfg7eijokn1i"]
+
+[ext_resource type="PackedScene" uid="uid://bulute7i5ksyy" path="res://addons/vision_cone_2d/examples/enemy.tscn" id="1_d5bxy"]
+[ext_resource type="PackedScene" uid="uid://hm3o2foxwd2m" path="res://addons/vision_cone_2d/examples/wall.tscn" id="2_1w8mk"]
+[ext_resource type="Script" uid="uid://bav82vp0cok52" path="res://addons/vision_cone_2d/examples/player_movement.gd" id="2_bmy6t"]
+
+[sub_resource type="Curve2D" id="Curve2D_kvoug"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 81, 129, 0, 0, 0, 0, 275, 32, 0, 0, 0, 0, 664, 137, 0, 0, 0, 0, 403, 221, 0, 0, 0, 0, 386, 612, 0, 0, 0, 0, 1020, 639, 0, 0, 0, 0, 675, 759, 0, 0, 0, 0, 222, 762, 0, 0, 0, 0, 86, 585, 0, 0, 0, 0, 87, 341, 0, 0, 0, 0, 82, 131)
+}
+point_count = 11
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olhq2"]
+size = Vector2(38, 38)
+
+[node name="example" type="Node2D" unique_id=870574962]
+
+[node name="PatrolPath" type="Path2D" parent="." unique_id=360409293]
+curve = SubResource("Curve2D_kvoug")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PatrolPath" unique_id=222658046]
+position = Vector2(81, 129)
+rotation = -0.4636476
+
+[node name="Enemy" parent="." unique_id=2011261761 instance=ExtResource("1_d5bxy")]
+position = Vector2(1055, 97)
+
+[node name="Explanation" type="Label" parent="Enemy" unique_id=1038645996]
+visible = false
+offset_left = 18.0
+offset_top = 13.0
+offset_right = 260.0
+offset_bottom = 65.0
+text = "Full 360 vision cone
+with static optimization: will not recalculate vision cone if delta movement < static_threshold. Since the target is not rotating this is useful for performance"
+
+[node name="Explanation2" type="Label" parent="Enemy" unique_id=665483984]
+visible = false
+offset_left = 36.0
+offset_top = 26.0
+offset_right = 1227.0
+offset_bottom = 78.0
+text = "The signal from the vision cone area is connected to the enemy script, which will trigger custom behavior for when the player is visible"
+
+[node name="Enemy2" parent="." unique_id=1607008525 instance=ExtResource("1_d5bxy")]
+position = Vector2(301, 705)
+rotation = -1.5708
+is_rotating = true
+rotation_speed = 1.0
+
+[node name="VisionCone2D" parent="Enemy2" index="1"]
+angle_deg = 45
+ray_count = 50
+max_distance = 700
+recalculate_if_static = true
+
+[node name="Explanation" type="Label" parent="Enemy2" unique_id=652833715]
+visible = false
+offset_left = 18.0
+offset_top = 13.0
+offset_right = 260.0
+offset_bottom = 39.0
+text = "Narrow vision cone (<360 deg)
+The target is rotating so the vision cone has to be recalculated even if the character is static
+Since the vision cone is smaller than the one with 360 vision, we can use less rays and save on performance"
+
+[node name="Enemy3" parent="." unique_id=271574173 node_paths=PackedStringArray("move_on_path") instance=ExtResource("1_d5bxy")]
+position = Vector2(211, 130)
+rotation = -0.482968
+rotation_speed = 1.0
+move_on_path = NodePath("../PatrolPath/PathFollow2D")
+movement_speed = 3.0
+
+[node name="VisionCone2D" parent="Enemy3" index="1"]
+angle_deg = 45
+ray_count = 10
+max_distance = 700
+debug_lines = true
+debug_shape = true
+minimum_recalculate_time_msec = 250
+
+[node name="Explanation" type="Label" parent="Enemy3" unique_id=147136836]
+visible = false
+offset_left = 18.0
+offset_top = 13.0
+offset_right = 260.0
+offset_bottom = 39.0
+text = "This enemy has a vision cone, but it is not rendering it to a polygon 2d as the write_polygon2d is null. It is still being written to a collider so it can act on it. This is useful if you want to use it for AI, but don't want to show the cone to the player. You can still use the debug mode to display an outline while working on it"
+
+[node name="Explanation2" type="Label" parent="Enemy3" unique_id=556514707]
+visible = false
+offset_left = 36.0
+offset_top = 26.0
+offset_right = 2460.0
+offset_bottom = 52.0
+text = "Notice that since this cone is not visualized by the player, the minimum_recalculate_time_msec can be set to a higher value to improve performance, since this can be slightly more approximate than a cone that is visible"
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=473696363]
+position = Vector2(600, 404)
+script = ExtResource("2_bmy6t")
+distance = 500.0
+
+[node name="CharacterRenderer" type="Polygon2D" parent="Player" unique_id=117180811]
+scale = Vector2(2, 2)
+color = Color(0.133333, 0.505882, 0.843137, 1)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="CharacterCollider" type="CollisionShape2D" parent="Player" unique_id=2044807336]
+visible = false
+shape = SubResource("RectangleShape2D_olhq2")
+
+[node name="Level" type="Node2D" parent="." unique_id=205293066]
+
+[node name="Wall" parent="Level" unique_id=175941100 instance=ExtResource("2_1w8mk")]
+position = Vector2(622, 279)
+scale = Vector2(8.88, 1)
+
+[node name="Explanation" type="Label" parent="Level/Wall" unique_id=1955958668]
+visible = false
+offset_left = 18.0
+offset_top = 13.0
+offset_right = 260.0
+offset_bottom = 39.0
+text = "Walls have collision layer 2, and vision cone has collision_layer_mask to include layer 2, so the vision will not pass through them"
+
+[node name="Wall4" parent="Level" unique_id=596641282 instance=ExtResource("2_1w8mk")]
+position = Vector2(768, 133)
+scale = Vector2(1, 2.76)
+
+[node name="Wall3" parent="Level" unique_id=568041088 instance=ExtResource("2_1w8mk")]
+position = Vector2(1147, 279)
+scale = Vector2(8.88, 1)
+
+[node name="Window" parent="Level" unique_id=573457957 instance=ExtResource("2_1w8mk")]
+position = Vector2(885, 279)
+scale = Vector2(4.08, 1)
+collision_layer = 4
+
+[node name="WallRenderer" parent="Level/Window" index="0"]
+color = Color(0.545098, 0.803922, 0.882353, 0.572549)
+
+[node name="Explanation" type="Label" parent="Level/Window" unique_id=1909534838]
+visible = false
+offset_left = 18.0
+offset_top = 13.0
+offset_right = 260.0
+offset_bottom = 39.0
+text = "This acts as a window, as its collision layer is 3, so the vision rays will not collide with it, but characters will not be able to pass through"
+
+[node name="Wall2" parent="Level" unique_id=1783151380 instance=ExtResource("2_1w8mk")]
+position = Vector2(618, 559)
+scale = Vector2(8.88, 1)
+
+[editable path="Enemy"]
+[editable path="Enemy/VisionCone2D"]
+[editable path="Enemy2"]
+[editable path="Enemy2/VisionCone2D"]
+[editable path="Enemy3"]
+[editable path="Enemy3/VisionCone2D"]
+[editable path="Level/Window"]

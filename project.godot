@@ -11,13 +11,36 @@ config_version=5
 [application]
 
 config/name="NoInfoGame"
-run/main_scene="uid://i6fcwca1kki2"
+run/main_scene="uid://dj43mwij5mnb6"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://bxl245j7738ni"
 
 [autoload]
 
 PhantomCameraManager="*uid://duq6jhf6unyis"
+GlobalInformation="*uid://b433wxpps0ux5"
+Dialogic="*uid://ds2q0uclmolvu"
+DialogueManager="*uid://c3rodes2l3gxb"
+
+[dialogic]
+
+directories/dch_directory={
+"Eve": "res://dialogue/Eve.dch",
+"FREDDY D": "res://dialogue/FREDDY D.dch",
+"Will": "res://dialogue/Will.dch",
+"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
+}
+directories/dtl_directory={
+"tutorial": "res://dialogue/tutorial.dtl",
+"tutorial2": "res://dialogue/tutorial2.dtl",
+"tutorial3": "res://dialogue/tutorial3.dtl",
+"verySeriousDialogue": "res://dialogue/verySeriousDialogue.dtl"
+}
+layout/style_directory={}
+glossary/default_case_sensitive=true
+layout/style_list=[]
+layout/default_style="Default"
+variables={}
 
 [editor]
 
@@ -26,13 +49,30 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/gdscript-linter/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/vision_cone_2d/plugin.cfg")
 
 [global_group]
 
 "Spirit Boxes"=""
 "Human Boxes"=""
 Boxes=""
+Doors=""
+"Communal Boxes"=""
+Mirrors=""
+"Spirit Buttons"=""
+"Human Buttons"=""
+"Communal Buttons"=""
+Players=""
+Walls=""
+"Environment Assets"=""
+Enemies=""
+AttackBox=""
+HurtBox=""
+"Mirror Front Side"=""
+"Mirror Back Side"=""
+Music=""
+"Enemy Detection Zone"=""
+UI=""
 
 [input]
 
@@ -91,6 +131,44 @@ ToggleDebuggingWindow={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":true,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":86,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+MenuButton={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":77,"key_label":0,"unicode":109,"location":0,"echo":false,"script":null)
+]
+}
+dialogic_default_action={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":88,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+]
+}
+Refresh={
+"deadzone": 0.2,
+"events": [null, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":74,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+P1Drop={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+P2Drop={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+Submit={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":79,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://YEAH.dialogue")
 
 [layer_names]
 
@@ -106,6 +184,12 @@ ToggleDebuggingWindow={
 2d_physics/layer_5="Doors"
 2d_physics/layer_6="Interactables"
 2d_physics/layer_7="Player 2"
+2d_physics/layer_8="Enemies"
+2d_physics/layer_9="Doors"
+2d_physics/layer_10="EnvironmentAssets"
+2d_physics/layer_11="Hurtbox"
+2d_physics/layer_12="AttackBox"
+2d_physics/layer_13="DetectionZone"
 
 [physics]
 

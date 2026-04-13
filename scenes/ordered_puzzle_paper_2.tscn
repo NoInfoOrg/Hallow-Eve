@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://5ksk0750mv13"]
+
+[ext_resource type="Texture2D" uid="uid://djv6c0bas74lb" path="res://assets/sprites/level objs/paper_32x36.png" id="1_3cwo3"]
+[ext_resource type="Script" uid="uid://c2604o2kh8jc1" path="res://scripts/ordered_puzzle_paper.gd" id="1_rdnri"]
+[ext_resource type="PackedScene" uid="uid://b0n8v85bgliw4" path="res://scenes/ordered_puzzle_clue_2.tscn" id="3_xj8j5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdnri"]
+size = Vector2(32, 36)
+
+[node name="Ordered Puzzle Paper" type="Area2D" unique_id=181645418]
+collision_mask = 65
+script = ExtResource("1_rdnri")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=20454574]
+texture = ExtResource("1_3cwo3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1691232425]
+shape = SubResource("RectangleShape2D_rdnri")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=516281359]
+
+[node name="Ordered Puzzle Clue" parent="CanvasLayer" unique_id=1699087742 instance=ExtResource("3_xj8j5")]
+visible = false
+position = Vector2(574, 326)

@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://b5evgada02h46"]
+
+[ext_resource type="Script" uid="uid://oy2eobmj4y7q" path="res://scripts/locked_door.gd" id="1_42grv"]
+[ext_resource type="Texture2D" uid="uid://c3f4wcd3x2i3o" path="res://assets/tempSprites/closed_door.png" id="1_x4nd7"]
+[ext_resource type="Texture2D" uid="uid://ckuai5tqvbbgu" path="res://assets/tempSprites/open_door.png" id="2_42grv"]
+[ext_resource type="Script" uid="uid://5app73n7stfy" path="res://scripts/door.gd" id="4_mq1x3"]
+[ext_resource type="Texture2D" uid="uid://dnfynyaipi0iu" path="res://assets/sprites/level objs/Wreath_Glow.png" id="5_xwjjf"]
+[ext_resource type="Texture2D" uid="uid://c4qt2hqx5inn2" path="res://assets/sprites/level objs/Wreath_NoGlow.png" id="6_h1126"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mq1x3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x4nd7")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_42grv")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcnc7"]
+size = Vector2(630.6666, 365.94446)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mq1x3"]
+size = Vector2(250, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix3nh"]
+size = Vector2(250, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7f1p3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_xwjjf")
+}],
+"loop": true,
+"name": &"glow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_h1126")
+}],
+"loop": true,
+"name": &"no glow",
+"speed": 5.0
+}]
+
+[node name="LockedDoor" type="StaticBody2D" unique_id=1400186033 groups=["Doors"]]
+z_index = 10
+scale = Vector2(0.9, 0.9)
+collision_layer = 255
+collision_mask = 255
+script = ExtResource("1_42grv")
+
+[node name="Door" type="AnimatedSprite2D" parent="." unique_id=947322032]
+position = Vector2(317.75, 178.00002)
+scale = Vector2(0.56116074, 0.5530303)
+sprite_frames = SubResource("SpriteFrames_mq1x3")
+animation = &"closed"
+script = ExtResource("4_mq1x3")
+
+[node name="Closed Door Collision" type="CollisionShape2D" parent="." unique_id=578145236]
+position = Vector2(318.66666, 178.52779)
+shape = SubResource("RectangleShape2D_jcnc7")
+
+[node name="Opened Door Collision 1" type="CollisionShape2D" parent="." unique_id=1685277572]
+position = Vector2(129, 355.5)
+shape = SubResource("RectangleShape2D_mq1x3")
+
+[node name="Opened Door Collision 2" type="CollisionShape2D" parent="." unique_id=367555214]
+position = Vector2(507, 355.5)
+shape = SubResource("RectangleShape2D_ix3nh")
+
+[node name="Wreath" type="AnimatedSprite2D" parent="." unique_id=886472395]
+z_index = 20
+position = Vector2(317.7778, 85.55556)
+scale = Vector2(0.5587121, 0.55871207)
+sprite_frames = SubResource("SpriteFrames_7f1p3")
+animation = &"no glow"

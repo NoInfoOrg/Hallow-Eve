@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://be30tb6xfn6ju"]
+
+[ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="1_306q6"]
+[ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="2_vestt"]
+[ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="3_2dc0j"]
+[ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="4_krhd7"]
+[ext_resource type="PackedScene" uid="uid://b5evgada02h46" path="res://scenes/locked_door.tscn" id="5_qw3fx"]
+[ext_resource type="PackedScene" uid="uid://c83a2a5ujdc16" path="res://scenes/shapes_paper.tscn" id="6_3p5gt"]
+[ext_resource type="PackedScene" uid="uid://bwd22jx5mssx0" path="res://scenes/black_light_flashlight_item.tscn" id="7_w6a6u"]
+[ext_resource type="Script" uid="uid://d1ehvit7dlsc6" path="res://scenes/hw_checker.gd" id="8_krhd7"]
+[ext_resource type="PackedScene" uid="uid://bfphydknonny6" path="res://scenes/shapes_paper_math.tscn" id="8_vestt"]
+[ext_resource type="PackedScene" uid="uid://dwu4oi2tru041" path="res://scenes/collectibles.tscn" id="9_2dc0j"]
+
+[node name="HW Puzzle Test" type="Node2D" unique_id=770288169]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1259255408]
+
+[node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("1_306q6")]
+position = Vector2(452, 597)
+
+[node name="UI" parent="." unique_id=1522527901 instance=ExtResource("2_vestt")]
+
+[node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("3_2dc0j")]
+position = Vector2(272, 129)
+
+[node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("4_krhd7")]
+position = Vector2(434, 261)
+
+[node name="LockedDoor2" parent="." unique_id=1400186033 node_paths=PackedStringArray("required_key", "connected_buttons", "required_buttons") instance=ExtResource("5_qw3fx")]
+position = Vector2(580, 6)
+required_key = NodePath("../key")
+connected_buttons = [null, null, null, null]
+ordered_buttons_needed = true
+required_buttons = [null, null, null, null]
+
+[node name="Black Light Flashlight Item" parent="." unique_id=603767252 instance=ExtResource("7_w6a6u")]
+z_index = -1
+position = Vector2(787, 469)
+
+[node name="key" parent="." unique_id=1417814454 instance=ExtResource("9_2dc0j")]
+visible = false
+z_index = -1
+position = Vector2(1000.2865, 482.72662)
+monitoring = false
+monitorable = false
+
+[node name="hw_checker" type="Node2D" parent="." unique_id=1631011990 node_paths=PackedStringArray("key")]
+script = ExtResource("8_krhd7")
+key = NodePath("../key")
+
+[node name="Shapes Paper" parent="hw_checker" unique_id=1319041526 instance=ExtResource("6_3p5gt")]
+process_mode = 3
+z_index = -1
+position = Vector2(675, 435)
+type = "shapes"
+answer = "11"
+
+[node name="Math Paper" parent="hw_checker" unique_id=1982101640 instance=ExtResource("8_vestt")]
+process_mode = 3
+z_index = -1
+position = Vector2(281, 468)
+type = "math"
+answer = "0"

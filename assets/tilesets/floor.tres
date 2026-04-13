@@ -1,6 +1,9 @@
 [gd_resource type="TileSet" format=3 uid="uid://dmd1h5se2kp2p"]
 
 [ext_resource type="Texture2D" uid="uid://ej0a0fsqcgv" path="res://assets/tilesets/FloorTile1.png" id="1_5ywps"]
+[ext_resource type="Texture2D" uid="uid://b7nqbwbefuwh7" path="res://assets/tilesets/Floor_Hardwood.png" id="2_pi21k"]
+[ext_resource type="Texture2D" uid="uid://b30ettfheq6y3" path="res://assets/tilesets/Floor_Tile-White.png" id="3_8kw7l"]
+[ext_resource type="Texture2D" uid="uid://dslb57rldxo80" path="res://assets/tilesets/Kitchen_StoneFloor.png" id="4_qw5nu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pi21k"]
 texture = ExtResource("1_5ywps")
@@ -70,8 +73,26 @@ texture_region_size = Vector2i(140, 140)
 6:7/0 = 0
 7:7/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2y0pt"]
+texture = ExtResource("2_pi21k")
+texture_region_size = Vector2i(140, 140)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cdiwc"]
+texture = ExtResource("3_8kw7l")
+texture_region_size = Vector2i(140, 140)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lm8a6"]
+texture = ExtResource("4_qw5nu")
+texture_region_size = Vector2i(140, 140)
+0:0/0 = 0
+
 [resource]
 tile_size = Vector2i(140, 140)
 physics_layer_0/collision_layer = 16777096
 physics_layer_0/collision_mask = 65
 sources/0 = SubResource("TileSetAtlasSource_pi21k")
+sources/1 = SubResource("TileSetAtlasSource_2y0pt")
+sources/2 = SubResource("TileSetAtlasSource_cdiwc")
+sources/3 = SubResource("TileSetAtlasSource_lm8a6")

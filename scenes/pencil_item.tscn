@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://k3afniuq4kul"]
+
+[ext_resource type="Texture2D" uid="uid://d3c2rego5b68m" path="res://assets/items/pencil_52x32.png" id="1_ha2dj"]
+[ext_resource type="Script" uid="uid://cnujf4336mq84" path="res://scripts/collectibles.gd" id="1_nh7fd"]
+[ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="2_8s2gr"]
+
+[sub_resource type="Resource" id="Resource_8s2gr"]
+script = ExtResource("2_8s2gr")
+name = "key"
+texture = ExtResource("1_ha2dj")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ha2dj"]
+radius = 32.75668
+
+[node name="Pencil Item" type="Area2D" unique_id=876747062]
+script = ExtResource("1_nh7fd")
+item_info = SubResource("Resource_8s2gr")
+
+[node name="key" type="Sprite2D" parent="." unique_id=2080579888]
+texture = ExtResource("1_ha2dj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1785011915]
+shape = SubResource("CircleShape2D_ha2dj")

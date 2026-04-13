@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://c2kw81potgo61"]
+
+[ext_resource type="Texture2D" uid="uid://d0poh2bjxx5c8" path="res://assets/sprites/environment/BallroomTable_Decorations.png" id="2_ffecu"]
+[ext_resource type="Texture2D" uid="uid://b8ojl3e1g28ap" path="res://assets/sprites/environment/Ballroom_Chair-Side.png" id="2_ky1t1"]
+[ext_resource type="Texture2D" uid="uid://b40qlyul1c7ot" path="res://assets/sprites/environment/Ballroom_Chair-Front.png" id="3_ffecu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky1t1"]
+size = Vector2(395.0097, 95.48688)
+
+[node name="BallroomTableDecorationsComplete" type="StaticBody2D" unique_id=95508403 groups=["Environment Assets"]]
+y_sort_enabled = true
+collision_layer = 512
+collision_mask = 0
+
+[node name="Table" type="Sprite2D" parent="." unique_id=30522664]
+position = Vector2(-1.608429, -52.69046)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ffecu")
+
+[node name="LChair" type="Sprite2D" parent="." unique_id=813322831]
+position = Vector2(-167.60843, -57.69046)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ky1t1")
+flip_h = true
+
+[node name="FChair" type="Sprite2D" parent="." unique_id=1081252262]
+z_index = -1
+position = Vector2(-0.60842896, -107.69046)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ffecu")
+
+[node name="RChair" type="Sprite2D" parent="." unique_id=1429160918]
+position = Vector2(167.39157, -57.69046)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ky1t1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=57343574]
+shape = SubResource("RectangleShape2D_ky1t1")
+debug_color = Color(0.9800469, 0, 0.38690174, 0.41960785)
