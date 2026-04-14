@@ -19,3 +19,6 @@ func _on_button_down() -> void:
 
 func _on_button_up() -> void:
 	icon = quit_unpressed
+
+func _on_pressed() -> void:
+	get_tree().quit()

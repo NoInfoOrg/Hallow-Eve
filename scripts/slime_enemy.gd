@@ -30,6 +30,33 @@ signal slimeAttack
 @onready var warning_particles: CPUParticles2D = $WarningParticles
 
 
+@export var slimeType: SlimeType:
+	set(value):
+		slimeType = value
+		setup_slime()
+
+enum SlimeType {Gumpy, Squid, Fish}
+		
+var SlimeSprites = {
+	SlimeType.Gumpy: {
+		"sprite": preload("res://assets/sprites/enemy/Slimes_Gumpy.png")
+	},
+	SlimeType.Squid: {
+		"sprite": preload("res://assets/sprites/enemy/Slimes_Squid.png")
+	},
+	SlimeType.Fish: {
+		"sprite": preload("res://assets/sprites/enemy/Slimes_Fish.png")
+	}
+}
+
+func setup_slime():
+	if $SlimeSprite2D != null:
+		var slime = SlimeSprites.get(slimeType)
+		if slime != null:
+			$SlimeSprite2D.texture = slime["sprite"]
+	else:
+		return
+
 func _ready():
 	warning_color(Color.GREEN)
 	attack_cooldown = Timer.new()
