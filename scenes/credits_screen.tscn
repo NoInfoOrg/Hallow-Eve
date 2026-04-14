@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://dsdj2d405t2ee"]
+
+[ext_resource type="Script" uid="uid://cuxe2hbfmlosi" path="res://scripts/credits_screen.gd" id="1_1amdp"]
+[ext_resource type="Texture2D" uid="uid://imtoiw307a8p" path="res://assets/ui elements/settings/Settings_MenuBG.png" id="1_8n838"]
+[ext_resource type="Texture2D" uid="uid://drabb8tugaflm" path="res://assets/ui elements/settings/Settings_Return.png" id="2_wiy8m"]
+[ext_resource type="Script" uid="uid://dhyqa3bocy5m1" path="res://scripts/back_to_menu.gd" id="4_wdjou"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wiy8m"]
+
+[node name="Credits Screen" type="Node2D" unique_id=487184844]
+script = ExtResource("1_1amdp")
+
+[node name="Control" type="Control" parent="." unique_id=283935171]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control" unique_id=1052781062]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 62.0
+offset_right = 1083.0
+offset_bottom = 583.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel" unique_id=1089499450]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -18.0
+offset_right = 1032.0
+offset_bottom = 536.0
+texture = ExtResource("1_8n838")
+expand_mode = 1
+
+[node name="VBoxContainer 1" type="VBoxContainer" parent="Control/Panel" unique_id=1032184701]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 15.0
+offset_right = 974.0
+offset_bottom = 404.0
+
+[node name="Credits Title" type="Label" parent="Control/Panel/VBoxContainer 1" unique_id=8866935]
+layout_mode = 2
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="Spacer 1" type="Label" parent="Control/Panel/VBoxContainer 1" unique_id=1435752475]
+layout_mode = 2
+
+[node name="Credits Text" type="Label" parent="Control/Panel/VBoxContainer 1" unique_id=768789479]
+layout_mode = 2
+text = "We would like to thank Professor Eamon O’Connor for providing us with the opportunity to advise us in the
+development of our game and project.Many of our team members developed this project as their first experience
+in game design and development, and Professor Eamon O’Connor’s guidance on game scope and management
+was invaluable in helping us plan out reasonable goals for our team. In addition, we thank Professor Eamon O’Connor
+for his advice regarding the game’s story, atmosphere, and world-building. His resources relating to story-building and
+puzzle design, and feedback on dialogue and original music composition, greatly elevated the content and complexity
+of our game. Finally, we truly appreciate Professor Eamon O’Connor’s friendly and constructive attitude, which greatly
+contributed to our passion and enjoyment of the project.
+
+In addition, we would like to thank Sera for working with Alyssa Williams to design the game’s background and main menu.
+We would also like to thank @Filwarkafor their posting of free food-related assets, which we used for our game’s
+recipe-guessing puzzle.
+"
+horizontal_alignment = 1
+
+[node name="VBoxContainer 2" type="VBoxContainer" parent="Control/Panel" unique_id=42568824]
+layout_mode = 0
+offset_left = 348.0
+offset_top = 413.0
+offset_right = 658.0
+offset_bottom = 505.0
+
+[node name="Return" type="Button" parent="Control/Panel/VBoxContainer 2" unique_id=1269631629]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wiy8m")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_wiy8m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wiy8m")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_wiy8m")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wiy8m")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_wiy8m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_wiy8m")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_wiy8m")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_wiy8m")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wiy8m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wiy8m")
+icon = ExtResource("2_wiy8m")
+script = ExtResource("4_wdjou")
+
+[connection signal="button_down" from="Control/Panel/VBoxContainer 2/Return" to="Control/Panel/VBoxContainer 2/Return" method="_on_button_down"]
+[connection signal="button_up" from="Control/Panel/VBoxContainer 2/Return" to="Control/Panel/VBoxContainer 2/Return" method="_on_button_up"]
+[connection signal="pressed" from="Control/Panel/VBoxContainer 2/Return" to="Control/Panel/VBoxContainer 2/Return" method="_on_pressed"]

@@ -22,15 +22,21 @@ const MAXIMUM_LINEAR_VOLUME = 1.0
 var current_master_volume_linear = 1.0
 var current_music_volume_linear = 1.0
 
+# Setting State
+var is_in_main_menu: bool = true  # Assuming we start in the main menu
+
 # level change
+enum scenes { MAIN_MENU, LEVEL_1, LEVEL_2, LEVEL_3 }
 var current_scene = "level_1_scene"
 var transition_scene = false
+
+var music_scene = scenes.MAIN_MENU
+var music_scene_duplicate_check = music_scene
 
 var player_exit_level_1_posx = 0
 var player_exit_level_1_posy = 0
 var player_start_posx = 0
 var player_start_posy = 0
-
 
 func _ready():
 	# Start the players out with full health (assuming this will be at the very start of the game)
@@ -41,6 +47,14 @@ func _ready():
 	# Start the game with max volume
 	current_master_volume_linear = 1.0
 	current_music_volume_linear = 1.0
+	
+	# Start playing music!
+	change_music()
+
+func _process(float) -> void:
+	if music_scene != music_scene_duplicate_check:
+		change_music()
+		music_scene_duplicate_check = music_scene
 
 func find_inventory(starting_node):
 	#return find_node(starting_node, "UI/SharedInv/Inventory")
@@ -61,6 +75,9 @@ func find_player_two_sanity(starting_node):
 func find_game_over_screen(starting_node):
 	#return find_node(starting_node, "Game Over Screen")
 	return starting_node.get_tree().root.find_child("Game Over Screen", true, false)
+
+func find_music_node(starting_node):
+	return starting_node.get_tree().root.find_child("Music", true, false)
 
 # maybe defunct
 func find_node(starting_node, node_path):
@@ -266,5 +283,30 @@ func complete_change_scenes():
 			current_scene = "level_3_scene"
 		else:
 			current_scene = "level_1_scene"
-			
+
+func change_music():
+	var main_menu_theme = Music.get_node("Ambient Music/Main Music Halloween Theme")
+	var level_1_theme = Music.get_node("Ambient Music/Level 1 Ambience")
+	var level_2_theme = Music.get_node("Ambient Music/Level 2 Library")
+	var level_3_theme = Music.get_node("Ambient Music/Level 3 Ballroom")
 	
+	# Stop all background music that was previously playing
+	main_menu_theme.stop()
+	level_1_theme.stop()
+	level_2_theme.stop()
+	level_3_theme.stop()
+	
+	if music_scene == scenes.MAIN_MENU:
+		main_menu_theme.play()
+	
+	elif music_scene == scenes.LEVEL_1:
+		level_1_theme.play()
+	
+	elif music_scene == scenes.LEVEL_2:
+		level_2_theme.play()
+	
+	elif music_scene == scenes.LEVEL_3:
+		level_3_theme.play()
+	
+	else:
+		print("change_music() : invalid music scene")
