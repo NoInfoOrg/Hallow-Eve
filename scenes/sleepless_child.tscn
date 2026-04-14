@@ -11,7 +11,10 @@ size = Vector2(348, 38)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_docxh"]
 size = Vector2(102, 66)
 
-[node name="SleeplessChild" type="CharacterBody2D" unique_id=464654720 node_paths=PackedStringArray("visionRenderer") groups=["Enemies"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_q6gtu"]
+radius = 528.37866
+
+[node name="SleeplessChild" type="CharacterBody2D" unique_id=464654720 groups=["Enemies"]]
 scale = Vector2(0.5, 0.5)
 collision_layer = 128
 collision_mask = 989
@@ -46,30 +49,15 @@ polygon = PackedVector2Array(-3.0000153, -151, 269, -151, 269, 204.99998, 205, 2
 position = Vector2(-179, 103)
 shape = SubResource("RectangleShape2D_docxh")
 
-[node name="VisionCone2D" type="Node2D" parent="." unique_id=1561157771 node_paths=PackedStringArray("write_collision_polygon", "write_polygon2d")]
-position = Vector2(154, -88)
-script = ExtResource("3_xnlnb")
-angle_deg = 90
-collision_layer_mask = 266
-write_collision_polygon = NodePath("VisionConeArea/VisionConeCollider")
-write_polygon2d = NodePath("VisionConeRenderer")
-debug_lines = true
-debug_shape = true
-
-[node name="VisionConeRenderer" type="Polygon2D" parent="VisionCone2D" unique_id=420618088]
-color = Color(0.3137255, 1, 1, 0.5921569)
-
-[node name="VisionConeArea" type="Area2D" parent="VisionCone2D" unique_id=1552165199]
-collision_layer = 2048
+[node name="DetectionZone" type="Area2D" parent="." unique_id=442784690 groups=["Enemy Detection Zone"]]
+collision_layer = 4096
 collision_mask = 1024
-monitorable = false
 
-[node name="VisionConeCollider" type="CollisionPolygon2D" parent="VisionCone2D/VisionConeArea" unique_id=95603711]
-
-[node name="DebugDraw" type="Node2D" parent="VisionCone2D" unique_id=1489982671]
-script = ExtResource("4_docxh")
+[node name="DetectCollider" type="CollisionShape2D" parent="DetectionZone" unique_id=669944454]
+position = Vector2(146, -72)
+shape = SubResource("CircleShape2D_q6gtu")
 
 [connection signal="area_entered" from="AttackZone" to="." method="_on_attack_zone_area_entered"]
 [connection signal="area_exited" from="AttackZone" to="." method="_on_attack_zone_area_exited"]
-[connection signal="area_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_area_entered"]
-[connection signal="area_exited" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_area_exited"]
+[connection signal="area_entered" from="DetectionZone" to="." method="_on_detection_zone_area_entered"]
+[connection signal="area_exited" from="DetectionZone" to="." method="_on_detection_zone_area_exited"]
