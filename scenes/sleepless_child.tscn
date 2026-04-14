@@ -9,10 +9,11 @@ size = Vector2(348, 38)
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_q6gtu"]
 points = PackedVector2Array(770, -132, 769, 363, 69, 223, -2, -8)
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ow21u"]
-points = PackedVector2Array(206, 317, 270, 317, 270, -157, -2.0000153, -131, -4, 1, 146, 79.99999)
+[sub_resource type="CircleShape2D" id="CircleShape2D_q6gtu"]
+radius = 528.37866
 
 [node name="SleeplessChild" type="CharacterBody2D" unique_id=464654720 groups=["Enemies"]]
+scale = Vector2(0.5, 0.5)
 collision_layer = 128
 collision_mask = 989
 script = ExtResource("1_q6gtu")
@@ -45,10 +46,23 @@ collision_mask = 1024
 [node name="AttackCollider" type="CollisionShape2D" parent="AttackZone" unique_id=75791294]
 position = Vector2(77, -133)
 rotation = 1.5707964
-shape = SubResource("ConvexPolygonShape2D_ow21u")
-debug_color = Color(0.24520513, 0.5061181, 1, 0.41960785)
+polygon = PackedVector2Array(-3.0000153, -151, 269, -151, 269, 204.99998, 205, 205, 203, 157, 97, 4.9999924, -3, 5)
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="AttackZone" unique_id=483462692]
+position = Vector2(-179, 103)
+shape = SubResource("RectangleShape2D_docxh")
+
+[node name="DetectionZone" type="Area2D" parent="." unique_id=442784690 groups=["Enemy Detection Zone"]]
+collision_layer = 4096
+collision_mask = 1024
+
+[node name="DetectCollider" type="CollisionShape2D" parent="DetectionZone" unique_id=669944454]
+position = Vector2(146, -72)
+shape = SubResource("CircleShape2D_q6gtu")
 
 [connection signal="area_entered" from="DetectionZone" to="." method="_on_detection_zone_area_entered"]
 [connection signal="area_exited" from="DetectionZone" to="." method="_on_detection_zone_area_exited"]
 [connection signal="area_entered" from="AttackZone" to="." method="_on_attack_zone_area_entered"]
 [connection signal="area_exited" from="AttackZone" to="." method="_on_attack_zone_area_exited"]
+[connection signal="area_entered" from="DetectionZone" to="." method="_on_detection_zone_area_entered"]
+[connection signal="area_exited" from="DetectionZone" to="." method="_on_detection_zone_area_exited"]
