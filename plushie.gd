@@ -24,7 +24,7 @@ var plushieAttributes = {
 		"sprite": preload("res://assets/sprites/enemy/Plushies_Rocco.png"),
 		"normalSpeed": 100,
 		"secondarySpeed": 125,
-		"damage": 0.25
+		"damage": 1
 	},
 	PlushieType.Cat: {
 		"sprite": preload("res://assets/sprites/enemy/Plushies_Cat.png"),
@@ -48,7 +48,7 @@ var plushieAttributes = {
 		"sprite": preload("res://assets/sprites/enemy/Plushies_Rocco.png"),
 		"normalSpeed": 140,
 		"secondarySpeed": 160,
-		"damage": 0.1
+		"damage": 0.5
 	}
 }
 

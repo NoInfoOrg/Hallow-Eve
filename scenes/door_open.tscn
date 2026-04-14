@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://blc2wqvr525qk"]
 
 [ext_resource type="Script" uid="uid://oy2eobmj4y7q" path="res://scripts/locked_door.gd" id="1_2ibvm"]
-[ext_resource type="TileSet" uid="uid://dlg0m12qthrcs" path="res://assets/tilesets/wallsnc.tres" id="2_2ibvm"]
+[ext_resource type="TileSet" uid="uid://b6l5c1kfdkpev" path="res://assets/tilesets/wallsnc.tres" id="2_2ibvm"]
 [ext_resource type="Texture2D" uid="uid://dnfynyaipi0iu" path="res://assets/sprites/level objs/Wreath_Glow.png" id="2_nfgqb"]
 [ext_resource type="Texture2D" uid="uid://c4qt2hqx5inn2" path="res://assets/sprites/level objs/Wreath_NoGlow.png" id="3_2ibvm"]
 [ext_resource type="Texture2D" uid="uid://csrx52yl3r00i" path="res://assets/tilesets/WallFrontDoor-Open_1.png" id="5_wel5i"]

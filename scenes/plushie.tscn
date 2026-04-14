@@ -22,7 +22,6 @@ metadata/_edit_horizontal_guides_ = [-52.0]
 metadata/_edit_vertical_guides_ = [31.0]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1101815876]
-debug_enabled = true
 
 [node name="EnemyCollider" type="CollisionShape2D" parent="." unique_id=1207424113]
 position = Vector2(-0.5, 55)
@@ -32,7 +31,7 @@ debug_color = Color(0.9966505, 0, 0.19243264, 0.41960785)
 [node name="EnemySprite" type="Sprite2D" parent="." unique_id=995474584]
 texture = ExtResource("2_2usf5")
 
-[node name="DetectionZone" type="Area2D" parent="." unique_id=1780083783]
+[node name="DetectionZone" type="Area2D" parent="." unique_id=1780083783 groups=["Enemy Detection Zone"]]
 collision_layer = 4096
 collision_mask = 1024
 

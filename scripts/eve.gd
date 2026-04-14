@@ -41,5 +41,3 @@ func drop():
 			dropped.z_index = -5
 			dropped.global_position = global_position + Vector2(0,40)
 			get_parent().add_child(dropped)
-		
-		

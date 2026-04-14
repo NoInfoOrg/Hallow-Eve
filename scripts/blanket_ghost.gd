@@ -197,3 +197,11 @@ func _on_idle_action_timer_timeout():
 func reset_idle_variables():
 	previous_idle_movement = "stop"
 	previous_velocity = Vector2(0, 0)
+
+
+func _on_detection_zone_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_detection_zone_area_exited(area: Area2D) -> void:
+	pass # Replace with function body.
