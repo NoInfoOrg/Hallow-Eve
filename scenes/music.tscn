@@ -2,6 +2,9 @@
 
 [ext_resource type="AudioStream" uid="uid://jfhmjtbgni3v" path="res://music/Halloween_Type_Beat.wav" id="1_05ggv"]
 [ext_resource type="AudioStream" uid="uid://bwhb2ox30cpdq" path="res://music/test_hur_hur_hur.wav" id="2_ibx2e"]
+[ext_resource type="AudioStream" uid="uid://b5sgtvw1lo2eu" path="res://music/Level_1_Ambience.wav" id="3_ejojg"]
+[ext_resource type="AudioStream" uid="uid://774ld2li7twf" path="res://music/Library_Type_Beat.wav" id="4_wia2r"]
+[ext_resource type="AudioStream" uid="uid://dvmx66cxnsjkt" path="res://music/Ballin_in_Da_Ballroom.wav" id="5_wia2r"]
 
 [node name="Music" type="Node2D" unique_id=371888300]
 
@@ -12,5 +15,14 @@ stream = ExtResource("1_05ggv")
 
 [node name="Test Hur Hur Hur" type="AudioStreamPlayer" parent="Ambient Music" unique_id=1609378156 groups=["Music"]]
 stream = ExtResource("2_ibx2e")
+
+[node name="Level 1 Ambience" type="AudioStreamPlayer" parent="Ambient Music" unique_id=624045418 groups=["Music"]]
+stream = ExtResource("3_ejojg")
+
+[node name="Level 2 Library" type="AudioStreamPlayer" parent="Ambient Music" unique_id=1828299279 groups=["Music"]]
+stream = ExtResource("4_wia2r")
+
+[node name="Level 3 Ballroom" type="AudioStreamPlayer" parent="Ambient Music" unique_id=731589227 groups=["Music"]]
+stream = ExtResource("5_wia2r")
 
 [node name="Sound Effects" type="Node2D" parent="." unique_id=1716875863]

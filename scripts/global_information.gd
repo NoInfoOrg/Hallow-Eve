@@ -285,16 +285,16 @@ func complete_change_scenes():
 			current_scene = "level_1_scene"
 
 func change_music():
-	#var music_node = find_music_node(self)
-	#
-	#var main_menu_theme = music_node.get_node("Ambient Music/Main Music Halloween Theme")
-	#var level_1_theme = music_node.get_node("Ambient Music/Test Hur Hur Hur")
 	var main_menu_theme = Music.get_node("Ambient Music/Main Music Halloween Theme")
-	var level_1_theme = Music.get_node("Ambient Music/Test Hur Hur Hur")
+	var level_1_theme = Music.get_node("Ambient Music/Level 1 Ambience")
+	var level_2_theme = Music.get_node("Ambient Music/Level 2 Library")
+	var level_3_theme = Music.get_node("Ambient Music/Level 3 Ballroom")
 	
 	# Stop all background music that was previously playing
 	main_menu_theme.stop()
 	level_1_theme.stop()
+	level_2_theme.stop()
+	level_3_theme.stop()
 	
 	if music_scene == scenes.MAIN_MENU:
 		main_menu_theme.play()
@@ -303,11 +303,10 @@ func change_music():
 		level_1_theme.play()
 	
 	elif music_scene == scenes.LEVEL_2:
-		pass
+		level_2_theme.play()
 	
 	elif music_scene == scenes.LEVEL_3:
-		pass
+		level_3_theme.play()
 	
 	else:
 		print("change_music() : invalid music scene")
-	
