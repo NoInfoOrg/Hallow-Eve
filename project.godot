@@ -24,18 +24,8 @@ DialogueManager="*uid://c3rodes2l3gxb"
 
 [dialogic]
 
-directories/dch_directory={
-"Eve": "res://dialogue/Eve.dch",
-"FREDDY D": "res://dialogue/FREDDY D.dch",
-"Will": "res://dialogue/Will.dch",
-"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
-}
-directories/dtl_directory={
-"tutorial": "res://dialogue/tutorial.dtl",
-"tutorial2": "res://dialogue/tutorial2.dtl",
-"tutorial3": "res://dialogue/tutorial3.dtl",
-"verySeriousDialogue": "res://dialogue/verySeriousDialogue.dtl"
-}
+directories/dch_directory={}
+directories/dtl_directory={}
 layout/style_directory={}
 glossary/default_case_sensitive=true
 layout/style_list=[]

@@ -1,11 +1,28 @@
 [gd_scene format=3 uid="uid://w6s64ylvwlya"]
 
 [ext_resource type="Script" uid="uid://pv6eoafrval0" path="res://scripts/eve.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://c3yp04fpvc4tm" path="res://assets/sprites/p1/Eve_FullHealth_SpriteSheet.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://bfl6vednvl8bh" path="res://assets/spritesheets/p1/Eve_FullHealth_SpriteSheet.png" id="2_g2els"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
 radius = 7.7961845
 height = 48.56122
+
+[sub_resource type="Animation" id="Animation_y4r1p"]
+resource_name = "Eve_Damage_FullTo2-3"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1333, 0.2666, 0.3999, 0.5332, 0.80009997, 0.9334, 1.0667, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [90, 91, 92, 93, 94, 95, 96, 95, 96]
+}
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 resource_name = "Eve_Idle_A"
@@ -67,6 +84,72 @@ tracks/0/keys = {
 "values": [2]
 }
 
+[sub_resource type="Animation" id="Animation_3v2ag"]
+resource_name = "Eve_PickUp-PutDown_A"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1333, 0.2666, 0.3999, 0.5332, 0.6665),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [64, 63, 62, 61, 63, 64]
+}
+
+[sub_resource type="Animation" id="Animation_jej6c"]
+resource_name = "Eve_PickUp-PutDown_D"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1333, 0.2666, 0.3999, 0.5332, 0.6665),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [50, 51, 52, 53, 54, 50]
+}
+
+[sub_resource type="Animation" id="Animation_f1ej7"]
+resource_name = "Eve_Push_A"
+length = 1.4663
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2666, 0.5332, 0.7998, 1.0664, 1.33),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [85, 84, 83, 82, 81, 83]
+}
+
+[sub_resource type="Animation" id="Animation_oprun"]
+resource_name = "Eve_Push_D"
+length = 1.4663
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2666, 0.5332, 0.7998, 1.0664, 1.33),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [70, 71, 72, 73, 74, 72]
+}
+
 [sub_resource type="Animation" id="Animation_g2els"]
 resource_name = "Eve_Walk_A"
 loop_mode = 1
@@ -96,7 +179,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [20, 21, 22, 23]
+"values": [20, 21, 20, 23]
 }
 
 [sub_resource type="Animation" id="Animation_tuyoq"]
@@ -148,10 +231,15 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3v2ag"]
 _data = {
+&"Eve_Damage_FullTo2-3": SubResource("Animation_y4r1p"),
 &"Eve_Idle_A": SubResource("Animation_qhqgy"),
 &"Eve_Idle_D": SubResource("Animation_qlg0r"),
 &"Eve_Idle_S": SubResource("Animation_fjrip"),
 &"Eve_Idle_W": SubResource("Animation_ur7pv"),
+&"Eve_PickUp-PutDown_A": SubResource("Animation_3v2ag"),
+&"Eve_PickUp-PutDown_D": SubResource("Animation_jej6c"),
+&"Eve_Push_A": SubResource("Animation_f1ej7"),
+&"Eve_Push_D": SubResource("Animation_oprun"),
 &"Eve_Walk_A": SubResource("Animation_g2els"),
 &"Eve_Walk_D": SubResource("Animation_dqkch"),
 &"Eve_Walk_S": SubResource("Animation_tuyoq"),
