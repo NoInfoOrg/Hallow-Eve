@@ -12,6 +12,5 @@ stream = ExtResource("1_05ggv")
 
 [node name="Test Hur Hur Hur" type="AudioStreamPlayer" parent="Ambient Music" unique_id=1609378156 groups=["Music"]]
 stream = ExtResource("2_ibx2e")
-autoplay = true
 
 [node name="Sound Effects" type="Node2D" parent="." unique_id=1716875863]

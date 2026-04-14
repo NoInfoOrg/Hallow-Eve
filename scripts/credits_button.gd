@@ -9,4 +9,4 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_pressed() -> void:
-	print("show credits")
+	get_tree().change_scene_to_file("res://scenes/credits_screen.tscn")
