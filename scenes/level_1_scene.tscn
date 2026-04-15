@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://bbeeo2dju1t1q" path="res://assets/items/Key_3.png" id="23_yi50i"]
 [ext_resource type="Texture2D" uid="uid://cmrn0d061ae6a" path="res://assets/sprites/environment/StairsDown1.png" id="24_ock1t"]
 [ext_resource type="Texture2D" uid="uid://dbs1ylnq8rd2y" path="res://assets/items/Key_1.png" id="25_80dtq"]
-[ext_resource type="Script" path="res://scenes/hw_checker.gd" id="25_pqgcp"]
+[ext_resource type="Script" uid="uid://d1ehvit7dlsc6" path="res://scenes/hw_checker.gd" id="25_pqgcp"]
 [ext_resource type="PackedScene" uid="uid://bfphydknonny6" path="res://scenes/shapes_paper_math.tscn" id="27_btg6x"]
 [ext_resource type="PackedScene" uid="uid://ul5aitvagahn" path="res://scenes/blockade_fairy_lights.tscn" id="29_yi50i"]
 
@@ -125,8 +125,8 @@ physics_interpolation_mode = 1
 top_level = true
 visibility_layer = 65
 z_index = 10
-position = Vector2(1160.3942, 2596.1826)
-zoom = Vector2(1.25, 1.25)
+position = Vector2(146, 195)
+zoom = Vector2(1.2025052, 1.2025052)
 process_callback = 0
 editor_draw_limits = true
 script = ExtResource("1_lg53w")
@@ -140,12 +140,12 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="Camera Setup" unique_id=1630467949 node_paths=PackedStringArray("follow_targets")]
 top_level = true
-position = Vector2(1160.3942, 2596.1826)
+position = Vector2(146, 195)
 script = ExtResource("2_ihv73")
 priority = 10
 follow_mode = 3
 follow_targets = [NodePath("../../Objects/MovementCont/Eve - P1"), NodePath("../../Objects/MovementCont/Willow - P2")]
-zoom = Vector2(1.25, 1.25)
+zoom = Vector2(1.2025052, 1.2025052)
 tween_resource = SubResource("Resource_d0nkq")
 host_layers = 65
 follow_damping = true
@@ -174,12 +174,12 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="Eve - P1" parent="Objects/MovementCont" unique_id=810202292 instance=ExtResource("1_ihv73")]
-position = Vector2(1213.1531, 2591.2163)
+position = Vector2(67, 188)
 collision_mask = 4294967098
 slide_on_ceiling = false
 
 [node name="Willow - P2" parent="Objects/MovementCont" unique_id=882182450 instance=ExtResource("2_d0nkq")]
-position = Vector2(1107.6353, 2601.149)
+position = Vector2(225, 202)
 collision_mask = 4294967098
 slide_on_ceiling = false
 
@@ -255,7 +255,7 @@ pathFollow = NodePath("..")
 [node name="Slimes" type="Node2D" parent="Objects/Enemies" unique_id=1813023894]
 
 [node name="Slime5" parent="Objects/Enemies/Slimes" unique_id=2138321505 instance=ExtResource("15_btg6x")]
-position = Vector2(1062.8751, -2371.7024)
+position = Vector2(925.1998, -2371.7024)
 
 [node name="Slime" parent="Objects/Enemies/Slimes" unique_id=703542134 instance=ExtResource("15_btg6x")]
 position = Vector2(-939.1842, 844.4946)
