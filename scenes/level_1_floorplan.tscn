@@ -4,7 +4,6 @@
 [ext_resource type="TileSet" uid="uid://ch1a3evpneqaq" path="res://assets/tilesets/walls.tres" id="2_24pm6"]
 [ext_resource type="TileSet" uid="uid://dt13bvgr5foh4" path="res://assets/tilesets/side_walls.tres" id="3_4ie26"]
 [ext_resource type="Texture2D" uid="uid://dpcpq1vlrmhra" path="res://assets/tempSprites/level1_draft.png" id="4_24pm6"]
-[ext_resource type="PackedScene" uid="uid://dg86lxs3bnidw" path="res://scenes/staircase_level_change.tscn" id="5_xslk7"]
 
 [node name="Level 1 Floorplan" type="Node2D" unique_id=1850241566]
 
@@ -33,6 +32,3 @@ visible = false
 position = Vector2(720.99994, 2534)
 scale = Vector2(6.251098, 8.051359)
 texture = ExtResource("4_24pm6")
-
-[node name="Staircase" parent="." unique_id=1468325190 instance=ExtResource("5_xslk7")]
-position = Vector2(1534, 2932)

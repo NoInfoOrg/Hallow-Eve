@@ -5,20 +5,6 @@
 [ext_resource type="TileSet" uid="uid://dt13bvgr5foh4" path="res://assets/tilesets/side_walls.tres" id="3_7th5v"]
 [ext_resource type="Texture2D" uid="uid://62l8q6jm5xpm" path="res://assets/tempSprites/level2_draft.png" id="4_7th5v"]
 [ext_resource type="TileSet" uid="uid://c1vwn8b2j8jl8" path="res://assets/tilesets/windows.tres" id="4_13jjb"]
-[ext_resource type="Texture2D" uid="uid://cmrn0d061ae6a" path="res://assets/sprites/environment/StairsDown1.png" id="6_i6y0n"]
-[ext_resource type="Texture2D" uid="uid://cao84hnsuu6sw" path="res://assets/sprites/environment/StairsSide.png" id="7_15uji"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypj1p"]
-size = Vector2(578, 144)
-
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_q0m2s"]
-points = PackedVector2Array(206, -122, -408, -122, -408, 134, -374, 134, -374, -10, 206, -10)
-
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_q1s1w"]
-points = PackedVector2Array(-164, -282, 536, -780, 536, -242, -164, -244)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5h150"]
-size = Vector2(228, 218)
 
 [node name="Level 2 Floorplan" type="Node2D" unique_id=786862080]
 position = Vector2(392, 266)
@@ -54,45 +40,3 @@ z_index = -1
 position = Vector2(-1629, -1640.0001)
 scale = Vector2(7.7675047, 8.243478)
 texture = ExtResource("4_7th5v")
-
-[node name="Staircase" type="Node2D" parent="." unique_id=1298400569]
-position = Vector2(484, 290)
-scale = Vector2(0.5, 0.5)
-
-[node name="StairsDown1" type="Sprite2D" parent="Staircase" unique_id=1394499674]
-z_index = 6
-position = Vector2(42, 124)
-texture = ExtResource("6_i6y0n")
-
-[node name="LevelDownZone" type="Area2D" parent="Staircase/StairsDown1" unique_id=46068]
-
-[node name="LevelDownCollider" type="CollisionShape2D" parent="Staircase/StairsDown1/LevelDownZone" unique_id=943767955]
-position = Vector2(-63, 62)
-shape = SubResource("RectangleShape2D_ypj1p")
-
-[node name="CantWalkZone" type="Area2D" parent="Staircase/StairsDown1" unique_id=486206464]
-collision_layer = 2
-collision_mask = 65
-
-[node name="CantWalkCollider" type="CollisionShape2D" parent="Staircase/StairsDown1/CantWalkZone" unique_id=1277710841]
-position = Vector2(22, 0)
-shape = SubResource("ConvexPolygonShape2D_q0m2s")
-
-[node name="StairsSide" type="Sprite2D" parent="Staircase" unique_id=1353212452]
-z_index = 5
-position = Vector2(42, -712)
-texture = ExtResource("7_15uji")
-
-[node name="WalkUpZone" type="Area2D" parent="Staircase/StairsSide" unique_id=1195831312]
-position = Vector2(-42, 712)
-collision_layer = 2
-collision_mask = 65
-
-[node name="WalkCollider" type="CollisionShape2D" parent="Staircase/StairsSide/WalkUpZone" unique_id=787709990]
-shape = SubResource("ConvexPolygonShape2D_q1s1w")
-
-[node name="LevelUpZone" type="Area2D" parent="Staircase/StairsSide" unique_id=1179981446]
-
-[node name="LevelUpCollider" type="CollisionShape2D" parent="Staircase/StairsSide/LevelUpZone" unique_id=866604129]
-position = Vector2(376, -175)
-shape = SubResource("RectangleShape2D_5h150")

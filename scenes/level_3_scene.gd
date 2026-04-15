@@ -11,7 +11,7 @@ func _process(delta):
 	change_scenes()
 
 
-func _on_level_down_zone_body_entered(body: Node2D) -> void:
+func _on_level_up_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Players"):
 		GlobalInformation.transition_scene = true
 		players_in_zone.append(body)
@@ -19,13 +19,13 @@ func _on_level_down_zone_body_entered(body: Node2D) -> void:
 		print(GlobalInformation.current_scene)
 
 
-func _on_level_down_zone_body_exited(body: Node2D) -> void:
+func _on_level_up_zone_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if body.is_in_group("Players"):
 		GlobalInformation.transition_scene = false
 		players_in_zone.erase(body)
 
 func change_scenes():
 	if GlobalInformation.transition_scene == true:
-		if GlobalInformation.current_scene == "level_2_scene" and len(players_in_zone) == 2:
+		if GlobalInformation.current_scene == "level_3_scene" and len(players_in_zone) == 2:
 			GlobalInformation.complete_change_scenes()
-			get_tree().change_scene_to_file("res://scenes/level_3_scene.tscn")
+			get_tree().change_scene_to_file("res://scenes/level_1_scene.tscn")

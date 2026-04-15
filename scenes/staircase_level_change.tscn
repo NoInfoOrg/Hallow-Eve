@@ -21,6 +21,7 @@ position = Vector2(42, 124)
 texture = ExtResource("1_3n77e")
 
 [node name="LevelDownZone" type="Area2D" parent="StairsDown1" unique_id=1600476806]
+collision_mask = 65
 
 [node name="LevelDownCollider" type="CollisionShape2D" parent="StairsDown1/LevelDownZone" unique_id=1278575654]
 position = Vector2(-63, 62)
@@ -51,5 +52,5 @@ polygon = PackedVector2Array(702, 4, 702, -518, 0, 4)
 [node name="LevelUpZone" type="Area2D" parent="StairsSide" unique_id=395668076]
 
 [node name="LevelUpCollider" type="CollisionShape2D" parent="StairsSide/LevelUpZone" unique_id=2000425453]
-position = Vector2(376, -175)
+position = Vector2(-100, 360)
 shape = SubResource("RectangleShape2D_or3vb")

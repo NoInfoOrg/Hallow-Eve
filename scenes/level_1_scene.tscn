@@ -16,11 +16,12 @@
 [ext_resource type="Script" uid="uid://bciptxwus7cg" path="res://scripts/asset.gd" id="12_us6j8"]
 [ext_resource type="PackedScene" uid="uid://bwd22jx5mssx0" path="res://scenes/black_light_flashlight_item.tscn" id="13_xb17u"]
 [ext_resource type="PackedScene" uid="uid://dwu4oi2tru041" path="res://scenes/collectibles.tscn" id="17_tqr37"]
-[ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="19_4ymq3"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="19_4ymq3"]
 [ext_resource type="Texture2D" uid="uid://butu7b2wedoks" path="res://assets/tempSprites/freddy_fazbear_shocked.png" id="19_e5gav"]
 [ext_resource type="PackedScene" uid="uid://cyta5c5pqluy8" path="res://scenes/blanket_ghost.tscn" id="20_e5gav"]
 [ext_resource type="PackedScene" uid="uid://blc2wqvr525qk" path="res://scenes/door_open.tscn" id="21_5yyo0"]
 [ext_resource type="PackedScene" uid="uid://dmmvcuxa7eajm" path="res://scenes/music.tscn" id="22_b322n"]
+[ext_resource type="Texture2D" uid="uid://cmrn0d061ae6a" path="res://assets/sprites/environment/StairsDown1.png" id="24_ock1t"]
 [ext_resource type="Script" uid="uid://d1ehvit7dlsc6" path="res://scenes/hw_checker.gd" id="25_pqgcp"]
 [ext_resource type="PackedScene" uid="uid://bfphydknonny6" path="res://scenes/shapes_paper_math.tscn" id="27_btg6x"]
 
@@ -43,6 +44,12 @@ metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
 script = ExtResource("19_4ymq3")
 texture = ExtResource("19_e5gav")
 metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pt62h"]
+size = Vector2(578, 144)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_pt62h"]
+points = PackedVector2Array(206, -122, -408, -122, -408, 134, -374, 134, -374, -10, 206, -10)
 
 [node name="Level 1 Scene" type="Node2D" unique_id=733240442]
 script = ExtResource("1_5rr05")
@@ -620,3 +627,34 @@ type = "math"
 answer = "0"
 
 [node name="Music" parent="." unique_id=371888300 instance=ExtResource("22_b322n")]
+
+[node name="Transition Points" type="Node2D" parent="." unique_id=1218422310]
+position = Vector2(-442, -162)
+
+[node name="Staircase" type="Node2D" parent="Transition Points" unique_id=1468325190]
+z_index = -2
+position = Vector2(1535, 2934)
+scale = Vector2(0.5, 0.5)
+
+[node name="StairsDown1" type="Sprite2D" parent="Transition Points/Staircase" unique_id=1306560291]
+z_index = 6
+position = Vector2(42, 124)
+texture = ExtResource("24_ock1t")
+
+[node name="LevelDownZone" type="Area2D" parent="Transition Points/Staircase/StairsDown1" unique_id=1600476806]
+collision_mask = 65
+
+[node name="LevelDownCollider" type="CollisionShape2D" parent="Transition Points/Staircase/StairsDown1/LevelDownZone" unique_id=1278575654]
+position = Vector2(-63, 62)
+shape = SubResource("RectangleShape2D_pt62h")
+
+[node name="CantWalkZone" type="Area2D" parent="Transition Points/Staircase/StairsDown1" unique_id=1459508581]
+collision_layer = 2
+collision_mask = 65
+
+[node name="CantWalkCollider" type="CollisionShape2D" parent="Transition Points/Staircase/StairsDown1/CantWalkZone" unique_id=2122798709]
+position = Vector2(22, 0)
+shape = SubResource("ConvexPolygonShape2D_pt62h")
+
+[connection signal="body_entered" from="Transition Points/Staircase/StairsDown1/LevelDownZone" to="." method="_on_level_down_zone_body_entered"]
+[connection signal="body_exited" from="Transition Points/Staircase/StairsDown1/LevelDownZone" to="." method="_on_level_down_zone_body_exited"]
