@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cdb5iv2ftog18"]
 
-[ext_resource type="Script" uid="uid://c6kun7cx01rv2" path="res://scripts/level_2_scene.gd" id="1_76qun"]
-[ext_resource type="PackedScene" uid="uid://dr5tr08n1qkmp" path="res://scenes/level_2_floorplan.tscn" id="1_dhe5w"]
+[ext_resource type="Script" uid="uid://c6kun7cx01rv2" path="res://scripts/level_3_scene.gd" id="1_76qun"]
+[ext_resource type="PackedScene" uid="uid://dr5tr08n1qkmp" path="res://scenes/level_3_floorplan.tscn" id="1_dhe5w"]
 [ext_resource type="Script" uid="uid://cvy8perii5g6s" path="res://scripts/camera_2d.gd" id="1_l75xx"]
 [ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="1_st00f"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_w3v4c"]
@@ -79,10 +79,12 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="Eve - P1" parent="Objects/MovementCont" unique_id=810202292 instance=ExtResource("4_k5nr0")]
+z_index = 10
 position = Vector2(-404.59015, -1078.5388)
 collision_mask = 958
 
 [node name="Willow - P2" parent="Objects/MovementCont" unique_id=882182450 instance=ExtResource("5_st00f")]
+z_index = 10
 position = Vector2(-659.10315, -1052.8926)
 collision_mask = 958
 

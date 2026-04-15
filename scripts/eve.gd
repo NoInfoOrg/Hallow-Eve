@@ -20,6 +20,7 @@ func _ready():
 	take_damage = "Eve_Damage_FullTo2-3"
 	push_left = "Eve_Push_A"
 	push_right = "Eve_Push_D"
+	open = "P1Grab"
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("P1Drop"):
