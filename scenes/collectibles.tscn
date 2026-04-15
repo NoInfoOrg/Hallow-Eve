@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cnujf4336mq84" path="res://scripts/collectibles.gd" id="1_rms2y"]
 [ext_resource type="Texture2D" uid="uid://butu7b2wedoks" path="res://assets/tempSprites/freddy_fazbear_shocked.png" id="2_baflr"]
 [ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="2_nfnll"]
+[ext_resource type="Texture2D" uid="uid://bbeeo2dju1t1q" path="res://assets/items/Key_3.png" id="4_nfnll"]
 
 [sub_resource type="Resource" id="Resource_paja6"]
 script = ExtResource("2_nfnll")
@@ -19,8 +20,7 @@ script = ExtResource("1_rms2y")
 item_info = SubResource("Resource_paja6")
 
 [node name="key" type="Sprite2D" parent="." unique_id=421251763]
-scale = Vector2(0.25975358, 0.28284183)
-texture = ExtResource("2_baflr")
+texture = ExtResource("4_nfnll")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=745278897]
 shape = SubResource("CircleShape2D_rcoyj")

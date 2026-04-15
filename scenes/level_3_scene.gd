@@ -15,7 +15,6 @@ func _on_level_up_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Players"):
 		GlobalInformation.transition_scene = true
 		players_in_zone.append(body)
-		print("enter the zone")
 		print(GlobalInformation.current_scene)
 
 

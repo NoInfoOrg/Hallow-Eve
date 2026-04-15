@@ -256,7 +256,7 @@ radius = 323.7143
 
 [node name="Eve - P1" type="CharacterBody2D" unique_id=810202292 groups=["Players"]]
 y_sort_enabled = true
-collision_mask = 954
+collision_mask = 826
 script = ExtResource("1_g2els")
 
 [node name="FeetCollider" type="CollisionShape2D" parent="." unique_id=2061515730]

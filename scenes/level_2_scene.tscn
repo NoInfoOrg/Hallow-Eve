@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cdb5iv2ftog18"]
 
 [ext_resource type="Script" uid="uid://c6kun7cx01rv2" path="res://scripts/level_3_scene.gd" id="1_76qun"]
-[ext_resource type="PackedScene" uid="uid://dr5tr08n1qkmp" path="res://scenes/level_3_floorplan.tscn" id="1_dhe5w"]
 [ext_resource type="Script" uid="uid://cvy8perii5g6s" path="res://scripts/camera_2d.gd" id="1_l75xx"]
 [ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="1_st00f"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_w3v4c"]
@@ -10,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="4_k5nr0"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="5_st00f"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="7_76qun"]
+[ext_resource type="PackedScene" uid="uid://dr5tr08n1qkmp" path="res://scenes/level_2_floorplan.tscn" id="8_edtfm"]
 [ext_resource type="PackedScene" uid="uid://b5evgada02h46" path="res://scenes/locked_door.tscn" id="9_bh3am"]
-[ext_resource type="Script" uid="uid://bciptxwus7cg" path="res://scripts/asset.gd" id="10_k5nr0"]
+[ext_resource type="Script" uid="uid://c6ufm81rtdraj" path="res://scripts/asset.gd" id="10_k5nr0"]
 [ext_resource type="PackedScene" uid="uid://dg86lxs3bnidw" path="res://scenes/staircase_level_change.tscn" id="13_edtfm"]
 
 [sub_resource type="Resource" id="Resource_w3v4c"]
@@ -37,7 +37,7 @@ physics_interpolation_mode = 1
 top_level = true
 visibility_layer = 65
 z_index = 10
-position = Vector2(-531.8467, -1065.7157)
+position = Vector2(-263.05338, -867.4542)
 zoom = Vector2(1.25, 1.25)
 process_callback = 0
 editor_draw_limits = true
@@ -52,7 +52,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="Camera Setup" unique_id=1288342988 node_paths=PackedStringArray("follow_targets")]
 top_level = true
-position = Vector2(-531.8467, -1065.7157)
+position = Vector2(-263.05338, -867.4542)
 script = ExtResource("2_l75xx")
 priority = 10
 follow_mode = 3
@@ -70,11 +70,11 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Map" type="Node2D" parent="." unique_id=1099213946]
 
-[node name="Level 2 Floorplan" parent="Map" unique_id=786862080 instance=ExtResource("1_dhe5w")]
-position = Vector2(133, 67)
+[node name="Level 2 Floorplan2" parent="Map" unique_id=786862080 instance=ExtResource("8_edtfm")]
 
 [node name="Objects" type="Node2D" parent="." unique_id=1070840412]
 y_sort_enabled = true
+position = Vector2(268.79327, 198.26144)
 
 [node name="MovementCont" type="Node2D" parent="Objects" unique_id=498758129]
 y_sort_enabled = true
@@ -349,7 +349,7 @@ position = Vector2(-2637, -2906)
 [node name="Transition Points" type="Node2D" parent="." unique_id=1582563579]
 
 [node name="Staircase" parent="Transition Points" unique_id=1468325190 instance=ExtResource("13_edtfm")]
-position = Vector2(618, 359)
+position = Vector2(876.3025, 556.2102)
 
 [node name="LevelUpZone" parent="Transition Points/Staircase/StairsSide" parent_id_path=PackedInt32Array(1468325190, 1082634654) index="1" unique_id=395668076]
 collision_mask = 65

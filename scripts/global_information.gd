@@ -27,7 +27,7 @@ var is_in_main_menu: bool = true  # Assuming we start in the main menu
 
 # level change
 enum scenes { MAIN_MENU, LEVEL_1, LEVEL_2, LEVEL_3 }
-var current_scene = "level_1_scene"
+var current_scene = "main_menu"
 var transition_scene = false
 
 var music_scene = scenes.MAIN_MENU
@@ -277,12 +277,18 @@ func reduce_volumes(starting_node):
 func complete_change_scenes():
 	if transition_scene == true:
 		transition_scene = false
-		if current_scene == "level_1_scene":
+		if current_scene == "main_menu":
+			current_scene = "level_1_scene"
+			music_scene = scenes.LEVEL_1
+		elif current_scene == "level_1_scene":
 			current_scene = "level_2_scene"
+			music_scene = scenes.LEVEL_2
 		elif current_scene == "level_2_scene":
 			current_scene = "level_3_scene"
+			music_scene = scenes.LEVEL_3
 		else:
 			current_scene = "level_1_scene"
+			music_scene = scenes.LEVEL_1
 
 func change_music():
 	var main_menu_theme = Music.get_node("Ambient Music/Main Music Halloween Theme")
