@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="4_k5nr0"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="5_st00f"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="7_76qun"]
-[ext_resource type="PackedScene" uid="uid://dr5tr08n1qkmp" path="res://scenes/level_2_floorplan.tscn" id="8_edtfm"]
+[ext_resource type="PackedScene" uid="uid://cx8c2h62ddphx" path="res://scenes/level_2_floor.tscn" id="8_edtfm"]
 [ext_resource type="PackedScene" uid="uid://b5evgada02h46" path="res://scenes/locked_door.tscn" id="9_bh3am"]
 [ext_resource type="Script" uid="uid://c6ufm81rtdraj" path="res://scripts/asset.gd" id="10_k5nr0"]
 [ext_resource type="PackedScene" uid="uid://dg86lxs3bnidw" path="res://scenes/staircase_level_change.tscn" id="13_edtfm"]
@@ -70,7 +70,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Map" type="Node2D" parent="." unique_id=1099213946]
 
-[node name="Level 2 Floorplan2" parent="Map" unique_id=786862080 instance=ExtResource("8_edtfm")]
+[node name="Level 2 Floor" parent="Map" unique_id=1480469073 instance=ExtResource("8_edtfm")]
 
 [node name="Objects" type="Node2D" parent="." unique_id=1070840412]
 y_sort_enabled = true
@@ -91,6 +91,7 @@ collision_mask = 958
 
 [node name="Assets" type="Node2D" parent="Objects" unique_id=220042579]
 y_sort_enabled = true
+position = Vector2(-392.138, -266.91913)
 
 [node name="Kitchen" type="Node2D" parent="Objects/Assets" unique_id=576913564]
 y_sort_enabled = true

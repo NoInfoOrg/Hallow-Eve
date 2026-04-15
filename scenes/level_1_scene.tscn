@@ -54,9 +54,9 @@ point_count = 7
 
 [sub_resource type="Curve2D" id="Curve2D_pqgcp"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -2455.268, 757.8672, 0, 0, 0, 0, -2457.4116, 942.2158, 0, 0, 0, 0, -3012.6013, 972.2261, 0, 0, 0, 0, -3012.6013, 1261.6108, 0, 0, 0, 0, -2463.8425, 1304.4824, 0, 0, 0, 0, -2461.6987, 1373.0771, 0, 0, 0, 0, -3529.2063, 1364.5029, 0, 0, 0, 0, -3518.4883, 762.1543, 0, 0, 0, 0, -2455.268, 757.8672, 0, 0, 0, 0, -753.4717, 888.2329)
+"points": PackedVector2Array(0, 0, 0, 0, -2455.268, 757.8672, 0, 0, 0, 0, -2457.4116, 942.2158, 0, 0, 0, 0, -3012.6013, 972.2261, 0, 0, 0, 0, -3012.6013, 1261.6108, 0, 0, 0, 0, -2463.8425, 1304.4824, 0, 0, 0, 0, -2461.6987, 1373.0771, 0, 0, 0, 0, -3529.2063, 1364.5029, 0, 0, 0, 0, -3518.4883, 762.1543, 0, 0, 0, 0, -2455.268, 757.8672)
 }
-point_count = 10
+point_count = 9
 
 [sub_resource type="Curve2D" id="Curve2D_vwtdy"]
 _data = {
@@ -102,9 +102,6 @@ metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pt62h"]
 size = Vector2(578, 144)
-
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_pt62h"]
-points = PackedVector2Array(206, -122, -408, -122, -408, 134, -374, 134, -374, -10, 206, -10)
 
 [node name="Level 1 Scene" type="Node2D" unique_id=733240442]
 script = ExtResource("1_5rr05")
@@ -739,36 +736,37 @@ position = Vector2(375, 2724)
 type = "math"
 answer = "0"
 
-[node name="Music" parent="." unique_id=371888300 instance=ExtResource("22_b322n")]
-
-[node name="Transition Points" type="Node2D" parent="." unique_id=1218422310]
+[node name="Transition Points" type="Node2D" parent="Objects" unique_id=1218422310]
+y_sort_enabled = true
 position = Vector2(-442, -162)
 
-[node name="Staircase" type="Node2D" parent="Transition Points" unique_id=1468325190]
-z_index = -2
-position = Vector2(1535, 2934)
+[node name="Staircase" type="StaticBody2D" parent="Objects/Transition Points" unique_id=556655780]
+y_sort_enabled = true
+position = Vector2(1527.028, 2934)
 scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 65
 
-[node name="StairsDown1" type="Sprite2D" parent="Transition Points/Staircase" unique_id=1306560291]
-z_index = 6
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Objects/Transition Points/Staircase" unique_id=2000313048]
+position = Vector2(295.6106, 108.49463)
+polygon = PackedVector2Array(4.290283, -74.99951, 3.9523926, 29.393555, -260.26, 150.25928, -606.4597, 151.01514, -606.791, -73.96973)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/Transition Points/Staircase" unique_id=1019589836]
+polygon = PackedVector2Array(170.5564, 260.5127, 277.3872, 231.97119, 393.53174, 231.85986, 393.97876, 259.66797)
+
+[node name="StairsDown1" type="Sprite2D" parent="Objects/Transition Points/Staircase" unique_id=1306560291]
 position = Vector2(42, 124)
 texture = ExtResource("24_ock1t")
 
-[node name="LevelDownZone" type="Area2D" parent="Transition Points/Staircase/StairsDown1" unique_id=1600476806]
+[node name="LevelDownZone" type="Area2D" parent="Objects/Transition Points/Staircase/StairsDown1" unique_id=1600476806]
 collision_layer = 0
 collision_mask = 65
 
-[node name="LevelDownCollider" type="CollisionShape2D" parent="Transition Points/Staircase/StairsDown1/LevelDownZone" unique_id=1278575654]
+[node name="LevelDownCollider" type="CollisionShape2D" parent="Objects/Transition Points/Staircase/StairsDown1/LevelDownZone" unique_id=1278575654]
 position = Vector2(-63, 62)
 shape = SubResource("RectangleShape2D_pt62h")
 
-[node name="CantWalkZone" type="Area2D" parent="Transition Points/Staircase/StairsDown1" unique_id=1459508581]
-collision_layer = 0
-collision_mask = 65
+[node name="Music" parent="." unique_id=371888300 instance=ExtResource("22_b322n")]
 
-[node name="CantWalkCollider" type="CollisionShape2D" parent="Transition Points/Staircase/StairsDown1/CantWalkZone" unique_id=2122798709]
-position = Vector2(22, 0)
-shape = SubResource("ConvexPolygonShape2D_pt62h")
-
-[connection signal="body_entered" from="Transition Points/Staircase/StairsDown1/LevelDownZone" to="." method="_on_level_down_zone_body_entered"]
-[connection signal="body_exited" from="Transition Points/Staircase/StairsDown1/LevelDownZone" to="." method="_on_level_down_zone_body_exited"]
+[connection signal="body_entered" from="Objects/Transition Points/Staircase/StairsDown1/LevelDownZone" to="." method="_on_level_down_zone_body_entered"]
+[connection signal="body_exited" from="Objects/Transition Points/Staircase/StairsDown1/LevelDownZone" to="." method="_on_level_down_zone_body_exited"]
