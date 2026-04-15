@@ -269,6 +269,7 @@ asset = 2
 
 [node name="SittingArea2" type="Node2D" parent="Objects/Assets/Hallway" unique_id=53223001]
 y_sort_enabled = true
+position = Vector2(0, 324.65768)
 
 [node name="Loveseat" type="Node2D" parent="Objects/Assets/Hallway/SittingArea2" unique_id=892410012]
 y_sort_enabled = true
@@ -352,7 +353,10 @@ position = Vector2(-2637, -2906)
 [node name="Staircase" parent="Transition Points" unique_id=1468325190 instance=ExtResource("13_edtfm")]
 position = Vector2(876.3025, 556.2102)
 
-[node name="LevelUpZone" parent="Transition Points/Staircase/StairsSide" parent_id_path=PackedInt32Array(1468325190, 1082634654) index="1" unique_id=395668076]
+[node name="StairsSide" parent="Transition Points/Staircase" index="1" unique_id=1082634654]
+position = Vector2(465.39502, -1242.4204)
+
+[node name="LevelUpZone" parent="Transition Points/Staircase/StairsSide" index="1" unique_id=395668076]
 collision_mask = 65
 
 [connection signal="body_entered" from="Transition Points/Staircase/StairsDown1/LevelDownZone" to="." method="_on_level_down_zone_body_entered"]

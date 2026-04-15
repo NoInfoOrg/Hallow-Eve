@@ -1,16 +1,16 @@
-[gd_scene format=3 uid="uid://blc2wqvr525qk"]
+[gd_scene format=3 uid="uid://76f0bd12q1vw"]
 
-[ext_resource type="Script" uid="uid://oy2eobmj4y7q" path="res://scripts/locked_door.gd" id="1_2ibvm"]
-[ext_resource type="TileSet" uid="uid://b6l5c1kfdkpev" path="res://assets/tilesets/wallsnc.tres" id="2_2ibvm"]
-[ext_resource type="Texture2D" uid="uid://dnfynyaipi0iu" path="res://assets/sprites/level objs/Wreath_Glow.png" id="2_nfgqb"]
-[ext_resource type="Texture2D" uid="uid://c4qt2hqx5inn2" path="res://assets/sprites/level objs/Wreath_NoGlow.png" id="3_2ibvm"]
-[ext_resource type="Texture2D" uid="uid://csrx52yl3r00i" path="res://assets/tilesets/WallFrontDoor-Open_1.png" id="5_wel5i"]
+[ext_resource type="Script" uid="uid://oy2eobmj4y7q" path="res://scripts/locked_door.gd" id="1_vdkal"]
+[ext_resource type="TileSet" uid="uid://b6l5c1kfdkpev" path="res://assets/tilesets/wallsnc.tres" id="2_ofje3"]
+[ext_resource type="Texture2D" uid="uid://dnfynyaipi0iu" path="res://assets/sprites/level objs/Wreath_Glow.png" id="3_tbmn8"]
+[ext_resource type="Texture2D" uid="uid://c4qt2hqx5inn2" path="res://assets/sprites/level objs/Wreath_NoGlow.png" id="4_gxxi4"]
+[ext_resource type="Texture2D" uid="uid://ctkjreflhl6lq" path="res://assets/tilesets/WallFront_SleeplessDoor-Open.png" id="5_vdkal"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wel5i"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_nfgqb")
+"texture": ExtResource("3_tbmn8")
 }],
 "loop": true,
 "name": &"glow",
@@ -18,7 +18,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_2ibvm")
+"texture": ExtResource("4_gxxi4")
 }],
 "loop": true,
 "name": &"no glow",
@@ -35,19 +35,19 @@ size = Vector2(93.82114, 329.50635)
 z_index = 3
 collision_layer = 256
 collision_mask = 255
-script = ExtResource("1_2ibvm")
+script = ExtResource("1_vdkal")
 
 [node name="ClosedDoor" type="TileMapLayer" parent="." unique_id=2103292742 groups=["Walls"]]
 scale = Vector2(0.5, 0.5)
-tile_map_data = PackedByteArray(0, 0, 3, 0, 0, 0, 1, 0, 3, 0, 0, 0, 0, 0, 4, 0, 0, 0, 1, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0, 1, 0, 5, 0, 0, 0, 0, 0)
-tile_set = ExtResource("2_2ibvm")
+tile_map_data = PackedByteArray(0, 0, 3, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0, 4, 0, 0, 0, 3, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0, 3, 0, 5, 0, 0, 0, 0, 0)
+tile_set = ExtResource("2_ofje3")
 rendering_quadrant_size = 10
 
 [node name="OpenDoor" type="TileMapLayer" parent="." unique_id=937500666 groups=["Walls"]]
 visible = false
 scale = Vector2(0.5, 0.5)
-tile_map_data = PackedByteArray(0, 0, 3, 0, 0, 0, 2, 0, 3, 0, 0, 0, 0, 0, 4, 0, 0, 0, 2, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0, 2, 0, 5, 0, 0, 0, 0, 0)
-tile_set = ExtResource("2_2ibvm")
+tile_map_data = PackedByteArray(0, 0, 3, 0, 0, 0, 4, 0, 3, 0, 0, 0, 0, 0, 4, 0, 0, 0, 4, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 4, 0, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0, 4, 0, 5, 0, 0, 0, 0, 0)
+tile_set = ExtResource("2_ofje3")
 rendering_quadrant_size = 10
 
 [node name="Wreath" type="AnimatedSprite2D" parent="." unique_id=1250554276]
@@ -77,6 +77,6 @@ shape = SubResource("RectangleShape2D_wel5i")
 z_index = 11
 position = Vector2(279.57166, 22.2005)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_wel5i")
+texture = ExtResource("5_vdkal")
 region_enabled = true
 region_rect = Rect2(424, 0, 272, 88)

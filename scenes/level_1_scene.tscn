@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://bbeeo2dju1t1q" path="res://assets/items/Key_3.png" id="23_yi50i"]
 [ext_resource type="Texture2D" uid="uid://cmrn0d061ae6a" path="res://assets/sprites/environment/StairsDown1.png" id="24_ock1t"]
 [ext_resource type="Texture2D" uid="uid://dbs1ylnq8rd2y" path="res://assets/items/Key_1.png" id="25_80dtq"]
-[ext_resource type="Script" path="res://scenes/hw_checker.gd" id="25_pqgcp"]
+[ext_resource type="Script" uid="uid://d1ehvit7dlsc6" path="res://scenes/hw_checker.gd" id="25_pqgcp"]
 [ext_resource type="PackedScene" uid="uid://bfphydknonny6" path="res://scenes/shapes_paper_math.tscn" id="27_btg6x"]
 [ext_resource type="PackedScene" uid="uid://ul5aitvagahn" path="res://scenes/blockade_fairy_lights.tscn" id="29_yi50i"]
 
