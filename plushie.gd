@@ -52,17 +52,27 @@ var plushieAttributes = {
 	}
 }
 
-# death scene for plushies
+# death scene for all plushies
 @export var death_effect_scene: PackedScene = preload("res://scenes/death_effect.tscn")
+
+# freddy jumpscare death
+@export var jumpscare_scene_freddy: PackedScene = preload("res://scenes/freddy_jumpscare.tscn")
 
 # rocco specific variables
 var returnToPath = false
 var returnLocation: Vector2
 var initialSqueak = false
-@export var leaderRat: bool = true
+@export var leaderRat: bool = false
 @onready var navAgent: NavigationAgent2D = $NavigationAgent2D
 @export var pathFollow: PathFollow2D
 @onready var detectionSound: AudioStreamPlayer2D = $DetectionSound
+@onready var lineOfSightRay: RayCast2D = RayCast2D.new()
+
+# variables for choco and cat
+var dashCooldownTimer = 1.0
+var isDashing = false
+var dashDuration = 0.3
+
 
 # all plushie variables
 var normalSpeed = 0
@@ -73,6 +83,11 @@ var damage = 0
 func _ready():
 	# setup enemy
 	setup_enemy()
+	add_child(lineOfSightRay)
+	lineOfSightRay.enabled = false
+	var layersToCollide = [2, 4, 5, 8, 9, 10]
+	for layer in layersToCollide:
+		lineOfSightRay.set_collision_mask_value(layer, true)
 	# start self destruct timer if minion rat
 	if plushieType == PlushieType.MinionRat:
 		self_destruct_timer(10.0)
@@ -86,6 +101,8 @@ func setup_enemy():
 			normalSpeed = plushieAttribute["normalSpeed"]
 			secondarySpeed = plushieAttribute["secondarySpeed"]
 			damage = plushieAttribute["damage"]
+			if PlushieType.Rocco:
+				leaderRat = true
 	else:
 		return
 
@@ -237,13 +254,63 @@ func self_destruct_timer(seconds: float) -> void:
 	minionTimer.timeout.connect(plushie_death)
 	
 func cat_behavior(delta: float) -> void:
-	pass
+	if playerChase and player:
+		var currentSpeed = secondarySpeed
+		var distanceToPlayer = global_position.distance_to(player.global_position)
+		if distanceToPlayer < 150 and not isDashing and dashCooldownTimer <= 0:
+			plushie_dash_start(1)
+			dashCooldownTimer = 3.0
+		dashCooldownTimer -= delta
+		if isDashing:
+			currentSpeed *= 2.0
+		move_toward_target(player.global_position, currentSpeed)
+	else:
+		if pathFollow:
+			move_on_path(normalSpeed, delta)
 	
 func choco_behavior(delta: float) -> void:
-	pass
-	
+	if playerChase and player:
+		var currentSpeed = secondarySpeed
+		dashCooldownTimer -= delta
+		if dashCooldownTimer <= 0:
+			if not isDashing:
+				plushie_dash_start(0.4)
+			dashCooldownTimer = randf_range(0.5, 2.0)
+		if isDashing:
+			currentSpeed *= 2.5
+		move_toward_target(player.global_position, currentSpeed)
+	else:
+		if pathFollow:
+			move_on_path(normalSpeed, delta)
+
+func plushie_dash_start(chance: float):
+	if randf() < chance:
+		isDashing = true
+		get_tree().create_timer(dashDuration).timeout.connect(func(): isDashing = false)
+
 func freddy_behavior(delta: float) -> void:
-	pass
+	if playerChase and player:
+		move_toward_target(player.global_position, secondarySpeed)
+	else:
+		if pathFollow:
+			move_on_path(normalSpeed, delta)
+			
+func freddy_jumpscare_start():
+	if jumpscare_scene_freddy:
+		var jumpscareScene = jumpscare_scene_freddy.instantiate()
+		get_tree().current_scene.add_child(jumpscareScene)
+		var freddyTextRect = jumpscareScene.get_child(0)
+		if freddyTextRect:
+			var tweenEffect = get_tree().create_tween()
+			freddyTextRect.scale = Vector2(0.5, 0.5)
+			freddyTextRect.modulate.a = 0.5
+			tweenEffect.tween_property(freddyTextRect, "scale", Vector2(4.0, 4.0), 0.15).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			tweenEffect.parallel().tween_property(freddyTextRect, "modulate:a", 1.0, 0.05)
+			tweenEffect.tween_property(freddyTextRect, "modulate:a", 0.0, 0.8).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN).set_delay(0.2)
+			tweenEffect.tween_callback(jumpscareScene.queue_free)
+		else:
+			jumpscareScene.queue_free()
+
 
 # moves the plushie along a path
 func move_on_path(speed: float, delta: float) -> void:
@@ -252,9 +319,9 @@ func move_on_path(speed: float, delta: float) -> void:
 	# check if the length is greater than 0
 	if pathLength > 0:
 		# update the progress on the path
-		pathFollow.progress_ratio += (normalSpeed * delta) / pathLength
+		pathFollow.progress_ratio += (speed * delta) / pathLength
 		var direction = pathFollow.global_position - global_position
-		velocity = direction.normalized() * normalSpeed
+		velocity = direction.normalized() * speed
 
 # moves the plushie toward the path if it is no longer chasing
 func move_to_path(delta: float) -> void:
@@ -272,7 +339,6 @@ func move_to_path(delta: float) -> void:
 
 # moves the plushie toward a target player
 func move_toward_target(playerLocation: Vector2, speed: float):
-	
 	navAgent.target_position = playerLocation
 	var nextLocation = navAgent.get_next_path_position()
 	var direction = nextLocation - global_position
@@ -290,7 +356,20 @@ func plushie_death():
 	deathEffect.global_position = global_position
 	get_tree().current_scene.add_child(deathEffect)
 	deathEffect.emitting = true
+	if plushieType ==  PlushieType.Freddy:
+		freddy_jumpscare_start()
 	queue_free()
+	
+func check_line_of_sight() -> bool:
+	if not player:
+		return false
+	lineOfSightRay.target_position = to_local(player.global_position)
+	lineOfSightRay.force_raycast_update()
+	if lineOfSightRay.is_colliding():
+		var collider = lineOfSightRay.get_collider()
+		if collider != player and not collider.is_in_group("HurtBox"):
+			return false
+	return true
 
 #func _on_attack_zone_body_entered(body: Node2D) -> void:
 	#if body.is_in_group("Players"):
@@ -308,10 +387,13 @@ func plushie_death():
 func _on_attack_zone_area_entered(area: Area2D) -> void:
 	if area.is_in_group("HurtBox"):
 		player = area.get_parent()
-		var playerName = player.name
-		GlobalInformation.deal_strike_damage_to_player(self, playerName, damage)
-		plushieAttack.emit()
-		plushie_death()
+		if check_line_of_sight():
+			var playerName = player.name
+			GlobalInformation.deal_strike_damage_to_player(self, playerName, damage)
+			plushieAttack.emit()
+			if plushieType == PlushieType.Freddy:
+				print("PLAY JUMPSCARE SOUND")
+			plushie_death()
 
 
 func _on_attack_zone_area_exited(area: Area2D) -> void:

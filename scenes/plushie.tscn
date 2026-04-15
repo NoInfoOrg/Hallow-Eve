@@ -15,6 +15,7 @@ radius = 30.0
 height = 124.0
 
 [node name="Plushie" type="CharacterBody2D" unique_id=741369988 groups=["Enemies"]]
+y_sort_enabled = true
 collision_layer = 128
 collision_mask = 859
 script = ExtResource("1_2usf5")
@@ -25,14 +26,15 @@ metadata/_edit_vertical_guides_ = [31.0]
 debug_enabled = true
 
 [node name="EnemyCollider" type="CollisionShape2D" parent="." unique_id=1207424113]
-position = Vector2(-0.5, 55)
 shape = SubResource("RectangleShape2D_j6flh")
 debug_color = Color(0.9966505, 0, 0.19243264, 0.41960785)
 
 [node name="EnemySprite" type="Sprite2D" parent="." unique_id=995474584]
 texture = ExtResource("2_2usf5")
+offset = Vector2(0, -55.45)
 
-[node name="DetectionZone" type="Area2D" parent="." unique_id=1780083783]
+[node name="DetectionZone" type="Area2D" parent="." unique_id=1780083783 groups=["Enemy Detection Zone"]]
+position = Vector2(0, -41.14)
 collision_layer = 4096
 collision_mask = 1024
 
@@ -40,6 +42,7 @@ collision_mask = 1024
 shape = SubResource("CircleShape2D_lm74q")
 
 [node name="AttackZone" type="Area2D" parent="." unique_id=1801466765]
+position = Vector2(0, -56.87001)
 collision_layer = 2048
 collision_mask = 1024
 
