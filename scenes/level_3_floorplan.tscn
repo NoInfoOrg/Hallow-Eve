@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://dt13bvgr5foh4" path="res://assets/tilesets/side_walls.tres" id="3_k4yfe"]
 
 [node name="Level 3 Floorplan" type="Node2D" unique_id=1045888620]
+position = Vector2(0, 1)
 
 [node name="Floors - No Collision" type="TileMapLayer" parent="." unique_id=1055082307]
 z_index = -5

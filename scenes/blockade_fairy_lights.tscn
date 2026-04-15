@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ul5aitvagahn"]
+
+[ext_resource type="Texture2D" uid="uid://ce6t0usiklk6c" path="res://assets/sprites/environment/Blockade_FairyLights.png" id="1_86qm0"]
+[ext_resource type="Script" uid="uid://cvsygixnh5yt6" path="res://scenes/blockade_fairy_lights.gd" id="1_cl866"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cl866"]
+size = Vector2(95.134476, 640.85895)
+
+[node name="Blockade Fairy Lights" type="StaticBody2D" unique_id=457542619]
+collision_layer = 2
+collision_mask = 193
+script = ExtResource("1_cl866")
+
+[node name="FairyLightSprite" type="Sprite2D" parent="." unique_id=369650981]
+texture = ExtResource("1_86qm0")
+offset = Vector2(-2.55, 0)
+
+[node name="BlockadeCollider" type="CollisionShape2D" parent="." unique_id=996891757]
+shape = SubResource("RectangleShape2D_cl866")
+debug_color = Color(0.8306118, 0.0014373767, 0.94521946, 0.41960785)

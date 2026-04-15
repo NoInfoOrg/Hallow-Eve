@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://dbs1ylnq8rd2y" path="res://assets/items/Key_1.png" id="25_80dtq"]
 [ext_resource type="Script" path="res://scenes/hw_checker.gd" id="25_pqgcp"]
 [ext_resource type="PackedScene" uid="uid://bfphydknonny6" path="res://scenes/shapes_paper_math.tscn" id="27_btg6x"]
+[ext_resource type="PackedScene" uid="uid://ul5aitvagahn" path="res://scenes/blockade_fairy_lights.tscn" id="29_yi50i"]
 
 [sub_resource type="Resource" id="Resource_d0nkq"]
 script = ExtResource("3_d0nkq")
@@ -254,7 +255,7 @@ pathFollow = NodePath("..")
 [node name="Slimes" type="Node2D" parent="Objects/Enemies" unique_id=1813023894]
 
 [node name="Slime5" parent="Objects/Enemies/Slimes" unique_id=2138321505 instance=ExtResource("15_btg6x")]
-position = Vector2(776.0304, -2371.7024)
+position = Vector2(1062.8751, -2371.7024)
 
 [node name="Slime" parent="Objects/Enemies/Slimes" unique_id=703542134 instance=ExtResource("15_btg6x")]
 position = Vector2(-939.1842, 844.4946)
@@ -765,6 +766,11 @@ collision_mask = 65
 [node name="LevelDownCollider" type="CollisionShape2D" parent="Objects/Transition Points/Staircase/StairsDown1/LevelDownZone" unique_id=1278575654]
 position = Vector2(-63, 62)
 shape = SubResource("RectangleShape2D_pt62h")
+
+[node name="Blockades" type="Node2D" parent="Objects" unique_id=181141924]
+
+[node name="Blockade Fairy Lights" parent="Objects/Blockades" unique_id=457542619 instance=ExtResource("29_yi50i")]
+position = Vector2(909.0421, 2580.0352)
 
 [node name="Music" parent="." unique_id=371888300 instance=ExtResource("22_b322n")]
 
