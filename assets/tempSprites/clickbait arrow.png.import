@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vgbgp1sm3bxf"
-path="res://.godot/imported/Paper.png-589588bf14612bf738d2be76c8f8feeb.ctex"
+uid="uid://cyf0pltoern4q"
+path="res://.godot/imported/clickbait arrow.png-13b1602275ff57aa8fd6169a475d3447.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/level objs/Paper.png"
-dest_files=["res://.godot/imported/Paper.png-589588bf14612bf738d2be76c8f8feeb.ctex"]
+source_file="res://assets/tempSprites/clickbait arrow.png"
+dest_files=["res://.godot/imported/clickbait arrow.png-13b1602275ff57aa8fd6169a475d3447.ctex"]
 
 [params]
 

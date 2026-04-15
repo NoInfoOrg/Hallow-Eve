@@ -133,10 +133,13 @@ func on_button_object_emitted(button):
 func on_puzzle_completion():
 	# shoutout to Nick for opening this door (a gentelman fr)
 		# Change the door image to be opened
+
 		if has_node("OpenDoor"):
+
 			get_node("OpenDoor").visible = true
 			
 		if has_node("ClosedDoor"):
+			print("closed door found")
 			get_node("ClosedDoor").visible = false
 		
 		# Change the door collision so players can enter the door

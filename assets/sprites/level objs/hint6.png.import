@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vgbgp1sm3bxf"
-path="res://.godot/imported/Paper.png-589588bf14612bf738d2be76c8f8feeb.ctex"
+uid="uid://cpcwxecuo6et5"
+path="res://.godot/imported/hint6.png-fb7966f5fe024a4870903b4f6d717320.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/level objs/Paper.png"
-dest_files=["res://.godot/imported/Paper.png-589588bf14612bf738d2be76c8f8feeb.ctex"]
+source_file="res://assets/sprites/level objs/hint6.png"
+dest_files=["res://.godot/imported/hint6.png-fb7966f5fe024a4870903b4f6d717320.ctex"]
 
 [params]
 

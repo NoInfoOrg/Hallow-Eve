@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="NoInfoGame"
-run/main_scene="uid://dj43mwij5mnb6"
+run/main_scene="uid://sgkv8bjo1ue1"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://bxl245j7738ni"
 
@@ -168,7 +168,7 @@ Submit={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://YEAH.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/YEAH.dialogue")
 
 [layer_names]
 

@@ -39,5 +39,5 @@ func drop():
 			var dropped = load(path).instantiate()
 			# offset the position to Eve's height
 			dropped.z_index = -5
-			dropped.global_position = global_position + Vector2(0,40)
+			dropped.global_position = global_position + Vector2(0,10)
 			get_parent().add_child(dropped)

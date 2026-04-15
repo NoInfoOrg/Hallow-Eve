@@ -4,6 +4,8 @@ var players_detected = []
 var curr_player = null
 signal updated_guess
 @onready var item_pic = get_node("../TextureRect")
+# special variable to handle the nametags so they fit? Idk pls help
+@export var special : bool
 var hold_item
 var full = false
 @export var Box_Index: int
@@ -49,7 +51,8 @@ func place(player):
 		# display the item dropped
 		item_pic.texture = player.hold_inv.items[0].texture
 		item_pic.visible = true
-		item_pic.scale = Vector2(.25,.25)
+		if !special:
+			item_pic.scale = Vector2(.25,.25)
 		hold_item = player.hold_inv.items[0]
 		player.hold_inv.items.clear()
 		full = true

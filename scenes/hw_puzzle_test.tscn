@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b5evgada02h46" path="res://scenes/locked_door.tscn" id="5_qw3fx"]
 [ext_resource type="PackedScene" uid="uid://c83a2a5ujdc16" path="res://scenes/shapes_paper.tscn" id="6_3p5gt"]
 [ext_resource type="PackedScene" uid="uid://bwd22jx5mssx0" path="res://scenes/black_light_flashlight_item.tscn" id="7_w6a6u"]
-[ext_resource type="Script" uid="uid://d1ehvit7dlsc6" path="res://scenes/hw_checker.gd" id="8_krhd7"]
+[ext_resource type="Script" uid="uid://d1ehvit7dlsc6" path="res://scripts/hw_checker.gd" id="8_krhd7"]
 [ext_resource type="PackedScene" uid="uid://bfphydknonny6" path="res://scenes/shapes_paper_math.tscn" id="8_vestt"]
 [ext_resource type="PackedScene" uid="uid://dwu4oi2tru041" path="res://scenes/collectibles.tscn" id="9_2dc0j"]
 
