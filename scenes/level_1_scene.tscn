@@ -9,10 +9,10 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_ihv73"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_d0nkq"]
 [ext_resource type="PackedScene" uid="uid://dnjf1aqiogr0k" path="res://scenes/level_1_floorplan.tscn" id="3_vdyla"]
-[ext_resource type="PackedScene" path="res://scenes/game_over_screen.tscn" id="4_us6j8"]
+[ext_resource type="PackedScene" uid:"uid://b0eo2ssadyqgv" path="res://scenes/game_over_screen.tscn" id="4_us6j8"]
 [ext_resource type="PackedScene" uid="uid://c616w2s1ho401" path="res://scenes/human_box.tscn" id="7_cowtf"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="9_d18id"]
-[ext_resource type="PackedScene" uid="uid://b5rhclw6ern25" path="res://scenes/spirit_box.tscn" id="10_lg53w"]
+[ext_resource type="PackedScene" uid="uid://b5rhclw6ern25" path="rzes://scenes/spirit_box.tscn" id="10_lg53w"]
 [ext_resource type="PackedScene" uid="uid://c83a2a5ujdc16" path="res://scenes/shapes_paper.tscn" id="12_2ydo2"]
 [ext_resource type="PackedScene" uid="uid://fcp66n68vghv" path="res://scenes/sleepless_child.tscn" id="12_ock1t"]
 [ext_resource type="Script" uid="uid://c6ufm81rtdraj" path="res://scripts/asset.gd" id="12_us6j8"]
@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cqn40kyihmkj" path="res://scenes/plushie.tscn" id="14_5yyo0"]
 [ext_resource type="PackedScene" uid="uid://d1p1fj2ywtequ" path="res://scenes/slime_enemy.tscn" id="15_pqgcp"]
 [ext_resource type="PackedScene" uid="uid://dwu4oi2tru041" path="res://scenes/collectibles.tscn" id="17_tqr37"]
-[ext_resource type="Script" path="res://scripts/item.gd" id="19_4ymq3"]
+[ext_resource type="Script" uid="uid://cx3r8pobbq5x6path" path="res://scripts/item.gd" id="19_4ymq3"]
 [ext_resource type="Texture2D" uid="uid://butu7b2wedoks" path="res://assets/tempSprites/freddy_fazbear_shocked.png" id="19_e5gav"]
 [ext_resource type="PackedScene" uid="uid://cyta5c5pqluy8" path="res://scenes/blanket_ghost.tscn" id="20_e5gav"]
 [ext_resource type="PackedScene" uid="uid://blc2wqvr525qk" path="res://scenes/door_open.tscn" id="21_5yyo0"]
@@ -151,10 +151,6 @@ position = Vector2(-929.8042, 1791.2195)
 collision_mask = 4294967226
 slide_on_ceiling = false
 
-[node name="Enemies" type="Node2D" parent="Objects" unique_id=1748499919]
-y_sort_enabled = true
-position = Vector2(86, 2193)
-scale = Vector2(0.5, 0.5)
 
 [node name="Blanket Ghost" parent="Objects/Enemies" unique_id=1059129714 node_paths=PackedStringArray("targets") instance=ExtResource("20_e5gav")]
 y_sort_enabled = true
@@ -443,9 +439,6 @@ asset = 4
 
 [node name="Puzzle Items" type="Node2D" parent="Objects" unique_id=421602145]
 
-[node name="Objects" type="Node2D" parent="." unique_id=1500442724]
-y_sort_enabled = true
-
 [node name="MovementCont" type="Node2D" parent="Objects" unique_id=2117843696]
 y_sort_enabled = true
 
@@ -470,9 +463,6 @@ scale = Vector2(0.5, 0.5)
 y_sort_enabled = true
 scale = Vector2(1, 1)
 targets = [NodePath("../../MovementCont/Eve - P1"), NodePath("../../MovementCont/Willow - P2")]
-
-[node name="Assets" type="Node2D" parent="Objects" unique_id=576699497]
-y_sort_enabled = true
 
 [node name="SleeplessChildRoom" type="Node2D" parent="Objects/Assets" unique_id=919085109]
 y_sort_enabled = true
