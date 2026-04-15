@@ -43,7 +43,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	## INFO grab_action allows to open doors and press buttons
-	if Input.is_action_just_pressed(grab_left_action):
+	if Input.is_action_just_pressed(open):
 		check_to_open_door()
 	
 	# INFO The Player's Walking Animations (uses idle for placeholder)

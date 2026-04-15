@@ -4,7 +4,7 @@ var players_in_zone: Array[CharacterBody2D] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GlobalInformation.music_scene = GlobalInformation.scenes.LEVEL_3
+	GlobalInformation.music_scene = GlobalInformation.scenes.LEVEL_2
 	GlobalInformation.change_music()
 
 func _process(delta):

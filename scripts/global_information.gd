@@ -310,3 +310,14 @@ func change_music():
 	
 	else:
 		print("change_music() : invalid music scene")
+
+func advance_level():
+	# TODO: Using the music_scene might not be the best maybe?
+	if music_scene == scenes.LEVEL_1:
+		get_tree().change_scene_to_file("res://scenes/level_2_scene.tscn")
+	
+	elif music_scene == scenes.LEVEL_2:
+		get_tree().change_scene_to_file("res://scenes/level_3_scene.tscn")
+	
+	elif music_scene == scenes.LEVEL_3:
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

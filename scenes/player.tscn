@@ -291,6 +291,7 @@ collision_layer = 4096
 collision_mask = 4096
 
 [node name="EnemyDetectionZoneCollider" type="CollisionShape2D" parent="EnemyDetectionZone" unique_id=1821129802]
+z_index = 10
 shape = SubResource("CircleShape2D_g2els")
 
 [connection signal="body_entered" from="HurtBoxZone" to="." method="_on_hit_box_zone_body_entered"]
