@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://fcp66n68vghv"]
 
-[ext_resource type="Script" uid="uid://c88yrj1ryhkpq" path="res://scripts/sleepless_child.gd" id="1_q6gtu"]
+[ext_resource type="Script" uid="uid://bx8cigaojg5jm" path="res://scripts/sleepless_child.gd" id="1_q6gtu"]
 [ext_resource type="Texture2D" uid="uid://buosry7jrjeg7" path="res://assets/sprites/enemy/Blankie.png" id="2_ow21u"]
 [ext_resource type="Script" uid="uid://bo744wpycscqd" path="res://addons/vision_cone_2d/vision_cone_2d.gd" id="3_xnlnb"]
 [ext_resource type="Script" uid="uid://b88iifj2svjwc" path="res://addons/vision_cone_2d/cone_editor_helper.gd" id="4_docxh"]
@@ -15,9 +15,9 @@ size = Vector2(102, 66)
 radius = 528.37866
 
 [node name="SleeplessChild" type="CharacterBody2D" unique_id=464654720 groups=["Enemies"]]
-y_sort_enabled = true
+scale = Vector2(0.5, 0.5)
 collision_layer = 128
-collision_mask = 922
+collision_mask = 989
 script = ExtResource("1_q6gtu")
 visionRenderer = NodePath("VisionCone2D/VisionConeRenderer")
 alertColor = Color(1, 0, 0, 0.43137255)
@@ -29,15 +29,14 @@ metadata/_custom_type_script = "uid://6xmvem06apff"
 debug_enabled = true
 
 [node name="EnemyCollider" type="CollisionShape2D" parent="." unique_id=1553151172]
+position = Vector2(44, 121)
 shape = SubResource("RectangleShape2D_xnlnb")
 debug_color = Color(0.9966505, 0, 0.19243264, 0.41960785)
 
 [node name="EnemySprite" type="Sprite2D" parent="." unique_id=278392545]
 texture = ExtResource("2_ow21u")
-offset = Vector2(-46.16, -120.61)
 
 [node name="AttackZone" type="Area2D" parent="." unique_id=757406806]
-position = Vector2(-46, -121)
 collision_layer = 2048
 collision_mask = 1024
 

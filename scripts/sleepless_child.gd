@@ -19,7 +19,6 @@ var dashCooldownTimer = 0.0
 @onready var attackZone: Area2D = $AttackZone
 @onready var detectZone: Area2D = $DetectionZone
 @onready var enemyCollider: CollisionShape2D = $EnemyCollider
-@onready var lineOfSightRay: RayCast2D = RayCast2D.new()
 var normalSpeed = 60
 var secondarySpeed = 80
 var damage = 1
@@ -36,13 +35,6 @@ func _ready() -> void:
 	attackCooldown.one_shot = false
 	add_child(attackCooldown)
 	attackCooldown.timeout.connect(on_attack_cooldown)
-	
-	add_child(lineOfSightRay)
-	lineOfSightRay.enabled = false
-	var layersToCollide = [2, 4, 5, 8, 9, 10]
-	for layer in layersToCollide:
-		lineOfSightRay.set_collision_mask_value(layer, true)
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -52,12 +44,12 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	velocity = Vector2.ZERO
 	update_sleepless_child_state(delta)
-	if velocity.x > 0.5:
+	if velocity.x > 0:
 		sleeplessChildSprite.flip_h = false
 		attackZone.scale.x = 1
 		detectZone.scale.x = 1
 		enemyCollider.scale.x = 1
-	elif velocity.x < -0.5:
+	elif velocity.x < 0:
 		sleeplessChildSprite.flip_h = true
 		attackZone.scale.x = -1
 		detectZone.scale.x = -1
@@ -66,17 +58,6 @@ func _physics_process(delta: float) -> void:
 
 func sleepless_child_attack():
 	pass
-
-func check_line_of_sight() -> bool:
-	if not player:
-		return false
-	lineOfSightRay.target_position = to_local(player.global_position)
-	lineOfSightRay.force_raycast_update()
-	if lineOfSightRay.is_colliding():
-		var collider = lineOfSightRay.get_collider()
-		if collider != player and not collider.is_in_group("HurtBox"):
-			return false
-	return true
 
 # nick's func to get closest target
 func get_closest_target():
@@ -136,6 +117,7 @@ func sleepless_child_chase_behavior(delta):
 		if dashCooldownTimer <= 0:
 			dashCooldownTimer = randf_range(1.0, 2.0)
 			if randf() < 0.35:
+				print("DASH")
 				sleepless_child_dash_start()
 	else:
 		currentState = SleeplessChildStates.Idle
@@ -174,6 +156,33 @@ func play_music_box():
 		currentState = SleeplessChildStates.Calm
 
 
+#func sleepless_child_behavior(delta: float):
+	## check if the player is being chased
+	#if playerChase:
+		## if so then get the closest target and set that to player
+		#player = get_closest_target()
+		## check if player is not null
+		#if player:
+			## toggle return to path as the rat is chasing and move toward the player
+			#returnToPath = false
+			#move_toward_target(player.global_position, secondarySpeed)
+	## otherwise player is not being chased
+	#else:
+		## check if the rat should return to the path
+		#if returnToPath:
+			## return to the path
+			#move_to_path(delta)
+		## also check if path follow
+		#elif pathFollow:
+			## move the rat along the path
+			#move_on_path(normalSpeed, delta)
+
+func on_attack_cooldown():
+	if player:
+		var playerName = player.name
+		GlobalInformation.deal_strike_damage_to_player(self, playerName, damage)
+		sleeplessChildAttack.emit()
+
 # moves the plushie along a path
 func move_on_path(speed: float, delta: float) -> void:
 	# get the path length
@@ -181,13 +190,9 @@ func move_on_path(speed: float, delta: float) -> void:
 	# check if the length is greater than 0
 	if pathLength > 0:
 		# update the progress on the path
-		pathFollow.progress_ratio += (speed * delta) / pathLength
+		pathFollow.progress_ratio += (normalSpeed * delta) / pathLength
 		var direction = pathFollow.global_position - global_position
-		var distance = direction.length()
-		if distance > 2.0:
-			velocity = direction.normalized() * speed
-		else:
-			velocity = direction * (speed / 5.0)
+		velocity = direction.normalized() * speed
 
 # moves the plushie toward the path if it is no longer chasing
 func move_to_path(speed: float, delta: float) -> void:
@@ -220,23 +225,14 @@ func move_toward_target(playerLocation: Vector2, speed: float):
 func _on_attack_zone_area_entered(area: Area2D) -> void:
 	if area.is_in_group("HurtBox"):
 		player = area.get_parent()
-		if check_line_of_sight():
-			var playerName = player.name
-			GlobalInformation.deal_strike_damage_to_player(self, playerName, damage)
-			sleeplessChildAttack.emit()
-			attackCooldown.start()
-		else:
-			attackCooldown.start()
+		var playerName = player.name
+		GlobalInformation.deal_strike_damage_to_player(self, playerName, damage)
+		sleeplessChildAttack.emit()
+		attackCooldown.start()
 
 func _on_attack_zone_area_exited(area: Area2D) -> void:
 	if area.is_in_group("HurtBox"):
 		attackCooldown.stop()
-		
-func on_attack_cooldown():
-	if player and check_line_of_sight():
-		var playerName = player.name
-		GlobalInformation.deal_strike_damage_to_player(self, playerName, damage)
-		sleeplessChildAttack.emit()
 
 func _on_detection_zone_area_entered(area: Area2D) -> void:
 	# check the object in the detection zone is a player

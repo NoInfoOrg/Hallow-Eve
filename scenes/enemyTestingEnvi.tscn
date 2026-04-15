@@ -1,7 +1,7 @@
-[gd_scene format=4 uid="uid://sujpnc4vasjh"]
+[gd_scene format=4 uid="uid://c7ard73cuagsh"]
 
-[ext_resource type="PackedScene" uid="uid://cqn40kyihmkj" path="res://scenes/plushie.tscn" id="1_w4snr"]
 [ext_resource type="TileSet" uid="uid://dt13bvgr5foh4" path="res://assets/tilesets/side_walls.tres" id="2_al0y8"]
+[ext_resource type="PackedScene" uid="uid://fcp66n68vghv" path="res://scenes/sleepless_child.tscn" id="2_w4snr"]
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="3_w4snr"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="4_mhq85"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="5_gaqsk"]
@@ -31,9 +31,9 @@ position = Vector2(306.67273, 563.46594)
 progress = 753.3843
 rotates = false
 
-[node name="Plushie" parent="Path2D/PathFollow2D" unique_id=741369988 node_paths=PackedStringArray("targets", "pathFollow") instance=ExtResource("1_w4snr")]
+[node name="SleeplessChild" parent="Path2D/PathFollow2D" unique_id=464654720 node_paths=PackedStringArray("targets", "pathFollow") instance=ExtResource("2_w4snr")]
+collision_mask = 985
 targets = [NodePath("../../../Eve - P1")]
-plushieType = 3
 pathFollow = NodePath("..")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." unique_id=1989520909]
