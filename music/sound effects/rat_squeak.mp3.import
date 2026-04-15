@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://w77aouii508j"
+path="res://.godot/imported/rat_squeak.mp3-9b8084315c753d2745942afeadd8b29e.mp3str"
+
+[deps]
+
+source_file="res://music/sound effects/rat_squeak.mp3"
+dest_files=["res://.godot/imported/rat_squeak.mp3-9b8084315c753d2745942afeadd8b29e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -19,6 +19,7 @@ func _ready():
 	take_damage = "Willow_Damage_FullTo2-3"
 	push_left = "Willow_Left_Push"
 	push_right = "Willow_Right_Push"
+	open = "P2Grab"
 
 func hold(holdable):
 	if hold_inv.get_inv_size() != 0:

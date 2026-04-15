@@ -294,7 +294,7 @@ radius = 323.7143
 [node name="Willow - P2" type="CharacterBody2D" unique_id=882182450 groups=["Players"]]
 y_sort_enabled = true
 collision_layer = 64
-collision_mask = 954
+collision_mask = 826
 script = ExtResource("1_agjl5")
 
 [node name="FeetCollider" type="CollisionShape2D" parent="." unique_id=862284075]
@@ -332,6 +332,7 @@ collision_layer = 4096
 collision_mask = 4096
 
 [node name="EnemyDetectionZoneCollider" type="CollisionShape2D" parent="EnemyDetectionZone" unique_id=1440897277]
+z_index = 10
 shape = SubResource("CircleShape2D_agjl5")
 
 [connection signal="body_entered" from="HurtBoxZone" to="." method="_on_hit_box_zone_body_entered"]

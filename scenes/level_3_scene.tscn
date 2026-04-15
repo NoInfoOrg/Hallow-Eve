@@ -2,23 +2,28 @@
 
 [ext_resource type="Script" uid="uid://cvy8perii5g6s" path="res://scripts/camera_2d.gd" id="1_2es0a"]
 [ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="1_is5o6"]
+[ext_resource type="Script" uid="uid://be1ghyvsjbg7g" path="res://scenes/level_3_scene.gd" id="1_k1e2j"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_50ut1"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_is5o6"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_vmqa7"]
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="5_k1e2j"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="6_38li5"]
-[ext_resource type="PackedScene" uid="uid://b1e06i03x6max" path="res://scenes/level_3_floorplan.tscn" id="7_jqvr8"]
+[ext_resource type="PackedScene" uid="uid://dr5tr08n1qkmp" path="res://scenes/level_3_floorplan.tscn" id="8_38li5"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="8_cqgif"]
-[ext_resource type="Script" uid="uid://bciptxwus7cg" path="res://scripts/asset.gd" id="9_50ut1"]
+[ext_resource type="Script" uid="uid://c6ufm81rtdraj" path="res://scripts/asset.gd" id="9_50ut1"]
+[ext_resource type="Texture2D" uid="uid://cao84hnsuu6sw" path="res://assets/sprites/environment/StairsSide.png" id="12_38li5"]
 
 [sub_resource type="Resource" id="Resource_cvgtb"]
 script = ExtResource("4_vmqa7")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_or3vb"]
+size = Vector2(228, 218)
+
 [node name="Level 3 Scene" type="Node2D" unique_id=1691588298]
+script = ExtResource("1_k1e2j")
 metadata/_edit_horizontal_guides_ = [2362.7485]
 
 [node name="UI" parent="." unique_id=1522527901 instance=ExtResource("1_is5o6")]
-visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1984080884]
 
@@ -66,7 +71,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Map" type="Node2D" parent="." unique_id=1275712703]
 
-[node name="Level 3 Floorplan" parent="Map" unique_id=1045888620 instance=ExtResource("7_jqvr8")]
+[node name="Level 3 Floorplan" parent="Map" unique_id=1045888620 instance=ExtResource("8_38li5")]
 
 [node name="Objects" type="Node2D" parent="." unique_id=64838976]
 y_sort_enabled = true
@@ -75,10 +80,12 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="Eve - P1" parent="Objects/MovementCont" unique_id=810202292 instance=ExtResource("5_k1e2j")]
+z_index = 10
 position = Vector2(692.96484, 2485.8657)
 collision_mask = 958
 
 [node name="Willow - P2" parent="Objects/MovementCont" unique_id=882182450 instance=ExtResource("6_38li5")]
+z_index = 10
 position = Vector2(213.17004, 2451.0293)
 collision_mask = 958
 
@@ -492,3 +499,32 @@ roomType = 10
 asset = 3
 
 [node name="Puzzle Items" type="Node2D" parent="Objects" unique_id=1333187888]
+
+[node name="Transition Points" type="Node2D" parent="." unique_id=1015087384]
+
+[node name="Staircase" type="Node2D" parent="Transition Points" unique_id=1468325190]
+position = Vector2(991, 2540)
+scale = Vector2(0.5, 0.5)
+
+[node name="StairsSide" type="Sprite2D" parent="Transition Points/Staircase" unique_id=1082634654]
+z_index = 5
+position = Vector2(42, -712)
+texture = ExtResource("12_38li5")
+
+[node name="WalkUpZone" type="Area2D" parent="Transition Points/Staircase/StairsSide" unique_id=115845660]
+position = Vector2(-42, 712)
+collision_layer = 2
+collision_mask = 65
+
+[node name="WalkCollider" type="CollisionPolygon2D" parent="Transition Points/Staircase/StairsSide/WalkUpZone" unique_id=1812937913]
+position = Vector2(-164, -246)
+polygon = PackedVector2Array(702, 4, 702, -518, 0, 4)
+
+[node name="LevelUpZone" type="Area2D" parent="Transition Points/Staircase/StairsSide" unique_id=395668076]
+
+[node name="LevelUpCollider" type="CollisionShape2D" parent="Transition Points/Staircase/StairsSide/LevelUpZone" unique_id=2000425453]
+position = Vector2(-100, 360)
+shape = SubResource("RectangleShape2D_or3vb")
+
+[connection signal="body_entered" from="Transition Points/Staircase/StairsSide/LevelUpZone" to="." method="_on_level_up_zone_body_entered"]
+[connection signal="body_shape_exited" from="Transition Points/Staircase/StairsSide/LevelUpZone" to="." method="_on_level_up_zone_body_shape_exited"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ppressbpl3mv"
+path="res://.godot/imported/Violiny.wav-32fa144298d82d4e6fc2f33a028ffe34.sample"
+
+[deps]
+
+source_file="res://music/sound effects/Violiny.wav"
+dest_files=["res://.godot/imported/Violiny.wav-32fa144298d82d4e6fc2f33a028ffe34.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

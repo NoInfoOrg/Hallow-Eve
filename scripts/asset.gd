@@ -14,7 +14,8 @@ enum RoomType {
 	Study,
 	Storage,
 	SittingArea,
-	Windows
+	Windows,
+	OtherWallDecor
 }
 
 const roomEnums = {
@@ -30,7 +31,8 @@ const roomEnums = {
 	RoomType.Study: StudyAssetTypes,
 	RoomType.Storage: StorageAssetTypes,
 	RoomType.SittingArea: SittingAreaAssetTypes,
-	RoomType.Windows: WindowAssetTypes
+	RoomType.Windows: WindowAssetTypes,
+	RoomType.OtherWallDecor: OtherWallDecorTypes
 }
 
 enum BedroomAssetTypes{
@@ -154,6 +156,13 @@ enum WindowAssetTypes {
 	Frame
 }
 
+enum OtherWallDecorTypes {
+	CobwebCenter,
+	CobwebCorner,
+	CobwebMiddle,
+	CobwebSide
+}
+
 @export var roomType: RoomType:
 	set(value):
 		roomType = value
@@ -269,6 +278,12 @@ const assetScenes = {
 		WindowAssetTypes.Evening: preload("res://scenes/window_evening.tscn"),
 		WindowAssetTypes.Night: preload("res://scenes/window_night.tscn"),
 		WindowAssetTypes.Frame: preload("res://scenes/window_frame.tscn"),
+	},
+	RoomType.OtherWallDecor: {
+		OtherWallDecorTypes.CobwebCenter: preload("res://scenes/cobweb_center.tscn"),
+		OtherWallDecorTypes.CobwebCorner: preload("res://scenes/cobweb_corner.tscn"),
+		OtherWallDecorTypes.CobwebMiddle: preload("res://scenes/cobweb_middle.tscn"),
+		OtherWallDecorTypes.CobwebSide: preload("res://scenes/cobweb_side.tscn"),
 	},
 }
 
