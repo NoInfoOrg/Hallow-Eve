@@ -180,7 +180,6 @@ offset_bottom = 40.0
 texture = ExtResource("12_qsv74")
 
 [node name="Menu" type="CanvasLayer" parent="MenuButton" unique_id=1012407032]
-visible = false
 
 [node name="Control" type="Control" parent="MenuButton/Menu" unique_id=169739648]
 layout_mode = 3
@@ -285,6 +284,5 @@ grow_vertical = 2
 texture = ExtResource("13_h1mc3")
 
 [connection signal="pressed" from="MenuButton/Menu/Control/Panel/Resume" to="MenuButton" method="_on_resume_pressed"]
-[connection signal="pressed" from="MenuButton/Menu/Control/Panel/Settings" to="MenuButton/Menu/Control/Panel/Settings" method="_on_pressed"]
 [connection signal="pressed" from="MenuButton/Menu/Control/Panel/Return to Main Menu" to="MenuButton/Menu/Control/Panel/Return to Main Menu" method="_on_pressed"]
 [connection signal="pressed" from="MenuButton/Menu/Control/Panel/Exit Game" to="MenuButton/Menu/Control/Panel/Exit Game" method="_on_pressed"]

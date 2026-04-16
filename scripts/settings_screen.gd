@@ -4,3 +4,4 @@ extends CanvasLayer
 func _ready() -> void:
 	if GlobalInformation.is_in_main_menu:
 		get_node("Control/Panel/VBoxContainer/Toggle Inventory").hide()
+		get_node("Control/Panel/VBoxContainer/Toggle Inventory Spacer Replacement").show()

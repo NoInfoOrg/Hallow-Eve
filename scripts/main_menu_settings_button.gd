@@ -1,4 +1,4 @@
-extends Button
+extends BaseButton
 
 var settings_open: bool = false
 
