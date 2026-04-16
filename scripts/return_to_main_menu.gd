@@ -18,5 +18,6 @@ func _on_pressed() -> void:
 	elif GlobalInformation.current_scene == "level_3_scene":
 		GlobalInformation.saved_scene = GlobalInformation.scenes.LEVEL_3
 	
+	GlobalInformation.is_in_main_menu = true
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

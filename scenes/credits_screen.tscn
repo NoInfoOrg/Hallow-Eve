@@ -12,7 +12,7 @@
 script = ExtResource("1_1amdp")
 
 [node name="Overall Background" type="Sprite2D" parent="." unique_id=1506795769]
-position = Vector2(576.5, 323.50003)
+position = Vector2(576.5, 324.5)
 scale = Vector2(0.59947914, 0.600926)
 texture = ExtResource("2_wdjou")
 

@@ -52,6 +52,10 @@ layout_mode = 2
 text = "Hide Inventory"
 script = ExtResource("1_r6d6q")
 
+[node name="Toggle Inventory Spacer Replacement" type="Label" parent="Control/Panel/VBoxContainer" unique_id=2043963618]
+visible = false
+layout_mode = 2
+
 [node name="Master Volume Title" type="Sprite2D" parent="Control/Panel/VBoxContainer" unique_id=1817775410]
 position = Vector2(160.33331, 95.00001)
 scale = Vector2(0.5666664, 0.56666636)
