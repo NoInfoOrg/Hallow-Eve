@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cdb5iv2ftog18"]
 
-[ext_resource type="Script" uid="uid://c6kun7cx01rv2" path="res://scripts/level_3_scene.gd" id="1_76qun"]
+[ext_resource type="Script" path="res://scripts/level_3_scene.gd" id="1_76qun"]
 [ext_resource type="Script" uid="uid://cvy8perii5g6s" path="res://scripts/camera_2d.gd" id="1_l75xx"]
 [ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="1_st00f"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_w3v4c"]
@@ -343,18 +343,18 @@ asset = 1
 [node name="Locked Doors" type="Node2D" parent="Objects/Puzzle Items" unique_id=514133086]
 
 [node name="Hall-LibraryStatueRoom Door" parent="Objects/Puzzle Items/Locked Doors" unique_id=1400186033 instance=ExtResource("9_bh3am")]
-position = Vector2(-2624, -2078)
+position = Vector2(899.2068, -994.2615)
 
 [node name="LockedDoor" parent="Objects/Puzzle Items/Locked Doors" unique_id=2139845666 instance=ExtResource("9_bh3am")]
-position = Vector2(-2640, -2502)
+position = Vector2(883.2068, -1418.2615)
 
 [node name="LockedDoor2" parent="Objects/Puzzle Items/Locked Doors" unique_id=889521707 instance=ExtResource("9_bh3am")]
-position = Vector2(-2637, -2906)
+position = Vector2(886.2068, -1822.2615)
 
 [node name="Transition Points" type="Node2D" parent="." unique_id=1582563579]
 
 [node name="Staircase" parent="Transition Points" unique_id=1468325190 instance=ExtResource("13_edtfm")]
-position = Vector2(876.3025, 556.2102)
+position = Vector2(338, 568)
 
 [node name="StairsSide" parent="Transition Points/Staircase" index="1" unique_id=1082634654]
 position = Vector2(465.39502, -1242.4204)
