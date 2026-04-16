@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://bwd22jx5mssx0"]
 
-[ext_resource type="Texture2D" uid="uid://qxh64fhdjmc3" path="res://assets/items/black_light_flashlight_32x49.png" id="1_6sl4o"]
 [ext_resource type="Script" uid="uid://cnujf4336mq84" path="res://scripts/collectibles.gd" id="1_yd0uq"]
 [ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="2_hqfoc"]
+[ext_resource type="Texture2D" uid="uid://boqunsygbbvhi" path="res://assets/items/UV_FlashLight-Hand.png" id="4_hqfoc"]
 
 [sub_resource type="Resource" id="Resource_xf1cd"]
 script = ExtResource("2_hqfoc")
 name = "key"
-texture = ExtResource("1_6sl4o")
+texture = ExtResource("4_hqfoc")
 metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6sl4o"]
-radius = 30.265491
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xf1cd"]
+size = Vector2(74, 36)
 
 [node name="Black Light Flashlight Item" type="Area2D" unique_id=603767252]
 collision_mask = 65
@@ -19,7 +19,8 @@ script = ExtResource("1_yd0uq")
 item_info = SubResource("Resource_xf1cd")
 
 [node name="key" type="Sprite2D" parent="." unique_id=2052731255]
-texture = ExtResource("1_6sl4o")
+texture = ExtResource("4_hqfoc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1730696042]
-shape = SubResource("CircleShape2D_6sl4o")
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_xf1cd")

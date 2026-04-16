@@ -71,7 +71,7 @@ _data = {
 }
 point_count = 8
 
-[sub_resource type="Resource" id="Resource_4ymq3"]
+[sub_resource type="Resource" id="Resource_80dtq"]
 script = ExtResource("19_4ymq3")
 name = "key"
 texture = ExtResource("23_yi50i")
@@ -81,6 +81,12 @@ metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
 script = ExtResource("19_4ymq3")
 name = "key"
 texture = ExtResource("25_80dtq")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+
+[sub_resource type="Resource" id="Resource_4ymq3"]
+script = ExtResource("19_4ymq3")
+name = "key"
+texture = ExtResource("23_yi50i")
 metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
 
 [sub_resource type="Resource" id="Resource_yi50i"]
@@ -682,7 +688,7 @@ metadata/_edit_lock_ = true
 z_index = -3
 position = Vector2(-1702.0033, 2147.8447)
 collision_mask = 0
-required_key = NodePath("../../Keys/key-homework-ExtraBedroom")
+required_key = NodePath("../../Keys/key-bathroom")
 metadata/_edit_lock_ = true
 
 [node name="Items" type="Node2D" parent="Objects/Puzzle Items" unique_id=1981206254]
@@ -694,10 +700,10 @@ position = Vector2(246.04437, 2419.2944)
 
 [node name="Keys" type="Node2D" parent="Objects/Puzzle Items" unique_id=2132403648]
 
-[node name="key-storage" parent="Objects/Puzzle Items/Keys" unique_id=1417814454 instance=ExtResource("17_tqr37")]
+[node name="key-bathroom" parent="Objects/Puzzle Items/Keys" unique_id=1417814454 instance=ExtResource("17_tqr37")]
 z_index = -1
 position = Vector2(-336.4287, 2770.2576)
-item_info = SubResource("Resource_4ymq3")
+item_info = SubResource("Resource_80dtq")
 
 [node name="key-homework-ExtraBedroom" parent="Objects/Puzzle Items/Keys" unique_id=1901333126 instance=ExtResource("17_tqr37")]
 position = Vector2(738.9462, 2597.5322)
