@@ -4,8 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://dotuupmoavmhg" path="res://assets/tilesets/WallFrontDoor-Closed_1.png" id="2_62u4q"]
 [ext_resource type="Texture2D" uid="uid://un5ok4c2i8n2" path="res://assets/tilesets/Kitchen_Wall-Fridge.png" id="3_1du4m"]
 [ext_resource type="Texture2D" uid="uid://csrx52yl3r00i" path="res://assets/tilesets/WallFrontDoor-Open_1.png" id="3_8r5bf"]
+[ext_resource type="Texture2D" uid="uid://c8sasd1hnvilw" path="res://assets/tilesets/WallFront_SleeplessDoor-.png" id="4_7cgu7"]
 [ext_resource type="Texture2D" uid="uid://bv27ehera2rvf" path="res://assets/tilesets/WallFront_Ballroom.png" id="4_ucm7u"]
+[ext_resource type="Texture2D" uid="uid://ctkjreflhl6lq" path="res://assets/tilesets/WallFront_SleeplessDoor-Open.png" id="5_5nrht"]
 [ext_resource type="Texture2D" uid="uid://b3uf1ipgsjqp3" path="res://assets/tilesets/WallFront_BallroomDoor-Closed.png" id="5_r07dk"]
+[ext_resource type="Texture2D" uid="uid://b5a8pm0b6f80s" path="res://assets/tilesets/WallFront_Sleepless.png" id="6_2k536"]
 [ext_resource type="Texture2D" uid="uid://l05hco35jypp" path="res://assets/tilesets/WallFront_BallroomDoor-Open.png" id="6_7wb0s"]
 [ext_resource type="Texture2D" uid="uid://e3tbdqcqqben" path="res://assets/tilesets/WallFrontDoor-Closed_BathroomFloor4.png" id="8_cjss2"]
 [ext_resource type="Texture2D" uid="uid://wcim3i1e75q5" path="res://assets/tilesets/WallFrontDoor-Open_BathroomFloor4.png" id="9_1a72o"]
@@ -5809,6 +5812,42 @@ texture_region_size = Vector2i(140, 660)
 7:0/0 = 0
 7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -330, 70, -330, 70, 330, -70, 330)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s2srs"]
+texture = ExtResource("4_7cgu7")
+texture_region_size = Vector2i(140, 660)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ru6gk"]
+texture = ExtResource("5_5nrht")
+texture_region_size = Vector2i(140, 660)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5siyy"]
+texture = ExtResource("6_2k536")
+texture_region_size = Vector2i(140, 660)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8r5bf"]
 texture = ExtResource("3_8r5bf")
 texture_region_size = Vector2i(140, 660)
@@ -8229,6 +8268,18 @@ texture_region_size = Vector2i(140, 660)
 68:40/0 = 0
 69:40/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_clc4x"]
+texture = ExtResource("6_2k536")
+texture_region_size = Vector2i(140, 660)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xr84e"]
 texture = ExtResource("4_ucm7u")
 texture_region_size = Vector2i(140, 660)
@@ -8351,3 +8402,7 @@ sources/7 = SubResource("TileSetAtlasSource_2k536")
 sources/8 = SubResource("TileSetAtlasSource_7vvyq")
 sources/9 = SubResource("TileSetAtlasSource_jxnyi")
 sources/10 = SubResource("TileSetAtlasSource_1a72o")
+sources/3 = SubResource("TileSetAtlasSource_clc4x")
+sources/11 = SubResource("TileSetAtlasSource_s2srs")
+sources/12 = SubResource("TileSetAtlasSource_ru6gk")
+sources/13 = SubResource("TileSetAtlasSource_5siyy")
