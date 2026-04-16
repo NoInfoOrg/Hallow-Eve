@@ -15,7 +15,7 @@ signal plushieAttack
 		plushieType = value
 		setup_enemy()
 
-enum PlushieType {Rocco, Cat, Choco, Freddy, MinionRat}
+enum PlushieType {Rocco, Choco, Freddy, MinionRat}
 
 # plushie pre-defined attributes (see Enemy AI google doc)
 var plushieAttributes = {
@@ -24,12 +24,6 @@ var plushieAttributes = {
 		"normalSpeed": 100,
 		"secondarySpeed": 125,
 		"damage": 1
-	},
-	PlushieType.Cat: {
-		"sprite": preload("res://assets/sprites/enemy/Plushies_Cat.png"),
-		"normalSpeed": 50,
-		"secondarySpeed": 150,
-		"damage": 0.25
 	},
 	PlushieType.Choco: {
 		"sprite": preload("res://assets/sprites/enemy/Plushies_Choco.png"),
@@ -68,10 +62,11 @@ var initialSqueak = false
 @onready var freddySound: AudioStreamPlayer2D = $FreddySound
 @onready var lineOfSightRay: RayCast2D = RayCast2D.new()
 
-# variables for choco and cat
+# variables for choco
 var dashCooldownTimer = 1.0
 var isDashing = false
 var dashDuration = 0.3
+var hopTimer = 0.0
 
 # all plushie variables
 var normalSpeed = 0
@@ -80,14 +75,12 @@ var damage = 0
 
 # begins the plushie madness
 func _ready():
-	# setup enemy
 	setup_enemy()
 	add_child(lineOfSightRay)
 	lineOfSightRay.enabled = false
 	var layersToCollide = [2, 4, 5, 8, 9, 10]
 	for layer in layersToCollide:
 		lineOfSightRay.set_collision_mask_value(layer, true)
-	# start self destruct timer if minion rat
 	if plushieType == PlushieType.MinionRat:
 		self_destruct_timer(10.0)
 
@@ -108,12 +101,9 @@ func setup_enemy():
 # calls movement behavior function depending on which plushie is selected
 func _physics_process(delta: float) -> void:
 	velocity = Vector2.ZERO
-	# depending on plushie type choose the correct behavior
 	match plushieType:
 		PlushieType.Rocco:
 			rocco_behavior(delta)
-		PlushieType.Cat:
-			cat_behavior(delta)
 		PlushieType.Choco:
 			choco_behavior(delta)
 		PlushieType.Freddy:
@@ -155,118 +145,58 @@ func get_diagonal_distance(target):
 
 # defines rocco movement behavior (patrolling unless detecting a player)
 func rocco_behavior(delta: float) -> void:
-	# check if the player is being chased
 	if playerChase:
-		# if so then get the closest target and set that to player
 		player = get_closest_target()
-		# check if player is not null
 		if player:
-			# toggle return to path as the rat is chasing and move toward the player
 			returnToPath = false
 			move_toward_target(player.global_position, secondarySpeed)
-	# otherwise player is not being chased
 	else:
-		# check if the rat should return to the path
 		if returnToPath:
-			# return to the path
 			move_to_path(delta)
-		# also check if path follow
 		elif pathFollow:
-			# move the rat along the path
 			move_on_path(normalSpeed, delta)
 
 # defines minion rat behavior
 func minion_rat_behavior(delta: float) -> void:
-	# check if the player should be chased
 	if playerChase:
-		# get the closest player
 		player = get_closest_target()
-		# check that player is not null
 		if player:
-			# move minion rat toward the player
 			move_toward_target(player.global_position, secondarySpeed)
 
 # summons a minion rat to attack alongside leader rat
 func rat_swarm_attack() -> void:
-	# check if the rat trying to summon is the leader
 	if leaderRat:
-		# load another plushie to instantiate a minion rat for the swarm attack
 		var scenePath = self.scene_file_path
 		var minionRat = load(scenePath).instantiate()
-		# set minion rat attributes
 		minionRat.plushieType = PlushieType.MinionRat
+		minionRat.global_position = get_random_minion_rat_position()
 		minionRat.leaderRat = false
 		minionRat.scale = Vector2(0.5, 0.5)
 		minionRat.playerChase = true
 		minionRat.death_effect_scene = death_effect_scene
-		# set the naviations targets
 		minionRat.targets = targets
-		# add rat to the level tree and place rat in random pos
+		minionRat.modulate.a = 0.0
 		get_tree().current_scene.add_child(minionRat)
-		minionRat.global_position = get_random_minion_rat_position()
-	# if not then it cannot summon
+		var fadeInDuration = 1.0
+		var tweenEffect = get_tree().create_tween()
+		tweenEffect.tween_property(minionRat, "modulate:a", 1.0, fadeInDuration)
 	else:
 		return
-
+		
 func get_random_minion_rat_position() -> Vector2:
-	# setup variables for cam
-	var screenRect = get_viewport_rect()
-	var screenSize = screenRect.size
-	var camera = get_viewport().get_camera_2d()
-	var cameraPos = Vector2.ZERO
-	var spawnPos = Vector2.ZERO
-	# check tha camera isnt null
-	if camera:
-		# get the cams pos
-		cameraPos = camera.get_screen_center_position()
-	# otherwise global pos
-	else:
-		cameraPos = global_position
-	# setup margin and zoom variables (phantom cam zooms)
-	var margin = 250.0
-	var zoom = 1.0
-	# check if cam 
-	if camera:
-		# get the zoom for the camera
-		zoom = 1.0 / camera.zoom.x
-	# pick a random side for the minion rat the spawn
-	var spawnSide = randi() % 4
-	match spawnSide:
-		0:
-			spawnPos.x = randf_range(cameraPos.x - (screenSize.x * zoom)/2, cameraPos.x + (screenSize.x * zoom)/2)
-			spawnPos.y = cameraPos.y - ((screenSize.y * zoom)/2) - margin
-		1:
-			spawnPos.x = randf_range(cameraPos.x - (screenSize.x * zoom)/2, cameraPos.x + (screenSize.x * zoom)/2)
-			spawnPos.y = cameraPos.y + ((screenSize.y * zoom)/2) + margin
-		2:
-			spawnPos.x = cameraPos.x - ((screenSize.x * zoom)/2) - margin
-			spawnPos.y = randf_range(cameraPos.y - (screenSize.y * zoom)/2, cameraPos.y + (screenSize.y * zoom)/2)
-		3:
-			spawnPos.x = cameraPos.x + ((screenSize.x * zoom)/2) + margin
-			spawnPos.y = randf_range(cameraPos.y - (screenSize.y * zoom)/2, cameraPos.y + (screenSize.y * zoom)/2)
-	# return the random spawn pos
-	return spawnPos
+	var minDistance = 20.0
+	var maxDistance = 40.0
+	var randAngle = randf() * TAU
+	var randDistance = randf_range(minDistance, maxDistance)
+	var spawnOffset = Vector2.from_angle(randAngle) * randDistance
+	return global_position + spawnOffset
 
 # sets a self destruct timer for the minion rat
 func self_destruct_timer(seconds: float) -> void:
 	var minionTimer = get_tree().create_timer(seconds)
 	minionTimer.timeout.connect(plushie_death)
 	
-func cat_behavior(delta: float) -> void:
-	if playerChase and player:
-		var currentSpeed = secondarySpeed
-		var distanceToPlayer = global_position.distance_to(player.global_position)
-		if distanceToPlayer < 150 and not isDashing and dashCooldownTimer <= 0:
-			plushie_dash_start(1)
-			dashCooldownTimer = 3.0
-		dashCooldownTimer -= delta
-		if isDashing:
-			currentSpeed *= 2.0
-		move_toward_target(player.global_position, currentSpeed)
-	else:
-		if pathFollow:
-			move_on_path(normalSpeed, delta)
-	
+# defines choco behavior
 func choco_behavior(delta: float) -> void:
 	if playerChase and player:
 		var currentSpeed = secondarySpeed
@@ -281,12 +211,22 @@ func choco_behavior(delta: float) -> void:
 	else:
 		if pathFollow:
 			move_on_path(normalSpeed, delta)
+	if velocity.length() > 0 and $EnemySprite:
+		hopTimer += delta
+		var hopSpeed = 15.0
+		var hopHeight = 15.0
+		$EnemySprite.position.y = -abs(sin(hopTimer * hopSpeed)) * hopHeight
+	elif $EnemySprite:
+		hopTimer = 0.0
+		$EnemySprite.position.y = 0.0
 
+# enables plushies to dash during chase
 func plushie_dash_start(chance: float):
 	if randf() < chance:
 		isDashing = true
 		get_tree().create_timer(dashDuration).timeout.connect(func(): isDashing = false)
 
+# defines freddy behavior
 func freddy_behavior(delta: float) -> void:
 	pass
 	if playerChase and player:
@@ -295,6 +235,7 @@ func freddy_behavior(delta: float) -> void:
 		if pathFollow:
 			move_on_path(normalSpeed, delta)
 
+# sets up freddy plushie jumpscare scene and animation effect
 func freddy_jumpscare_start():
 	if jumpscare_scene_freddy:
 		var jumpscareScene = jumpscare_scene_freddy.instantiate()
@@ -304,7 +245,7 @@ func freddy_jumpscare_start():
 			var tweenEffect = get_tree().create_tween()
 			freddyTextRect.scale = Vector2(0.5, 0.5)
 			freddyTextRect.modulate.a = 0.5
-			tweenEffect.tween_property(freddyTextRect, "scale", Vector2(4.0, 4.0), 0.15).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+			tweenEffect.tween_property(freddyTextRect, "scale", Vector2(8.0, 8.0), 0.15).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 			tweenEffect.parallel().tween_property(freddyTextRect, "modulate:a", 1.0, 0.05)
 			tweenEffect.tween_property(freddyTextRect, "modulate:a", 0.0, 0.8).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN).set_delay(0.2)
 			tweenEffect.tween_callback(jumpscareScene.queue_free)
@@ -313,32 +254,24 @@ func freddy_jumpscare_start():
 
 # moves the plushie along a path
 func move_on_path(speed: float, delta: float) -> void:
-	# get the path length
 	var pathLength = pathFollow.get_parent().curve.get_baked_length()
-	# check if the length is greater than 0
 	if pathLength > 0:
-		# update the progress on the path
 		pathFollow.progress_ratio += (speed * delta) / pathLength
 		var direction = pathFollow.global_position - global_position
 		velocity = direction.normalized() * speed
 
 # moves the plushie toward the path if it is no longer chasing
 func move_to_path(delta: float) -> void:
-	# gets the direction to the path
 	var direction = returnLocation - global_position
-	# check if the length of the direction is less than 5 (made it to the path)
 	if direction.length() < 5:
-		# toggle return to path since it has made it to the path and return
 		returnToPath = false
 		velocity = Vector2.ZERO
 		return
-	# otherwise the plushie still needs to move toward the path
 	else:
 		velocity = direction.normalized() * normalSpeed
 
 # moves the plushie toward a target player
 func move_toward_target(playerLocation: Vector2, speed: float):
-	
 	navAgent.target_position = playerLocation
 	var nextLocation = navAgent.get_next_path_position()
 	var direction = nextLocation - global_position
@@ -350,7 +283,8 @@ func move_toward_target(playerLocation: Vector2, speed: float):
 			velocity = direction.normalized() * speed
 		else:
 			velocity = Vector2.ZERO
-			
+
+# removes plushie and plays death scene
 func plushie_death():
 	if death_effect_scene:
 		var deathEffect = death_effect_scene.instantiate()
@@ -360,7 +294,8 @@ func plushie_death():
 	if plushieType ==  PlushieType.Freddy:
 		freddy_jumpscare_start()
 	queue_free()
-	
+
+# checks to make sure there is nothing between enemy and player before doing damage
 func check_line_of_sight() -> bool:
 	if not player:
 		return false
@@ -391,40 +326,27 @@ func _on_attack_zone_area_exited(area: Area2D) -> void:
 
 # checks if detection zone is entered by player
 func _on_detection_zone_area_entered(area: Area2D) -> void:
-	# check the object in the detection zone is a player
 	if area.is_in_group("HurtBox"):
-		# set player to the current player in the detection zone and begin chase
 		player = area.get_parent()
 		playerChase = true
-		# check if the first time something has been detected and the rat is the leader
 		if plushieType == PlushieType.Rocco:
 			if !initialSqueak and leaderRat:
-				# gen a random number of rats
 				var rng = RandomNumberGenerator.new()
 				rng.randomize()
 				var randomNum = rng.randi_range(1, 4)
 				for i in range(randomNum):
-					# spawn minion rat
 					await get_tree().create_timer(0.2).timeout
 					call_deferred("rat_swarm_attack")
-				# check for sound and not currently playing
 				if detectionSound and not detectionSound.playing:
-					# play the sound !
 					detectionSound.play()
 					initialSqueak = !initialSqueak
 
 # checks if the player has left the detection zone
 func _on_detection_zone_area_exited(area: Area2D) -> void:
-		# check if the player exiting is the current player
 	if area.get_parent() == player:
-		# set player to null as there is no player in the zone
 		player = null
-		# check if rat is the leader
 		if leaderRat:
-			# if it is then toggle the chase
 			playerChase = false
-		# check if path follow is toggled
 		if pathFollow:
-			# return to path 
 			returnLocation = pathFollow.global_position
 			returnToPath = true

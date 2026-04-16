@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="1_st00f"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_w3v4c"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_l75xx"]
+[ext_resource type="PackedScene" uid="uid://cgtfu4mroobjr" path="res://scenes/level_change_label.tscn" id="3_5m0iu"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_bh3am"]
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="4_k5nr0"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="5_st00f"]
@@ -23,6 +24,8 @@ metadata/_edit_horizontal_guides_ = [-1310.3547, -1110.6833]
 
 [node name="UI" parent="." unique_id=1522527901 instance=ExtResource("1_st00f")]
 visible = false
+
+[node name="LevelChangeLabel" parent="." unique_id=727282801 instance=ExtResource("3_5m0iu")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1543515650]
 

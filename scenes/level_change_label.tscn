@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cgtfu4mroobjr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yi50i"]
+font_size = 40
+
+[node name="LevelChangeLabel" type="CanvasLayer" unique_id=727282801]
+
+[node name="WaitingForPlayerLabel" type="Label" parent="." unique_id=1179684299]
+z_index = 10
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -55.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_yi50i")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -7,18 +7,26 @@ var completedReqs: int = 0
 var blockadeOpen = false
 var blockadeMoveDuration = 1.5
 var blockadeFadeDuration = 0.8
-var blockadeMoveDistance = -200
+var blockadeMoveDistance = -350
+
+enum directionOfBlockade {Up, Down}
+
+# checks what direction the blockade needs to tween
+@export var direction: directionOfBlockade:
+	set(value):
+		direction = value
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-	remove_blockade()
+	#remove_blockade()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
+# checks that all puzzles have been completed before opening blockade
 func req_met():
 	pass
 	#if blockadeOpen: 
@@ -27,12 +35,18 @@ func req_met():
 	#if completedReqs >= totalReqsToOpen:
 		#remove_blockade()
 	
-
+# removes the blockade from the level
 func remove_blockade():
 	blockadeOpen = true
 	blockadeCollider.set_deferred("disabled", true)
 	var tweenEffect = get_tree().create_tween()
-	tweenEffect.tween_property(self, "position:y", position.y + blockadeMoveDistance, blockadeMoveDuration).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
-	tweenEffect.parallel().tween_property(self, "scale:y", 0.0, blockadeMoveDuration).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-	tweenEffect.tween_property(self, "modulate:a", 0.0, blockadeFadeDuration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+	if direction == directionOfBlockade.Up:
+		tweenEffect.tween_property(self, "position:y", position.y + blockadeMoveDistance, blockadeMoveDuration).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+		tweenEffect.parallel().tween_property(self, "scale:y", 0.0, blockadeMoveDuration).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+		tweenEffect.tween_property(self, "modulate:a", 0.0, blockadeFadeDuration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+	elif direction == directionOfBlockade.Down:
+		tweenEffect.tween_property(self, "position:y", position.y - blockadeMoveDistance, blockadeMoveDuration).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+		tweenEffect.parallel().tween_property(self, "scale:y", 0.0, blockadeMoveDuration).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+		tweenEffect.tween_property(self, "modulate:a", 0.0, blockadeFadeDuration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
 	tweenEffect.tween_callback(queue_free)
+		

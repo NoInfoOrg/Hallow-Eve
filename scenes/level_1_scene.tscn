@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="2_d0nkq"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_ihv73"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_d0nkq"]
+[ext_resource type="PackedScene" uid="uid://cgtfu4mroobjr" path="res://scenes/level_change_label.tscn" id="3_fxayd"]
 [ext_resource type="PackedScene" uid="uid://b0eo2ssadyqgv" path="res://scenes/game_over_screen.tscn" id="3_us6j8"]
 [ext_resource type="PackedScene" uid="uid://dnjf1aqiogr0k" path="res://scenes/level_1_floorplan.tscn" id="3_vdyla"]
 [ext_resource type="PackedScene" uid="uid://c616w2s1ho401" path="res://scenes/human_box.tscn" id="7_cowtf"]
@@ -27,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://bbeeo2dju1t1q" path="res://assets/items/Key_3.png" id="23_yi50i"]
 [ext_resource type="Texture2D" uid="uid://cmrn0d061ae6a" path="res://assets/sprites/environment/StairsDown1.png" id="24_ock1t"]
 [ext_resource type="Texture2D" uid="uid://dbs1ylnq8rd2y" path="res://assets/items/Key_1.png" id="25_80dtq"]
-[ext_resource type="Script" uid="uid://d1ehvit7dlsc6" path="res://scenes/hw_checker.gd" id="25_pqgcp"]
+[ext_resource type="Script" path="res://scenes/hw_checker.gd" id="25_pqgcp"]
 [ext_resource type="PackedScene" uid="uid://bfphydknonny6" path="res://scenes/shapes_paper_math.tscn" id="27_btg6x"]
 [ext_resource type="PackedScene" uid="uid://ul5aitvagahn" path="res://scenes/blockade_fairy_lights.tscn" id="29_yi50i"]
 
@@ -109,6 +110,8 @@ script = ExtResource("1_5rr05")
 
 [node name="UI" parent="." unique_id=1522527901 instance=ExtResource("1_5coaa")]
 
+[node name="LevelChangeLabel" parent="." unique_id=727282801 instance=ExtResource("3_fxayd")]
+
 [node name="Game Over Screen" parent="." unique_id=297437709 instance=ExtResource("3_us6j8")]
 visible = false
 
@@ -125,7 +128,7 @@ physics_interpolation_mode = 1
 top_level = true
 visibility_layer = 65
 z_index = 10
-position = Vector2(146, 195)
+position = Vector2(108.11841, 1673.9225)
 zoom = Vector2(1.2025052, 1.2025052)
 process_callback = 0
 editor_draw_limits = true
@@ -140,7 +143,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="Camera Setup" unique_id=1630467949 node_paths=PackedStringArray("follow_targets")]
 top_level = true
-position = Vector2(146, 195)
+position = Vector2(108.11841, 1673.9225)
 script = ExtResource("2_ihv73")
 priority = 10
 follow_mode = 3
@@ -174,12 +177,12 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="Eve - P1" parent="Objects/MovementCont" unique_id=810202292 instance=ExtResource("1_ihv73")]
-position = Vector2(67, 188)
+position = Vector2(29.118408, 1666.9225)
 collision_mask = 4294967098
 slide_on_ceiling = false
 
 [node name="Willow - P2" parent="Objects/MovementCont" unique_id=882182450 instance=ExtResource("2_d0nkq")]
-position = Vector2(225, 202)
+position = Vector2(187.11841, 1680.9225)
 collision_mask = 4294967098
 slide_on_ceiling = false
 
@@ -255,21 +258,21 @@ pathFollow = NodePath("..")
 [node name="Slimes" type="Node2D" parent="Objects/Enemies" unique_id=1813023894]
 
 [node name="Slime5" parent="Objects/Enemies/Slimes" unique_id=2138321505 instance=ExtResource("15_btg6x")]
-position = Vector2(925.1998, -2371.7024)
+position = Vector2(988.73, -2077.1428)
 
 [node name="Slime" parent="Objects/Enemies/Slimes" unique_id=703542134 instance=ExtResource("15_btg6x")]
-position = Vector2(-939.1842, 844.4946)
+position = Vector2(-1109.1859, 1404.8555)
 
 [node name="Slime2" parent="Objects/Enemies/Slimes" unique_id=300729584 instance=ExtResource("15_btg6x")]
-position = Vector2(-1311.3391, 1117.917)
+position = Vector2(-1989.1858, 1117.917)
 slimeType = 1
 
 [node name="Slime3" parent="Objects/Enemies/Slimes" unique_id=9926033 instance=ExtResource("15_btg6x")]
-position = Vector2(-1675.8989, 802.7246)
+position = Vector2(-1675.8989, 1404.8535)
 slimeType = 2
 
 [node name="Slime4" parent="Objects/Enemies/Slimes" unique_id=1398364071 instance=ExtResource("15_btg6x")]
-position = Vector2(1080.4579, 1102.5386)
+position = Vector2(1055.2301, 1404.8555)
 
 [node name="Assets" type="Node2D" parent="Objects" unique_id=576699497]
 y_sort_enabled = true
@@ -771,6 +774,7 @@ shape = SubResource("RectangleShape2D_pt62h")
 
 [node name="Blockade Fairy Lights" parent="Objects/Blockades" unique_id=457542619 instance=ExtResource("29_yi50i")]
 position = Vector2(909.0421, 2580.0352)
+direction = 1
 
 [node name="Music" parent="." unique_id=371888300 instance=ExtResource("22_b322n")]
 
