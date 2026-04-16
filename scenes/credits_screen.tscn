@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cuxe2hbfmlosi" path="res://scripts/credits_screen.gd" id="1_1amdp"]
 [ext_resource type="Texture2D" uid="uid://imtoiw307a8p" path="res://assets/ui elements/settings/Settings_MenuBG.png" id="1_8n838"]
+[ext_resource type="Texture2D" uid="uid://cb0atptw8hufy" path="res://assets/ui elements/main menu/main_menu_background.png" id="2_wdjou"]
 [ext_resource type="Texture2D" uid="uid://drabb8tugaflm" path="res://assets/ui elements/settings/Settings_Return.png" id="2_wiy8m"]
 [ext_resource type="Script" uid="uid://dhyqa3bocy5m1" path="res://scripts/back_to_menu.gd" id="4_wdjou"]
 
@@ -9,6 +10,11 @@
 
 [node name="Credits Screen" type="Node2D" unique_id=487184844]
 script = ExtResource("1_1amdp")
+
+[node name="Overall Background" type="Sprite2D" parent="." unique_id=1506795769]
+position = Vector2(576.5, 323.50003)
+scale = Vector2(0.59947914, 0.600926)
+texture = ExtResource("2_wdjou")
 
 [node name="Control" type="Control" parent="." unique_id=283935171]
 layout_mode = 3

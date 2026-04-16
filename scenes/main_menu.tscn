@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dpmykk27ckpvf" path="res://scenes/settings.tscn" id="3_rtw2f"]
 [ext_resource type="Script" uid="uid://cqpnp8civ3evg" path="res://scripts/credits_button.gd" id="5_oa1go"]
 [ext_resource type="PackedScene" uid="uid://dmmvcuxa7eajm" path="res://scenes/music.tscn" id="9_5dd4i"]
+[ext_resource type="Script" uid="uid://dq45h6so1olot" path="res://scripts/continue_button.gd" id="10_8egab"]
 [ext_resource type="Texture2D" uid="uid://cxlicao34wlq1" path="res://assets/ui elements/main menu/MainMenu_Play.png" id="12_rcqid"]
 [ext_resource type="Texture2D" uid="uid://l7up3r3bltsm" path="res://assets/ui elements/main menu/MainMenu_Play-Pressed.png" id="13_1ajci"]
 [ext_resource type="Texture2D" uid="uid://ccjg6jcv4rdpd" path="res://assets/ui elements/main menu/MainMenu_Button_Continue-Clickable-Or-Unpressed.png" id="14_7b55j"]
@@ -63,6 +64,7 @@ texture_pressed = ExtResource("15_5pajh")
 texture_disabled = ExtResource("15_5pajh")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("10_8egab")
 
 [node name="Settings" type="TextureButton" parent="." unique_id=1097776904]
 offset_left = 59.0
@@ -101,6 +103,7 @@ stretch_mode = 0
 script = ExtResource("3_bqqt6")
 
 [connection signal="pressed" from="Play Game" to="Play Game" method="_on_pressed"]
+[connection signal="pressed" from="Continue" to="Continue" method="_on_pressed"]
 [connection signal="pressed" from="Settings" to="Settings" method="_on_pressed"]
 [connection signal="pressed" from="Credits" to="Credits" method="_on_pressed"]
 [connection signal="pressed" from="Exit" to="Exit" method="_on_pressed"]
