@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="NoInfoGame"
-run/main_scene="uid://sgkv8bjo1ue1"
+run/main_scene="uid://dy6vmnugwo4au"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://bxl245j7738ni"
+
+[audio]
+
+buses/default_bus_layout="uid://dmj4q54k7ltqi"
 
 [autoload]
 
