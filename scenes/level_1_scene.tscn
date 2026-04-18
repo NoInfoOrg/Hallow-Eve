@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="1_5coaa"]
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="1_ihv73"]
 [ext_resource type="Script" uid="uid://cvy8perii5g6s" path="res://scripts/camera_2d.gd" id="1_lg53w"]
-[ext_resource type="Script" uid="uid://twvfs85kt12g" path="res://scenes/level_1_scene.gd" id="1_ock1t"]
+[ext_resource type="Script" uid="uid://twvfs85kt12g" path="res://scripts/level_1_scene.gd" id="1_ock1t"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_cowtf"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="2_d0nkq"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_ihv73"]
@@ -24,8 +24,13 @@
 [ext_resource type="AudioStream" uid="uid://vfusupj1p18i" path="res://music/Scary_Ambience.mp3" id="24_us6j8"]
 [ext_resource type="AudioStream" uid="uid://cva3jrjfiwawk" path="res://music/level1_boss.mp3" id="25_5yyo0"]
 [ext_resource type="Script" uid="uid://d1ehvit7dlsc6" path="res://scripts/hw_checker.gd" id="25_pqgcp"]
+[ext_resource type="AudioStream" uid="uid://cbfjktq1gdfng" path="res://music/hooray.mp3" id="26_btg6x"]
 [ext_resource type="Script" uid="uid://bsryspci4rqr8" path="res://scenes/boss_area.gd" id="26_pqgcp"]
 [ext_resource type="PackedScene" uid="uid://bfphydknonny6" path="res://scenes/shapes_paper_math.tscn" id="27_btg6x"]
+[ext_resource type="AudioStream" uid="uid://dnba32lhyt7q4" path="res://music/Eve Ouch.mp3" id="27_fxayd"]
+[ext_resource type="AudioStream" uid="uid://bljs35h01eggi" path="res://music/pickup.mp3" id="27_vwtdy"]
+[ext_resource type="AudioStream" uid="uid://clxiax32qroif" path="res://music/Willow Ouch.mp3" id="28_80dtq"]
+[ext_resource type="AudioStream" uid="uid://dmaywwlpircmu" path="res://music/door.mp3" id="28_vwtdy"]
 
 [sub_resource type="Resource" id="Resource_d0nkq"]
 script = ExtResource("3_d0nkq")
@@ -49,6 +54,32 @@ metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btg6x"]
 size = Vector2(332, 2044.5)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_asfof"]
+random_pitch = 1.0656005
+streams_count = 1
+stream_0/stream = ExtResource("27_fxayd")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cu72c"]
+random_pitch = 1.0656005
+streams_count = 1
+stream_0/stream = ExtResource("28_80dtq")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vwtdy"]
+random_pitch = 1.0656005
+streams_count = 1
+stream_0/stream = ExtResource("26_btg6x")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yi50i"]
+random_pitch = 1.0656005
+streams_count = 1
+stream_0/stream = ExtResource("27_vwtdy")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fxayd"]
+playback_mode = 1
+random_pitch = 1.0656005
+streams_count = 1
+stream_0/stream = ExtResource("28_vwtdy")
 
 [node name="Level 1 Scene" type="Node2D" unique_id=733240442]
 script = ExtResource("1_ock1t")
@@ -625,19 +656,6 @@ position = Vector2(375, 2724)
 type = "math"
 answer = "0"
 
-[node name="Ambient Music" type="AudioStreamPlayer" parent="." unique_id=1580217849 groups=["Music"]]
-stream = ExtResource("22_b322n")
-autoplay = true
-bus = &"Music"
-
-[node name="ScaryAmbience" type="AudioStreamPlayer" parent="." unique_id=180460471 groups=["Music"]]
-stream = ExtResource("24_us6j8")
-bus = &"Music"
-
-[node name="Level1Boss" type="AudioStreamPlayer" parent="." unique_id=1439055424 groups=["Music"]]
-stream = ExtResource("25_5yyo0")
-bus = &"Music"
-
 [node name="BossArea" type="Area2D" parent="." unique_id=929916445]
 collision_layer = 65
 collision_mask = 65
@@ -646,3 +664,40 @@ script = ExtResource("26_pqgcp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossArea" unique_id=301888038]
 position = Vector2(92, 1873.75)
 shape = SubResource("RectangleShape2D_btg6x")
+
+[node name="Music" type="Node2D" parent="." unique_id=911269607]
+script = ExtResource("1_ock1t")
+
+[node name="Ambient Music" type="AudioStreamPlayer" parent="Music" unique_id=1580217849 groups=["Music"]]
+process_mode = 3
+stream = ExtResource("22_b322n")
+autoplay = true
+bus = &"Music"
+
+[node name="ScaryAmbience" type="AudioStreamPlayer" parent="Music" unique_id=180460471 groups=["Music"]]
+process_mode = 3
+stream = ExtResource("24_us6j8")
+bus = &"Music"
+
+[node name="Level1Boss" type="AudioStreamPlayer" parent="Music" unique_id=1439055424 groups=["Music"]]
+process_mode = 3
+stream = ExtResource("25_5yyo0")
+bus = &"Music"
+
+[node name="Sfx" type="Node2D" parent="." unique_id=1273208819]
+
+[node name="EveOuch" type="AudioStreamPlayer" parent="Sfx" unique_id=1045213234 groups=["Sounds"]]
+stream = SubResource("AudioStreamRandomizer_asfof")
+
+[node name="WillowOuch" type="AudioStreamPlayer" parent="Sfx" unique_id=1343058609 groups=["Sounds"]]
+stream = SubResource("AudioStreamRandomizer_cu72c")
+
+[node name="Hooray" type="AudioStreamPlayer" parent="Sfx" unique_id=213890628 groups=["Sounds"]]
+stream = SubResource("AudioStreamRandomizer_vwtdy")
+bus = &"Sfx"
+
+[node name="Pickup" type="AudioStreamPlayer" parent="Sfx" unique_id=1267451349 groups=["Sounds"]]
+stream = SubResource("AudioStreamRandomizer_yi50i")
+
+[node name="Door" type="AudioStreamPlayer" parent="Sfx" unique_id=888389311 groups=["Sounds"]]
+stream = SubResource("AudioStreamRandomizer_fxayd")

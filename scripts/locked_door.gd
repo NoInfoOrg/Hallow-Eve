@@ -79,6 +79,8 @@ func check_for_key():
 
 func check_synced_buttons():
 	var all_buttons_pressed = true
+	var door  = get_tree().current_scene.find_child("Door", true, false)
+
 	
 	# Check if all required buttons have been pressed
 	for button in required_buttons:
@@ -91,6 +93,7 @@ func check_synced_buttons():
 		# get_node("Door").play("open")
 		if has_node("OpenDoor"):
 			get_node("OpenDoor").visible = true
+			door.play()
 			
 		if has_node("ClosedDoor"):
 			get_node("ClosedDoor").visible = false
@@ -103,6 +106,8 @@ func check_ordered_buttons():
 	if pressed_buttons.size() != required_buttons.size():
 		#print("We are NOT ready to check the button order")
 		return
+	var door  = get_tree().current_scene.find_child("Door", true, false)
+
 	
 	#print("We are ready to check the button order")
 	var buttons_are_in_order = true
@@ -115,7 +120,7 @@ func check_ordered_buttons():
 		# Change the door image to be opened
 		if has_node("OpenDoor"):
 			get_node("OpenDoor").visible = true
-			
+			door.play()
 		if has_node("ClosedDoor"):
 			get_node("ClosedDoor").visible = false
 		# Change the door collision so players can enter the door
@@ -133,10 +138,12 @@ func on_button_object_emitted(button):
 func on_puzzle_completion():
 	# shoutout to Nick for opening this door (a gentelman fr)
 		# Change the door image to be opened
+		var door  = get_tree().current_scene.find_child("Door", true, false)
 
 		if has_node("OpenDoor"):
-
+			
 			get_node("OpenDoor").visible = true
+			door.play()
 			
 		if has_node("ClosedDoor"):
 			print("closed door found")

@@ -69,6 +69,8 @@ func pickup(player):
 		
 		if inv:
 			inv.add_item(item_info)
+			var pickup  = get_tree().current_scene.find_child("Pickup", true, false)
+			pickup.play()
 			queue_free()
 			
 			
