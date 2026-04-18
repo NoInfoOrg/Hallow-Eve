@@ -27,6 +27,8 @@ var is_in_main_menu: bool = true  # Assuming we start in the main menu
 
 # level change
 enum scenes { MAIN_MENU, LEVEL_1, LEVEL_2, LEVEL_3 }
+
+# current_scene can be: "main_menu", "level_1_scene", "level_2_scene", "level_3_scene"
 var current_scene = "main_menu"
 var transition_scene = false
 
