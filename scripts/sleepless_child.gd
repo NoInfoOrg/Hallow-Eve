@@ -1,4 +1,3 @@
-#@tool
 extends CharacterBody2D
 
 @export var targets: Array[CharacterBody2D]
@@ -63,9 +62,11 @@ func _physics_process(delta: float) -> void:
 		enemyCollider.scale.x = -1
 	move_and_slide()
 
+
 func sleepless_child_attack():
 	pass
 
+# checks to make sure there is nothing between enemy and player before doing damage 
 func check_line_of_sight() -> bool:
 	if not player:
 		return false
@@ -108,7 +109,7 @@ func get_diagonal_distance(target):
 		
 		return diagonal_distance
 		
-		
+# changes between sleepless child states
 func update_sleepless_child_state(delta):
 	match currentState:
 		SleeplessChildStates.Idle:
@@ -120,13 +121,14 @@ func update_sleepless_child_state(delta):
 		SleeplessChildStates.Calm:
 			sleepless_child_calm_behavior(delta)
 			
-			
+# defines sleepless child idle behavior
 func sleepless_child_idle_behavior(delta):
 	if returnToPath:
 		move_to_path(normalSpeed, delta)
 	elif pathFollow:
 		move_on_path(normalSpeed, delta)
 
+# defines sleepless child chase behavior
 func sleepless_child_chase_behavior(delta):
 	player = get_closest_target()
 	if player:
@@ -138,20 +140,24 @@ func sleepless_child_chase_behavior(delta):
 				sleepless_child_dash_start()
 	else:
 		currentState = SleeplessChildStates.Idle
-		
+
+# begins the sleepless child dash 
 func sleepless_child_dash_start():
 	currentState = SleeplessChildStates.Dash
 	get_tree().create_timer(dashTime).timeout.connect(sleepless_child_dash_end)
-	
+
+# ends sleepless child dash
 func sleepless_child_dash_end():
 	if currentState == SleeplessChildStates.Dash:
 		currentState = SleeplessChildStates.Chase
 
+# defines sleepless child dash behavior
 func sleepless_child_dash_behavior(delta):
 	player = get_closest_target()
 	if player:
 		move_toward_target(player.global_position, secondarySpeed * 5)
 
+# defines sleepless child calm behavior
 func sleepless_child_calm_behavior(delta):
 	if musicBoxPlays == 1:
 		move_on_path(40, delta)
@@ -161,6 +167,7 @@ func sleepless_child_calm_behavior(delta):
 		move_on_path(10, delta)
 		attackZone.set_deferred("monitoring", false)
 
+# updates music box plays to update calm state
 func play_music_box():
 	musicBoxPlays += 1
 	if musicBoxPlays == 1:
@@ -172,51 +179,51 @@ func play_music_box():
 		damage = 0
 		currentState = SleeplessChildStates.Calm
 
+# checks if attack is on cooldown
 func on_attack_cooldown():
 	if player:
 		var playerName = player.name
 		GlobalInformation.deal_strike_damage_to_player(self, playerName, damage)
 		sleeplessChildAttack.emit()
 
-# moves the plushie along a path
+# moves the sleepless child along a path
 func move_on_path(speed: float, delta: float) -> void:
-	# get the path length
 	var pathLength = pathFollow.get_parent().curve.get_baked_length()
-	# check if the length is greater than 0
 	if pathLength > 0:
-		# update the progress on the path
 		pathFollow.progress_ratio += (speed * delta) / pathLength
-		var direction = pathFollow.global_position - global_position
-		velocity = direction.normalized() * speed
+		var targetPos = pathFollow.global_position
+		var movementToPath = targetPos - global_position
+		velocity = movementToPath / delta
 
-# moves the plushie toward the path if it is no longer chasing
+# moves the sleepless child toward the path if it is no longer chasing
 func move_to_path(speed: float, delta: float) -> void:
-	# gets the direction to the path
 	var direction = returnLocation - global_position
-	# check if the length of the direction is less than 5 (made it to the path)
 	if direction.length() < 5:
-		# toggle return to path since it has made it to the path and return
 		returnToPath = false
+		global_position = returnLocation
 		velocity = Vector2.ZERO
 		return
-	# otherwise the plushie still needs to move toward the path
 	else:
-		velocity = direction.normalized() * speed
+		if direction.length() < speed * delta:
+			velocity = direction / delta
+		else:
+			velocity = direction.normalized() * speed
 
-# moves the plushie toward a target player
+# moves the sleepless child toward a target player
 func move_toward_target(playerLocation: Vector2, speed: float):
 	navAgent.target_position = playerLocation
 	var nextLocation = navAgent.get_next_path_position()
 	var direction = nextLocation - global_position
-	if direction.length() > 0.1:
+	if direction.length() > 2.0:
 		velocity = direction.normalized() * speed
 	else:
 		direction = player.global_position - global_position
-		if direction.length() > 0.1:
+		if direction.length() > 2.0:
 			velocity = direction.normalized() * speed
 		else:
 			velocity = Vector2.ZERO
 
+# detects if player is in attack range
 func _on_attack_zone_area_entered(area: Area2D) -> void:
 	if area.is_in_group("HurtBox"):
 		player = area.get_parent()
@@ -225,10 +232,12 @@ func _on_attack_zone_area_entered(area: Area2D) -> void:
 		sleeplessChildAttack.emit()
 		attackCooldown.start()
 
+# detects if player leaves attack range
 func _on_attack_zone_area_exited(area: Area2D) -> void:
 	if area.is_in_group("HurtBox"):
 		attackCooldown.stop()
 
+# detects if player is in the detection range
 func _on_detection_zone_area_entered(area: Area2D) -> void:
 	# check the object in the detection zone is a player
 	if area.is_in_group("HurtBox"):
@@ -237,6 +246,7 @@ func _on_detection_zone_area_entered(area: Area2D) -> void:
 		if currentState != SleeplessChildStates.Calm:
 			currentState = SleeplessChildStates.Chase
 
+# detects if player exits the detection range
 func _on_detection_zone_area_exited(area: Area2D) -> void:
 	# check if the player exiting is the current player
 	if area.get_parent() == player:

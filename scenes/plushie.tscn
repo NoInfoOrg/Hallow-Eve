@@ -17,7 +17,7 @@ height = 124.0
 
 [node name="Plushie" type="CharacterBody2D" unique_id=741369988 groups=["Enemies"]]
 collision_layer = 128
-collision_mask = 922
+collision_mask = 794
 script = ExtResource("1_2usf5")
 metadata/_edit_horizontal_guides_ = [-52.0]
 metadata/_edit_vertical_guides_ = [31.0]

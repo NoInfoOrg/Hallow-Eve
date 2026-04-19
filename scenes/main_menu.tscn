@@ -1,109 +1,109 @@
 [gd_scene format=3 uid="uid://b6hx81hbjkln1"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_jk1qb"]
-[ext_resource type="Texture2D" uid="uid://imtoiw307a8p" path="res://assets/ui elements/settings/Settings_MenuBG.png" id="1_l6cm7"]
-[ext_resource type="Script" path="res://scripts/main_menu_settings_button.gd" id="2_8ln24"]
+[ext_resource type="Script" uid="uid://beqpojb8jfj57" path="res://scripts/main_menu.gd" id="1_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://cb0atptw8hufy" path="res://assets/ui elements/main menu/main_menu_background.png" id="2_5dd4i"]
+[ext_resource type="Script" uid="uid://bls2ajfr0bq48" path="res://scripts/main_menu_settings_button.gd" id="2_8ln24"]
 [ext_resource type="Texture2D" uid="uid://bke6hqpt84f6n" path="res://assets/ui elements/settings/Settings_ExitButton.png" id="2_ekxnf"]
-[ext_resource type="Script" path="res://scripts/start_game_button.gd" id="2_rtw2f"]
+[ext_resource type="Script" uid="uid://cwdbmlx8oxu18" path="res://scripts/start_game_button.gd" id="2_rtw2f"]
 [ext_resource type="Script" uid="uid://dvc7yomb50ty" path="res://scripts/quit.gd" id="3_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://cepsi8s683h71" path="res://assets/ui elements/main menu/Game_Title.png" id="3_lgwnu"]
 [ext_resource type="PackedScene" uid="uid://dpmykk27ckpvf" path="res://scenes/settings.tscn" id="3_rtw2f"]
-[ext_resource type="Script" path="res://scripts/credits_button.gd" id="5_oa1go"]
+[ext_resource type="Script" uid="uid://cqpnp8civ3evg" path="res://scripts/credits_button.gd" id="5_oa1go"]
 [ext_resource type="PackedScene" uid="uid://dmmvcuxa7eajm" path="res://scenes/music.tscn" id="9_5dd4i"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
+[ext_resource type="Script" uid="uid://dq45h6so1olot" path="res://scripts/continue_button.gd" id="10_8egab"]
+[ext_resource type="Texture2D" uid="uid://cxlicao34wlq1" path="res://assets/ui elements/main menu/MainMenu_Play.png" id="12_rcqid"]
+[ext_resource type="Texture2D" uid="uid://l7up3r3bltsm" path="res://assets/ui elements/main menu/MainMenu_Play-Pressed.png" id="13_1ajci"]
+[ext_resource type="Texture2D" uid="uid://ccjg6jcv4rdpd" path="res://assets/ui elements/main menu/MainMenu_Button_Continue-Clickable-Or-Unpressed.png" id="14_7b55j"]
+[ext_resource type="Texture2D" uid="uid://cua1fifuej2hj" path="res://assets/ui elements/main menu/MainMenu_Button_Continue.png" id="15_5pajh"]
+[ext_resource type="Texture2D" uid="uid://c062e4uj45inh" path="res://assets/ui elements/main menu/MainMenu_Button_Settings.png" id="16_hstxw"]
+[ext_resource type="Texture2D" uid="uid://ddq5vb6fmgvtp" path="res://assets/ui elements/main menu/MainMenu_Button_Settings-Pressed.png" id="17_8egab"]
+[ext_resource type="Texture2D" uid="uid://c0m6ms2v3m8m0" path="res://assets/ui elements/main menu/MainMenu_Button_Credits.png" id="18_gw5y6"]
+[ext_resource type="Texture2D" uid="uid://dpj2pmsq8dpcb" path="res://assets/ui elements/main menu/MainMenu_Button_Credits-Pressed.png" id="19_svtp6"]
+[ext_resource type="Texture2D" uid="uid://b4ckj662te6jy" path="res://assets/ui elements/settings/Settings_ExitButton-Pressed.png" id="20_8egab"]
 
 [node name="Main Menu" type="Node2D" unique_id=1146238979]
 script = ExtResource("1_jk1qb")
 
-[node name="Control" type="Control" parent="." unique_id=942049353]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Overall Background" type="Sprite2D" parent="." unique_id=545855939]
+position = Vector2(576, 324.5)
+scale = Vector2(0.6, 0.6009259)
+texture = ExtResource("2_5dd4i")
 
-[node name="Panel" type="Panel" parent="Control" unique_id=2035593269]
-layout_mode = 0
-offset_left = 233.0
-offset_top = 71.0
-offset_right = 888.0
-offset_bottom = 558.0
+[node name="Game Title" type="Sprite2D" parent="." unique_id=1419561776]
+position = Vector2(191, 121)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_lgwnu")
 
-[node name="Background" type="TextureRect" parent="Control/Panel" unique_id=1767668566]
-layout_mode = 0
-offset_right = 655.0
-offset_bottom = 487.0
-texture = ExtResource("1_l6cm7")
-expand_mode = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel" unique_id=1046735679]
-layout_mode = 0
-offset_left = 173.0
-offset_right = 483.0
-offset_bottom = 471.0
-
-[node name="Spacer 1" type="Label" parent="Control/Panel/VBoxContainer" unique_id=720587503]
-layout_mode = 2
-
-[node name="Spacer 2" type="Label" parent="Control/Panel/VBoxContainer" unique_id=234747843]
-layout_mode = 2
-
-[node name="Start Game" type="Button" parent="Control/Panel/VBoxContainer" unique_id=1538279574]
-layout_mode = 2
-text = "Enter the Mansion"
-script = ExtResource("2_rtw2f")
-
-[node name="Spacer 3" type="Label" parent="Control/Panel/VBoxContainer" unique_id=2102728351]
-layout_mode = 2
-
-[node name="Spacer 4" type="Label" parent="Control/Panel/VBoxContainer" unique_id=2097501873]
-layout_mode = 2
-
-[node name="Settings" type="Button" parent="Control/Panel/VBoxContainer" unique_id=891537917]
-layout_mode = 2
-text = "Settings"
-script = ExtResource("2_8ln24")
-
-[node name="Settings Screen" parent="Control/Panel/VBoxContainer/Settings" unique_id=1267861807 instance=ExtResource("3_rtw2f")]
-visible = false
-
-[node name="Spacer 5" type="Label" parent="Control/Panel/VBoxContainer" unique_id=2111556140]
-layout_mode = 2
-
-[node name="Spacer 6" type="Label" parent="Control/Panel/VBoxContainer" unique_id=506089739]
-layout_mode = 2
-
-[node name="Credits" type="Button" parent="Control/Panel/VBoxContainer" unique_id=1398545010]
-layout_mode = 2
-text = "Credits"
-script = ExtResource("5_oa1go")
-
-[node name="Spacer 7" type="Label" parent="Control/Panel/VBoxContainer" unique_id=1063634359]
-layout_mode = 2
-
-[node name="Spacer 8" type="Label" parent="Control/Panel/VBoxContainer" unique_id=1945938334]
-layout_mode = 2
-
-[node name="Exit Game" type="Button" parent="Control/Panel/VBoxContainer" unique_id=398533164]
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_bqqt6")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_bqqt6")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_bqqt6")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_bqqt6")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_bqqt6")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_bqqt6")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_bqqt6")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_bqqt6")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_bqqt6")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_bqqt6")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_bqqt6")
-icon = ExtResource("2_ekxnf")
-script = ExtResource("3_bqqt6")
+[node name="Senior Project Tag" type="Label" parent="." unique_id=92599812]
+offset_left = 881.0
+offset_top = 620.0
+offset_right = 1144.0
+offset_bottom = 643.0
+text = "Senior Project 2026 - Team NoInfo"
 
 [node name="Music" parent="." unique_id=371888300 instance=ExtResource("9_5dd4i")]
 
-[connection signal="pressed" from="Control/Panel/VBoxContainer/Start Game" to="Control/Panel/VBoxContainer/Start Game" method="_on_pressed"]
-[connection signal="pressed" from="Control/Panel/VBoxContainer/Settings" to="Control/Panel/VBoxContainer/Settings" method="_on_pressed"]
-[connection signal="pressed" from="Control/Panel/VBoxContainer/Credits" to="Control/Panel/VBoxContainer/Credits" method="_on_pressed"]
-[connection signal="button_down" from="Control/Panel/VBoxContainer/Exit Game" to="Control/Panel/VBoxContainer/Exit Game" method="_on_button_down"]
-[connection signal="button_up" from="Control/Panel/VBoxContainer/Exit Game" to="Control/Panel/VBoxContainer/Exit Game" method="_on_button_up"]
-[connection signal="pressed" from="Control/Panel/VBoxContainer/Exit Game" to="Control/Panel/VBoxContainer/Exit Game" method="_on_pressed"]
+[node name="Play Game" type="TextureButton" parent="." unique_id=1803441152]
+offset_left = 59.0
+offset_top = 234.0
+offset_right = 319.57446
+offset_bottom = 308.0
+texture_normal = ExtResource("12_rcqid")
+texture_pressed = ExtResource("13_1ajci")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_rtw2f")
+
+[node name="Continue" type="TextureButton" parent="." unique_id=320757805]
+offset_left = 59.0
+offset_top = 317.0
+offset_right = 303.55554
+offset_bottom = 388.0
+texture_normal = ExtResource("14_7b55j")
+texture_pressed = ExtResource("15_5pajh")
+texture_disabled = ExtResource("15_5pajh")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("10_8egab")
+
+[node name="Settings" type="TextureButton" parent="." unique_id=1097776904]
+offset_left = 59.0
+offset_top = 398.0
+offset_right = 303.55554
+offset_bottom = 469.0
+texture_normal = ExtResource("16_hstxw")
+texture_pressed = ExtResource("17_8egab")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("2_8ln24")
+
+[node name="Settings Screen" parent="Settings" unique_id=1267861807 instance=ExtResource("3_rtw2f")]
+visible = false
+
+[node name="Credits" type="TextureButton" parent="." unique_id=1016179946]
+offset_left = 59.0
+offset_top = 477.0
+offset_right = 303.55554
+offset_bottom = 548.0
+texture_normal = ExtResource("18_gw5y6")
+texture_pressed = ExtResource("19_svtp6")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_oa1go")
+
+[node name="Exit" type="TextureButton" parent="." unique_id=1031392935]
+offset_left = 59.0
+offset_top = 558.0
+offset_right = 303.5556
+offset_bottom = 629.0
+texture_normal = ExtResource("2_ekxnf")
+texture_pressed = ExtResource("20_8egab")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_bqqt6")
+
+[connection signal="pressed" from="Play Game" to="Play Game" method="_on_pressed"]
+[connection signal="pressed" from="Continue" to="Continue" method="_on_pressed"]
+[connection signal="pressed" from="Settings" to="Settings" method="_on_pressed"]
+[connection signal="pressed" from="Credits" to="Credits" method="_on_pressed"]
+[connection signal="pressed" from="Exit" to="Exit" method="_on_pressed"]

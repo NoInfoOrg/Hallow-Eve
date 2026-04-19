@@ -38,6 +38,7 @@ func _process(delta: float) -> void:
 	#test_sanity_debug()
 	pass
 
+# sets up ability to test sanity functionality
 func test_sanity_debug():
 	P1_Prog.value = P1_Scroll.value
 	P1_Sanity.value = P1_Prog.value
@@ -45,21 +46,20 @@ func test_sanity_debug():
 	P2_Prog.value = P2_Scroll.value
 	P2_Sanity.value = P2_Prog.value
 	
+# hides health ui from screen
 func hide_ui():
 	if ui_tween and ui_tween.is_running():
 		ui_tween.kill()
-		
 	ui_tween = create_tween()
 	ui_tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	ui_tween.tween_property(P1Node, "position:x", P1_visible_pos.x - 300, 0.5)
 	ui_tween.parallel().tween_property(P2Node, "position:x", P2_visible_pos.x + 300, 0.5)
 
-
+# shows health ui on screen
 func show_ui():
 	hide_timer.start()
 	if ui_tween and ui_tween.is_running():
 		ui_tween.kill()
-		
 	ui_tween = create_tween()
 	ui_tween.set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 	ui_tween.tween_property(P1Node, "position:x", P1_visible_pos.x, 0.5)

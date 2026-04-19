@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 			get_tree().paused = false
 			menu.hide()
 			
-			var settings = get_node("Menu/Control/Panel/VBoxContainer/Settings")
+			var settings = get_node("Menu/Control/Panel/Settings")
 			settings.settings_open = false
 			settings.get_node("Settings Screen").hide()
 

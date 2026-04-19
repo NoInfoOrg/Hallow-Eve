@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="1_is5o6"]
 [ext_resource type="Script" uid="uid://be1ghyvsjbg7g" path="res://scenes/level_3_scene.gd" id="1_k1e2j"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_50ut1"]
+[ext_resource type="PackedScene" uid="uid://cgtfu4mroobjr" path="res://scenes/level_change_label.tscn" id="3_38li5"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_is5o6"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_vmqa7"]
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="5_k1e2j"]
@@ -24,6 +25,8 @@ script = ExtResource("1_k1e2j")
 metadata/_edit_horizontal_guides_ = [2362.7485]
 
 [node name="UI" parent="." unique_id=1522527901 instance=ExtResource("1_is5o6")]
+
+[node name="LevelChangeLabel" parent="." unique_id=727282801 instance=ExtResource("3_38li5")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1984080884]
 

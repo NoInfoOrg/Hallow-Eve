@@ -33,6 +33,8 @@ var transition_scene = false
 var music_scene = scenes.MAIN_MENU
 var music_scene_duplicate_check = music_scene
 
+var saved_scene = scenes.LEVEL_1
+
 var player_exit_level_1_posx = 0
 var player_exit_level_1_posy = 0
 var player_start_posx = 0
