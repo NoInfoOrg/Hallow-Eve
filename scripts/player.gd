@@ -13,7 +13,9 @@ var move_left_action = null
 var move_right_action = null
 var move_up_action = null
 var move_down_action = null
-var grab_action = null
+var grab_left_action = null
+var grab_right_action = null
+var open = null
 var idle_left = null
 var idle_right = null
 var idle_up = null
@@ -22,6 +24,9 @@ var walk_left = null
 var walk_right = null
 var walk_up = null
 var walk_down = null
+var take_damage = null
+var push_left = null
+var push_right = null
 
 # INFO: Assuming that the player starts out facing to the front
 var lastDirection : String = "S"
@@ -38,7 +43,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	## INFO grab_action allows to open doors and press buttons
-	if Input.is_action_just_pressed(grab_action):
+	if Input.is_action_just_pressed(open):
 		check_to_open_door()
 	
 	# INFO The Player's Walking Animations (uses idle for placeholder)

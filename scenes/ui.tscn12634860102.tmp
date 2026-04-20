@@ -1,0 +1,288 @@
+[gd_scene format=3 uid="uid://dsclb3m2sqebv"]
+
+[ext_resource type="Script" uid="uid://dypcq06x4m6pr" path="res://scripts/ui.gd" id="1_8dubc"]
+[ext_resource type="Texture2D" uid="uid://dagkhplbptaym" path="res://assets/ui elements/Health_Willow_Zero.png" id="2_cgfq5"]
+[ext_resource type="Texture2D" uid="uid://bwx8hllmihkjm" path="res://assets/ui elements/Health_Willow_Full.png" id="3_7dvkv"]
+[ext_resource type="Texture2D" uid="uid://bpbiq6e7gh4en" path="res://assets/ui elements/Health_Eve_Zero.png" id="4_vdcm2"]
+[ext_resource type="Texture2D" uid="uid://bmi2upsvcq7qu" path="res://assets/ui elements/Health_Eve_Full.png" id="5_6rmj2"]
+[ext_resource type="Script" uid="uid://5it8olpe6dgr" path="res://scripts/inventory.gd" id="6_ktti3"]
+[ext_resource type="Script" uid="uid://b72hxo4d5bk1u" path="res://scripts/inventoryui.gd" id="6_p7vwb"]
+[ext_resource type="PackedScene" uid="uid://b4fis0r7sey1x" path="res://scenes/inventory_slot.tscn" id="7_ktti3"]
+[ext_resource type="Texture2D" uid="uid://10lq70eug6rr" path="res://assets/ui elements/InventoryBar.png" id="9_7dvkv"]
+[ext_resource type="Texture2D" uid="uid://6o0i4v0qlkjf" path="res://assets/ui elements/InventoryBarBack.png" id="10_qsv74"]
+[ext_resource type="Texture2D" uid="uid://41k1searexw6" path="res://assets/ui elements/Watch_NoGlow.png" id="11_vsj0x"]
+[ext_resource type="Script" uid="uid://c2gghrs7yolpp" path="res://scripts/menu_button.gd" id="12_h1mc3"]
+[ext_resource type="Texture2D" uid="uid://cv2tlwoo60nla" path="res://assets/ui elements/MenuButton.png" id="12_qsv74"]
+[ext_resource type="Texture2D" uid="uid://b1bgdrwrvlvgr" path="res://assets/ui elements/Clock-Progression_Empty.png" id="13_h1mc3"]
+[ext_resource type="Script" uid="uid://dvc7yomb50ty" path="res://scripts/quit.gd" id="14_cof4p"]
+[ext_resource type="Texture2D" uid="uid://bb25udxq20hi8" path="res://assets/ui elements/TextBox.png" id="14_h1mc3"]
+[ext_resource type="Texture2D" uid="uid://imtoiw307a8p" path="res://assets/ui elements/settings/Settings_MenuBG.png" id="14_rlppe"]
+[ext_resource type="PackedScene" uid="uid://dpmykk27ckpvf" path="res://scenes/settings.tscn" id="15_8k7j3"]
+[ext_resource type="Texture2D" uid="uid://drabb8tugaflm" path="res://assets/ui elements/settings/Settings_Return.png" id="15_catpy"]
+[ext_resource type="Script" uid="uid://8vb68x4k5osx" path="res://scripts/settings_button.gd" id="15_jkdwc"]
+[ext_resource type="Texture2D" uid="uid://dghuumlbc8hf3" path="res://assets/ui elements/settings/Settings_MainMenuButton.png" id="16_kupmu"]
+[ext_resource type="Texture2D" uid="uid://bke6hqpt84f6n" path="res://assets/ui elements/settings/Settings_ExitButton.png" id="19_ycmcx"]
+[ext_resource type="Texture2D" uid="uid://d4low1wgpo6rk" path="res://assets/ui elements/settings/Settings_Return-Pressed.png" id="22_41akx"]
+[ext_resource type="Texture2D" uid="uid://c062e4uj45inh" path="res://assets/ui elements/main menu/MainMenu_Button_Settings.png" id="23_gglip"]
+[ext_resource type="Texture2D" uid="uid://ddq5vb6fmgvtp" path="res://assets/ui elements/main menu/MainMenu_Button_Settings-Pressed.png" id="24_0tsab"]
+[ext_resource type="Texture2D" uid="uid://c0bftsywnr05a" path="res://assets/ui elements/settings/Settings_MainMenuButton-Pressed.png" id="25_0tsab"]
+[ext_resource type="Texture2D" uid="uid://b4ckj662te6jy" path="res://assets/ui elements/settings/Settings_ExitButton-Pressed.png" id="26_i5tog"]
+[ext_resource type="Script" uid="uid://rq0skhg5ml0h" path="res://scripts/return_to_main_menu.gd" id="26_rleeb"]
+
+[node name="UI" type="CanvasLayer" unique_id=1522527901 groups=["UI"]]
+script = ExtResource("1_8dubc")
+metadata/_edit_horizontal_guides_ = [7.0]
+metadata/_edit_vertical_guides_ = [8.0]
+
+[node name="HideUITimer" type="Timer" parent="." unique_id=54894310]
+
+[node name="P1" type="Node2D" parent="." unique_id=1549037820]
+z_index = 1
+position = Vector2(8, 133)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="P1Sanity" type="TextureProgressBar" parent="P1" unique_id=1490061044]
+unique_name_in_owner = true
+offset_right = 100.0
+offset_bottom = 390.0
+scale = Vector2(0.75, 0.75)
+fill_mode = 3
+texture_under = ExtResource("4_vdcm2")
+texture_progress = ExtResource("5_6rmj2")
+
+[node name="P2" type="Node2D" parent="." unique_id=1480691437]
+z_index = 1
+position = Vector2(1098, 140)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="P2Sanity" type="TextureProgressBar" parent="P2" unique_id=756704857]
+unique_name_in_owner = true
+offset_right = 120.0
+offset_bottom = 370.0
+scale = Vector2(0.75, 0.75)
+fill_mode = 3
+texture_under = ExtResource("2_cgfq5")
+texture_progress = ExtResource("3_7dvkv")
+
+[node name="SanityTest" type="Node" parent="." unique_id=207171836]
+
+[node name="P1ScrollBar" type="HScrollBar" parent="SanityTest" unique_id=347635933]
+offset_left = 896.0
+offset_top = 568.0
+offset_right = 1148.0
+offset_bottom = 583.0
+
+[node name="P1ProgressBar" type="ProgressBar" parent="SanityTest" unique_id=1670185118]
+offset_left = 880.0
+offset_top = 600.0
+offset_right = 1144.0
+offset_bottom = 627.0
+
+[node name="P2ScrollBar" type="HScrollBar" parent="SanityTest" unique_id=1998321597]
+visible = false
+offset_left = 8.0
+offset_top = 568.0
+offset_right = 260.0
+offset_bottom = 583.0
+
+[node name="P2ProgressBar" type="ProgressBar" parent="SanityTest" unique_id=195202728]
+visible = false
+offset_left = 8.0
+offset_top = 608.0
+offset_right = 272.0
+offset_bottom = 635.0
+
+[node name="SharedInv" type="Control" parent="." unique_id=436860684]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 670.0
+offset_top = 19.0
+offset_right = 670.0
+offset_bottom = 19.0
+scale = Vector2(0.75, 0.75)
+
+[node name="Inventory" type="Node2D" parent="SharedInv" unique_id=400344352]
+script = ExtResource("6_ktti3")
+
+[node name="Inv" type="Panel" parent="SharedInv" unique_id=547074357 node_paths=PackedStringArray("inventory", "container")]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.266
+anchor_right = 0.395
+anchor_bottom = 0.56
+offset_left = 16.0
+offset_top = 9.333334
+offset_right = 544.0
+offset_bottom = 74.666664
+grow_horizontal = 2
+scale = Vector2(0.75, 0.75)
+script = ExtResource("6_p7vwb")
+inventory = NodePath("../Inventory")
+container = NodePath("InvSlots")
+slot = ExtResource("7_ktti3")
+
+[node name="InvSlots" type="GridContainer" parent="SharedInv/Inv" unique_id=1195967456]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.013
+anchor_top = 0.079
+anchor_right = 0.98700005
+anchor_bottom = 0.896
+offset_left = -6.8640003
+offset_top = -5.161333
+offset_right = 182.86383
+offset_bottom = 29.16504
+scale = Vector2(0.75, 0.75)
+theme_override_constants/h_separation = 75
+theme_override_constants/v_separation = 75
+columns = 6
+
+[node name="FrontSlotsImage" type="TextureRect" parent="SharedInv" unique_id=1612059415]
+layout_mode = 0
+offset_right = 567.0
+offset_bottom = 94.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_7dvkv")
+
+[node name="BackInvImage" type="TextureRect" parent="SharedInv" unique_id=2120236392]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 5.333313
+offset_top = 4.0
+offset_right = 558.3333
+offset_bottom = 87.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("10_qsv74")
+
+[node name="PocketWatch" type="Node2D" parent="." unique_id=979694871]
+position = Vector2(8, 513)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="PocketWatch" unique_id=1693372238]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_vsj0x")
+
+[node name="MenuButton" type="Node2D" parent="." unique_id=367305255]
+position = Vector2(1093, 17)
+scale = Vector2(0.6, 0.6)
+script = ExtResource("12_h1mc3")
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="MenuButton" unique_id=744778585]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_qsv74")
+
+[node name="Menu" type="CanvasLayer" parent="MenuButton" unique_id=1012407032]
+
+[node name="Control" type="Control" parent="MenuButton/Menu" unique_id=169739648]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 306.0
+offset_top = 143.0
+offset_right = 346.0
+offset_bottom = 183.0
+metadata/_edit_group_ = true
+
+[node name="Panel" type="Panel" parent="MenuButton/Menu/Control" unique_id=2101947414]
+layout_mode = 0
+offset_right = 590.0
+offset_bottom = 423.0
+
+[node name="Menu Background" type="TextureRect" parent="MenuButton/Menu/Control/Panel" unique_id=1101996236]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -6.0
+offset_right = 597.0
+offset_bottom = 431.0
+texture = ExtResource("14_rlppe")
+expand_mode = 1
+
+[node name="Resume" type="TextureButton" parent="MenuButton/Menu/Control/Panel" unique_id=486841775]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 39.0
+offset_right = 415.4643
+offset_bottom = 108.0
+texture_normal = ExtResource("15_catpy")
+texture_pressed = ExtResource("22_41akx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Settings" type="TextureButton" parent="MenuButton/Menu/Control/Panel" unique_id=1379343730]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 124.0
+offset_right = 416.31866
+offset_bottom = 199.0
+texture_normal = ExtResource("23_gglip")
+texture_pressed = ExtResource("24_0tsab")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("15_jkdwc")
+
+[node name="Settings Screen" parent="MenuButton/Menu/Control/Panel/Settings" unique_id=1267861807 instance=ExtResource("15_8k7j3")]
+visible = false
+
+[node name="Return to Main Menu" type="TextureButton" parent="MenuButton/Menu/Control/Panel" unique_id=1744261905]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 219.0
+offset_right = 417.35556
+offset_bottom = 293.0
+texture_normal = ExtResource("16_kupmu")
+texture_pressed = ExtResource("25_0tsab")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("26_rleeb")
+
+[node name="Exit Game" type="TextureButton" parent="MenuButton/Menu/Control/Panel" unique_id=2144293956]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 312.0
+offset_right = 415.71112
+offset_bottom = 386.0
+texture_normal = ExtResource("19_ycmcx")
+texture_pressed = ExtResource("26_i5tog")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("14_cof4p")
+
+[node name="DialogueBox" type="Node2D" parent="." unique_id=1775988295]
+visible = false
+position = Vector2(152, 472)
+scale = Vector2(0.75, 0.75)
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="DialogueBox" unique_id=460703041]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("14_h1mc3")
+
+[node name="ProgressTracker" type="Node2D" parent="." unique_id=1134032675]
+position = Vector2(338, 60.000004)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ProgressTracker" unique_id=187890823]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -86.0
+offset_bottom = 86.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("13_h1mc3")
+
+[connection signal="pressed" from="MenuButton/Menu/Control/Panel/Resume" to="MenuButton" method="_on_resume_pressed"]
+[connection signal="pressed" from="MenuButton/Menu/Control/Panel/Return to Main Menu" to="MenuButton/Menu/Control/Panel/Return to Main Menu" method="_on_pressed"]
+[connection signal="pressed" from="MenuButton/Menu/Control/Panel/Exit Game" to="MenuButton/Menu/Control/Panel/Exit Game" method="_on_pressed"]

@@ -7,7 +7,8 @@ func _ready():
 	move_right_action = "P1Right"
 	move_up_action = "P1Up"
 	move_down_action = "P1Down"
-	grab_action = "P1Grab"
+	grab_left_action = "Eve_PickUp-PutDown_A"
+	grab_right_action = "Eve_Pickup-PutDown_D"
 	idle_left = "Eve_Idle_A"
 	idle_right = "Eve_Idle_D"
 	idle_up = "Eve_Idle_W"
@@ -16,6 +17,10 @@ func _ready():
 	walk_right = "Eve_Walk_D"
 	walk_up = "Eve_Walk_W"
 	walk_down = "Eve_Walk_S"
+	take_damage = "Eve_Damage_FullTo2-3"
+	push_left = "Eve_Push_A"
+	push_right = "Eve_Push_D"
+	open = "P1Grab"
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("P1Drop"):

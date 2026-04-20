@@ -58,15 +58,18 @@ sprite_frames = SubResource("SpriteFrames_wel5i")
 animation = &"no glow"
 
 [node name="Closed Door Collision" type="CollisionShape2D" parent="." unique_id=287673992]
+visible = false
 position = Vector2(280.00647, 165.00691)
 shape = SubResource("RectangleShape2D_2ibvm")
 debug_color = Color(5.0055983e-06, 0.6362591, 0.41103232, 0.41960785)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1532604505]
+visible = false
 position = Vector2(383.47186, 164.88257)
 shape = SubResource("RectangleShape2D_wel5i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1197827182]
+visible = false
 position = Vector2(176.9621, 165.0544)
 shape = SubResource("RectangleShape2D_wel5i")
 

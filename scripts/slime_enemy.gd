@@ -25,11 +25,38 @@ var slime_bounce_tween: Tween
 var wander_direction: Vector2 = Vector2.ZERO
 var wander_speed: float = 40
 
-
 signal slimeAttack
 @onready var warning_particles: CPUParticles2D = $WarningParticles
 
+@export var slimeType: SlimeType:
+	set(value):
+		slimeType = value
+		setup_slime()
 
+enum SlimeType {Gumpy, Squid, Fish}
+		
+var SlimeSprites = {
+	SlimeType.Gumpy: {
+		"sprite": preload("res://assets/sprites/enemy/Slimes_Gumpy.png")
+	},
+	SlimeType.Squid: {
+		"sprite": preload("res://assets/sprites/enemy/Slimes_Squid.png")
+	},
+	SlimeType.Fish: {
+		"sprite": preload("res://assets/sprites/enemy/Slimes_Fish.png")
+	}
+}
+
+# sets up slime sprite
+func setup_slime():
+	if $SlimeSprite2D != null:
+		var slime = SlimeSprites.get(slimeType)
+		if slime != null:
+			$SlimeSprite2D.texture = slime["sprite"]
+	else:
+		return
+
+# starts particles, enemy state timer and attack cooldown timer
 func _ready():
 	warning_color(Color.GREEN)
 	attack_cooldown = Timer.new()
@@ -45,6 +72,7 @@ func _ready():
 	add_child(enemy_state_timer)
 	enemy_state_timer.timeout.connect(enemy_state_timer_timeout)
 
+# determines the movement of the slime depending on the state it is in
 func _physics_process(delta: float) -> void:
 	match current_state:
 		EnemyStates.Idle:
@@ -63,6 +91,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		stop_slime_bounce()
 
+# updates warning color depending on distance to player
 func _process(delta):
 	if player:
 		var distance_to_player = position.distance_to(player.position)
@@ -76,19 +105,21 @@ func _process(delta):
 			warning_color(Color.GREEN)
 			warning_particles.speed_scale = 0.6
 
+# checks if attack is on cooldown
 func on_attack_cooldown():
 	if player:
 		var playerName = player.name
 		GlobalInformation.deal_strike_damage_to_player(self, playerName, damage)
 		slimeAttack.emit()
 
+# changes warning particle color
 func warning_color(color: Color):
 	warning_particles.modulate = color
 
 func slime_behavior():
 	pass
 	
-
+# changes state when timer ends
 func enemy_state_timer_timeout():
 	if current_state == EnemyStates.Chase:
 		return
@@ -100,6 +131,7 @@ func enemy_state_timer_timeout():
 		wander_direction = Vector2(randf_range(-1.0, 1.0), randf_range(-1.0, 1.0)).normalized()
 	enemy_state_timer.wait_time = randf_range(1.0, 3.0)
 
+# enables slime bounce animation
 func start_slime_bounce():
 	if slime_bounce_tween and slime_bounce_tween.is_running():
 		return
@@ -107,27 +139,31 @@ func start_slime_bounce():
 	slime_bounce_tween.tween_property($SlimeSprite2D, "scale", Vector2(1.2, 0.8), 0.2).set_trans(Tween.TRANS_SINE)
 	slime_bounce_tween.tween_property($SlimeSprite2D, "scale", Vector2(0.8, 1.2), 0.2).set_trans(Tween.TRANS_SINE)
 	
-
+# stops slime bounce animation
 func stop_slime_bounce():
 	if slime_bounce_tween:
 		slime_bounce_tween.kill()
 		var reset_slime = create_tween()
 		reset_slime.tween_property($SlimeSprite2D, "scale", Vector2(1.0, 1.0), 0.1).set_trans(Tween.TRANS_QUAD)
 
+# detects when player is within attack zone
 func _on_attack_zone_area_entered(area: Area2D) -> void:
 	if area.is_in_group("HurtBox"):
 		player = area.get_parent()
 		attack_cooldown.start()
 
+# detects when player exits attack zone
 func _on_attack_zone_area_exited(area: Area2D) -> void:
 	if area.is_in_group("HurtBox"):
 		attack_cooldown.stop()
 
+# detects when player is within detection zone
 func _on_detection_zone_area_entered(area: Area2D) -> void:
 	if area.is_in_group("HurtBox"):
 		player = area.get_parent()
 		current_state = EnemyStates.Chase
 
+# detects when player exits detection zone
 func _on_detection_zone_area_exited(area: Area2D) -> void:
 	if area.is_in_group("HurtBox"):
 		player = null

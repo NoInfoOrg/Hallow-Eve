@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bykf3gp1w5e4o"]
+
+[ext_resource type="Texture2D" uid="uid://byo1cc3soydik" path="res://assets/spritesheets/enemy/FakeDoor_Spritesheet.png" id="1_gvp5o"]
+
+[sub_resource type="Animation" id="Animation_050p3"]
+resource_name = "FakeDoor_Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_gpkjr"]
+resource_name = "Fake_DoorAttack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.100000024, 0.20071529, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_bm7r4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nlgyn"]
+_data = {
+&"FakeDoor_Idle": SubResource("Animation_050p3"),
+&"Fake_DoorAttack": SubResource("Animation_gpkjr"),
+&"RESET": SubResource("Animation_bm7r4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wirgs"]
+size = Vector2(110, 20)
+
+[node name="FakeDoor" type="CharacterBody2D" unique_id=1668495326]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=122849903]
+texture = ExtResource("1_gvp5o")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1622559730]
+libraries/ = SubResource("AnimationLibrary_nlgyn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1976882743]
+position = Vector2(45, 0)
+shape = SubResource("RectangleShape2D_wirgs")

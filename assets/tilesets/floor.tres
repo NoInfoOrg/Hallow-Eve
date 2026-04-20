@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b7nqbwbefuwh7" path="res://assets/tilesets/Floor_Hardwood.png" id="2_pi21k"]
 [ext_resource type="Texture2D" uid="uid://b30ettfheq6y3" path="res://assets/tilesets/Floor_Tile-White.png" id="3_8kw7l"]
 [ext_resource type="Texture2D" uid="uid://dslb57rldxo80" path="res://assets/tilesets/Kitchen_StoneFloor.png" id="4_qw5nu"]
+[ext_resource type="Texture2D" uid="uid://bnd53hhnbblw1" path="res://assets/tilesets/Florr_Carpet_Purple.png" id="5_qw5nu"]
+[ext_resource type="Texture2D" uid="uid://bu1fyigieoo8s" path="res://assets/tilesets/Floor_Carpet_Purple-Half.png" id="6_lm8a6"]
+[ext_resource type="Texture2D" uid="uid://bcak06bojp7o3" path="res://assets/tilesets/Floor_Carpet_Purple-Half-Wood.png" id="7_7xl5j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pi21k"]
 texture = ExtResource("1_5ywps")
@@ -88,6 +91,21 @@ texture = ExtResource("4_qw5nu")
 texture_region_size = Vector2i(140, 140)
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7xl5j"]
+texture = ExtResource("5_qw5nu")
+texture_region_size = Vector2i(140, 140)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_37r5o"]
+texture = ExtResource("6_lm8a6")
+texture_region_size = Vector2i(70, 140)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s27px"]
+texture = ExtResource("7_7xl5j")
+texture_region_size = Vector2i(140, 140)
+0:0/0 = 0
+
 [resource]
 tile_size = Vector2i(140, 140)
 physics_layer_0/collision_layer = 16777096
@@ -96,3 +114,6 @@ sources/0 = SubResource("TileSetAtlasSource_pi21k")
 sources/1 = SubResource("TileSetAtlasSource_2y0pt")
 sources/2 = SubResource("TileSetAtlasSource_cdiwc")
 sources/3 = SubResource("TileSetAtlasSource_lm8a6")
+sources/4 = SubResource("TileSetAtlasSource_7xl5j")
+sources/5 = SubResource("TileSetAtlasSource_37r5o")
+sources/7 = SubResource("TileSetAtlasSource_s27px")

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://h1ngm847irox"]
+
+[ext_resource type="Texture2D" uid="uid://b2imuhf0472ld" path="res://assets/sprites/enemy/Plushies_Freddy.png" id="1_ve5io"]
+[ext_resource type="AudioStream" uid="uid://dilaa8yignust" path="res://music/sound effects/Screamy.wav" id="2_g6476"]
+
+[node name="Freddy Jumpscare" type="CanvasLayer" unique_id=367192485]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=275015670]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -65.0
+offset_right = 35.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(35, 65)
+texture = ExtResource("1_ve5io")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=230375243]
+position = Vector2(575.85895, 339.44064)
+stream = ExtResource("2_g6476")
+autoplay = true

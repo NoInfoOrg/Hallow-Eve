@@ -1,28 +1,6 @@
-#@tool
 extends CharacterBody2D
 
-# following code from vision code 2d addon example scene
-
-@export var visionRenderer: Polygon2D
-@export var alertColor: Color
-
-@export_group("Rotation")
-@export var isRotating = false
-@export var rotationSpeed = 0.1
-@export var rotationAngle = 90
-
-#@export_group("Movement")
-#@export var moveOnPath: PathFollow2D
-#@export var movementSpeed = 0.1
-#@onready var pos_start = position.x
-
-@onready var originalColor = visionRenderer.color if visionRenderer else Color.WHITE
-@onready var rotStart = 180
-
-# end of example scene code
-
 @export var targets: Array[CharacterBody2D]
-var playerChase = false
 var player = null
 signal sleeplessChildAttack
 
@@ -31,18 +9,38 @@ var returnLocation: Vector2
 @onready var navAgent: NavigationAgent2D = $NavigationAgent2D
 @export var pathFollow: PathFollow2D
 
+enum SleeplessChildStates {Idle, Chase, Calm, Dash}
+var currentState = SleeplessChildStates.Idle
+var dashTime = 0.3
+var dashCooldownTimer = 0.0
+
 @onready var sleeplessChildSprite: Sprite2D = $EnemySprite
 @onready var attackZone: Area2D = $AttackZone
-@onready var visionCone = $VisionCone2D
+@onready var detectZone: Area2D = $DetectionZone
+@onready var enemyCollider: CollisionShape2D = $EnemyCollider
+@onready var lineOfSightRay: RayCast2D = RayCast2D.new()
 var normalSpeed = 60
 var secondarySpeed = 80
-var damage = 0
+var damage = 1
+var attackCooldown = Timer
+var cooldownTime = 0.5
+var musicBoxPlays = 0
 
 @export var death_effect_scene: PackedScene = preload("res://scenes/death_effect.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	attackCooldown = Timer.new()
+	attackCooldown.wait_time = cooldownTime
+	attackCooldown.one_shot = false
+	add_child(attackCooldown)
+	attackCooldown.timeout.connect(on_attack_cooldown)
+	
+	add_child(lineOfSightRay)
+	lineOfSightRay.enabled = false
+	var layersToCollide = [2, 4, 5, 8, 9, 10]
+	for layer in layersToCollide:
+		lineOfSightRay.set_collision_mask_value(layer, true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -51,25 +49,34 @@ func _process(delta: float) -> void:
 # calls movement behavior function
 func _physics_process(delta: float) -> void:
 	velocity = Vector2.ZERO
-	sleepless_child_behavior(delta)
-	var angle = pathFollow.rotation
-	if abs(angle) > PI/2:
+	update_sleepless_child_state(delta)
+	if velocity.x > 0.5:
 		sleeplessChildSprite.flip_h = false
-		attackZone.scale.x = -1
-	else:
-		sleeplessChildSprite.flip_h = true
 		attackZone.scale.x = 1
-	
-	if player and playerChase:
-		var angleOffset = deg_to_rad(-90)
-		var playerAngle = global_position.angle_to_point(player.global_position)
-		visionCone.rotation = lerp_angle(visionCone.rotation, playerAngle + angleOffset, 5 * delta)
-	else:
-		rotating_vision_cone()
+		detectZone.scale.x = 1
+		enemyCollider.scale.x = 1
+	elif velocity.x < -0.5:
+		sleeplessChildSprite.flip_h = true
+		attackZone.scale.x = -1
+		detectZone.scale.x = -1
+		enemyCollider.scale.x = -1
 	move_and_slide()
+
 
 func sleepless_child_attack():
 	pass
+
+# checks to make sure there is nothing between enemy and player before doing damage 
+func check_line_of_sight() -> bool:
+	if not player:
+		return false
+	lineOfSightRay.target_position = to_local(player.global_position)
+	lineOfSightRay.force_raycast_update()
+	if lineOfSightRay.is_colliding():
+		var collider = lineOfSightRay.get_collider()
+		if collider != player and not collider.is_in_group("HurtBox"):
+			return false
+	return true
 
 # nick's func to get closest target
 func get_closest_target():
@@ -102,111 +109,151 @@ func get_diagonal_distance(target):
 		
 		return diagonal_distance
 		
-func sleepless_child_behavior(delta: float):
-	# check if the player is being chased
-	if playerChase:
-		# if so then get the closest target and set that to player
-		player = get_closest_target()
-		# check if player is not null
-		if player:
-			# toggle return to path as the rat is chasing and move toward the player
-			returnToPath = false
-			move_toward_target(player.global_position, secondarySpeed)
-	# otherwise player is not being chased
+# changes between sleepless child states
+func update_sleepless_child_state(delta):
+	match currentState:
+		SleeplessChildStates.Idle:
+			sleepless_child_idle_behavior(delta)
+		SleeplessChildStates.Chase:
+			sleepless_child_chase_behavior(delta)
+		SleeplessChildStates.Dash:
+			sleepless_child_dash_behavior(delta)
+		SleeplessChildStates.Calm:
+			sleepless_child_calm_behavior(delta)
+			
+# defines sleepless child idle behavior
+func sleepless_child_idle_behavior(delta):
+	if returnToPath:
+		move_to_path(normalSpeed, delta)
+	elif pathFollow:
+		move_on_path(normalSpeed, delta)
+
+# defines sleepless child chase behavior
+func sleepless_child_chase_behavior(delta):
+	player = get_closest_target()
+	if player:
+		move_toward_target(player.global_position, secondarySpeed)
+		dashCooldownTimer -= delta
+		if dashCooldownTimer <= 0:
+			dashCooldownTimer = randf_range(1.0, 2.0)
+			if randf() < 0.35:
+				sleepless_child_dash_start()
 	else:
-		# check if the rat should return to the path
-		if returnToPath:
-			# return to the path
-			move_to_path(delta)
-		# also check if path follow
-		elif pathFollow:
-			# move the rat along the path
-			move_on_path(normalSpeed, delta)
+		currentState = SleeplessChildStates.Idle
 
-# moves the plushie along a path
+# begins the sleepless child dash 
+func sleepless_child_dash_start():
+	currentState = SleeplessChildStates.Dash
+	get_tree().create_timer(dashTime).timeout.connect(sleepless_child_dash_end)
+
+# ends sleepless child dash
+func sleepless_child_dash_end():
+	if currentState == SleeplessChildStates.Dash:
+		currentState = SleeplessChildStates.Chase
+
+# defines sleepless child dash behavior
+func sleepless_child_dash_behavior(delta):
+	player = get_closest_target()
+	if player:
+		move_toward_target(player.global_position, secondarySpeed * 5)
+
+# defines sleepless child calm behavior
+func sleepless_child_calm_behavior(delta):
+	if musicBoxPlays == 1:
+		move_on_path(40, delta)
+	elif musicBoxPlays == 2:
+		move_on_path(25, delta)
+	elif musicBoxPlays == 3:
+		move_on_path(10, delta)
+		attackZone.set_deferred("monitoring", false)
+
+# updates music box plays to update calm state
+func play_music_box():
+	musicBoxPlays += 1
+	if musicBoxPlays == 1:
+		damage = 1
+		currentState = SleeplessChildStates.Calm
+	elif musicBoxPlays == 2:
+		damage = 0.5
+	elif musicBoxPlays >= 3:
+		damage = 0
+		currentState = SleeplessChildStates.Calm
+
+# checks if attack is on cooldown
+func on_attack_cooldown():
+	if player:
+		var playerName = player.name
+		GlobalInformation.deal_strike_damage_to_player(self, playerName, damage)
+		sleeplessChildAttack.emit()
+
+# moves the sleepless child along a path
 func move_on_path(speed: float, delta: float) -> void:
-	# get the path length
 	var pathLength = pathFollow.get_parent().curve.get_baked_length()
-	# check if the length is greater than 0
 	if pathLength > 0:
-		# update the progress on the path
-		pathFollow.progress_ratio += (normalSpeed * delta) / pathLength
-		var direction = pathFollow.global_position - global_position
-		velocity = direction.normalized() * normalSpeed
+		pathFollow.progress_ratio += (speed * delta) / pathLength
+		var targetPos = pathFollow.global_position
+		var movementToPath = targetPos - global_position
+		velocity = movementToPath / delta
 
-# moves the plushie toward the path if it is no longer chasing
-func move_to_path(delta: float) -> void:
-	# gets the direction to the path
+# moves the sleepless child toward the path if it is no longer chasing
+func move_to_path(speed: float, delta: float) -> void:
 	var direction = returnLocation - global_position
-	# check if the length of the direction is less than 5 (made it to the path)
 	if direction.length() < 5:
-		# toggle return to path since it has made it to the path and return
 		returnToPath = false
+		global_position = returnLocation
 		velocity = Vector2.ZERO
 		return
-	# otherwise the plushie still needs to move toward the path
 	else:
-		velocity = direction.normalized() * normalSpeed
+		if direction.length() < speed * delta:
+			velocity = direction / delta
+		else:
+			velocity = direction.normalized() * speed
 
-# moves the plushie toward a target player
+# moves the sleepless child toward a target player
 func move_toward_target(playerLocation: Vector2, speed: float):
-	
 	navAgent.target_position = playerLocation
 	var nextLocation = navAgent.get_next_path_position()
 	var direction = nextLocation - global_position
-	if direction.length() > 0.1:
+	if direction.length() > 2.0:
 		velocity = direction.normalized() * speed
 	else:
 		direction = player.global_position - global_position
-		if direction.length() > 0.1:
+		if direction.length() > 2.0:
 			velocity = direction.normalized() * speed
 		else:
 			velocity = Vector2.ZERO
 
-# from vision code 2d addon example scene
-func rotating_vision_cone():
-	var angleOffset = deg_to_rad(-90)
-	var enemyDir = 0.0
-	if pathFollow:
-		enemyDir = pathFollow.rotation
-	else:
-		if sleeplessChildSprite.flip_h:
-			enemyDir = PI 
-		else:
-			enemyDir = 0.0
-	if isRotating:
-		visionCone.rotation = angleOffset + enemyDir + sin(Time.get_ticks_msec()/1000. * rotationSpeed) * deg_to_rad(rotationAngle/2.)
-	else:
-		visionCone.rotation = angleOffset + enemyDir
-
+# detects if player is in attack range
 func _on_attack_zone_area_entered(area: Area2D) -> void:
 	if area.is_in_group("HurtBox"):
 		player = area.get_parent()
 		var playerName = player.name
 		GlobalInformation.deal_strike_damage_to_player(self, playerName, damage)
 		sleeplessChildAttack.emit()
+		attackCooldown.start()
 
-
+# detects if player leaves attack range
 func _on_attack_zone_area_exited(area: Area2D) -> void:
-	pass # Replace with function body.
+	if area.is_in_group("HurtBox"):
+		attackCooldown.stop()
 
-
-func _on_vision_cone_area_area_entered(area: Area2D) -> void:
-	visionRenderer.color = alertColor
+# detects if player is in the detection range
+func _on_detection_zone_area_entered(area: Area2D) -> void:
 	# check the object in the detection zone is a player
 	if area.is_in_group("HurtBox"):
 		# set player to the current player in the detection zone and begin chase
 		player = area.get_parent()
-		playerChase = true
+		if currentState != SleeplessChildStates.Calm:
+			currentState = SleeplessChildStates.Chase
 
-
-func _on_vision_cone_area_area_exited(area: Area2D) -> void:
-	visionRenderer.color = originalColor
+# detects if player exits the detection range
+func _on_detection_zone_area_exited(area: Area2D) -> void:
 	# check if the player exiting is the current player
 	if area.get_parent() == player:
 		# set player to null as there is no player in the zone
 		player = null
-		playerChase = false
+		if currentState != SleeplessChildStates.Calm:
+			currentState = SleeplessChildStates.Idle
 		# check if path follow is toggled
 		if pathFollow:
 			# return to path 

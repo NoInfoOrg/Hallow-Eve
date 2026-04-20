@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://c1t4n4fqlmrbe"]
+
+[ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="1_h18bf"]
+[ext_resource type="Texture2D" uid="uid://ca65t08arwlnn" path="res://assets/sprites/level objs/MusicBox.png" id="2_rni1u"]
+
+[resource]
+script = ExtResource("1_h18bf")
+name = "MusicBox"
+texture = ExtResource("2_rni1u")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"

@@ -1,13 +1,14 @@
 [gd_scene format=4 uid="uid://c7ard73cuagsh"]
 
+[ext_resource type="PackedScene" uid="uid://fcp66n68vghv" path="res://scenes/sleepless_child.tscn" id="1_w4snr"]
 [ext_resource type="TileSet" uid="uid://dt13bvgr5foh4" path="res://assets/tilesets/side_walls.tres" id="2_al0y8"]
-[ext_resource type="PackedScene" uid="uid://cqn40kyihmkj" path="res://scenes/plushie.tscn" id="2_mhq85"]
-[ext_resource type="PackedScene" uid="uid://fcp66n68vghv" path="res://scenes/sleepless_child.tscn" id="2_w4snr"]
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="3_w4snr"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="4_mhq85"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="5_gaqsk"]
 [ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="6_tard4"]
-[ext_resource type="PackedScene" path="res://scenes/game_over_screen.tscn" id="7_3pjx7"]
+[ext_resource type="PackedScene" uid="uid://b0eo2ssadyqgv" path="res://scenes/game_over_screen.tscn" id="7_3pjx7"]
+[ext_resource type="PackedScene" uid="uid://dwu4oi2tru041" path="res://scenes/collectibles.tscn" id="8_w4snr"]
+[ext_resource type="Resource" uid="uid://c1t4n4fqlmrbe" path="res://assets/items/music_box.tres" id="9_mhq85"]
 
 [sub_resource type="Curve2D" id="Curve2D_6q8gr"]
 _data = {
@@ -26,21 +27,13 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-2, -2, 1153, 0, 1153, 
 curve = SubResource("Curve2D_6q8gr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=30653445]
-position = Vector2(306.67273, 563.46594)
+position = Vector2(901, 563)
 progress = 753.3843
 rotates = false
 
-[node name="SleeplessChild" parent="Path2D/PathFollow2D" unique_id=464654720 node_paths=PackedStringArray("targets", "pathFollow") instance=ExtResource("2_w4snr")]
-visible = false
-collision_mask = 985
-alertColor = Color(0.9254902, 0, 0, 0.4627451)
-rotationSpeed = 1.0
-rotationAngle = 90
-targets = [NodePath("../../../Eve - P1"), NodePath("../../../Willow - P2")]
-pathFollow = NodePath("..")
-
-[node name="Plushie" parent="Path2D/PathFollow2D" unique_id=741369988 node_paths=PackedStringArray("targets", "pathFollow") instance=ExtResource("2_mhq85")]
-targets = [NodePath("../../../Eve - P1"), NodePath("../../../Willow - P2")]
+[node name="SleeplessChild" parent="Path2D/PathFollow2D" unique_id=464654720 node_paths=PackedStringArray("targets", "pathFollow") instance=ExtResource("1_w4snr")]
+scale = Vector2(0.5, 0.5)
+targets = [NodePath("../../../Eve - P1")]
 pathFollow = NodePath("..")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="." unique_id=1989520909]
@@ -68,3 +61,7 @@ position = Vector2(452, 597)
 
 [node name="Game Over Screen" parent="." unique_id=297437709 instance=ExtResource("7_3pjx7")]
 visible = false
+
+[node name="collectibles" parent="." unique_id=1417814454 instance=ExtResource("8_w4snr")]
+position = Vector2(769, 425)
+item_info = ExtResource("9_mhq85")
