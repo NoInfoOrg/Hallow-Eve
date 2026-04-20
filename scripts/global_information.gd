@@ -51,12 +51,12 @@ func _ready():
 	current_music_volume_linear = 1.0
 	
 	# Start playing music!
-	change_music()
-
-func _process(float) -> void:
-	if music_scene != music_scene_duplicate_check:
-		change_music()
-		music_scene_duplicate_check = music_scene
+	#change_music()
+#
+#func _process(float) -> void:
+	#if music_scene != music_scene_duplicate_check:
+		#change_music()
+		#music_scene_duplicate_check = music_scene
 
 func find_inventory(starting_node):
 	#return find_node(starting_node, "UI/SharedInv/Inventory")
@@ -294,32 +294,32 @@ func complete_change_scenes():
 			current_scene = "level_1_scene"
 			music_scene = scenes.LEVEL_1
 
-func change_music():
-	var main_menu_theme = Music.get_node("Ambient Music/Main Music Halloween Theme")
-	var level_1_theme = Music.get_node("Ambient Music/Level 1 Ambience")
-	var level_2_theme = Music.get_node("Ambient Music/Level 2 Library")
-	var level_3_theme = Music.get_node("Ambient Music/Level 3 Ballroom")
+#func change_music():
+	#var main_menu_theme = Music.get_node("Ambient Music/Main Music Halloween Theme")
+	#var level_1_theme = Music.get_node("Ambient Music/Level 1 Ambience")
+	#var level_2_theme = Music.get_node("Ambient Music/Level 2 Library")
+	#var level_3_theme = Music.get_node("Ambient Music/Level 3 Ballroom")
 	
 	# Stop all background music that was previously playing
-	main_menu_theme.stop()
-	level_1_theme.stop()
-	level_2_theme.stop()
-	level_3_theme.stop()
+	#main_menu_theme.stop()
+	#level_1_theme.stop()
+	#level_2_theme.stop()
+	#level_3_theme.stop()
 	
-	if music_scene == scenes.MAIN_MENU:
-		main_menu_theme.play()
+	#if music_scene == scenes.MAIN_MENU:
+		#main_menu_theme.play()
+	#
+	#elif music_scene == scenes.LEVEL_1:
+		#level_1_theme.play()
+	#
+	#elif music_scene == scenes.LEVEL_2:
+		#level_2_theme.play()
+	#
+	#elif music_scene == scenes.LEVEL_3:
+		#level_3_theme.play()
 	
-	elif music_scene == scenes.LEVEL_1:
-		level_1_theme.play()
-	
-	elif music_scene == scenes.LEVEL_2:
-		level_2_theme.play()
-	
-	elif music_scene == scenes.LEVEL_3:
-		level_3_theme.play()
-	
-	else:
-		print("change_music() : invalid music scene")
+	#else:
+		#print("change_music() : invalid music scene")
 
 func advance_level():
 	# TODO: Using the music_scene might not be the best maybe?
