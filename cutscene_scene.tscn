@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bvjnppcf2xnev"]
+
+[ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="1_4cw3u"]
+[ext_resource type="Script" uid="uid://0ybp5largn5o" path="res://cutscene_scene.gd" id="1_nod0q"]
+[ext_resource type="AudioStream" uid="uid://cw2jq12pbxr58" path="res://music/fizzle.wav" id="2_ewo3r"]
+[ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="2_nod0q"]
+[ext_resource type="AudioStream" uid="uid://dicc786frndj0" path="res://music/door_close.mp3" id="2_ualmu"]
+[ext_resource type="Script" uid="uid://dnkbpnvvlvuvc" path="res://light.gd" id="3_tfucb"]
+
+[sub_resource type="Environment" id="Environment_tfucb"]
+background_mode = 3
+glow_enabled = true
+glow_bloom = 1.0
+glow_blend_mode = 2
+glow_hdr_threshold = 3.6
+
+[sub_resource type="Gradient" id="Gradient_nod0q"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tfucb"]
+gradient = SubResource("Gradient_nod0q")
+fill = 1
+
+[node name="Cutscene Scene" type="Node2D" unique_id=753645656]
+script = ExtResource("1_nod0q")
+
+[node name="DoorClose" type="AudioStreamPlayer" parent="." unique_id=1097296035]
+stream = ExtResource("2_ualmu")
+bus = &"Sfx"
+
+[node name="Fizzle" type="AudioStreamPlayer" parent="." unique_id=1158990661]
+stream = ExtResource("2_ewo3r")
+pitch_scale = 0.77
+bus = &"Sfx"
+
+[node name="Fizzle2" type="AudioStreamPlayer" parent="." unique_id=147218969]
+stream = ExtResource("2_ewo3r")
+pitch_scale = 0.23
+bus = &"Sfx"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=539063216]
+environment = SubResource("Environment_tfucb")
+
+[node name="MovementCont" type="Node2D" parent="." unique_id=1501288569]
+y_sort_enabled = true
+
+[node name="Eve - P1" parent="MovementCont" unique_id=810202292 instance=ExtResource("1_4cw3u")]
+position = Vector2(623.0758, 400)
+collision_mask = 4294967226
+slide_on_ceiling = false
+
+[node name="watch_light" type="PointLight2D" parent="MovementCont/Eve - P1" unique_id=1977667871]
+process_mode = 3
+position = Vector2(-1.5273848, -24.999998)
+rotation = -6.2831855
+scale = Vector2(0.78704, 0.75194067)
+color = Color(0, 17.772009, 13.133442, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_tfucb")
+script = ExtResource("3_tfucb")
+
+[node name="Willow - P2" parent="MovementCont" unique_id=882182450 instance=ExtResource("2_nod0q")]
+position = Vector2(-56, 415)
+collision_mask = 4294967226
+slide_on_ceiling = false

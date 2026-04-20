@@ -3,6 +3,7 @@ extends Node2D
 @onready var paper_math = get_tree().current_scene.find_child("Math Paper", true, false)
 @onready var paper_shapes = get_tree().current_scene.find_child("Shapes Paper", true, false)
 @export var key : Area2D
+@onready var complete_sound = get_tree().current_scene.find_child("Hooray", true, false)
 var answer_key = {"math": false, "shapes": false}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,4 +22,5 @@ func hw_completion(hw_type):
 		key.visible = true
 		key.monitoring = true
 		key.monitorable = true
+		complete_sound.play()
 	

@@ -37,12 +37,15 @@ func drop():
 	if hold_inv.items.size() == 1:
 		var item = hold_inv.items[0]
 		hold_inv.items.clear()		
+		print("item name: ", item.name)
 		var path = "res://scenes/" + item.name + ".tscn"
+		print("path: ", path)
 		if ResourceLoader.exists(path):
 			var dropped = load(path).instantiate()
 			# offset to Willow's titanic height
 			dropped.z_index = -5
-			dropped.global_position = global_position + Vector2(25,225)
+			dropped.global_position = global_position + Vector2(0,10)
+
 			get_parent().add_child(dropped)
 # Storage (someone cooked here)
 """

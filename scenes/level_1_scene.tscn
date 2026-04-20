@@ -1,36 +1,36 @@
 [gd_scene format=3 uid="uid://dy6vmnugwo4au"]
 
 [ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="1_5coaa"]
-[ext_resource type="Script" uid="uid://ylljnnrc2bxo" path="res://scripts/level_1_scene.gd" id="1_5rr05"]
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="1_ihv73"]
 [ext_resource type="Script" uid="uid://cvy8perii5g6s" path="res://scripts/camera_2d.gd" id="1_lg53w"]
+[ext_resource type="Script" uid="uid://twvfs85kt12g" path="res://scripts/level_1_scene.gd" id="1_ock1t"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_cowtf"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="2_d0nkq"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_ihv73"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_d0nkq"]
-[ext_resource type="PackedScene" uid="uid://cgtfu4mroobjr" path="res://scenes/level_change_label.tscn" id="3_fxayd"]
-[ext_resource type="PackedScene" uid="uid://b0eo2ssadyqgv" path="res://scenes/game_over_screen.tscn" id="3_us6j8"]
 [ext_resource type="PackedScene" uid="uid://dnjf1aqiogr0k" path="res://scenes/level_1_floorplan.tscn" id="3_vdyla"]
 [ext_resource type="PackedScene" uid="uid://c616w2s1ho401" path="res://scenes/human_box.tscn" id="7_cowtf"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="9_d18id"]
 [ext_resource type="PackedScene" uid="uid://b5rhclw6ern25" path="res://scenes/spirit_box.tscn" id="10_lg53w"]
 [ext_resource type="PackedScene" uid="uid://c83a2a5ujdc16" path="res://scenes/shapes_paper.tscn" id="12_2ydo2"]
-[ext_resource type="Script" uid="uid://c6ufm81rtdraj" path="res://scripts/asset.gd" id="12_us6j8"]
-[ext_resource type="PackedScene" uid="uid://fcp66n68vghv" path="res://scenes/sleepless_child.tscn" id="13_5yyo0"]
+[ext_resource type="Script" uid="uid://bciptxwus7cg" path="res://scripts/asset.gd" id="12_us6j8"]
 [ext_resource type="PackedScene" uid="uid://bwd22jx5mssx0" path="res://scenes/black_light_flashlight_item.tscn" id="13_xb17u"]
-[ext_resource type="PackedScene" uid="uid://cqn40kyihmkj" path="res://scenes/plushie.tscn" id="14_pqgcp"]
-[ext_resource type="PackedScene" uid="uid://d1p1fj2ywtequ" path="res://scenes/slime_enemy.tscn" id="15_btg6x"]
 [ext_resource type="PackedScene" uid="uid://dwu4oi2tru041" path="res://scenes/collectibles.tscn" id="17_tqr37"]
 [ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="19_4ymq3"]
+[ext_resource type="Texture2D" uid="uid://butu7b2wedoks" path="res://assets/tempSprites/freddy_fazbear_shocked.png" id="19_e5gav"]
 [ext_resource type="PackedScene" uid="uid://cyta5c5pqluy8" path="res://scenes/blanket_ghost.tscn" id="20_e5gav"]
 [ext_resource type="PackedScene" uid="uid://blc2wqvr525qk" path="res://scenes/door_open.tscn" id="21_5yyo0"]
-[ext_resource type="PackedScene" uid="uid://dmmvcuxa7eajm" path="res://scenes/music.tscn" id="22_b322n"]
-[ext_resource type="Texture2D" uid="uid://bbeeo2dju1t1q" path="res://assets/items/Key_3.png" id="23_yi50i"]
-[ext_resource type="Texture2D" uid="uid://cmrn0d061ae6a" path="res://assets/sprites/environment/StairsDown1.png" id="24_ock1t"]
-[ext_resource type="Texture2D" uid="uid://dbs1ylnq8rd2y" path="res://assets/items/Key_1.png" id="25_80dtq"]
-[ext_resource type="Script" uid="uid://d1ehvit7dlsc6" path="res://scenes/hw_checker.gd" id="25_pqgcp"]
+[ext_resource type="AudioStream" uid="uid://hg2uxyy0yt26" path="res://music/Ambience.mp3" id="22_b322n"]
+[ext_resource type="AudioStream" uid="uid://vfusupj1p18i" path="res://music/Scary_Ambience.mp3" id="24_us6j8"]
+[ext_resource type="AudioStream" uid="uid://cva3jrjfiwawk" path="res://music/level1_boss.mp3" id="25_5yyo0"]
+[ext_resource type="Script" uid="uid://d1ehvit7dlsc6" path="res://scripts/hw_checker.gd" id="25_pqgcp"]
+[ext_resource type="AudioStream" uid="uid://cbfjktq1gdfng" path="res://music/hooray.mp3" id="26_btg6x"]
+[ext_resource type="Script" uid="uid://bsryspci4rqr8" path="res://scenes/boss_area.gd" id="26_pqgcp"]
 [ext_resource type="PackedScene" uid="uid://bfphydknonny6" path="res://scenes/shapes_paper_math.tscn" id="27_btg6x"]
-[ext_resource type="PackedScene" uid="uid://ul5aitvagahn" path="res://scenes/blockade_fairy_lights.tscn" id="29_yi50i"]
+[ext_resource type="AudioStream" uid="uid://dnba32lhyt7q4" path="res://music/Eve Ouch.mp3" id="27_fxayd"]
+[ext_resource type="AudioStream" uid="uid://bljs35h01eggi" path="res://music/pickup.mp3" id="27_vwtdy"]
+[ext_resource type="AudioStream" uid="uid://clxiax32qroif" path="res://music/Willow Ouch.mp3" id="28_80dtq"]
+[ext_resource type="AudioStream" uid="uid://dmaywwlpircmu" path="res://music/door.mp3" id="28_vwtdy"]
 
 [sub_resource type="Resource" id="Resource_d0nkq"]
 script = ExtResource("3_d0nkq")
@@ -42,82 +42,53 @@ vertices = PackedVector2Array(628, -152, 628, 429, 208, 429, -432, -152, 208, 48
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 3), PackedInt32Array(6, 7, 8), PackedInt32Array(9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(15, 16, 17), PackedInt32Array(12, 15, 17, 11), PackedInt32Array(18, 11, 17, 19, 20), PackedInt32Array(19, 21, 22, 20), PackedInt32Array(9, 11, 18), PackedInt32Array(8, 9, 18, 23), PackedInt32Array(24, 25, 26, 27), PackedInt32Array(28, 29, 30, 31), PackedInt32Array(31, 32, 33), PackedInt32Array(28, 31, 33, 27), PackedInt32Array(27, 33, 34, 24), PackedInt32Array(24, 34, 35, 36, 37), PackedInt32Array(37, 36, 38, 23), PackedInt32Array(8, 23, 38, 39), PackedInt32Array(6, 8, 39), PackedInt32Array(5, 6, 39, 40), PackedInt32Array(40, 41, 42), PackedInt32Array(43, 44, 45, 46, 3), PackedInt32Array(47, 48, 49, 50), PackedInt32Array(47, 50, 51, 52, 53, 54), PackedInt32Array(55, 56, 57, 58, 59), PackedInt32Array(58, 60, 61, 59), PackedInt32Array(59, 62, 63, 64), PackedInt32Array(65, 66, 67, 68), PackedInt32Array(68, 69, 70), PackedInt32Array(65, 68, 70), PackedInt32Array(63, 65, 70, 71), PackedInt32Array(71, 72, 64), PackedInt32Array(73, 74, 75), PackedInt32Array(76, 77, 78, 79), PackedInt32Array(79, 80, 81), PackedInt32Array(76, 79, 81), PackedInt32Array(75, 76, 81, 82), PackedInt32Array(82, 83, 84, 55, 73), PackedInt32Array(84, 85, 86, 55), PackedInt32Array(53, 87, 88, 54), PackedInt32Array(89, 90, 46), PackedInt32Array(46, 91, 3), PackedInt32Array(3, 5, 40, 42), PackedInt32Array(3, 42, 43), PackedInt32Array(89, 46, 45, 47), PackedInt32Array(54, 89, 47), PackedInt32Array(55, 53, 52, 56), PackedInt32Array(73, 75, 82), PackedInt32Array(64, 73, 55), PackedInt32Array(64, 55, 59), PackedInt32Array(64, 63, 71), PackedInt32Array(92, 93, 94, 95), PackedInt32Array(94, 96, 95), PackedInt32Array(92, 95, 97), PackedInt32Array(98, 99, 100, 101), PackedInt32Array(101, 100, 102, 103)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1765, -539, 1416, -537, 1418, 2959, -1763, 2959)])
 
-[sub_resource type="Curve2D" id="Curve2D_ock1t"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -634.4248, -239.05273, 0, 0, 0, 0, -1419.0322, -411.66602, 0, 0, 0, 0, -2031.0259, -226.49902, 0, 0, 0, 0, -3427.627, -217.0835, 0, 0, 0, 0, -3427.627, -763.17017, 0, 0, 0, 0, -2737.1724, -775.7239, 0, 0, 0, 0, -2451.5752, -923.23, 0, 0, 0, 0, -1902.3503, -926.3684, 0, 0, 0, 0, -1613.6147, -1196.2734, 0, 0, 0, 0, -643.8401, -1202.5503, 0, 0, 0, 0, -634.4248, -239.05273)
-}
-point_count = 11
-
-[sub_resource type="Curve2D" id="Curve2D_btg6x"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -248.34692, -2608.5732, 0, 0, 0, 0, 312.40344, -2608.5732, 0, 0, 0, 0, 292.0996, 878.5464, 0, 0, 0, 0, 1464.7308, 881.3994, 0, 0, 0, 0, 1461.8778, 1312.2202, 0, 0, 0, 0, -244.2865, 1309.3672, 0, 0, 0, 0, -248.34692, -2608.5732)
-}
-point_count = 7
-
-[sub_resource type="Curve2D" id="Curve2D_pqgcp"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -2455.268, 757.8672, 0, 0, 0, 0, -2457.4116, 942.2158, 0, 0, 0, 0, -3012.6013, 972.2261, 0, 0, 0, 0, -3012.6013, 1261.6108, 0, 0, 0, 0, -2463.8425, 1304.4824, 0, 0, 0, 0, -2461.6987, 1373.0771, 0, 0, 0, 0, -3529.2063, 1364.5029, 0, 0, 0, 0, -3518.4883, 762.1543, 0, 0, 0, 0, -2455.268, 757.8672)
-}
-point_count = 9
-
-[sub_resource type="Curve2D" id="Curve2D_vwtdy"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 592.7879, 635.40283, 0, 0, 0, 0, 1517.2, 624.9507, 0, 0, 0, 0, 593.14984, 634.3003, 0, 0, 0, 0, 592.7879, 635.40283)
-}
-point_count = 4
-
-[sub_resource type="Curve2D" id="Curve2D_yi50i"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -2117.5605, 659.292, 0, 0, 0, 0, -2117.5605, 1321.5005, 0, 0, 0, 0, -645.63745, 1318.3623, 0, 0, 0, 0, -639.3606, 653.01514, 0, 0, 0, 0, -645.63745, 1312.0854, 0, 0, 0, 0, -2117.5605, 1315.2236, 0, 0, 0, 0, -2114.4224, 656.1538, 0, 0, 0, 0, -2117.5605, 659.292)
-}
-point_count = 8
-
 [sub_resource type="Resource" id="Resource_4ymq3"]
 script = ExtResource("19_4ymq3")
-name = "key"
-texture = ExtResource("23_yi50i")
+texture = ExtResource("19_e5gav")
 metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
 
 [sub_resource type="Resource" id="Resource_fw0ep"]
 script = ExtResource("19_4ymq3")
-name = "key"
-texture = ExtResource("25_80dtq")
+texture = ExtResource("19_e5gav")
 metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
 
-[sub_resource type="Resource" id="Resource_yi50i"]
-script = ExtResource("19_4ymq3")
-name = "key"
-texture = ExtResource("25_80dtq")
-metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btg6x"]
+size = Vector2(332, 2044.5)
 
-[sub_resource type="Resource" id="Resource_fxayd"]
-script = ExtResource("19_4ymq3")
-name = "key"
-texture = ExtResource("23_yi50i")
-metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_asfof"]
+random_pitch = 1.0656005
+streams_count = 1
+stream_0/stream = ExtResource("27_fxayd")
 
-[sub_resource type="Resource" id="Resource_vwtdy"]
-script = ExtResource("19_4ymq3")
-name = "key"
-texture = ExtResource("23_yi50i")
-metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cu72c"]
+random_pitch = 1.0656005
+streams_count = 1
+stream_0/stream = ExtResource("28_80dtq")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pt62h"]
-size = Vector2(578, 144)
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vwtdy"]
+random_pitch = 1.0656005
+streams_count = 1
+stream_0/stream = ExtResource("26_btg6x")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yi50i"]
+random_pitch = 1.0656005
+streams_count = 1
+stream_0/stream = ExtResource("27_vwtdy")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fxayd"]
+playback_mode = 1
+random_pitch = 1.0656005
+streams_count = 1
+stream_0/stream = ExtResource("28_vwtdy")
 
 [node name="Level 1 Scene" type="Node2D" unique_id=733240442]
-script = ExtResource("1_5rr05")
+script = ExtResource("1_ock1t")
 
 [node name="UI" parent="." unique_id=1522527901 instance=ExtResource("1_5coaa")]
 
-[node name="LevelChangeLabel" parent="." unique_id=727282801 instance=ExtResource("3_fxayd")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=711542435]
 
-[node name="Game Over Screen" parent="." unique_id=297437709 instance=ExtResource("3_us6j8")]
-visible = false
-
-[node name="Debug" type="CanvasLayer" parent="." unique_id=711542435]
-
-[node name="Debug Console" parent="Debug" unique_id=1129319356 instance=ExtResource("9_d18id")]
+[node name="Debug Console" parent="CanvasLayer" unique_id=1129319356 instance=ExtResource("9_d18id")]
 z_index = 10
 position = Vector2(416, 603)
 
@@ -128,8 +99,8 @@ physics_interpolation_mode = 1
 top_level = true
 visibility_layer = 65
 z_index = 10
-position = Vector2(108.11841, 1673.9225)
-zoom = Vector2(1.2025052, 1.2025052)
+position = Vector2(497.50885, 2664.1528)
+zoom = Vector2(1.25, 1.25)
 process_callback = 0
 editor_draw_limits = true
 script = ExtResource("1_lg53w")
@@ -143,12 +114,12 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="Camera Setup" unique_id=1630467949 node_paths=PackedStringArray("follow_targets")]
 top_level = true
-position = Vector2(108.11841, 1673.9225)
+position = Vector2(497.50885, 2664.1528)
 script = ExtResource("2_ihv73")
 priority = 10
 follow_mode = 3
 follow_targets = [NodePath("../../Objects/MovementCont/Eve - P1"), NodePath("../../Objects/MovementCont/Willow - P2")]
-zoom = Vector2(1.2025052, 1.2025052)
+zoom = Vector2(1.25, 1.25)
 tween_resource = SubResource("Resource_d0nkq")
 host_layers = 65
 follow_damping = true
@@ -177,13 +148,13 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="Eve - P1" parent="Objects/MovementCont" unique_id=810202292 instance=ExtResource("1_ihv73")]
-position = Vector2(29.118408, 1666.9225)
-collision_mask = 4294967098
+position = Vector2(555.04675, 2658.6055)
+collision_mask = 4294967226
 slide_on_ceiling = false
 
 [node name="Willow - P2" parent="Objects/MovementCont" unique_id=882182450 instance=ExtResource("2_d0nkq")]
-position = Vector2(187.11841, 1680.9225)
-collision_mask = 4294967098
+position = Vector2(439.97095, 2669.7002)
+collision_mask = 4294967226
 slide_on_ceiling = false
 
 [node name="Enemies" type="Node2D" parent="Objects" unique_id=1748499919]
@@ -195,84 +166,6 @@ scale = Vector2(0.5, 0.5)
 y_sort_enabled = true
 scale = Vector2(1, 1)
 targets = [NodePath("../../MovementCont/Eve - P1"), NodePath("../../MovementCont/Willow - P2")]
-
-[node name="Sleepless Child" type="Path2D" parent="Objects/Enemies" unique_id=288394795]
-curve = SubResource("Curve2D_ock1t")
-
-[node name="Sleepless Child Path" type="PathFollow2D" parent="Objects/Enemies/Sleepless Child" unique_id=1131933553]
-position = Vector2(-634.4248, -239.05273)
-rotates = false
-
-[node name="SleeplessChild" parent="Objects/Enemies/Sleepless Child/Sleepless Child Path" unique_id=464654720 node_paths=PackedStringArray("targets", "pathFollow") instance=ExtResource("13_5yyo0")]
-targets = [NodePath("../../../../MovementCont/Eve - P1"), NodePath("../../../../MovementCont/Willow - P2")]
-pathFollow = NodePath("..")
-
-[node name="Rocco" type="Path2D" parent="Objects/Enemies" unique_id=2003917251]
-curve = SubResource("Curve2D_btg6x")
-
-[node name="Rocco Path" type="PathFollow2D" parent="Objects/Enemies/Rocco" unique_id=2110019400]
-position = Vector2(-248.34692, -2608.5732)
-rotates = false
-
-[node name="Plushie" parent="Objects/Enemies/Rocco/Rocco Path" unique_id=741369988 node_paths=PackedStringArray("targets", "pathFollow") instance=ExtResource("14_pqgcp")]
-targets = [NodePath("../../../../MovementCont/Eve - P1"), NodePath("../../../../MovementCont/Willow - P2")]
-leaderRat = true
-pathFollow = NodePath("..")
-
-[node name="Cat" type="Path2D" parent="Objects/Enemies" unique_id=928747687]
-curve = SubResource("Curve2D_pqgcp")
-
-[node name="Cat Path" type="PathFollow2D" parent="Objects/Enemies/Cat" unique_id=1082090375]
-position = Vector2(-2455.268, 757.8672)
-rotates = false
-
-[node name="Plushie" parent="Objects/Enemies/Cat/Cat Path" unique_id=1542314107 node_paths=PackedStringArray("targets", "pathFollow") instance=ExtResource("14_pqgcp")]
-targets = [NodePath("../../../../MovementCont/Eve - P1"), NodePath("../../../../MovementCont/Willow - P2")]
-plushieType = 1
-pathFollow = NodePath("..")
-
-[node name="Freddy" type="Path2D" parent="Objects/Enemies" unique_id=1756057830]
-curve = SubResource("Curve2D_vwtdy")
-
-[node name="Freddy Path" type="PathFollow2D" parent="Objects/Enemies/Freddy" unique_id=77157252]
-position = Vector2(592.7879, 635.40283)
-rotates = false
-
-[node name="Plushie" parent="Objects/Enemies/Freddy/Freddy Path" unique_id=1022957389 node_paths=PackedStringArray("targets", "pathFollow") instance=ExtResource("14_pqgcp")]
-targets = [NodePath("../../../../MovementCont/Eve - P1"), NodePath("../../../../MovementCont/Willow - P2")]
-plushieType = 3
-pathFollow = NodePath("..")
-
-[node name="Choco" type="Path2D" parent="Objects/Enemies" unique_id=1324108975]
-curve = SubResource("Curve2D_yi50i")
-
-[node name="Choco Path" type="PathFollow2D" parent="Objects/Enemies/Choco" unique_id=1742336928]
-position = Vector2(-2117.5605, 659.292)
-rotates = false
-
-[node name="Plushie" parent="Objects/Enemies/Choco/Choco Path" unique_id=693460135 node_paths=PackedStringArray("targets", "pathFollow") instance=ExtResource("14_pqgcp")]
-targets = [NodePath("../../../../MovementCont/Eve - P1"), NodePath("../../../../MovementCont/Willow - P2")]
-plushieType = 2
-pathFollow = NodePath("..")
-
-[node name="Slimes" type="Node2D" parent="Objects/Enemies" unique_id=1813023894]
-
-[node name="Slime5" parent="Objects/Enemies/Slimes" unique_id=2138321505 instance=ExtResource("15_btg6x")]
-position = Vector2(988.73, -2077.1428)
-
-[node name="Slime" parent="Objects/Enemies/Slimes" unique_id=703542134 instance=ExtResource("15_btg6x")]
-position = Vector2(-1109.1859, 1404.8555)
-
-[node name="Slime2" parent="Objects/Enemies/Slimes" unique_id=300729584 instance=ExtResource("15_btg6x")]
-position = Vector2(-1989.1858, 1117.917)
-slimeType = 1
-
-[node name="Slime3" parent="Objects/Enemies/Slimes" unique_id=9926033 instance=ExtResource("15_btg6x")]
-position = Vector2(-1675.8989, 1404.8535)
-slimeType = 2
-
-[node name="Slime4" parent="Objects/Enemies/Slimes" unique_id=1398364071 instance=ExtResource("15_btg6x")]
-position = Vector2(1055.2301, 1404.8555)
 
 [node name="Assets" type="Node2D" parent="Objects" unique_id=576699497]
 y_sort_enabled = true
@@ -488,93 +381,123 @@ metadata/_edit_group_ = true
 metadata/_edit_group_ = true
 
 [node name="Human Box 1" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=748287882 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(642, 5193)
 
 [node name="Human Box 2" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1238176207 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(713, 5193)
 
 [node name="Human Box 3" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=793998642 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(854, 5193)
 
 [node name="Human Box 4" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1129229352 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(923, 5193)
 
 [node name="Human Box 5" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1310048725 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(1063, 5193)
 
 [node name="Human Box 6" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=949366495 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(1273, 5194)
 
 [node name="Human Box 7" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=315565776 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(854, 5262)
 
 [node name="Human Box 8" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1201642435 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(923, 5263)
 
 [node name="Human Box 9" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=822512834 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(1063, 5263)
 
 [node name="Human Box 10" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1180213343 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(1273, 5263)
 
 [node name="Human Box 11" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=2038028676 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(923, 5333)
 
 [node name="Human Box 12" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=55392578 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(1063, 5333)
 
 [node name="Human Box 13" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1277625804 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(1273, 5333)
 
 [node name="Human Box 14" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=4865893 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(923, 5402)
 
 [node name="Human Box 15" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=505708773 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(1063, 5402)
 
 [node name="Human Box 16" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=508017747 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(1273, 5403)
 
 [node name="Human Box 17" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=391550769 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(853, 5333)
 
 [node name="Human Box 18" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1160717028 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(993, 5473)
 
 [node name="Human Box 19" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=349464841 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(1133, 5473)
 
 [node name="Human Box 20" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=333668780 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(1203, 5473)
 
 [node name="Human Box 21" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1768963015 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(853, 5403)
 
 [node name="Human Box 22" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=818636057 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(993, 5542)
 
 [node name="Human Box 23" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1839827447 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(1133, 5543)
 
 [node name="Human Box 24" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1791397379 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(1203, 5543)
 
 [node name="Human Box 25" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=62022876 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(993, 5613)
 
 [node name="Human Box 26" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1994874431 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(1133, 5614)
 
 [node name="Human Box 27" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=893767197 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(1203, 5614)
 
 [node name="Human Box 28" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1742096285 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(993, 5682)
 
 [node name="Human Box 29" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1331461891 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(1134, 5682)
 
 [node name="Human Box 30" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=636414185 instance=ExtResource("7_cowtf")]
+z_index = 10
 position = Vector2(1203, 5683)
 
 [node name="Spirit Boxes" type="Node2D" parent="Objects/Puzzle Items/Boxes" unique_id=1806971881]
@@ -653,18 +576,16 @@ collision_mask = 0
 required_key = NodePath("../../Keys/key-tutorial-hall")
 metadata/_edit_lock_ = true
 
-[node name="Tutorial-Bathroom Door" parent="Objects/Puzzle Items/Locked Doors" unique_id=2114697670 node_paths=PackedStringArray("required_key") instance=ExtResource("21_5yyo0")]
+[node name="Tutorial-Bathroom Door" parent="Objects/Puzzle Items/Locked Doors" unique_id=2114697670 instance=ExtResource("21_5yyo0")]
 z_index = -3
 position = Vector2(-581.98285, 497.83832)
 collision_mask = 0
-required_key = NodePath("../../Keys/key - tutorial - bathroom door")
 metadata/_edit_lock_ = true
 
-[node name="Bathroom-SleeplessChildRoom Door" parent="Objects/Puzzle Items/Locked Doors" unique_id=138372309 node_paths=PackedStringArray("required_key") instance=ExtResource("21_5yyo0")]
+[node name="Bathroom-SleeplessChildRoom Door" parent="Objects/Puzzle Items/Locked Doors" unique_id=138372309 instance=ExtResource("21_5yyo0")]
 z_index = -3
 position = Vector2(-581.9226, 1157.7439)
 collision_mask = 0
-required_key = NodePath("../../Keys/key - bathroom - sleepless child room")
 metadata/_edit_lock_ = true
 
 [node name="ExtraBedroom-Closet Door" parent="Objects/Puzzle Items/Locked Doors" unique_id=2143762581 node_paths=PackedStringArray("required_key") instance=ExtResource("21_5yyo0")]
@@ -674,11 +595,10 @@ collision_mask = 0
 required_key = NodePath("../../Keys/key-homework-ExtraBedroom")
 metadata/_edit_lock_ = true
 
-[node name="SleeplessChildRoom-Closet Door" parent="Objects/Puzzle Items/Locked Doors" unique_id=1841223614 node_paths=PackedStringArray("required_key") instance=ExtResource("21_5yyo0")]
+[node name="SleeplessChildRoom-Closet Door" parent="Objects/Puzzle Items/Locked Doors" unique_id=1841223614 instance=ExtResource("21_5yyo0")]
 z_index = -3
 position = Vector2(-931.6678, 2147.9905)
 collision_mask = 0
-required_key = NodePath("../../Keys/key - sleepless child room - closet")
 metadata/_edit_lock_ = true
 
 [node name="Hall-Bathroom Door" parent="Objects/Puzzle Items/Locked Doors" unique_id=1542356340 node_paths=PackedStringArray("required_key") instance=ExtResource("21_5yyo0")]
@@ -696,33 +616,29 @@ z_index = 4
 position = Vector2(246.04437, 2419.2944)
 
 [node name="Keys" type="Node2D" parent="Objects/Puzzle Items" unique_id=2132403648]
+position = Vector2(-171.04437, 208.70554)
 
 [node name="key-storage" parent="Objects/Puzzle Items/Keys" unique_id=1417814454 instance=ExtResource("17_tqr37")]
-z_index = -1
-position = Vector2(-336.4287, 2770.2576)
+z_index = 8
+position = Vector2(-252.51392, 151.57214)
 item_info = SubResource("Resource_4ymq3")
 
+[node name="key-study" parent="Objects/Puzzle Items/Keys" unique_id=1174872317 instance=ExtResource("17_tqr37")]
+z_index = 8
+position = Vector2(-77.06937, -44.24359)
+
 [node name="key-homework-ExtraBedroom" parent="Objects/Puzzle Items/Keys" unique_id=1901333126 instance=ExtResource("17_tqr37")]
-position = Vector2(738.9462, 2597.5322)
+visible = false
+z_index = 8
+position = Vector2(864.0444, 2436.2944)
 monitoring = false
 monitorable = false
 item_info = SubResource("Resource_fw0ep")
 
 [node name="key-tutorial-hall" parent="Objects/Puzzle Items/Keys" unique_id=2109005457 instance=ExtResource("17_tqr37")]
-position = Vector2(271.84796, 136.2688)
+z_index = 8
+position = Vector2(522.0444, -255.70554)
 item_info = SubResource("Resource_4ymq3")
-
-[node name="key - bathroom - sleepless child room" parent="Objects/Puzzle Items/Keys" unique_id=1077083502 instance=ExtResource("17_tqr37")]
-position = Vector2(-307.17407, 981.09595)
-item_info = SubResource("Resource_yi50i")
-
-[node name="key - tutorial - bathroom door" parent="Objects/Puzzle Items/Keys" unique_id=31305149 instance=ExtResource("17_tqr37")]
-position = Vector2(-317.9494, 314.0666)
-item_info = SubResource("Resource_fxayd")
-
-[node name="key - sleepless child room - closet" parent="Objects/Puzzle Items/Keys" unique_id=559617355 instance=ExtResource("17_tqr37")]
-position = Vector2(-639.67017, 2060.587)
-item_info = SubResource("Resource_vwtdy")
 
 [node name="hw_checker" type="Node2D" parent="Objects/Puzzle Items" unique_id=680393000 node_paths=PackedStringArray("key")]
 script = ExtResource("25_pqgcp")
@@ -740,43 +656,48 @@ position = Vector2(375, 2724)
 type = "math"
 answer = "0"
 
-[node name="Transition Points" type="Node2D" parent="Objects" unique_id=1218422310]
-y_sort_enabled = true
-position = Vector2(-442, -162)
-
-[node name="Staircase" type="StaticBody2D" parent="Objects/Transition Points" unique_id=556655780]
-y_sort_enabled = true
-position = Vector2(1527.028, 2934)
-scale = Vector2(0.5, 0.5)
-collision_layer = 2
+[node name="BossArea" type="Area2D" parent="." unique_id=929916445]
+collision_layer = 65
 collision_mask = 65
+script = ExtResource("26_pqgcp")
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Objects/Transition Points/Staircase" unique_id=2000313048]
-position = Vector2(295.6106, 108.49463)
-polygon = PackedVector2Array(4.290283, -74.99951, 3.9523926, 29.393555, -260.26, 150.25928, -606.4597, 151.01514, -606.791, -73.96973)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossArea" unique_id=301888038]
+position = Vector2(92, 1873.75)
+shape = SubResource("RectangleShape2D_btg6x")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/Transition Points/Staircase" unique_id=1019589836]
-polygon = PackedVector2Array(170.5564, 260.5127, 277.3872, 231.97119, 393.53174, 231.85986, 393.97876, 259.66797)
+[node name="Music" type="Node2D" parent="." unique_id=911269607]
+script = ExtResource("1_ock1t")
 
-[node name="StairsDown1" type="Sprite2D" parent="Objects/Transition Points/Staircase" unique_id=1306560291]
-position = Vector2(42, 124)
-texture = ExtResource("24_ock1t")
+[node name="Ambient Music" type="AudioStreamPlayer" parent="Music" unique_id=1580217849 groups=["Music"]]
+process_mode = 3
+stream = ExtResource("22_b322n")
+autoplay = true
+bus = &"Music"
 
-[node name="LevelDownZone" type="Area2D" parent="Objects/Transition Points/Staircase/StairsDown1" unique_id=1600476806]
-collision_layer = 0
-collision_mask = 65
+[node name="ScaryAmbience" type="AudioStreamPlayer" parent="Music" unique_id=180460471 groups=["Music"]]
+process_mode = 3
+stream = ExtResource("24_us6j8")
+bus = &"Music"
 
-[node name="LevelDownCollider" type="CollisionShape2D" parent="Objects/Transition Points/Staircase/StairsDown1/LevelDownZone" unique_id=1278575654]
-position = Vector2(-63, 62)
-shape = SubResource("RectangleShape2D_pt62h")
+[node name="Level1Boss" type="AudioStreamPlayer" parent="Music" unique_id=1439055424 groups=["Music"]]
+process_mode = 3
+stream = ExtResource("25_5yyo0")
+bus = &"Music"
 
-[node name="Blockades" type="Node2D" parent="Objects" unique_id=181141924]
+[node name="Sfx" type="Node2D" parent="." unique_id=1273208819]
 
-[node name="Blockade Fairy Lights" parent="Objects/Blockades" unique_id=457542619 instance=ExtResource("29_yi50i")]
-position = Vector2(909.0421, 2580.0352)
-direction = 1
+[node name="EveOuch" type="AudioStreamPlayer" parent="Sfx" unique_id=1045213234 groups=["Sounds"]]
+stream = SubResource("AudioStreamRandomizer_asfof")
 
-[node name="Music" parent="." unique_id=371888300 instance=ExtResource("22_b322n")]
+[node name="WillowOuch" type="AudioStreamPlayer" parent="Sfx" unique_id=1343058609 groups=["Sounds"]]
+stream = SubResource("AudioStreamRandomizer_cu72c")
 
-[connection signal="body_entered" from="Objects/Transition Points/Staircase/StairsDown1/LevelDownZone" to="." method="_on_level_down_zone_body_entered"]
-[connection signal="body_exited" from="Objects/Transition Points/Staircase/StairsDown1/LevelDownZone" to="." method="_on_level_down_zone_body_exited"]
+[node name="Hooray" type="AudioStreamPlayer" parent="Sfx" unique_id=213890628 groups=["Sounds"]]
+stream = SubResource("AudioStreamRandomizer_vwtdy")
+bus = &"Sfx"
+
+[node name="Pickup" type="AudioStreamPlayer" parent="Sfx" unique_id=1267451349 groups=["Sounds"]]
+stream = SubResource("AudioStreamRandomizer_yi50i")
+
+[node name="Door" type="AudioStreamPlayer" parent="Sfx" unique_id=888389311 groups=["Sounds"]]
+stream = SubResource("AudioStreamRandomizer_fxayd")

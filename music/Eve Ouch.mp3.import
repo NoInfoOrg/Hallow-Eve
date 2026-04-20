@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dnba32lhyt7q4"
+path="res://.godot/imported/Eve Ouch.mp3-18292cb66f647a02d2d2824d660f6580.mp3str"
+
+[deps]
+
+source_file="res://music/Eve Ouch.mp3"
+dest_files=["res://.godot/imported/Eve Ouch.mp3-18292cb66f647a02d2d2824d660f6580.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

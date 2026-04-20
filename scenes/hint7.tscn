@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bpkyl28rs058f"]
+
+[ext_resource type="Texture2D" uid="uid://vgbgp1sm3bxf" path="res://assets/sprites/level objs/Paper.png" id="1_io0ei"]
+[ext_resource type="Texture2D" uid="uid://bcdcamwd2tjvl" path="res://assets/sprites/level objs/hint7.png" id="2_e313p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6p5x"]
+size = Vector2(83, 55)
+
+[node name="Hints" type="Area2D" unique_id=1403268160]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1769951353]
+texture = ExtResource("1_io0ei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1992536203]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_b6p5x")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1226425222]
+
+[node name="hint" type="Sprite2D" parent="CanvasLayer" unique_id=1063104718]
+visible = false
+position = Vector2(572, 315)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_e313p")
+region_enabled = true
+region_rect = Rect2(89.10004, 114.79991, 828.89996, 542.69995)

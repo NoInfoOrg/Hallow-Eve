@@ -167,6 +167,8 @@ func check_to_open_door():
 			# Change the door image to be opened
 			# door.get_node("Door").play("open")
 			if door.has_node("OpenDoor"):
+				var doorNoise  = get_tree().current_scene.find_child("Door", true, false)
+				doorNoise.play()
 				door.get_node("OpenDoor").visible = true
 			
 			if door.has_node("ClosedDoor"):
