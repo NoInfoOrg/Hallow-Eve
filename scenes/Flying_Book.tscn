@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dxfi5b0mnngqv"]
+
+[ext_resource type="Texture2D" uid="uid://dtjuvstct1ocw" path="res://assets/spritesheets/enemy/FlyBook_Spritesheet.png" id="1_bv05g"]
+
+[sub_resource type="Animation" id="Animation_b57is"]
+resource_name = "FlyBook_Fly"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_afjm1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ah166"]
+_data = {
+&"FlyBook_Fly": SubResource("Animation_b57is"),
+&"RESET": SubResource("Animation_afjm1")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_14l4n"]
+
+[node name="FlyingBook" type="CharacterBody2D" unique_id=785324845]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1835093085]
+texture = ExtResource("1_bv05g")
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=131148912]
+libraries/ = SubResource("AnimationLibrary_ah166")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1966850065]
+shape = SubResource("CircleShape2D_14l4n")
