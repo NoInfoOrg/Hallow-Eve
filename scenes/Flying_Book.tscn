@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dxfi5b0mnngqv"]
 
+[ext_resource type="Script" uid="uid://b8bg0ucbr0a2p" path="res://scenes/flying_book.gd" id="1_b57is"]
 [ext_resource type="Texture2D" uid="uid://dtjuvstct1ocw" path="res://assets/spritesheets/enemy/FlyBook_Spritesheet.png" id="1_bv05g"]
 
 [sub_resource type="Animation" id="Animation_b57is"]
@@ -42,7 +43,16 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_14l4n"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_b57is"]
+radius = 225.03555
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_afjm1"]
+radius = 113.45
+height = 226.9
+
 [node name="FlyingBook" type="CharacterBody2D" unique_id=785324845]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_b57is")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1835093085]
 texture = ExtResource("1_bv05g")
@@ -54,3 +64,26 @@ libraries/ = SubResource("AnimationLibrary_ah166")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1966850065]
 shape = SubResource("CircleShape2D_14l4n")
+
+[node name="DetectionZone" type="Area2D" parent="." unique_id=1893532002 groups=["Enemy Detection Zone"]]
+position = Vector2(0, -52.5)
+collision_layer = 4096
+collision_mask = 1024
+
+[node name="DetectCollider" type="CollisionShape2D" parent="DetectionZone" unique_id=872142986]
+shape = SubResource("CircleShape2D_b57is")
+
+[node name="AttackZone" type="Area2D" parent="." unique_id=131262051]
+position = Vector2(0, -55)
+collision_layer = 2048
+collision_mask = 1024
+
+[node name="AttackCollider" type="CollisionShape2D" parent="AttackZone" unique_id=1238597848]
+position = Vector2(3.9499817, 16.249985)
+shape = SubResource("CapsuleShape2D_afjm1")
+debug_color = Color(0.24520513, 0.5061181, 1, 0.41960785)
+
+[connection signal="area_entered" from="DetectionZone" to="." method="_on_detection_zone_area_entered"]
+[connection signal="area_exited" from="DetectionZone" to="." method="_on_detection_zone_area_exited"]
+[connection signal="area_entered" from="AttackZone" to="." method="_on_attack_zone_area_entered"]
+[connection signal="area_exited" from="AttackZone" to="." method="_on_attack_zone_area_exited"]

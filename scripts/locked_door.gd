@@ -13,6 +13,7 @@ var required_key_name = ""
 @export var synced_buttons_needed = false
 @export var ordered_buttons_needed = false
 @export var required_buttons: Array[Area2D]
+@export var statue_boss = false
 
 var pressed_buttons = []
 
@@ -93,7 +94,6 @@ func check_synced_buttons():
 		# get_node("Door").play("open")
 		if has_node("OpenDoor"):
 			get_node("OpenDoor").visible = true
-			door.play()
 			
 		if has_node("ClosedDoor"):
 			get_node("ClosedDoor").visible = false
@@ -120,7 +120,6 @@ func check_ordered_buttons():
 		# Change the door image to be opened
 		if has_node("OpenDoor"):
 			get_node("OpenDoor").visible = true
-			door.play()
 		if has_node("ClosedDoor"):
 			get_node("ClosedDoor").visible = false
 		# Change the door collision so players can enter the door
@@ -138,19 +137,11 @@ func on_button_object_emitted(button):
 func on_puzzle_completion():
 	# shoutout to Nick for opening this door (a gentelman fr)
 		# Change the door image to be opened
-		var door  = get_tree().current_scene.find_child("Door", true, false)
-
 		if has_node("OpenDoor"):
-			
 			get_node("OpenDoor").visible = true
-			door.play()
-			
 		if has_node("ClosedDoor"):
-			print("closed door found")
 			get_node("ClosedDoor").visible = false
-		
-		# Change the door collision so players can enter the door
-		get_node("Closed Door Collision").set_deferred("disabled", true)
+		pass
 
 func on_paper_correct():
 	var key = get_node("../key")

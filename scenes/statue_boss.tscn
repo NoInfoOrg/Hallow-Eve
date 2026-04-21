@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d1yfccuno5d5h"]
+
+[ext_resource type="Script" uid="uid://08klkrlaiscm" path="res://scenes/statue_boss.gd" id="1_a4k6d"]
+[ext_resource type="Texture2D" uid="uid://ca07e1u0ehiwv" path="res://assets/sprites/enemy/Boss_TheBereaved.png" id="1_xrf6h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4k6d"]
+size = Vector2(326.5192, 628.776)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0c8o"]
+size = Vector2(321.69934, 34.150696)
+
+[node name="Statue Boss" type="StaticBody2D" unique_id=893558206]
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 65
+script = ExtResource("1_a4k6d")
+
+[node name="Statue Sprite" type="Sprite2D" parent="." unique_id=1087082993]
+texture = ExtResource("1_xrf6h")
+offset = Vector2(0, -297.2)
+
+[node name="Statue Collider" type="CollisionShape2D" parent="." unique_id=1218498549]
+position = Vector2(1.0162659, -298.57422)
+shape = SubResource("RectangleShape2D_a4k6d")
+
+[node name="Statue Foot Collider" type="CollisionShape2D" parent="." unique_id=994896768]
+shape = SubResource("RectangleShape2D_b0c8o")

@@ -12,6 +12,12 @@ signal puzzle_complete()
 @onready var token2 = get_node("../R1C2")
 @onready var token3 = get_node("../R2C1")
 @onready var token4 = get_node("../R2C2")
+@onready var completePuzzle = $"Complete Puzzle"
+
+@export var statue_puzzle = false
+signal statue_puzzle_complete
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if dining:
@@ -43,8 +49,6 @@ func _process(delta: float) -> void:
 		reset_dining()
 	if remaining_slots == 0:
 		check_if_correc(solution, curr)
-	
-	
 
 func update(Box_Index, guess):
 	curr[Box_Index] = guess
@@ -59,9 +63,12 @@ func check_if_correc(solution, curr):
 	for i in curr.size():
 		if curr[i] != solution[i]:
 			return false
-	puzzle_complete.emit()
+	if statue_puzzle:
+		completePuzzle.show()
+		statue_puzzle_complete.emit()
+	else:
+		puzzle_complete.emit()
 	complete = true
-
 	return true
 	
 #func reset(button):

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dxy3d1fla8k1v"]
 
 [ext_resource type="Texture2D" uid="uid://ch853lh33rqyo" path="res://assets/spritesheets/enemy/Bookcase_Mimic_Spritesheet.png" id="1_2jc2s"]
+[ext_resource type="Script" uid="uid://wheyr70rhru1" path="res://scenes/bookcase_mimic.gd" id="1_73uta"]
 
 [sub_resource type="Animation" id="Animation_73uta"]
 resource_name = "BookcaseMimic_Attack"
-length = 0.8
-loop_mode = 1
+length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -73,17 +73,56 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mvje"]
-size = Vector2(248, 182)
+size = Vector2(292.82004, 154.46252)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73uta"]
+size = Vector2(951.1597, 1084.6665)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ci3yg"]
+size = Vector2(290.45636, 423.3589)
 
 [node name="BookcaseMimic" type="CharacterBody2D" unique_id=2026082863]
+scale = Vector2(0.5, 0.5)
+collision_layer = 512
+collision_mask = 65
+script = ExtResource("1_73uta")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1891898670]
 texture = ExtResource("1_2jc2s")
+offset = Vector2(-8.65, -211.99)
 hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1496694581]
 libraries/ = SubResource("AnimationLibrary_ci3yg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1700228850]
-position = Vector2(9, 136)
+visible = false
 shape = SubResource("RectangleShape2D_6mvje")
+
+[node name="DetectionZone" type="Area2D" parent="." unique_id=1923797631 groups=["Enemy Detection Zone"]]
+visible = false
+position = Vector2(0, 41.41342)
+collision_layer = 4096
+collision_mask = 1024
+
+[node name="DetectCollider" type="CollisionShape2D" parent="DetectionZone" unique_id=2060850620]
+shape = SubResource("RectangleShape2D_73uta")
+
+[node name="AttackZone" type="Area2D" parent="." unique_id=265734212]
+visible = false
+position = Vector2(0, -289.32922)
+collision_layer = 2048
+collision_mask = 1024
+
+[node name="AttackCollider" type="CollisionShape2D" parent="AttackZone" unique_id=1958352754]
+shape = SubResource("RectangleShape2D_ci3yg")
+debug_color = Color(0.24520513, 0.5061181, 1, 0.41960785)
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=549004543]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="area_entered" from="DetectionZone" to="." method="_on_detection_zone_area_entered"]
+[connection signal="area_exited" from="DetectionZone" to="." method="_on_detection_zone_area_exited"]
+[connection signal="area_entered" from="AttackZone" to="." method="_on_attack_zone_area_entered"]
+[connection signal="area_exited" from="AttackZone" to="." method="_on_attack_zone_area_exited"]

@@ -9,6 +9,7 @@ var players_detected = []
 var curr_player = null
 var label : Label
 var bg : Panel
+
 func _ready():
 	if is_holding:
 		if item_info and item_info.texture:
@@ -26,6 +27,8 @@ func _ready():
 		bg = get_node("Panel")
 		label.visible = false
 		bg.visible = false
+
+
 func _process(delta: float):
 	for player in players_detected:
 		if is_tag:
@@ -72,5 +75,3 @@ func pickup(player):
 			var pickup  = get_tree().current_scene.find_child("Pickup", true, false)
 			pickup.play()
 			queue_free()
-			
-			

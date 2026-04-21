@@ -15,16 +15,24 @@
 [ext_resource type="Script" uid="uid://c6ufm81rtdraj" path="res://scripts/asset.gd" id="10_k5nr0"]
 [ext_resource type="Texture2D" uid="uid://cao84hnsuu6sw" path="res://assets/sprites/environment/StairsSide.png" id="13_5m0iu"]
 [ext_resource type="Texture2D" uid="uid://cmrn0d061ae6a" path="res://assets/sprites/environment/StairsDown1.png" id="13_edtfm"]
+[ext_resource type="PackedScene" uid="uid://d1yfccuno5d5h" path="res://scenes/statue_boss.tscn" id="13_vdd84"]
+[ext_resource type="PackedScene" uid="uid://jwjph8jgadv3" path="res://scenes/R1C1.tscn" id="14_f7fdj"]
 [ext_resource type="PackedScene" uid="uid://blc2wqvr525qk" path="res://scenes/door_open.tscn" id="14_xgkyh"]
 [ext_resource type="PackedScene" uid="uid://dwu4oi2tru041" path="res://scenes/collectibles.tscn" id="15_vt8ox"]
 [ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="16_gnh5y"]
 [ext_resource type="Script" uid="uid://bsryspci4rqr8" path="res://scenes/boss_area.gd" id="16_xgkyh"]
+[ext_resource type="PackedScene" uid="uid://7kl4s2y0srbw" path="res://scenes/R1C2.tscn" id="17_5boco"]
 [ext_resource type="Texture2D" uid="uid://bbeeo2dju1t1q" path="res://assets/items/Key_3.png" id="17_ts11m"]
+[ext_resource type="PackedScene" uid="uid://xxcq31q7daec" path="res://scenes/R2C1.tscn" id="18_5ulfy"]
 [ext_resource type="Texture2D" uid="uid://dbs1ylnq8rd2y" path="res://assets/items/Key_1.png" id="18_ts11m"]
 [ext_resource type="AudioStream" uid="uid://hg2uxyy0yt26" path="res://music/Ambience.mp3" id="18_wuew0"]
+[ext_resource type="PackedScene" uid="uid://cl543ovm3ytx1" path="res://scenes/R2C2.tscn" id="19_46rqp"]
 [ext_resource type="Texture2D" uid="uid://cywo004q780ya" path="res://assets/items/Key_2.png" id="19_vdd84"]
 [ext_resource type="AudioStream" uid="uid://vfusupj1p18i" path="res://music/Scary_Ambience.mp3" id="19_vt8ox"]
+[ext_resource type="PackedScene" uid="uid://dxfi5b0mnngqv" path="res://scenes/Flying_Book.tscn" id="20_6w8at"]
+[ext_resource type="PackedScene" uid="uid://8nccuf7q2yqi" path="res://scenes/statue_puzzle_location.tscn" id="20_fm4f6"]
 [ext_resource type="AudioStream" uid="uid://cva3jrjfiwawk" path="res://music/level1_boss.mp3" id="20_gnh5y"]
+[ext_resource type="PackedScene" uid="uid://dxy3d1fla8k1v" path="res://scenes/bookcase_mimic.tscn" id="21_5boco"]
 [ext_resource type="AudioStream" uid="uid://dnba32lhyt7q4" path="res://music/Eve Ouch.mp3" id="21_ts11m"]
 [ext_resource type="AudioStream" uid="uid://clxiax32qroif" path="res://music/Willow Ouch.mp3" id="22_vdd84"]
 [ext_resource type="AudioStream" uid="uid://cbfjktq1gdfng" path="res://music/hooray.mp3" id="23_apuo1"]
@@ -60,7 +68,7 @@ size = Vector2(578, 144)
 size = Vector2(707, 938)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m866e"]
-size = Vector2(332, 2044.5)
+size = Vector2(1265.1428, 1676.3662)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8qdcq"]
 random_pitch = 1.0656005
@@ -113,8 +121,8 @@ physics_interpolation_mode = 1
 top_level = true
 visibility_layer = 65
 z_index = 10
-position = Vector2(453.06744, 2468.4475)
-zoom = Vector2(0.9001443, 0.9001443)
+position = Vector2(226.06503, 2534.0715)
+zoom = Vector2(1.2100332, 1.2100332)
 process_callback = 0
 editor_draw_limits = true
 script = ExtResource("1_l75xx")
@@ -128,12 +136,12 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="Camera Setup" unique_id=968704250 node_paths=PackedStringArray("follow_targets")]
 top_level = true
-position = Vector2(453.06744, 2468.4475)
+position = Vector2(226.06503, 2534.0715)
 script = ExtResource("2_l75xx")
 priority = 10
 follow_mode = 3
 follow_targets = [NodePath("../../Objects/MovementCont/Eve - P1"), NodePath("../../Objects/MovementCont/Willow - P2")]
-zoom = Vector2(0.9001443, 0.9001443)
+zoom = Vector2(1.2100332, 1.2100332)
 tween_resource = SubResource("Resource_edtfm")
 host_layers = 65
 follow_damping = true
@@ -157,15 +165,75 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="Eve - P1" parent="Objects/MovementCont" unique_id=810202292 instance=ExtResource("4_k5nr0")]
-position = Vector2(692.96484, 2485.8657)
+position = Vector2(302.08502, 2507.2783)
 collision_mask = 830
 
 [node name="Willow - P2" parent="Objects/MovementCont" unique_id=882182450 instance=ExtResource("5_st00f")]
-position = Vector2(213.17004, 2451.0293)
+position = Vector2(150.04504, 2560.8647)
 collision_mask = 830
 
 [node name="Enemies" type="Node2D" parent="Objects" unique_id=1189972395]
 y_sort_enabled = true
+
+[node name="Statue Puzzle" type="Node2D" parent="Objects/Enemies" unique_id=153741310]
+y_sort_enabled = true
+
+[node name="Statue Boss" parent="Objects/Enemies/Statue Puzzle" unique_id=893558206 instance=ExtResource("13_vdd84")]
+y_sort_enabled = true
+position = Vector2(726.9, 2633.507)
+moveDistance = 275.0
+moveDuration = 5.0
+
+[node name="Puzzle Piece" type="Node2D" parent="Objects/Enemies/Statue Puzzle" unique_id=1872988094]
+
+[node name="Reset Button" type="Node2D" parent="Objects/Enemies/Statue Puzzle/Puzzle Piece" unique_id=292630965]
+
+[node name="GridContainer" parent="Objects/Enemies/Statue Puzzle/Puzzle Piece" unique_id=1120447800 instance=ExtResource("20_fm4f6")]
+offset_left = 425.44516
+offset_top = 2457.3926
+offset_right = 555.4452
+offset_bottom = 2584.3926
+statue_puzzle = true
+
+[node name="R1C1" parent="Objects/Enemies/Statue Puzzle/Puzzle Piece" unique_id=2121536287 groups=["Puzzle Pieces"] instance=ExtResource("14_f7fdj")]
+position = Vector2(-63.288208, 2382.2683)
+
+[node name="R1C2" parent="Objects/Enemies/Statue Puzzle/Puzzle Piece" unique_id=548457755 groups=["Puzzle Pieces"] instance=ExtResource("17_5boco")]
+position = Vector2(535.7342, 1876.9136)
+
+[node name="R2C1" parent="Objects/Enemies/Statue Puzzle/Puzzle Piece" unique_id=792867321 groups=["Puzzle Pieces"] instance=ExtResource("18_5ulfy")]
+position = Vector2(-1168.8489, 1053.1412)
+is_tag = false
+
+[node name="R2C2" parent="Objects/Enemies/Statue Puzzle/Puzzle Piece" unique_id=1021616779 groups=["Puzzle Pieces"] instance=ExtResource("19_46rqp")]
+position = Vector2(184.60925, 175.943)
+
+[node name="FlyingBook3" parent="Objects/Enemies" unique_id=785324845 instance=ExtResource("20_6w8at")]
+y_sort_enabled = true
+position = Vector2(-517.81445, 1373.0222)
+
+[node name="FlyingBook" parent="Objects/Enemies" unique_id=805743348 instance=ExtResource("20_6w8at")]
+y_sort_enabled = true
+position = Vector2(-491.2798, 950.5249)
+
+[node name="FlyingBook2" parent="Objects/Enemies" unique_id=921035053 instance=ExtResource("20_6w8at")]
+y_sort_enabled = true
+position = Vector2(-1019.3191, 1788.9042)
+
+[node name="FlyingBook4" parent="Objects/Enemies" unique_id=1398597510 instance=ExtResource("20_6w8at")]
+position = Vector2(1007.0864, 1811.5638)
+
+[node name="BookcaseMimic" parent="Objects/Enemies" unique_id=2026082863 instance=ExtResource("21_5boco")]
+y_sort_enabled = true
+position = Vector2(-98.62608, 1023.5757)
+
+[node name="BookcaseMimic2" parent="Objects/Enemies" unique_id=938552908 instance=ExtResource("21_5boco")]
+y_sort_enabled = true
+position = Vector2(-675.7757, 2290.681)
+
+[node name="BookcaseMimic3" parent="Objects/Enemies" unique_id=483589584 instance=ExtResource("21_5boco")]
+y_sort_enabled = true
+position = Vector2(707.4191, 1632.7859)
 
 [node name="Assets" type="Node2D" parent="Objects" unique_id=1137190688]
 y_sort_enabled = true
@@ -187,7 +255,7 @@ script = ExtResource("10_k5nr0")
 roomType = 8
 asset = 5
 
-[node name="BookcaseFull6" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases" unique_id=1876306429]
+[node name="BookcaseFull3" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases" unique_id=1876306429]
 y_sort_enabled = true
 position = Vector2(-824, 1491.6212)
 script = ExtResource("10_k5nr0")
@@ -287,13 +355,6 @@ script = ExtResource("10_k5nr0")
 roomType = 8
 asset = 5
 
-[node name="BookcaseFull2" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases8" unique_id=1267503431]
-y_sort_enabled = true
-position = Vector2(-824, 1491.6212)
-script = ExtResource("10_k5nr0")
-roomType = 8
-asset = 5
-
 [node name="TablePaper" type="Node2D" parent="Objects/Assets/Library/Bookcases/ThreeBookCases8" unique_id=1193952292]
 y_sort_enabled = true
 position = Vector2(-1522, 1147.7417)
@@ -342,13 +403,6 @@ position = Vector2(-1157.3895, 2326.731)
 script = ExtResource("10_k5nr0")
 roomType = 9
 asset = 3
-
-[node name="BookcaseFull" type="Node2D" parent="Objects/Assets/Study" unique_id=1458059543]
-y_sort_enabled = true
-position = Vector2(-677, 2319.224)
-script = ExtResource("10_k5nr0")
-roomType = 8
-asset = 5
 
 [node name="BookcaseFull2" type="Node2D" parent="Objects/Assets/Study" unique_id=1535116203]
 y_sort_enabled = true
@@ -466,13 +520,6 @@ script = ExtResource("10_k5nr0")
 roomType = 8
 asset = 4
 
-[node name="BookcaseEmpty2" type="Node2D" parent="Objects/Assets/Storage Room" unique_id=661866795]
-y_sort_enabled = true
-position = Vector2(706, 1660.1538)
-script = ExtResource("10_k5nr0")
-roomType = 8
-asset = 4
-
 [node name="BrokenStatue2" type="Node2D" parent="Objects/Assets/Storage Room" unique_id=1601196482]
 y_sort_enabled = true
 position = Vector2(582, 1724.1538)
@@ -561,7 +608,7 @@ y_sort_enabled = true
 
 [node name="ArmchairFront" type="Node2D" parent="Objects/Assets/Hallway" unique_id=628448565]
 y_sort_enabled = true
-position = Vector2(634, 2331.205)
+position = Vector2(534.175, 2331.205)
 script = ExtResource("10_k5nr0")
 roomType = 11
 asset = 1
@@ -652,15 +699,13 @@ y_sort_enabled = true
 position = Vector2(42, -712)
 texture = ExtResource("13_5m0iu")
 
-[node name="Blockades" type="Node2D" parent="Objects" unique_id=1824794086]
-
 [node name="BossArea" type="Area2D" parent="." unique_id=1119775417]
 collision_layer = 65
 collision_mask = 65
 script = ExtResource("16_xgkyh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossArea" unique_id=1263173821]
-position = Vector2(92, 1873.75)
+position = Vector2(-630.8275, 1142.8169)
 shape = SubResource("RectangleShape2D_m866e")
 
 [node name="Music" type="Node2D" parent="." unique_id=1287835285]
@@ -683,6 +728,7 @@ stream = ExtResource("20_gnh5y")
 bus = &"Music"
 
 [node name="Sfx" type="Node2D" parent="." unique_id=1271222991]
+position = Vector2(-880.40186, 2197.0396)
 
 [node name="EveOuch" type="AudioStreamPlayer" parent="Sfx" unique_id=611588105 groups=["Sounds"]]
 stream = SubResource("AudioStreamRandomizer_8qdcq")
@@ -700,5 +746,10 @@ stream = SubResource("AudioStreamRandomizer_5boco")
 [node name="Door" type="AudioStreamPlayer" parent="Sfx" unique_id=856839087 groups=["Sounds"]]
 stream = SubResource("AudioStreamRandomizer_5ulfy")
 
+[connection signal="statue_puzzle_complete" from="Objects/Enemies/Statue Puzzle/Puzzle Piece/GridContainer" to="Objects/Enemies/Statue Puzzle/Statue Boss" method="_on_grid_container_statue_puzzle_complete"]
+[connection signal="statue_puzzle_complete" from="Objects/Enemies/Statue Puzzle/Puzzle Piece/GridContainer" to="Objects/Enemies/Statue Puzzle/Puzzle Piece/R1C1" method="_on_grid_container_statue_puzzle_complete"]
+[connection signal="statue_puzzle_complete" from="Objects/Enemies/Statue Puzzle/Puzzle Piece/GridContainer" to="Objects/Enemies/Statue Puzzle/Puzzle Piece/R1C2" method="_on_grid_container_statue_puzzle_complete"]
+[connection signal="statue_puzzle_complete" from="Objects/Enemies/Statue Puzzle/Puzzle Piece/GridContainer" to="Objects/Enemies/Statue Puzzle/Puzzle Piece/R2C1" method="_on_grid_container_statue_puzzle_complete"]
+[connection signal="statue_puzzle_complete" from="Objects/Enemies/Statue Puzzle/Puzzle Piece/GridContainer" to="Objects/Enemies/Statue Puzzle/Puzzle Piece/R2C2" method="_on_grid_container_statue_puzzle_complete"]
 [connection signal="body_entered" from="Objects/Transition Points/Staircase/StairsDown1/LevelDownZone" to="." method="_on_level_down_zone_body_entered"]
 [connection signal="body_exited" from="Objects/Transition Points/Staircase/StairsDown1/LevelDownZone" to="." method="_on_level_down_zone_body_exited"]

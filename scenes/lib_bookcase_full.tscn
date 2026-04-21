@@ -11,9 +11,9 @@ collision_layer = 512
 collision_mask = 0
 
 [node name="AssetSprite" type="Sprite2D" parent="." unique_id=30522664]
-position = Vector2(0, -134.34384)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_njj7c")
+offset = Vector2(0, -269.29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=57343574]
 shape = SubResource("RectangleShape2D_ky1t1")

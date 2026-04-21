@@ -25,7 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://l05hco35jypp" path="res://assets/tilesets/WallFront_BallroomDoor-Open.png" id="19_7img7"]
 [ext_resource type="AudioStream" uid="uid://vfusupj1p18i" path="res://music/Scary_Ambience.mp3" id="20_vlqbw"]
 [ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="21_56hxd"]
-[ext_resource type="AudioStream" uid="uid://cva3jrjfiwawk" path="res://music/level1_boss.mp3" id="21_i4nr0"]
 [ext_resource type="Texture2D" uid="uid://dbs1ylnq8rd2y" path="res://assets/items/Key_1.png" id="22_7img7"]
 [ext_resource type="AudioStream" uid="uid://dnba32lhyt7q4" path="res://music/Eve Ouch.mp3" id="22_ilvqm"]
 [ext_resource type="Texture2D" uid="uid://bbeeo2dju1t1q" path="res://assets/items/Key_3.png" id="22_jy2vo"]
@@ -33,6 +32,7 @@
 [ext_resource type="AudioStream" uid="uid://cbfjktq1gdfng" path="res://music/hooray.mp3" id="24_jy2vo"]
 [ext_resource type="AudioStream" uid="uid://bljs35h01eggi" path="res://music/pickup.mp3" id="25_7img7"]
 [ext_resource type="AudioStream" uid="uid://dmaywwlpircmu" path="res://music/door.mp3" id="26_k86jv"]
+[ext_resource type="AudioStream" uid="uid://c3kj21w8xamel" path="res://music/Ballin_in_Da_Ballroom.mp3" id="28_jy2vo"]
 
 [sub_resource type="Resource" id="Resource_38li5"]
 script = ExtResource("4_vmqa7")
@@ -85,7 +85,7 @@ metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
 size = Vector2(707, 938)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qr844"]
-size = Vector2(332, 2044.5)
+size = Vector2(543.9932, 985.30994)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h47qo"]
 random_pitch = 1.0656005
@@ -118,7 +118,6 @@ script = ExtResource("1_jqvr8")
 metadata/_edit_horizontal_guides_ = [-1310.3547, -1110.6833]
 
 [node name="UI" parent="." unique_id=1522527901 instance=ExtResource("1_is5o6")]
-visible = false
 
 [node name="LevelChangeLabel" parent="." unique_id=727282801 instance=ExtResource("3_38li5")]
 unique_name_in_owner = true
@@ -191,6 +190,10 @@ collision_mask = 830
 [node name="Willow - P2" parent="Objects/MovementCont" unique_id=882182450 instance=ExtResource("6_38li5")]
 position = Vector2(-453.693, 426.406)
 collision_mask = 830
+
+[node name="Enemies" type="Node2D" parent="Objects" unique_id=1658967069]
+
+[node name="HungrySkeletonBoss" type="Node2D" parent="Objects/Enemies" unique_id=2124140823]
 
 [node name="Assets" type="Node2D" parent="Objects" unique_id=220042579]
 y_sort_enabled = true
@@ -545,7 +548,7 @@ collision_mask = 65
 script = ExtResource("17_nahgi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossArea" unique_id=1402458940]
-position = Vector2(92, 1873.75)
+position = Vector2(61.351776, -492.34503)
 shape = SubResource("RectangleShape2D_qr844")
 
 [node name="Music" type="Node2D" parent="." unique_id=1733869458]
@@ -564,7 +567,7 @@ bus = &"Music"
 
 [node name="Level3Boss" type="AudioStreamPlayer" parent="Music" unique_id=15233193 groups=["Music"]]
 process_mode = 3
-stream = ExtResource("21_i4nr0")
+stream = ExtResource("28_jy2vo")
 bus = &"Music"
 
 [node name="Sfx" type="Node2D" parent="." unique_id=1208403775]

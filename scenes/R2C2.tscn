@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" uid="uid://cnujf4336mq84" path="res://scripts/collectibles.gd" id="1_n4v2e"]
 [ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="2_g0suf"]
-[ext_resource type="Texture2D" uid="uid://x5e8xwvuw27b" path="res://assets/tempSprites/shocked blue emoji_r2_c2.png" id="3_gy15r"]
+[ext_resource type="Texture2D" uid="uid://ck5c38ko1f02x" path="res://assets/sprites/level objs/LadyInTheBook_Piece4.png" id="3_g0suf"]
 
 [sub_resource type="Resource" id="Resource_lcdne"]
 script = ExtResource("2_g0suf")
 name = "R2C2"
-texture = ExtResource("3_gy15r")
+texture = ExtResource("3_g0suf")
 metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dxld2"]
-radius = 48.010414
+[sub_resource type="CircleShape2D" id="CircleShape2D_n4v2e"]
+radius = 59.014233
 
 [node name="R2C2" type="Area2D" unique_id=2121536287]
 z_index = -2
@@ -20,11 +20,8 @@ script = ExtResource("1_n4v2e")
 item_info = SubResource("Resource_lcdne")
 is_holding = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=70584781]
-position = Vector2(-18, 19)
-shape = SubResource("CircleShape2D_dxld2")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1239271407]
+shape = SubResource("CircleShape2D_n4v2e")
 
 [node name="food" type="Sprite2D" parent="." unique_id=1281713633]
-position = Vector2(0, 31)
-scale = Vector2(0.375, 0.33007813)
-texture = ExtResource("3_gy15r")
+texture = ExtResource("3_g0suf")

@@ -784,9 +784,8 @@ position = Vector2(188.40607, 2679.1543)
 type = "shapes"
 answer = "11"
 
-[node name="Shapes Paper2" parent="Objects/Puzzle Items/hw_checker" unique_id=1625681147 instance=ExtResource("27_btg6x")]
+[node name="Math Paper" parent="Objects/Puzzle Items/hw_checker" unique_id=1625681147 instance=ExtResource("27_btg6x")]
 position = Vector2(333, 2732)
-scale = Vector2(0.25, 0.25)
 type = "math"
 answer = "0"
 
