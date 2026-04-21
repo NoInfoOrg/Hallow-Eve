@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dj43mwij5mnb6"]
 
-[ext_resource type="Script" path="res://scripts/library_puzzle_test.gd" id="1_s4kka"]
+[ext_resource type="Script" uid="uid://dpwcwjd47m1u2" path="res://scripts/library_puzzle_test.gd" id="1_s4kka"]
 [ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="1_v5ur1"]
 [ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="2_anhhc"]
 [ext_resource type="PackedScene" uid="uid://d1yfccuno5d5h" path="res://scenes/statue_boss.tscn" id="4_s4kka"]
@@ -43,6 +43,8 @@ position = Vector2(311, 535)
 position = Vector2(853, 534)
 
 [node name="GridContainer" parent="." unique_id=1120447800 instance=ExtResource("9_s4kka")]
+light_mask = 65
+visibility_layer = 65
 statue_puzzle = true
 
 [node name="UI" parent="." unique_id=1522527901 instance=ExtResource("6_mfsa7")]
