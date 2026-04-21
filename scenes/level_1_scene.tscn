@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cqn40kyihmkj" path="res://scenes/plushie.tscn" id="13_cu72c"]
 [ext_resource type="PackedScene" uid="uid://bwd22jx5mssx0" path="res://scenes/black_light_flashlight_item.tscn" id="13_xb17u"]
 [ext_resource type="PackedScene" uid="uid://d1p1fj2ywtequ" path="res://scenes/slime_enemy.tscn" id="14_cu72c"]
+[ext_resource type="AudioStream" uid="uid://cdwdq1vreikw5" path="res://music/Freddy.mp3" id="16_dy0mc"]
 [ext_resource type="PackedScene" uid="uid://dwu4oi2tru041" path="res://scenes/collectibles.tscn" id="17_tqr37"]
 [ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="19_4ymq3"]
 [ext_resource type="PackedScene" uid="uid://cyta5c5pqluy8" path="res://scenes/blanket_ghost.tscn" id="20_e5gav"]
@@ -227,10 +228,15 @@ position = Vector2(118.31677, 140.78552)
 collision_mask = 4294950714
 slide_on_ceiling = false
 
+[node name="AudioListener2D" type="AudioListener2D" parent="Objects/MovementCont/Eve - P1" unique_id=893821688]
+
 [node name="Willow - P2" parent="Objects/MovementCont" unique_id=882182450 instance=ExtResource("2_d0nkq")]
 position = Vector2(14.916748, 176.74011)
 collision_mask = 4294958906
 slide_on_ceiling = false
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Objects/MovementCont/Willow - P2" unique_id=1721938390]
+current = true
 
 [node name="Enemies" type="Node2D" parent="Objects" unique_id=1748499919]
 y_sort_enabled = true
@@ -289,6 +295,12 @@ rotates = false
 targets = [NodePath("../../../../MovementCont/Eve - P1"), NodePath("../../../../MovementCont/Willow - P2")]
 plushieType = 2
 pathFollow = NodePath("..")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Objects/Enemies/Freddy Path/Freddy Path Follow/Plushie" unique_id=1832941005]
+stream = ExtResource("16_dy0mc")
+autoplay = true
+max_distance = 718.0
+attenuation = 1.035265
 
 [node name="Slimes" type="Node2D" parent="Objects/Enemies" unique_id=1155454973]
 
