@@ -7,8 +7,8 @@
 size = Vector2(64, 64)
 
 [node name="Spirit Box" type="CharacterBody2D" unique_id=1878367245 groups=["Boxes", "Spirit Boxes"]]
-collision_layer = 4
-collision_mask = 191
+collision_layer = 8192
+collision_mask = 57791
 script = ExtResource("1_ht7cu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=348870851]
