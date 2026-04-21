@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dfbiqnn4nnley" path="res://scenes/spirit_button_blue_front.tscn" id="3_a5rwl"]
 [ext_resource type="PackedScene" uid="uid://ccm85dx1kq2ay" path="res://scenes/human_button_orange_front.tscn" id="4_5ttts"]
 [ext_resource type="PackedScene" uid="uid://clgl4g8cxa8s6" path="res://scenes/communal_button.tscn" id="5_1csvh"]
-[ext_resource type="PackedScene" uid="uid://b5evgada02h46" path="res://scenes/locked_door.tscn" id="6_1csvh"]
 [ext_resource type="PackedScene" uid="uid://5ksk0750mv13" path="res://scenes/ordered_puzzle_paper_2.tscn" id="7_mnaqv"]
 [ext_resource type="PackedScene" uid="uid://wgg2gorg83vj" path="res://scenes/debug_console.tscn" id="8_m64xm"]
 [ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="9_had4t"]
+[ext_resource type="PackedScene" uid="uid://blc2wqvr525qk" path="res://scenes/door_open.tscn" id="9_mbqnb"]
 
 [node name="Button Puzzle Testing Environment" type="Node2D" unique_id=837361566]
 
@@ -18,7 +18,7 @@ position = Vector2(545, 529)
 
 [node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("2_a5rwl")]
 z_index = 9
-position = Vector2(423, 349)
+position = Vector2(404, 577)
 
 [node name="Puzzle 1 Spirit Button" parent="." unique_id=1015848893 instance=ExtResource("3_a5rwl")]
 position = Vector2(77, 564)
@@ -28,10 +28,6 @@ position = Vector2(197, 564)
 
 [node name="Puzzle 1 Communal Button" parent="." unique_id=1874324096 instance=ExtResource("5_1csvh")]
 position = Vector2(319, 564)
-
-[node name="LockedDoor" parent="." unique_id=1400186033 node_paths=PackedStringArray("required_buttons") instance=ExtResource("6_1csvh")]
-synced_buttons_needed = true
-required_buttons = [NodePath("../Puzzle 1 Spirit Button"), NodePath("../Puzzle 1 Human Button"), NodePath("../Puzzle 1 Communal Button")]
 
 [node name="Puzzle 2 Spirit Button Blue Front 1" parent="." unique_id=4992084 instance=ExtResource("3_a5rwl")]
 position = Vector2(737, 568)
@@ -45,12 +41,6 @@ position = Vector2(963, 568)
 [node name="Puzzle 2 Human Button Orange Front 2" parent="." unique_id=1380839586 instance=ExtResource("4_5ttts")]
 position = Vector2(1077, 568)
 
-[node name="LockedDoor2" parent="." unique_id=2063074117 node_paths=PackedStringArray("connected_buttons", "required_buttons") instance=ExtResource("6_1csvh")]
-position = Vector2(581, 5)
-connected_buttons = [NodePath("../Puzzle 2 Spirit Button Blue Front 1"), NodePath("../Puzzle 2 Human Button Orange Front 1"), NodePath("../Puzzle 2 Spirit Button Blue Front 2"), NodePath("../Puzzle 2 Human Button Orange Front 2")]
-ordered_buttons_needed = true
-required_buttons = [NodePath("../Puzzle 2 Spirit Button Blue Front 1"), NodePath("../Puzzle 2 Human Button Orange Front 1"), NodePath("../Puzzle 2 Spirit Button Blue Front 2"), NodePath("../Puzzle 2 Human Button Orange Front 2")]
-
 [node name="Ordered Puzzle Paper" parent="." unique_id=181645418 instance=ExtResource("7_mnaqv")]
 position = Vector2(640, 567)
 
@@ -60,3 +50,15 @@ position = Vector2(640, 567)
 position = Vector2(438, 608)
 
 [node name="UI" parent="." unique_id=1522527901 instance=ExtResource("9_had4t")]
+
+[node name="DoorOpen" parent="." unique_id=1322021479 node_paths=PackedStringArray("connected_buttons", "required_buttons") instance=ExtResource("9_mbqnb")]
+position = Vector2(-89, 124)
+connected_buttons = [NodePath("../Puzzle 1 Spirit Button"), NodePath("../Puzzle 1 Human Button"), NodePath("../Puzzle 1 Communal Button")]
+synced_buttons_needed = true
+required_buttons = [NodePath("../Puzzle 1 Spirit Button"), NodePath("../Puzzle 1 Human Button"), NodePath("../Puzzle 1 Communal Button")]
+
+[node name="DoorOpen2" parent="." unique_id=60117608 node_paths=PackedStringArray("connected_buttons", "required_buttons") instance=ExtResource("9_mbqnb")]
+position = Vector2(591, 121)
+connected_buttons = [NodePath("../Puzzle 2 Spirit Button Blue Front 1"), NodePath("../Puzzle 2 Human Button Orange Front 1"), NodePath("../Puzzle 2 Spirit Button Blue Front 2"), NodePath("../Puzzle 2 Human Button Orange Front 2")]
+ordered_buttons_needed = true
+required_buttons = [NodePath("../Puzzle 2 Spirit Button Blue Front 1"), NodePath("../Puzzle 2 Human Button Orange Front 1"), NodePath("../Puzzle 2 Spirit Button Blue Front 2"), NodePath("../Puzzle 2 Human Button Orange Front 2")]
