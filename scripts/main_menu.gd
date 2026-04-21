@@ -4,7 +4,9 @@ var music_node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GlobalInformation.current_scene = "main_menu"
 	GlobalInformation.music_scene = GlobalInformation.scenes.MAIN_MENU
+	GlobalInformation.toggle_main_menu_music()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="NoInfoGame"
-run/main_scene="uid://otp3fuu3b4fw"
+run/main_scene="uid://dy6vmnugwo4au"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/image="uid://dvw2n86qoaoq4"
 config/icon="uid://c42thod8mjmjm"
@@ -198,6 +198,9 @@ locale/translations_pot_files=PackedStringArray("res://dialogue/YEAH.dialogue")
 2d_physics/layer_11="Hurtbox"
 2d_physics/layer_12="AttackBox"
 2d_physics/layer_13="DetectionZone"
+2d_physics/layer_14="Spirit Boxes"
+2d_physics/layer_15="Human Boxes"
+2d_physics/layer_16="Communal Boxes"
 
 [physics]
 

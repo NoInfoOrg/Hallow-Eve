@@ -38,7 +38,7 @@ func drop():
 	if hold_inv.items.size() == 1:
 		var item = hold_inv.items[0]
 		hold_inv.items.clear()
-		# notes for Nicky :D...so load the scene		
+		# notes for Nicky :D...so load the scene
 		var path = "res://scenes/" + item.name + ".tscn"
 		if ResourceLoader.exists(path):
 			var dropped = load(path).instantiate()

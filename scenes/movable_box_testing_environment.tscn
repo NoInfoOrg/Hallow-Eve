@@ -9,10 +9,12 @@
 [node name="Movable Box Testing Environment" type="Node2D" unique_id=1521372129]
 
 [node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("1_1ysei")]
+z_index = 1
 position = Vector2(149, 366)
 
 [node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("2_cw27w")]
-position = Vector2(264, 355)
+z_index = 1
+position = Vector2(238, 368)
 
 [node name="Spirit Box" parent="." unique_id=1878367245 instance=ExtResource("3_24ghu")]
 position = Vector2(688, 316)

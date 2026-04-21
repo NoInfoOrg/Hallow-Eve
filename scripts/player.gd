@@ -118,7 +118,7 @@ func check_box_collision(x_push, y_push, delta):
 			return
 		
 		# At this point, it should ideally be confirmed that the player is moving to push the box
-		if collision_box.is_in_group("Boxes") or collision_box.is_in_group("Spirit Boxes"):
+		if collision_box.is_in_group("Boxes"):
 			collision_box.push_by_player(Vector2(delta * x_push, delta * y_push), PUSH_FORCE)
 
 func check_to_open_door():
