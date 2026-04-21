@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0yq4ypo5pc80"
-path="res://.godot/imported/Guards_Front.png-d880a28793fd2d34575bd855852c6bb7.ctex"
+uid="uid://dctcd0im8ooye"
+path="res://.godot/imported/Shadows1.png-e98e34291d53f573fe868dc6d61a148e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Guards_Front.png"
-dest_files=["res://.godot/imported/Guards_Front.png-d880a28793fd2d34575bd855852c6bb7.ctex"]
+source_file="res://assets/sprites/enemy/Shadows1.png"
+dest_files=["res://.godot/imported/Shadows1.png-e98e34291d53f573fe868dc6d61a148e.ctex"]
 
 [params]
 

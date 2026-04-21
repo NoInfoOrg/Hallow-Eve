@@ -27,6 +27,8 @@ var is_in_main_menu: bool = true  # Assuming we start in the main menu
 
 # level change
 enum scenes { MAIN_MENU, LEVEL_1, LEVEL_2, LEVEL_3 }
+
+# current_scene can be: "main_menu", "level_1_scene", "level_2_scene", "level_3_scene"
 var current_scene = "main_menu"
 var transition_scene = false
 
@@ -51,7 +53,7 @@ func _ready():
 	current_music_volume_linear = 1.0
 	
 	# Start playing music!
-	#change_music()
+	toggle_main_menu_music()
 #
 #func _process(float) -> void:
 	#if music_scene != music_scene_duplicate_check:
@@ -320,6 +322,14 @@ func complete_change_scenes():
 	
 	#else:
 		#print("change_music() : invalid music scene")
+
+func toggle_main_menu_music():
+	var main_menu_theme = Music.get_node("Ambient Music/Main Music Halloween Theme")
+	
+	if is_in_main_menu:
+		main_menu_theme.play()
+	else:
+		main_menu_theme.stop()
 
 func advance_level():
 	# TODO: Using the music_scene might not be the best maybe?

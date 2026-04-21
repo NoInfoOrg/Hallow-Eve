@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://c0bftsywnr05a" path="res://assets/ui elements/settings/Settings_MainMenuButton-Pressed.png" id="25_0tsab"]
 [ext_resource type="Texture2D" uid="uid://b4ckj662te6jy" path="res://assets/ui elements/settings/Settings_ExitButton-Pressed.png" id="26_i5tog"]
 [ext_resource type="Script" uid="uid://rq0skhg5ml0h" path="res://scripts/return_to_main_menu.gd" id="26_rleeb"]
+[ext_resource type="Script" uid="uid://cfstcfkmcb0e7" path="res://scripts/progress_tracker.gd" id="28_rleeb"]
 
 [node name="UI" type="CanvasLayer" unique_id=1522527901 groups=["UI"]]
 script = ExtResource("1_8dubc")
@@ -269,6 +270,7 @@ texture = ExtResource("14_h1mc3")
 [node name="ProgressTracker" type="Node2D" parent="." unique_id=1134032675]
 position = Vector2(338, 60.000004)
 scale = Vector2(0.6, 0.6)
+script = ExtResource("28_rleeb")
 metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="ProgressTracker" unique_id=187890823]

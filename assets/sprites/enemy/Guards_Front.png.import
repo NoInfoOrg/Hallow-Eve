@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vgbgp1sm3bxf"
-path="res://.godot/imported/paper.png-89f520190eca129beb065aef52e96345.ctex"
+uid="uid://kdh2jltcexo4"
+path="res://.godot/imported/Guards_Front.png-24e67780e4dda82338e05f60811358f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/level objs/paper.png"
-dest_files=["res://.godot/imported/paper.png-89f520190eca129beb065aef52e96345.ctex"]
+source_file="res://assets/sprites/enemy/Guards_Front.png"
+dest_files=["res://.godot/imported/Guards_Front.png-24e67780e4dda82338e05f60811358f1.ctex"]
 
 [params]
 

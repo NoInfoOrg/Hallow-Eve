@@ -7,6 +7,7 @@
 size = Vector2(95.134476, 640.85895)
 
 [node name="Blockade Fairy Lights" type="StaticBody2D" unique_id=457542619]
+scale = Vector2(0.5, 0.5)
 collision_layer = 2
 collision_mask = 193
 script = ExtResource("1_cl866")
