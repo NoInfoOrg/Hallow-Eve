@@ -51,14 +51,6 @@ func _ready():
 	# Start the game with max volume
 	current_master_volume_linear = 1.0
 	current_music_volume_linear = 1.0
-	
-	# Start playing music!
-	toggle_main_menu_music()
-#
-#func _process(float) -> void:
-	#if music_scene != music_scene_duplicate_check:
-		#change_music()
-		#music_scene_duplicate_check = music_scene
 
 func find_inventory(starting_node):
 	#return find_node(starting_node, "UI/SharedInv/Inventory")
@@ -296,6 +288,7 @@ func complete_change_scenes():
 			current_scene = "level_1_scene"
 			music_scene = scenes.LEVEL_1
 
+# Currently not in use
 #func change_music():
 	#var main_menu_theme = Music.get_node("Ambient Music/Main Music Halloween Theme")
 	#var level_1_theme = Music.get_node("Ambient Music/Level 1 Ambience")
@@ -326,7 +319,7 @@ func complete_change_scenes():
 func toggle_main_menu_music():
 	var main_menu_theme = Music.get_node("Ambient Music/Main Music Halloween Theme")
 	
-	if is_in_main_menu:
+	if is_in_main_menu and current_scene == "main_menu":
 		main_menu_theme.play()
 	else:
 		main_menu_theme.stop()
