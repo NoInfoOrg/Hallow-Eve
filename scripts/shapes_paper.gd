@@ -91,7 +91,7 @@ func check_answer():
 	var curr = line.text
 	#print(line.text[0:len(line.text-1)], " :) ", answer) what is this madness?
 	if curr == answer:
-
+		print("correct")
 		# check if it's shape hw or math hw by the answer
 		if answer == "0":
 			hw_completed.emit("math")

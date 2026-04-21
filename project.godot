@@ -13,6 +13,7 @@ config_version=5
 config/name="NoInfoGame"
 run/main_scene="uid://b6hx81hbjkln1"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/image="uid://dvw2n86qoaoq4"
 config/icon="uid://c42thod8mjmjm"
 
 [audio]

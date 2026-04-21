@@ -7,8 +7,10 @@ extends Node2D
 var answer_key = {"math": false, "shapes": false}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	paper_math.connect("hw_completed", hw_completion)
-	paper_shapes.connect("hw_completed", hw_completion)
+	print(paper_math, paper_shapes)
+	if paper_shapes and paper_math:
+		paper_math.connect("hw_completed", hw_completion)
+		paper_shapes.connect("hw_completed", hw_completion)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

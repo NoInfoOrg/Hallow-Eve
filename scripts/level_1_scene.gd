@@ -42,14 +42,6 @@ func _process(delta):
 		status_label.position.y = -200
 	if transitioning:
 		return
-	if Input.is_action_just_pressed("P1Grab"):
-		await lowkenuinelyTransition(current, scary)
-		current = scary
-		
-	elif Input.is_action_just_pressed("P1Drop"):
-		await lowkenuinelyTransition(current, ambience)
-		current = ambience
-		
 	if boss_room.boss_zone and not boss_music_played:
 		boss_music_played = true
 		await lowkenuinelyTransition(current, boss)	
@@ -57,7 +49,6 @@ func _process(delta):
 	if boss_music_played and not boss_room.boss_zone:
 		await lowkenuinelyTransition(boss, scary)
 		current = scary
-
 # Switch to Level 2
 func _on_level_down_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Players"):

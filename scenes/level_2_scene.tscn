@@ -20,12 +20,14 @@
 [ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="16_gnh5y"]
 [ext_resource type="Script" uid="uid://bsryspci4rqr8" path="res://scenes/boss_area.gd" id="16_xgkyh"]
 [ext_resource type="Texture2D" uid="uid://bbeeo2dju1t1q" path="res://assets/items/Key_3.png" id="17_ts11m"]
-[ext_resource type="Texture2D" uid="uid://dbs1ylnq8rd2y" path="res://assets/items/Key_1.png" id="18_ts11m"]
 [ext_resource type="AudioStream" uid="uid://hg2uxyy0yt26" path="res://music/Ambience.mp3" id="18_wuew0"]
 [ext_resource type="Texture2D" uid="uid://cywo004q780ya" path="res://assets/items/Key_2.png" id="19_vdd84"]
 [ext_resource type="AudioStream" uid="uid://vfusupj1p18i" path="res://music/Scary_Ambience.mp3" id="19_vt8ox"]
 [ext_resource type="AudioStream" uid="uid://cva3jrjfiwawk" path="res://music/level1_boss.mp3" id="20_gnh5y"]
+[ext_resource type="PackedScene" uid="uid://dfbiqnn4nnley" path="res://scenes/spirit_button_blue_front.tscn" id="20_xwbho"]
+[ext_resource type="PackedScene" uid="uid://ccm85dx1kq2ay" path="res://scenes/human_button_orange_front.tscn" id="21_helrw"]
 [ext_resource type="AudioStream" uid="uid://dnba32lhyt7q4" path="res://music/Eve Ouch.mp3" id="21_ts11m"]
+[ext_resource type="PackedScene" uid="uid://5ksk0750mv13" path="res://scenes/ordered_puzzle_paper_2.tscn" id="22_m866e"]
 [ext_resource type="AudioStream" uid="uid://clxiax32qroif" path="res://music/Willow Ouch.mp3" id="22_vdd84"]
 [ext_resource type="AudioStream" uid="uid://cbfjktq1gdfng" path="res://music/hooray.mp3" id="23_apuo1"]
 [ext_resource type="AudioStream" uid="uid://bljs35h01eggi" path="res://music/pickup.mp3" id="24_xwbho"]
@@ -39,12 +41,6 @@ duration = 0.3
 script = ExtResource("16_gnh5y")
 name = "key"
 texture = ExtResource("17_ts11m")
-metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
-
-[sub_resource type="Resource" id="Resource_apuo1"]
-script = ExtResource("16_gnh5y")
-name = "key"
-texture = ExtResource("18_ts11m")
 metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
 
 [sub_resource type="Resource" id="Resource_xwbho"]
@@ -583,9 +579,12 @@ position = Vector2(-1259.9393, 1981.0428)
 required_key = NodePath("../../Keys/key-statue room-study")
 metadata/_edit_lock_ = true
 
-[node name="Hall-Bathroom Door" parent="Objects/Puzzle Items/Locked Doors" unique_id=496359321 node_paths=PackedStringArray("required_key") instance=ExtResource("14_xgkyh")]
+[node name="Hall-Bathroom Door" parent="Objects/Puzzle Items/Locked Doors" unique_id=496359321 node_paths=PackedStringArray("required_key", "connected_buttons", "required_buttons") instance=ExtResource("14_xgkyh")]
 position = Vector2(-70.1823, 331.02518)
-required_key = NodePath("../../Keys/key-hall-bathroom")
+required_key = NodePath("")
+connected_buttons = [NodePath("../../Button Puzzles/Puzzle 2 Spirit Button Blue Front 1"), NodePath("../../Button Puzzles/Puzzle 2 Human Button Orange Front 1"), NodePath("../../Button Puzzles/Puzzle 2 Spirit Button Blue Front 2"), NodePath("../../Button Puzzles/Puzzle 2 Human Button Orange Front 2")]
+ordered_buttons_needed = true
+required_buttons = [NodePath("../../Button Puzzles/Puzzle 2 Spirit Button Blue Front 1"), NodePath("../../Button Puzzles/Puzzle 2 Human Button Orange Front 1"), NodePath("../../Button Puzzles/Puzzle 2 Spirit Button Blue Front 2"), NodePath("../../Button Puzzles/Puzzle 2 Human Button Orange Front 2")]
 metadata/_edit_lock_ = true
 
 [node name="Family Room-Storage Door" parent="Objects/Puzzle Items/Locked Doors" unique_id=782618269 node_paths=PackedStringArray("required_key") instance=ExtResource("14_xgkyh")]
@@ -596,16 +595,30 @@ metadata/_edit_lock_ = true
 [node name="Keys" type="Node2D" parent="Objects/Puzzle Items" unique_id=599269722]
 
 [node name="key-statue room-study" parent="Objects/Puzzle Items/Keys" unique_id=1417814454 instance=ExtResource("15_vt8ox")]
-position = Vector2(-82.50189, 1929.3843)
+position = Vector2(182, 181)
 item_info = SubResource("Resource_vdd84")
 
-[node name="key-hall-bathroom" parent="Objects/Puzzle Items/Keys" unique_id=1918476395 instance=ExtResource("15_vt8ox")]
-position = Vector2(110.62549, 982.793)
-item_info = SubResource("Resource_apuo1")
-
 [node name="key-family room-storage" parent="Objects/Puzzle Items/Keys" unique_id=1408146745 instance=ExtResource("15_vt8ox")]
-position = Vector2(559.4987, 1240.2825)
+position = Vector2(-625.00006, 2567)
 item_info = SubResource("Resource_xwbho")
+
+[node name="Button Puzzles" type="Node2D" parent="Objects/Puzzle Items" unique_id=226838421]
+position = Vector2(54, -13)
+
+[node name="Puzzle 2 Spirit Button Blue Front 1" parent="Objects/Puzzle Items/Button Puzzles" unique_id=4992084 instance=ExtResource("20_xwbho")]
+position = Vector2(-1106, 1639)
+
+[node name="Puzzle 2 Human Button Orange Front 1" parent="Objects/Puzzle Items/Button Puzzles" unique_id=322020262 instance=ExtResource("21_helrw")]
+position = Vector2(-993, 1639)
+
+[node name="Puzzle 2 Spirit Button Blue Front 2" parent="Objects/Puzzle Items/Button Puzzles" unique_id=1107880581 instance=ExtResource("20_xwbho")]
+position = Vector2(-880, 1639)
+
+[node name="Puzzle 2 Human Button Orange Front 2" parent="Objects/Puzzle Items/Button Puzzles" unique_id=378131260 instance=ExtResource("21_helrw")]
+position = Vector2(-758, 1639)
+
+[node name="Ordered Puzzle Paper" parent="Objects/Puzzle Items/Button Puzzles" unique_id=181645418 instance=ExtResource("22_m866e")]
+position = Vector2(-137, 1141)
 
 [node name="Transition Points" type="Node2D" parent="Objects" unique_id=1015087384]
 y_sort_enabled = true

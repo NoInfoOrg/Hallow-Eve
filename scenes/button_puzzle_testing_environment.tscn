@@ -17,7 +17,7 @@ z_index = 9
 position = Vector2(545, 529)
 
 [node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("2_a5rwl")]
-z_index = 9
+z_index = 11
 position = Vector2(423, 349)
 
 [node name="Puzzle 1 Spirit Button" parent="." unique_id=1015848893 instance=ExtResource("3_a5rwl")]
