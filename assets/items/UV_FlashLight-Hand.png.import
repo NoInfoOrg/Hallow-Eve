@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vgbgp1sm3bxf"
-path="res://.godot/imported/paper.png-89f520190eca129beb065aef52e96345.ctex"
+uid="uid://boqunsygbbvhi"
+path="res://.godot/imported/UV_FlashLight-Hand.png-637880ad9a7fe52ea09acb746352da01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/level objs/paper.png"
-dest_files=["res://.godot/imported/paper.png-89f520190eca129beb065aef52e96345.ctex"]
+source_file="res://assets/items/UV_FlashLight-Hand.png"
+dest_files=["res://.godot/imported/UV_FlashLight-Hand.png-637880ad9a7fe52ea09acb746352da01.ctex"]
 
 [params]
 

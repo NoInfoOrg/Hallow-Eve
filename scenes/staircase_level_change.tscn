@@ -6,51 +6,37 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pt62h"]
 size = Vector2(578, 144)
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_pt62h"]
-points = PackedVector2Array(206, -122, -408, -122, -408, 134, -374, 134, -374, -10, 206, -10)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n77e"]
+size = Vector2(707, 938)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_or3vb"]
-size = Vector2(228, 218)
-
-[node name="Staircase" type="Node2D" unique_id=1468325190]
+[node name="Staircase" type="StaticBody2D" unique_id=1252891934]
 scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 65
+
+[node name="Down Collider 1" type="CollisionPolygon2D" parent="." unique_id=885156435]
+position = Vector2(296, 108)
+polygon = PackedVector2Array(4.29, -75, 3.952, 29.39, -260, 150.2, -606, 151, -606, -73.9)
+
+[node name="Down Collider 2" type="CollisionPolygon2D" parent="." unique_id=318565640]
+polygon = PackedVector2Array(170.55, 260.51, 277.38, 231.97, 393.53, 231.97, 393.97, 259.66)
 
 [node name="StairsDown1" type="Sprite2D" parent="." unique_id=1306560291]
-z_index = 6
 position = Vector2(42, 124)
 texture = ExtResource("1_3n77e")
 
 [node name="LevelDownZone" type="Area2D" parent="StairsDown1" unique_id=1600476806]
+collision_layer = 0
 collision_mask = 65
 
 [node name="LevelDownCollider" type="CollisionShape2D" parent="StairsDown1/LevelDownZone" unique_id=1278575654]
 position = Vector2(-63, 62)
 shape = SubResource("RectangleShape2D_pt62h")
 
-[node name="CantWalkZone" type="Area2D" parent="StairsDown1" unique_id=1459508581]
-collision_layer = 2
-collision_mask = 65
+[node name="Up Collider" type="CollisionShape2D" parent="." unique_id=223392832]
+position = Vector2(183.5, -711)
+shape = SubResource("RectangleShape2D_3n77e")
 
-[node name="CantWalkCollider" type="CollisionShape2D" parent="StairsDown1/CantWalkZone" unique_id=2122798709]
-position = Vector2(22, 0)
-shape = SubResource("ConvexPolygonShape2D_pt62h")
-
-[node name="StairsSide" type="Sprite2D" parent="." unique_id=1082634654]
-z_index = 5
+[node name="StairSide" type="Sprite2D" parent="." unique_id=2088679810]
 position = Vector2(42, -712)
 texture = ExtResource("2_afgqg")
-
-[node name="WalkUpZone" type="Area2D" parent="StairsSide" unique_id=115845660]
-position = Vector2(-42, 712)
-collision_layer = 2
-collision_mask = 65
-
-[node name="WalkCollider" type="CollisionPolygon2D" parent="StairsSide/WalkUpZone" unique_id=1812937913]
-position = Vector2(-164, -246)
-polygon = PackedVector2Array(702, 4, 702, -518, 0, 4)
-
-[node name="LevelUpZone" type="Area2D" parent="StairsSide" unique_id=395668076]
-
-[node name="LevelUpCollider" type="CollisionShape2D" parent="StairsSide/LevelUpZone" unique_id=2000425453]
-position = Vector2(-100, 360)
-shape = SubResource("RectangleShape2D_or3vb")

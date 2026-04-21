@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c4frtynrnxa4m"]
 
 [ext_resource type="SpriteFrames" uid="uid://b22jxyxnkddns" path="res://assets/ui elements/settings/volume bar/volume_bar_sprite_frame.tres" id="1_4b0td"]
+[ext_resource type="Script" uid="uid://dctc17i3ihcsc" path="res://scripts/music_volume.gd" id="1_6lckv"]
 [ext_resource type="Texture2D" uid="uid://cx0hgpp6shg3y" path="res://assets/ui elements/settings/volume bar/Settings_VolumeArrow_Left.png" id="2_kg565"]
 [ext_resource type="Texture2D" uid="uid://cs0ua0kfy3wh" path="res://assets/ui elements/settings/volume bar/Settings_VolumeArrow_Right.png" id="3_c784d"]
 [ext_resource type="Script" uid="uid://c684qs0b8dmg0" path="res://scripts/volume_left_arrow.gd" id="3_pjp6t"]
@@ -12,6 +13,7 @@
 
 [node name="Music Volume" type="Node2D" unique_id=903240015]
 scale = Vector2(0.7, 0.7)
+script = ExtResource("1_6lckv")
 
 [node name="Volume Meter" type="AnimatedSprite2D" parent="." unique_id=1452828197]
 scale = Vector2(0.7, 0.7)
