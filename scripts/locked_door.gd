@@ -91,7 +91,6 @@ func check_synced_buttons():
 	# If all required buttons are pressed, open the door
 	if all_buttons_pressed:
 		# Change the door image to be opened
-		# get_node("Door").play("open")
 		if has_node("OpenDoor"):
 			get_node("OpenDoor").visible = true
 			
