@@ -137,6 +137,9 @@ func check_to_open_door():
 		if not door.is_in_group("Doors"):
 			return
 		
+		if door.synced_buttons_needed or door.ordered_buttons_needed:
+			return
+		
 		var index = 0
 		for item in inventory.items:
 			print(item.name)
@@ -165,7 +168,6 @@ func check_to_open_door():
 				return
 			
 			# Change the door image to be opened
-			# door.get_node("Door").play("open")
 			if door.has_node("OpenDoor"):
 				var doorNoise  = get_tree().current_scene.find_child("Door", true, false)
 				doorNoise.play()
