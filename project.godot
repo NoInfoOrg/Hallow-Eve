@@ -25,6 +25,7 @@ PhantomCameraManager="*uid://duq6jhf6unyis"
 GlobalInformation="*uid://b433wxpps0ux5"
 Dialogic="*uid://ds2q0uclmolvu"
 DialogueManager="*uid://c3rodes2l3gxb"
+Music="*uid://dmmvcuxa7eajm"
 
 [dialogic]
 
