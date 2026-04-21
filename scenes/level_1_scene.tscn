@@ -760,7 +760,7 @@ position = Vector2(284.70068, 99.36069)
 item_info = SubResource("Resource_q2d6d")
 
 [node name="key-tutorial-bathroom" parent="Objects/Puzzle Items/Keys" unique_id=1367511770 instance=ExtResource("17_tqr37")]
-position = Vector2(-134.79144, 121.1922)
+position = Vector2(744.0444, 701.29443)
 item_info = SubResource("Resource_v7nly")
 
 [node name="key-bathroom-sleepless child room" parent="Objects/Puzzle Items/Keys" unique_id=1174872317 instance=ExtResource("17_tqr37")]
@@ -775,7 +775,7 @@ monitorable = false
 item_info = SubResource("Resource_fw0ep")
 
 [node name="key-sleepless child room-closet" parent="Objects/Puzzle Items/Keys" unique_id=442656543 instance=ExtResource("17_tqr37")]
-position = Vector2(-485.64496, 1852.4248)
+position = Vector2(-376.95563, 2611.2944)
 item_info = SubResource("Resource_txbgu")
 
 [node name="key-sleepless child room-bathroom" parent="Objects/Puzzle Items/Keys" unique_id=1177170645 instance=ExtResource("17_tqr37")]
@@ -793,6 +793,7 @@ type = "shapes"
 answer = "11"
 
 [node name="Math Paper" parent="Objects/Puzzle Items/hw_checker" unique_id=1625681147 instance=ExtResource("27_btg6x")]
+process_mode = 3
 position = Vector2(333, 2732)
 type = "math"
 answer = "0"
