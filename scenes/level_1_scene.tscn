@@ -113,7 +113,7 @@ metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
 size = Vector2(578, 144)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btg6x"]
-size = Vector2(332, 2044.5)
+size = Vector2(1616, 1031.375)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_asfof"]
 random_pitch = 1.0656005
@@ -784,9 +784,9 @@ position = Vector2(188.40607, 2679.1543)
 type = "shapes"
 answer = "11"
 
-[node name="Math Paper" parent="Objects/Puzzle Items/hw_checker" unique_id=1431218740 instance=ExtResource("27_btg6x")]
-process_mode = 3
-position = Vector2(375, 2724)
+[node name="Shapes Paper2" parent="Objects/Puzzle Items/hw_checker" unique_id=1625681147 instance=ExtResource("27_btg6x")]
+position = Vector2(333, 2732)
+scale = Vector2(0.25, 0.25)
 type = "math"
 answer = "0"
 
@@ -825,12 +825,13 @@ position = Vector2(-63, 62)
 shape = SubResource("RectangleShape2D_pt62h")
 
 [node name="BossArea" type="Area2D" parent="." unique_id=929916445]
+position = Vector2(-2101, -98)
 collision_layer = 65
 collision_mask = 65
 script = ExtResource("26_pqgcp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossArea" unique_id=301888038]
-position = Vector2(92, 1873.75)
+position = Vector2(1179, 2032.3125)
 shape = SubResource("RectangleShape2D_btg6x")
 
 [node name="Music" type="Node2D" parent="." unique_id=911269607]
@@ -853,6 +854,7 @@ stream = ExtResource("25_5yyo0")
 bus = &"Music"
 
 [node name="Sfx" type="Node2D" parent="." unique_id=1273208819]
+position = Vector2(-17, -3)
 
 [node name="EveOuch" type="AudioStreamPlayer" parent="Sfx" unique_id=1045213234 groups=["Sounds"]]
 stream = SubResource("AudioStreamRandomizer_asfof")
