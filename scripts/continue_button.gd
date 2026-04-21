@@ -13,6 +13,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_pressed() -> void:
+	GlobalInformation.is_in_main_menu = false
+	GlobalInformation.toggle_main_menu_music()
+	
 	if GlobalInformation.saved_scene == GlobalInformation.scenes.LEVEL_1:
 		get_tree().change_scene_to_file("res://scenes/level_1_scene.tscn")
 		
