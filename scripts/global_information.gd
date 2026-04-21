@@ -53,7 +53,7 @@ func _ready():
 	current_music_volume_linear = 1.0
 	
 	# Start playing music!
-	#change_music()
+	toggle_main_menu_music()
 #
 #func _process(float) -> void:
 	#if music_scene != music_scene_duplicate_check:
@@ -322,6 +322,14 @@ func complete_change_scenes():
 	
 	#else:
 		#print("change_music() : invalid music scene")
+
+func toggle_main_menu_music():
+	var main_menu_theme = Music.get_node("Ambient Music/Main Music Halloween Theme")
+	
+	if is_in_main_menu:
+		main_menu_theme.play()
+	else:
+		main_menu_theme.stop()
 
 func advance_level():
 	# TODO: Using the music_scene might not be the best maybe?
