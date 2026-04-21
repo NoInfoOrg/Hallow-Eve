@@ -1,0 +1,443 @@
+[gd_scene format=3 uid="uid://sgkv8bjo1ue1"]
+
+[ext_resource type="Script" uid="uid://dpwcwjd47m1u2" path="res://scripts/library_puzzle_test.gd" id="1_qpijj"]
+[ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="2_jvcbj"]
+[ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="3_gd2fu"]
+[ext_resource type="PackedScene" uid="uid://dsclb3m2sqebv" path="res://scenes/ui.tscn" id="4_gc6gm"]
+[ext_resource type="PackedScene" uid="uid://blc2wqvr525qk" path="res://scenes/door_open.tscn" id="5_ylrr5"]
+[ext_resource type="PackedScene" uid="uid://bqyd1p13c8vlo" path="res://scenes/hint1.tscn" id="6_q472n"]
+[ext_resource type="PackedScene" uid="uid://dtuqf71bqdxy" path="res://scenes/hint2.tscn" id="7_24nef"]
+[ext_resource type="Script" uid="uid://cqv0e1od10y63" path="res://scripts/hint.gd" id="7_jvcbj"]
+[ext_resource type="PackedScene" uid="uid://b8hk4adtfkwk4" path="res://scenes/hint3.tscn" id="8_q6omg"]
+[ext_resource type="PackedScene" uid="uid://be7x1ufq8ojp4" path="res://scenes/hint4.tscn" id="9_oyptn"]
+[ext_resource type="PackedScene" uid="uid://cvhn3xxf6m1dc" path="res://scenes/hint5.tscn" id="10_76ksy"]
+[ext_resource type="PackedScene" uid="uid://brycxmn3qsmdj" path="res://scenes/hint6.tscn" id="11_dhi4n"]
+[ext_resource type="PackedScene" uid="uid://bpkyl28rs058f" path="res://scenes/hint7.tscn" id="12_2yyq3"]
+[ext_resource type="PackedScene" uid="uid://bpfy52q5pp3xx" path="res://scenes/hint8.tscn" id="14_63377"]
+[ext_resource type="PackedScene" uid="uid://csud6qnb8svux" path="res://scenes/namecard1.tscn" id="14_gd2fu"]
+[ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="16_q472n"]
+[ext_resource type="Texture2D" uid="uid://d1emjtxxfqnmr" path="res://assets/sprites/level objs/Namecards.png" id="17_24nef"]
+[ext_resource type="PackedScene" uid="uid://bosol64ikhh16" path="res://scenes/namecard2.tscn" id="17_q472n"]
+[ext_resource type="PackedScene" uid="uid://b010ne6hftpx5" path="res://scenes/namecard3.tscn" id="18_24nef"]
+[ext_resource type="PackedScene" uid="uid://b068gvkdtrxup" path="res://scenes/namecard4.tscn" id="19_q6omg"]
+[ext_resource type="PackedScene" uid="uid://boikng6g4cb8i" path="res://scenes/namecard5.tscn" id="20_oyptn"]
+[ext_resource type="PackedScene" uid="uid://cp6758golf1q" path="res://scenes/namecard6.tscn" id="21_76ksy"]
+[ext_resource type="PackedScene" uid="uid://seorcpjvldrd" path="res://scenes/namecard7.tscn" id="22_dhi4n"]
+[ext_resource type="Texture2D" uid="uid://bir6isux8wptg" path="res://assets/tempSprites/Screenshot 2026-04-14 120029.png" id="23_2yyq3"]
+[ext_resource type="Texture2D" uid="uid://brpmp0m3p1fje" path="res://assets/tempSprites/7930.png" id="24_uos4d"]
+[ext_resource type="Texture2D" uid="uid://bm4t55gq24oag" path="res://assets/tempSprites/angry.png" id="25_kaxxp"]
+[ext_resource type="Texture2D" uid="uid://cyf0pltoern4q" path="res://assets/tempSprites/clickbait arrow.png" id="26_dcokh"]
+[ext_resource type="Script" uid="uid://c0ifywssehaxc" path="res://scripts/puzzlin.gd" id="27_dcokh"]
+[ext_resource type="Script" uid="uid://dg621rcq7e50c" path="res://scripts/box (2).gd" id="27_kaxxp"]
+
+[sub_resource type="Resource" id="Resource_0p8a3"]
+script = ExtResource("16_q472n")
+name = "namecard1"
+texture = ExtResource("17_24nef")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+
+[sub_resource type="Resource" id="Resource_63377"]
+script = ExtResource("16_q472n")
+name = "namecard2"
+texture = ExtResource("17_24nef")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+
+[sub_resource type="Resource" id="Resource_mrmsd"]
+script = ExtResource("16_q472n")
+name = "namecard3"
+texture = ExtResource("17_24nef")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+
+[sub_resource type="Resource" id="Resource_l3sgf"]
+script = ExtResource("16_q472n")
+name = "namecard4"
+texture = ExtResource("17_24nef")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+
+[sub_resource type="Resource" id="Resource_45dud"]
+script = ExtResource("16_q472n")
+name = "namecard5"
+texture = ExtResource("17_24nef")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+
+[sub_resource type="Resource" id="Resource_rqs8i"]
+script = ExtResource("16_q472n")
+name = "namecard6"
+texture = ExtResource("17_24nef")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+
+[sub_resource type="Resource" id="Resource_2w5h7"]
+script = ExtResource("16_q472n")
+name = "namecard7"
+texture = ExtResource("17_24nef")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpwr4"]
+size = Vector2(928, 456)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kaxxp"]
+radius = 30.066593
+
+[node name="SeatingPuzzle" type="Node2D" unique_id=1711566229]
+script = ExtResource("1_qpijj")
+
+[node name="Eve - P1" parent="." unique_id=810202292 instance=ExtResource("2_jvcbj")]
+position = Vector2(946, 533)
+collision_mask = 4294967226
+slide_on_ceiling = false
+
+[node name="Willow - P2" parent="." unique_id=882182450 instance=ExtResource("3_gd2fu")]
+position = Vector2(824, 520)
+collision_mask = 4294967226
+slide_on_ceiling = false
+
+[node name="UI" parent="." unique_id=1522527901 instance=ExtResource("4_gc6gm")]
+
+[node name="DoorOpen" parent="." unique_id=1322021479 instance=ExtResource("5_ylrr5")]
+z_index = -1
+position = Vector2(723, 1)
+
+[node name="hints" type="Node" parent="." unique_id=1426282604]
+
+[node name="hint1" parent="hints" unique_id=1403268160 node_paths=PackedStringArray("homework") instance=ExtResource("6_q472n")]
+process_mode = 3
+z_index = -2
+position = Vector2(89, 143)
+collision_mask = 65
+script = ExtResource("7_jvcbj")
+homework = NodePath(".")
+
+[node name="hint2" parent="hints" unique_id=552307878 node_paths=PackedStringArray("homework") instance=ExtResource("7_24nef")]
+process_mode = 3
+z_index = -2
+position = Vector2(648, 605)
+collision_mask = 65
+script = ExtResource("7_jvcbj")
+homework = NodePath(".")
+
+[node name="hint3" parent="hints" unique_id=479197069 node_paths=PackedStringArray("homework") instance=ExtResource("8_q6omg")]
+process_mode = 3
+z_index = -2
+position = Vector2(1096, 446)
+collision_mask = 65
+script = ExtResource("7_jvcbj")
+homework = NodePath(".")
+
+[node name="hint4" parent="hints" unique_id=1227868269 node_paths=PackedStringArray("homework") instance=ExtResource("9_oyptn")]
+process_mode = 3
+z_index = -2
+position = Vector2(373, 42)
+collision_mask = 65
+script = ExtResource("7_jvcbj")
+homework = NodePath(".")
+
+[node name="hint5" parent="hints" unique_id=929584442 node_paths=PackedStringArray("homework") instance=ExtResource("10_76ksy")]
+process_mode = 3
+z_index = -2
+position = Vector2(598, 47)
+collision_mask = 65
+script = ExtResource("7_jvcbj")
+homework = NodePath(".")
+
+[node name="hint6" parent="hints" unique_id=1117029922 node_paths=PackedStringArray("homework") instance=ExtResource("11_dhi4n")]
+process_mode = 3
+z_index = -2
+position = Vector2(75, 492)
+collision_mask = 65
+script = ExtResource("7_jvcbj")
+homework = NodePath(".")
+
+[node name="hint7" parent="hints" unique_id=684834635 node_paths=PackedStringArray("homework") instance=ExtResource("12_2yyq3")]
+process_mode = 3
+z_index = -2
+position = Vector2(383, 608)
+collision_mask = 65
+script = ExtResource("7_jvcbj")
+homework = NodePath(".")
+
+[node name="hint8" parent="hints" unique_id=1141165227 node_paths=PackedStringArray("homework") instance=ExtResource("14_63377")]
+process_mode = 3
+z_index = -2
+position = Vector2(813, 602)
+collision_mask = 65
+script = ExtResource("7_jvcbj")
+homework = NodePath(".")
+
+[node name="namecards" type="Node" parent="." unique_id=1478583598]
+
+[node name="namecard1" parent="namecards" unique_id=1682133799 instance=ExtResource("14_gd2fu")]
+z_index = -3
+position = Vector2(1077, 492)
+item_info = SubResource("Resource_0p8a3")
+
+[node name="namecard2" parent="namecards" unique_id=2121536287 instance=ExtResource("17_q472n")]
+position = Vector2(253, 34)
+item_info = SubResource("Resource_63377")
+
+[node name="namecard3" parent="namecards" unique_id=1877954641 instance=ExtResource("18_24nef")]
+position = Vector2(73, 372)
+item_info = SubResource("Resource_mrmsd")
+
+[node name="namecard4" parent="namecards" unique_id=281055309 instance=ExtResource("19_q6omg")]
+position = Vector2(259, 564)
+item_info = SubResource("Resource_l3sgf")
+
+[node name="namecard5" parent="namecards" unique_id=1245651615 instance=ExtResource("20_oyptn")]
+position = Vector2(77, 205)
+item_info = SubResource("Resource_45dud")
+
+[node name="namecard6" parent="namecards" unique_id=369404048 instance=ExtResource("21_76ksy")]
+position = Vector2(527, 559)
+item_info = SubResource("Resource_rqs8i")
+
+[node name="namecard7" parent="namecards" unique_id=1603434259 instance=ExtResource("22_dhi4n")]
+position = Vector2(490, 37)
+item_info = SubResource("Resource_2w5h7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2087877558]
+z_index = -3
+collision_layer = 256
+collision_mask = 256
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=803286096]
+position = Vector2(468, 324)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("23_2yyq3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1726278806]
+position = Vector2(467, 323)
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_fpwr4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2026921338]
+position = Vector2(187, 326)
+rotation = 4.712389
+scale = Vector2(0.21041666, 0.103125)
+texture = ExtResource("24_uos4d")
+
+[node name="angry boss" type="Sprite2D" parent="." unique_id=174369448]
+z_index = -4
+position = Vector2(746, 155.00002)
+scale = Vector2(0.21374997, 0.15849671)
+texture = ExtResource("25_kaxxp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=661248525]
+z_index = -4
+position = Vector2(660.99994, 273.00003)
+rotation = -1.5707964
+scale = Vector2(0.23684211, 0.18900806)
+texture = ExtResource("26_dcokh")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1815976126]
+z_index = -3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 266.0
+offset_top = 186.0
+offset_right = 542.0
+offset_bottom = 428.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 92
+theme_override_constants/v_separation = 121
+columns = 4
+script = ExtResource("27_dcokh")
+dining = true
+
+[node name="Null" type="Panel" parent="GridContainer" unique_id=195221121]
+layout_mode = 2
+
+[node name="Panel0" type="Panel" parent="GridContainer" unique_id=2040723129]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="GridContainer/Panel0" unique_id=790345088]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Panel0" unique_id=1880403803]
+position = Vector2(-190, -233)
+collision_mask = 65
+script = ExtResource("27_kaxxp")
+special = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Panel0/Area2D" unique_id=545853561]
+position = Vector2(211, 252)
+shape = SubResource("CircleShape2D_kaxxp")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Panel0" unique_id=1230064689]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Panel1" type="Panel" parent="GridContainer" unique_id=352451451]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="GridContainer/Panel1" unique_id=409739822]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Panel1" unique_id=517117936]
+position = Vector2(-190, -233)
+collision_mask = 65
+script = ExtResource("27_kaxxp")
+special = true
+Box_Index = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Panel1/Area2D" unique_id=1177560517]
+position = Vector2(211, 252)
+shape = SubResource("CircleShape2D_kaxxp")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Panel1" unique_id=1543455707]
+layout_mode = 0
+offset_right = 41.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Panel2" type="Panel" parent="GridContainer" unique_id=320579374]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="GridContainer/Panel2" unique_id=1657761310]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Panel2" unique_id=554237857]
+position = Vector2(-190, -233)
+collision_mask = 65
+script = ExtResource("27_kaxxp")
+special = true
+Box_Index = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Panel2/Area2D" unique_id=1151396769]
+position = Vector2(211, 252)
+shape = SubResource("CircleShape2D_kaxxp")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Panel2" unique_id=1777308574]
+layout_mode = 0
+offset_right = 41.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Panel3" type="Panel" parent="GridContainer" unique_id=869669443]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="GridContainer/Panel3" unique_id=1156384967]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Panel3" unique_id=301426419]
+position = Vector2(-190, -233)
+collision_mask = 65
+script = ExtResource("27_kaxxp")
+special = true
+Box_Index = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Panel3/Area2D" unique_id=2099000344]
+position = Vector2(211, 252)
+shape = SubResource("CircleShape2D_kaxxp")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Panel3" unique_id=1703497823]
+layout_mode = 0
+offset_right = 41.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Null2" type="Panel" parent="GridContainer" unique_id=1404514412]
+layout_mode = 2
+
+[node name="Null3" type="Panel" parent="GridContainer" unique_id=1564524219]
+layout_mode = 2
+
+[node name="Null4" type="Panel" parent="GridContainer" unique_id=808672609]
+layout_mode = 2
+
+[node name="Null5" type="Panel" parent="GridContainer" unique_id=1243442209]
+layout_mode = 2
+
+[node name="Panel4" type="Panel" parent="GridContainer" unique_id=470469103]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="GridContainer/Panel4" unique_id=1308295242]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Panel4" unique_id=2083542708]
+position = Vector2(-190, -233)
+collision_mask = 65
+script = ExtResource("27_kaxxp")
+special = true
+Box_Index = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Panel4/Area2D" unique_id=1172115120]
+position = Vector2(211, 252)
+shape = SubResource("CircleShape2D_kaxxp")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Panel4" unique_id=917266378]
+layout_mode = 0
+offset_right = 41.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Panel5" type="Panel" parent="GridContainer" unique_id=55690074]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="GridContainer/Panel5" unique_id=615447453]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Panel5" unique_id=1721565162]
+position = Vector2(-190, -233)
+collision_mask = 65
+script = ExtResource("27_kaxxp")
+special = true
+Box_Index = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Panel5/Area2D" unique_id=1784917846]
+position = Vector2(211, 252)
+shape = SubResource("CircleShape2D_kaxxp")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Panel5" unique_id=1207255924]
+layout_mode = 0
+offset_right = 41.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Panel6" type="Panel" parent="GridContainer" unique_id=656255999]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="GridContainer/Panel6" unique_id=643305673]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Area2D" type="Area2D" parent="GridContainer/Panel6" unique_id=678269335]
+position = Vector2(-190, -233)
+collision_mask = 65
+script = ExtResource("27_kaxxp")
+special = true
+Box_Index = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/Panel6/Area2D" unique_id=539143747]
+position = Vector2(211, 252)
+shape = SubResource("CircleShape2D_kaxxp")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/Panel6" unique_id=1533647860]
+layout_mode = 0
+offset_right = 41.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 3

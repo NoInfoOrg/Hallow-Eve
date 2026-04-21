@@ -6,6 +6,7 @@ font_size = 40
 [node name="LevelChangeLabel" type="CanvasLayer" unique_id=727282801]
 
 [node name="WaitingForPlayerLabel" type="Label" parent="." unique_id=1179684299]
+unique_name_in_owner = true
 z_index = 10
 anchors_preset = 12
 anchor_top = 1.0

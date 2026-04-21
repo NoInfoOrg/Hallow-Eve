@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://qxh64fhdjmc3" path="res://assets/items/black_light_flashlight_32x49.png" id="1_6sl4o"]
 [ext_resource type="Script" uid="uid://cnujf4336mq84" path="res://scripts/collectibles.gd" id="1_yd0uq"]
 [ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="2_hqfoc"]
+[ext_resource type="Texture2D" uid="uid://boqunsygbbvhi" path="res://assets/items/UV_FlashLight-Hand.png" id="4_hqfoc"]
 
 [sub_resource type="Resource" id="Resource_xf1cd"]
 script = ExtResource("2_hqfoc")
@@ -19,7 +20,8 @@ script = ExtResource("1_yd0uq")
 item_info = SubResource("Resource_xf1cd")
 
 [node name="key" type="Sprite2D" parent="." unique_id=2052731255]
-texture = ExtResource("1_6sl4o")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_hqfoc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1730696042]
 shape = SubResource("CircleShape2D_6sl4o")

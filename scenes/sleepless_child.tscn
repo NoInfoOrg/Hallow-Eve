@@ -1,13 +1,180 @@
 [gd_scene format=3 uid="uid://fcp66n68vghv"]
 
 [ext_resource type="Script" uid="uid://c88yrj1ryhkpq" path="res://scripts/sleepless_child.gd" id="1_q6gtu"]
-[ext_resource type="Texture2D" uid="uid://buosry7jrjeg7" path="res://assets/sprites/enemy/Blankie.png" id="2_ow21u"]
+[ext_resource type="Texture2D" uid="uid://b7uyd4ri2bj3c" path="res://assets/spritesheets/enemy/Blankie_Spritesheet.png" id="2_q6gtu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnlnb"]
 size = Vector2(348, 38)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_docxh"]
-size = Vector2(102, 66)
+[sub_resource type="Animation" id="Animation_ow21u"]
+resource_name = "Blankie_Agitated_Left"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [20, 21, 20, 21, 20, 21]
+}
+
+[sub_resource type="Animation" id="Animation_xnlnb"]
+resource_name = "Blankie_Agitated_Right"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [15, 16, 15, 16, 15, 16]
+}
+
+[sub_resource type="Animation" id="Animation_docxh"]
+resource_name = "Blankie_Idle_Left"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_bdq8u"]
+resource_name = "Blankie_Idle_Right"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xxys6"]
+resource_name = "Blankie_Sleep"
+length = 0.6666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.4, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [25, 26, 27, 28, 28]
+}
+
+[sub_resource type="Animation" id="Animation_d8sss"]
+resource_name = "Blankie_Walk_Left"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_5vp6x"]
+resource_name = "Blankie_Walk_Right"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_10kpb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kxlkd"]
+_data = {
+&"Blankie_Agitated_Left": SubResource("Animation_ow21u"),
+&"Blankie_Agitated_Right": SubResource("Animation_xnlnb"),
+&"Blankie_Idle_Left": SubResource("Animation_docxh"),
+&"Blankie_Idle_Right": SubResource("Animation_bdq8u"),
+&"Blankie_Sleep": SubResource("Animation_xxys6"),
+&"Blankie_Walk_Left": SubResource("Animation_d8sss"),
+&"Blankie_Walk_Right": SubResource("Animation_5vp6x"),
+&"RESET": SubResource("Animation_10kpb")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6gtu"]
+size = Vector2(464, 274)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q6gtu"]
 radius = 528.37866
@@ -26,30 +193,30 @@ shape = SubResource("RectangleShape2D_xnlnb")
 debug_color = Color(0.9966505, 0, 0.19243264, 0.41960785)
 
 [node name="EnemySprite" type="Sprite2D" parent="." unique_id=278392545]
-texture = ExtResource("2_ow21u")
+texture = ExtResource("2_q6gtu")
 offset = Vector2(-43.23, -120.21)
+flip_h = true
+hframes = 5
+vframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=752043595]
+root_node = NodePath("../EnemySprite")
+libraries/ = SubResource("AnimationLibrary_kxlkd")
 
 [node name="AttackZone" type="Area2D" parent="." unique_id=757406806]
 position = Vector2(-44, -120)
 collision_layer = 2048
 collision_mask = 1024
 
-[node name="AttackCollider" type="CollisionPolygon2D" parent="AttackZone" unique_id=983877886]
-position = Vector2(77, -133)
-rotation = 1.5707964
-polygon = PackedVector2Array(-3.0000153, -151, 269, -151, 269, 204.99998, 205, 205, 203, 157, 97, 4.9999924, -3, 5)
-
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="AttackZone" unique_id=483462692]
-position = Vector2(-179, 103)
-shape = SubResource("RectangleShape2D_docxh")
+[node name="AttackCollider" type="CollisionShape2D" parent="AttackZone" unique_id=1342055848]
+shape = SubResource("RectangleShape2D_q6gtu")
 
 [node name="DetectionZone" type="Area2D" parent="." unique_id=442784690 groups=["Enemy Detection Zone"]]
-position = Vector2(72, -20)
+position = Vector2(-43, -117)
 collision_layer = 4096
 collision_mask = 1024
 
 [node name="DetectCollider" type="CollisionShape2D" parent="DetectionZone" unique_id=669944454]
-position = Vector2(146, -72)
 shape = SubResource("CircleShape2D_q6gtu")
 
 [connection signal="area_entered" from="AttackZone" to="." method="_on_attack_zone_area_entered"]

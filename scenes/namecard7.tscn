@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://seorcpjvldrd"]
+
+[ext_resource type="Script" uid="uid://cnujf4336mq84" path="res://scripts/collectibles.gd" id="1_8q8lu"]
+[ext_resource type="Script" uid="uid://cx3r8pobbq5x6" path="res://scripts/item.gd" id="2_ndarh"]
+[ext_resource type="Texture2D" uid="uid://d1emjtxxfqnmr" path="res://assets/sprites/level objs/Namecards.png" id="3_v8mnm"]
+[ext_resource type="FontFile" uid="uid://dtqqy0xhlkuhw" path="res://assets/fonts/Canterbury.ttf" id="4_fug2w"]
+
+[sub_resource type="Resource" id="Resource_ymolt"]
+script = ExtResource("2_ndarh")
+name = "namecard1"
+texture = ExtResource("3_v8mnm")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dxld2"]
+radius = 24.020824
+
+[sub_resource type="LabelSettings" id="LabelSettings_1fxxx"]
+font = ExtResource("4_fug2w")
+font_color = Color(1, 1, 0, 1)
+
+[node name="namecard7" type="Area2D" unique_id=2121536287]
+z_index = -2
+collision_mask = 65
+script = ExtResource("1_8q8lu")
+item_info = SubResource("Resource_ymolt")
+is_holding = true
+is_tag = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=70584781]
+position = Vector2(3, 7)
+shape = SubResource("CircleShape2D_dxld2")
+
+[node name="food" type="Sprite2D" parent="." unique_id=1281713633]
+position = Vector2(3, 2)
+texture = ExtResource("3_v8mnm")
+
+[node name="Panel" type="Panel" parent="." unique_id=1943968385]
+offset_left = -51.0
+offset_top = 36.999992
+offset_right = -0.8783493
+offset_bottom = 52.999992
+scale = Vector2(2.055, 2.055)
+
+[node name="Label" type="Label" parent="." unique_id=1105435211]
+offset_left = -55.0
+offset_top = 38.0
+offset_bottom = 61.0
+scale = Vector2(2.08, 2.08)
+text = "Marcos"
+label_settings = SubResource("LabelSettings_1fxxx")
+horizontal_alignment = 1

@@ -163,6 +163,7 @@ enum FollowLockAxis {
 @export var follow_mode: FollowMode = FollowMode.NONE:
 	set(value):
 		follow_mode = value
+		follow_mode_changed.emit()
 
 		if follow_mode == FollowMode.NONE:
 			_should_follow = false
@@ -207,7 +208,6 @@ enum FollowLockAxis {
 			top_level = true
 			_is_third_person_follow = false
 
-		follow_mode_changed.emit()
 		notify_property_list_changed()
 
 		## NOTE - Warning that Look At + Follow Mode hasn't been fully tested together yet
@@ -384,7 +384,7 @@ var _follow_axis_lock_value: Vector3 = Vector3.ZERO
 
 ## Sets a distance offset from the centre of the target's position.
 ## The distance is applied to the [param PhantomCamera3D]'s local z axis.
-@export var follow_distance: float = 1:
+@export var follow_distance: float = 1.0:
 	set = set_follow_distance,
 	get = get_follow_distance
 
@@ -406,12 +406,12 @@ var _follow_axis_lock_value: Vector3 = Vector3.ZERO
 ## happen, so adjust the value here accordingly.
 ## [br][br]
 ## If only one follow target is assigned to [member follow_targets], this value will be used as the `follow_distance`.
-@export var auto_follow_distance_min: float = 1:
+@export var auto_follow_distance_min: float = 1.0:
 	set = set_auto_follow_distance_min,
 	get = get_auto_follow_distance_min
 
 ## Sets the maximum distance between the Camera and centre of [AABB].
-@export var auto_follow_distance_max: float = 5:
+@export var auto_follow_distance_max: float = 5.0:
 	set = set_auto_follow_distance_max,
 	get = get_auto_follow_distance_max
 
@@ -423,7 +423,7 @@ var _follow_axis_lock_value: Vector3 = Vector3.ZERO
 ## E.g. if the value between the [member auto_follow_distance_min] and
 ## [member auto_follow_distance_max] is small, consider keeping the number low
 ## and vice versa.
-@export var auto_follow_distance_divisor: float = 10:
+@export var auto_follow_distance_divisor: float = 10.0:
 	set = set_auto_follow_distance_divisor,
 	get = get_auto_follow_distance_divisor
 
@@ -434,7 +434,7 @@ var _follow_axis_lock_value: Vector3 = Vector3.ZERO
 ## If the targeted node leaves the horizontal bounds, the
 ## [param PhantomCamera3D] will follow the target horizontally to keep
 ## it within bounds.
-@export_range(0, 1) var dead_zone_width: float = 0:
+@export_range(0.0, 1.0) var dead_zone_width: float = 0.0:
 	set(value):
 		dead_zone_width = value
 		dead_zone_changed.emit()
@@ -446,7 +446,7 @@ var _follow_axis_lock_value: Vector3 = Vector3.ZERO
 ## If the targeted node leaves the vertical bounds, the
 ## [param PhantomCamera3D] will follow the target horizontally to keep
 ## it within bounds.
-@export_range(0, 1) var dead_zone_height: float = 0:
+@export_range(0.0, 1.0) var dead_zone_height: float = 0.0:
 	set(value):
 		dead_zone_height = value
 		dead_zone_changed.emit()
@@ -462,19 +462,19 @@ var _follow_axis_lock_value: Vector3 = Vector3.ZERO
 @export_subgroup("Spring Arm")
 
 ## Applies a rotational offset to the Third Person [member follow_mode] in the [code]X[/code] axis.
-@export_range(-360, 360, 0.1,"or_greater", "or_less", "radians_as_degrees")
-var vertical_rotation_offset: float = 0:
+@export_range(-360.0, 360.0, 0.1,"or_greater", "or_less", "radians_as_degrees")
+var vertical_rotation_offset: float = 0.0:
 	set = set_vertical_rotation_offset,
 	get = get_vertical_rotation_offset
 
 ## Applies a rotational offset to the Third Person [member follow_mode] in the [code]Y[/code] axis.
-@export_range(-360, 360, 0.1, "or_greater", "or_less", "radians_as_degrees")
-var horizontal_rotation_offset: float = 0:
+@export_range(-360.0, 360.0, 0.1, "or_greater", "or_less", "radians_as_degrees")
+var horizontal_rotation_offset: float = 0.0:
 	set = set_horizontal_rotation_offset,
 	get = get_horizontal_rotation_offset
 
 ## Defines the [member SpringArm3D.spring_length].
-@export var spring_length: float = 1:
+@export var spring_length: float = 1.0:
 	set = set_spring_length,
 	get = get_spring_length
 
@@ -558,7 +558,7 @@ var horizontal_rotation_offset: float = 0:
 ## Adds an editor button that positions and rotates the [param PhantomCamera3D] to match the 3D viewport's transform.[br][br]
 ## This editor button is not visible if the [param PhantomCamera3D] is following [i]or[/i] looking at a target.[br][br]
 ## [b]Note[/b]: This is only functional in the editor.
-@export_tool_button("Align Transform with View", "CenterView")
+@export_custom(PROPERTY_HINT_TOOL_BUTTON, "Align Transform with View,CenterView", PROPERTY_USAGE_EDITOR)
 var align_transform_with_view: Callable = func():
 	var undo_redo = Engine.get_singleton(&"EditorInterface").get_editor_undo_redo()
 	var property: StringName = &"global_transform"
@@ -570,7 +570,7 @@ var align_transform_with_view: Callable = func():
 ## Adds an editor button that positions the [param PhantomCamera3D] to match the 3D viewport's position.[br][br]
 ## This editor button is not visible if the [param PhantomCamera3D] is following a target.[br][br]
 ## [b]Note[/b]: This is only functional in the editor.
-@export_tool_button("Align Position with View", "ToolMove")
+@export_custom(PROPERTY_HINT_TOOL_BUTTON, "Align Position with View,ToolMove", PROPERTY_USAGE_EDITOR)
 var align_position_with_view: Callable = func():
 	var undo_redo = Engine.get_singleton(&"EditorInterface").get_editor_undo_redo()
 	var property: StringName = &"global_position"
@@ -582,7 +582,7 @@ var align_position_with_view: Callable = func():
 ## Adds an editor button that rotates the [param PhantomCamera3D] to match the 3D viewport's rotation.[br][br]
 ## This editor button is not visible if the [param PhantomCamera3D] is looking at a target.[br][br]
 ## [b]Note[/b]: This is only functional in the editor.
-@export_tool_button("Align Rotation with View", "ToolRotate")
+@export_custom(PROPERTY_HINT_TOOL_BUTTON, "Align Rotation with View,ToolRotate", PROPERTY_USAGE_EDITOR)
 var align_rotation_with_view: Callable = func():
 	var undo_redo = Engine.get_singleton(&"EditorInterface").get_editor_undo_redo()
 	var property: StringName = &"global_rotation"
@@ -1093,7 +1093,7 @@ func _set_follow_position() -> void:
 							if _current_rotation != global_rotation:
 								var opposite: float = sin(-global_rotation.x) * follow_distance + _get_target_position_offset().y
 								glo_pos.y = _get_target_position_offset().y + opposite
-								glo_pos.z = sqrt(pow(follow_distance, 2) - pow(opposite, 2)) + _get_target_position_offset().z
+								glo_pos.z = sqrt(pow(follow_distance, 2.0) - pow(opposite, 2.0)) + _get_target_position_offset().z
 								glo_pos.x = global_position.x
 
 								_follow_target_output_position = glo_pos
@@ -1225,11 +1225,14 @@ func _interpolate_position(delta: float) -> void:
 		_camera_target.global_position = _follow_target_output_position
 		_transform_output.origin = global_position
 
-	if _is_third_person_follow:
+	if _is_third_person_follow and Engine.is_editor_hint():
 		var target_quat: Quaternion = _look_at_target_quat(_get_target_position_offset(), follow_target.global_basis.y)
 		var target_basis: Basis = Basis(target_quat)
 		_transform_output.basis = target_basis
 		global_basis = target_basis
+	elif _has_follow_spring_arm:
+		_transform_output.basis = _follow_spring_arm.global_basis
+		global_basis = _follow_spring_arm.global_basis
 
 
 func _look_at_target_quat(target_position: Vector3, up_direction: Vector3 = Vector3.UP) -> Quaternion:
@@ -1243,9 +1246,9 @@ func _look_at_target_quat(target_position: Vector3, up_direction: Vector3 = Vect
 
 	if target_basis.determinant() == 0:
 		if target_basis.z == Vector3.UP:
-			global_rotation_degrees.x = -90
+			global_rotation_degrees.x = -90.0
 		else:
-			global_rotation_degrees.x = 90
+			global_rotation_degrees.x = 90.0
 
 		_transform_output.basis = global_basis
 		return quaternion
@@ -1462,17 +1465,7 @@ func _check_physics_body(target: Node3D) -> void:
 		var show_jitter_tips := ProjectSettings.get_setting("phantom_camera/tips/show_jitter_tips")
 		var physics_interpolation_enabled := ProjectSettings.get_setting("physics/common/physics_interpolation")
 
-		## NOTE - Feature Toggle
-		if Engine.get_version_info().major == 4 and \
-		Engine.get_version_info().minor < 4:
-			if show_jitter_tips == null: # Default value is null when referencing custom Project Setting
-				print_rich("Following or Looking at a [b]PhysicsBody3D[/b] node will likely result in jitter - on lower physics ticks in particular.")
-				print_rich("If possible, will recommend upgrading to Godot 4.4, as it has built-in support for 3D Physics Interpolation, which will mitigate this issue.")
-				print_rich("Until then, try following the guide on the [url=https://phantom-camera.dev/support/faq#i-m-seeing-jitter-what-can-i-do]documentation site[/url] for better results.")
-				print_rich("This tip can be disabled from within [code]Project Settings / Phantom Camera / Tips / Show Jitter Tips[/code]")
-			return
-		## NOTE - Only supported in Godot 4.4 or above
-		elif not physics_interpolation_enabled and show_jitter_tips == null: # Default value is null when referencing custom Project Setting
+		if not physics_interpolation_enabled and _follow_target_physics_based and show_jitter_tips == null: # Default value is null when referencing custom Project Setting
 			printerr("Physics Interpolation is disabled in the Project Settings, recommend enabling it to smooth out physics-based camera movement")
 			print_rich("This tip can be disabled from within [code]Project Settings / Phantom Camera / Tips / Show Jitter Tips[/code]")
 		_follow_target_physics_based = true
@@ -1622,23 +1615,36 @@ func set_tween_duration(value: float) -> void:
 ## Gets the current [param Tween] Duration value. The duration value is in
 ## [param seconds].
 func get_tween_duration() -> float:
-	return tween_resource.duration
+	if tween_resource:
+		return tween_resource.duration
+	else:
+		return 0.0 # Makes tween instant
+
 
 ## Assigns a new [param Tween Transition] to the [member tween_resource] value.[br]
 ## The duration value is in seconds.
 func set_tween_transition(value: int) -> void:
 	tween_resource.transition = value
+
 ## Gets the current [param Tween Transition] value.
 func get_tween_transition() -> int:
-	return tween_resource.transition
+	if tween_resource:
+		return tween_resource.transition
+	else:
+		return 0 # Equals TransitionType.LINEAR
+
 
 ## Assigns a new [param Tween Ease] to the [member tween_resource] value.[br]
 ## The duration value is in seconds.
 func set_tween_ease(value: int) -> void:
 	tween_resource.ease = value
+
 ## Gets the current [param Tween Ease] value.
 func get_tween_ease() -> int:
-	return tween_resource.ease
+	if tween_resource:
+		return tween_resource.ease
+	else:
+		return 2 # Equals EaseType.EASE_IN_OUT
 
 ## Sets the [param PhantomCamera3D] active state[br]
 ## [b][color=yellow]Important:[/color][/b] This value can only be changed
@@ -1821,11 +1827,11 @@ func get_follow_damping() -> bool:
 
 ## Assigns new [member follow_damping_value] value.
 func set_follow_damping_value(value: Vector3) -> void:
-	## TODO - Should be using @export_range once minimum version support is Godot 4.3
-	if value.x < 0: value.x = 0
-	elif value.y < 0: value.y = 0
-	elif value.z < 0: value.z = 0
-	follow_damping_value = value
+	follow_damping_value = Vector3(
+		maxf(0.0, value.x),
+		maxf(0.0, value.y),
+		maxf(0.0, value.z),
+	)
 
 ## Gets the currents [member follow_damping_value] value.
 func get_follow_damping_value() -> Vector3:
@@ -2205,7 +2211,7 @@ func set_noise(value: PhantomCameraNoise3D) -> void:
 	noise = value
 	if value != null:
 		_has_noise_resource = true
-		noise.set_trauma(1)
+		noise.set_trauma(1.0)
 	else:
 		_has_noise_resource = false
 		_transform_noise = Transform3D()

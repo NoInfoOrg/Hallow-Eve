@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c7mcf4msyrv3o"
+path="res://.godot/imported/YEAH.dialogue-a6d0386155c78f7b514eb51548953228.tres"
+
+[deps]
+
+source_file="res://dialogue/YEAH.dialogue"
+dest_files=["res://.godot/imported/YEAH.dialogue-a6d0386155c78f7b514eb51548953228.tres"]
+
+[params]
+
+defaults=true

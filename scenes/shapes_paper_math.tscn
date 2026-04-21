@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bfphydknonny6"]
 
 [ext_resource type="Script" uid="uid://dol5q0k3e3jle" path="res://scripts/shapes_paper.gd" id="1_p541e"]
-[ext_resource type="Texture2D" uid="uid://bndti3b6rr2ph" path="res://assets/sprites/level objs/paper.png" id="2_rrxix"]
+[ext_resource type="Texture2D" uid="uid://vgbgp1sm3bxf" path="res://assets/sprites/level objs/paper.png" id="2_rrxix"]
 [ext_resource type="PackedScene" uid="uid://cr6aiqw65fcow" path="res://scenes/answer_text_box.tscn" id="4_54m4e"]
 [ext_resource type="PackedScene" uid="uid://d2cb7lv1ihwah" path="res://scenes/math_hw.tscn" id="4_p541e"]
 
