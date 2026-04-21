@@ -69,7 +69,7 @@ func change_scenes():
 	if GlobalInformation.transition_scene == true:
 		if GlobalInformation.current_scene == "level_2_scene" and len(players_in_zone) == 2:
 			GlobalInformation.complete_change_scenes()
-			get_tree().change_scene_to_file("res://scenes/level_3_scene.tscn")
+			get_tree().change_scene_to_file("res://cutscenes/end.tscn")
 
 # displays waiting for player label to players
 func display_waiting_label():
