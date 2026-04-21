@@ -224,12 +224,12 @@ y_sort_enabled = true
 
 [node name="Eve - P1" parent="Objects/MovementCont" unique_id=810202292 instance=ExtResource("1_ihv73")]
 position = Vector2(118.31677, 140.78552)
-collision_mask = 4294967098
+collision_mask = 4294950714
 slide_on_ceiling = false
 
 [node name="Willow - P2" parent="Objects/MovementCont" unique_id=882182450 instance=ExtResource("2_d0nkq")]
 position = Vector2(14.916748, 176.74011)
-collision_mask = 4294967098
+collision_mask = 4294958906
 slide_on_ceiling = false
 
 [node name="Enemies" type="Node2D" parent="Objects" unique_id=1748499919]
@@ -519,198 +519,195 @@ asset = 4
 [node name="Puzzle Items" type="Node2D" parent="Objects" unique_id=421602145]
 
 [node name="Boxes" type="Node2D" parent="Objects/Puzzle Items" unique_id=717228433]
-position = Vector2(-152.59766, -3619.5547)
-metadata/_edit_group_ = true
+position = Vector2(-69, -3637)
 
 [node name="Human Boxes" type="Node2D" parent="Objects/Puzzle Items/Boxes" unique_id=1414995904]
-metadata/_edit_group_ = true
 
 [node name="Human Box 1" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=748287882 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(642, 5193)
+position = Vector2(432, 5597)
 
 [node name="Human Box 2" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1238176207 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(713, 5193)
+position = Vector2(573, 5260)
 
 [node name="Human Box 3" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=793998642 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(854, 5193)
+position = Vector2(639, 5468)
 
 [node name="Human Box 4" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1129229352 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(923, 5193)
+position = Vector2(708, 5468)
 
 [node name="Human Box 5" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1310048725 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1063, 5193)
+position = Vector2(917, 5173)
 
 [node name="Human Box 6" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=949366495 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1273, 5194)
+position = Vector2(1273, 5168)
 
 [node name="Human Box 7" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=315565776 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(854, 5262)
+position = Vector2(639, 5537)
 
 [node name="Human Box 8" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1201642435 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(923, 5263)
+position = Vector2(708, 5538)
 
 [node name="Human Box 9" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=822512834 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1063, 5263)
+position = Vector2(917, 5247)
 
 [node name="Human Box 10" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1180213343 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1273, 5263)
+position = Vector2(1273, 5245)
 
 [node name="Human Box 11" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=2038028676 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(923, 5333)
+position = Vector2(708, 5608)
 
 [node name="Human Box 12" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=55392578 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1063, 5333)
+position = Vector2(921, 5321)
 
 [node name="Human Box 13" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1277625804 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1273, 5333)
+position = Vector2(1273, 5319)
 
 [node name="Human Box 14" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=4865893 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(923, 5402)
+position = Vector2(708, 5677)
 
 [node name="Human Box 15" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=505708773 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1063, 5402)
+position = Vector2(919, 5402)
 
 [node name="Human Box 16" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=508017747 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1273, 5403)
+position = Vector2(1272, 5398)
 
 [node name="Human Box 17" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=391550769 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(853, 5333)
+position = Vector2(638, 5608)
 
 [node name="Human Box 18" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1160717028 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(993, 5473)
+position = Vector2(920, 5482)
 
 [node name="Human Box 19" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=349464841 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1133, 5473)
+position = Vector2(430, 5453)
 
 [node name="Human Box 20" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=333668780 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1203, 5473)
+position = Vector2(1274, 5478)
 
 [node name="Human Box 21" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1768963015 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(853, 5403)
+position = Vector2(638, 5678)
 
 [node name="Human Box 22" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=818636057 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(993, 5542)
+position = Vector2(921, 5558)
 
 [node name="Human Box 23" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1839827447 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1133, 5543)
+position = Vector2(431, 5380)
 
 [node name="Human Box 24" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1791397379 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1203, 5543)
+position = Vector2(1268, 5558)
 
 [node name="Human Box 25" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=62022876 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(993, 5613)
+position = Vector2(920, 5637)
 
 [node name="Human Box 26" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1994874431 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1133, 5614)
+position = Vector2(432, 5524)
 
 [node name="Human Box 27" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=893767197 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1203, 5614)
+position = Vector2(1271, 5636)
 
 [node name="Human Box 28" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1742096285 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(993, 5682)
+position = Vector2(918, 5717)
 
 [node name="Human Box 29" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=1331461891 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1134, 5682)
+position = Vector2(500, 5259)
 
 [node name="Human Box 30" parent="Objects/Puzzle Items/Boxes/Human Boxes" unique_id=636414185 instance=ExtResource("7_cowtf")]
 z_index = 10
-position = Vector2(1203, 5683)
+position = Vector2(1272, 5716)
 
 [node name="Spirit Boxes" type="Node2D" parent="Objects/Puzzle Items/Boxes" unique_id=1806971881]
-metadata/_edit_group_ = true
 
 [node name="Spirit Box 1" parent="Objects/Puzzle Items/Boxes/Spirit Boxes" unique_id=1878367245 instance=ExtResource("10_lg53w")]
 z_index = 5
-position = Vector2(1134, 5193)
+position = Vector2(1194, 5245)
 
 [node name="Spirit Box 2" parent="Objects/Puzzle Items/Boxes/Spirit Boxes" unique_id=1705650461 instance=ExtResource("10_lg53w")]
 z_index = 5
-position = Vector2(642, 5263)
+position = Vector2(992, 5718)
 
 [node name="Spirit Box 3" parent="Objects/Puzzle Items/Boxes/Spirit Boxes" unique_id=1476619993 instance=ExtResource("10_lg53w")]
 z_index = 5
-position = Vector2(713, 5263)
+position = Vector2(995, 5172)
 
 [node name="Spirit Box 4" parent="Objects/Puzzle Items/Boxes/Spirit Boxes" unique_id=1352583819 instance=ExtResource("10_lg53w")]
 z_index = 5
-position = Vector2(1134, 5263)
+position = Vector2(1193, 5315)
 
 [node name="Spirit Box 5" parent="Objects/Puzzle Items/Boxes/Spirit Boxes" unique_id=37503156 instance=ExtResource("10_lg53w")]
 z_index = 5
-position = Vector2(713, 5333)
+position = Vector2(995, 5251)
 
 [node name="Spirit Box 6" parent="Objects/Puzzle Items/Boxes/Spirit Boxes" unique_id=760847726 instance=ExtResource("10_lg53w")]
 z_index = 5
-position = Vector2(1134, 5333)
+position = Vector2(1195, 5398)
 
 [node name="Spirit Box 7" parent="Objects/Puzzle Items/Boxes/Spirit Boxes" unique_id=218456616 instance=ExtResource("10_lg53w")]
 z_index = 5
-position = Vector2(643, 5403)
+position = Vector2(993, 5638)
 
 [node name="Spirit Box 8" parent="Objects/Puzzle Items/Boxes/Spirit Boxes" unique_id=1868943232 instance=ExtResource("10_lg53w")]
 z_index = 5
-position = Vector2(714, 5403)
+position = Vector2(997, 5330)
 
 [node name="Spirit Box 9" parent="Objects/Puzzle Items/Boxes/Spirit Boxes" unique_id=565062146 instance=ExtResource("10_lg53w")]
 z_index = 5
-position = Vector2(1134, 5403)
+position = Vector2(1198, 5476)
 
 [node name="Spirit Box 10" parent="Objects/Puzzle Items/Boxes/Spirit Boxes" unique_id=462759632 instance=ExtResource("10_lg53w")]
 z_index = 5
-position = Vector2(922, 5474)
+position = Vector2(1191, 5163)
 
 [node name="Spirit Box 11" parent="Objects/Puzzle Items/Boxes/Spirit Boxes" unique_id=1850872172 instance=ExtResource("10_lg53w")]
 z_index = 5
-position = Vector2(922, 5543)
+position = Vector2(996, 5407)
 
 [node name="Spirit Box 12" parent="Objects/Puzzle Items/Boxes/Spirit Boxes" unique_id=1529300802 instance=ExtResource("10_lg53w")]
 z_index = 5
-position = Vector2(1273, 5542)
+position = Vector2(1195, 5557)
 
 [node name="Spirit Box 13" parent="Objects/Puzzle Items/Boxes/Spirit Boxes" unique_id=1712467100 instance=ExtResource("10_lg53w")]
 z_index = 5
-position = Vector2(922, 5613)
+position = Vector2(992, 5485)
 
 [node name="Spirit Box 14" parent="Objects/Puzzle Items/Boxes/Spirit Boxes" unique_id=646778908 instance=ExtResource("10_lg53w")]
 z_index = 5
-position = Vector2(1273, 5613)
+position = Vector2(1195, 5635)
 
 [node name="Spirit Box 15" parent="Objects/Puzzle Items/Boxes/Spirit Boxes" unique_id=1783467023 instance=ExtResource("10_lg53w")]
 z_index = 5
-position = Vector2(922, 5683)
+position = Vector2(997, 5562)
 
 [node name="Spirit Box 16" parent="Objects/Puzzle Items/Boxes/Spirit Boxes" unique_id=1939239172 instance=ExtResource("10_lg53w")]
 z_index = 5
-position = Vector2(1273, 5683)
+position = Vector2(1197, 5712)
 
 [node name="Locked Doors" type="Node2D" parent="Objects/Puzzle Items" unique_id=490426212]
 
@@ -749,7 +746,7 @@ position = Vector2(-171.04437, 208.70554)
 
 [node name="Black Light Flashlight Item" parent="Objects/Puzzle Items/Items" unique_id=603767252 instance=ExtResource("13_xb17u")]
 z_index = 4
-position = Vector2(246.04437, 2419.2944)
+position = Vector2(1479.0444, 1593.2944)
 item_info = SubResource("Resource_dy0mc")
 
 [node name="Keys" type="Node2D" parent="Objects/Puzzle Items" unique_id=2132403648]
