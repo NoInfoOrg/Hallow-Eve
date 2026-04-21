@@ -1,5 +1,8 @@
 extends Node2D
 
+var players_in_zone: Array[CharacterBody2D] = []
+@onready var status_label = $%LevelChangeLabel/WaitingForPlayerLabel
+
 @onready var ambience = get_tree().current_scene.find_child("Ambient Music", true, false)
 @onready var scary = get_tree().current_scene.find_child("ScaryAmbience", true, false)
 @onready var boss = get_tree().current_scene.find_child("Level1Boss", true, false)
@@ -9,8 +12,6 @@ var current = null
 var transitioning = false
 var boss_music_played = false
 
-
-		
 func lowkenuinelyTransition(song1,song2):
 	transitioning = true
 	var tween = create_tween()
@@ -21,10 +22,6 @@ func lowkenuinelyTransition(song1,song2):
 	tween.tween_property(song2, "volume_db", 0, 2.5)
 	await tween.finished
 	transitioning = false
-
-
-var players_in_zone: Array[CharacterBody2D] = []
-@onready var status_label = $LevelChangeLabel/WaitingForPlayerLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,10 +36,10 @@ func _ready() -> void:
 
 func _process(delta):
 	change_scene()
-	#if status_label.text != "":
-		#status_label.position.y = (get_viewport_rect().size.y - 80) + (sin(Time.get_ticks_msec() * 0.005) * 5)
-	#else:
-		#status_label.position.y = -200
+	if status_label.text != "":
+		status_label.position.y = (get_viewport_rect().size.y - 80) + (sin(Time.get_ticks_msec() * 0.005) * 5)
+	else:
+		status_label.position.y = -200
 	if transitioning:
 		return
 	if Input.is_action_just_pressed("P1Grab"):
@@ -60,6 +57,7 @@ func _process(delta):
 	if boss_music_played and not boss_room.boss_zone:
 		await lowkenuinelyTransition(boss, scary)
 		current = scary
+
 # Switch to Level 2
 func _on_level_down_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Players"):

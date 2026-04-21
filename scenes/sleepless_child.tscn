@@ -173,8 +173,8 @@ _data = {
 &"RESET": SubResource("Animation_10kpb")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_docxh"]
-size = Vector2(102, 66)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6gtu"]
+size = Vector2(464, 274)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q6gtu"]
 radius = 528.37866
@@ -208,22 +208,15 @@ position = Vector2(-44, -120)
 collision_layer = 2048
 collision_mask = 1024
 
-[node name="AttackCollider" type="CollisionPolygon2D" parent="AttackZone" unique_id=983877886]
-position = Vector2(77, -133)
-rotation = 1.5707964
-polygon = PackedVector2Array(-3.0000153, -151, 269, -151, 269, 204.99998, 205, 205, 203, 157, 97, 4.9999924, -3, 5)
-
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="AttackZone" unique_id=483462692]
-position = Vector2(-179, 103)
-shape = SubResource("RectangleShape2D_docxh")
+[node name="AttackCollider" type="CollisionShape2D" parent="AttackZone" unique_id=1342055848]
+shape = SubResource("RectangleShape2D_q6gtu")
 
 [node name="DetectionZone" type="Area2D" parent="." unique_id=442784690 groups=["Enemy Detection Zone"]]
-position = Vector2(72, -20)
+position = Vector2(-43, -117)
 collision_layer = 4096
 collision_mask = 1024
 
 [node name="DetectCollider" type="CollisionShape2D" parent="DetectionZone" unique_id=669944454]
-position = Vector2(146, -72)
 shape = SubResource("CircleShape2D_q6gtu")
 
 [connection signal="area_entered" from="AttackZone" to="." method="_on_attack_zone_area_entered"]

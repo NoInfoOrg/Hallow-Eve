@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h5kjs2ktkern"
-path="res://.godot/imported/Guards_Back.png-a30bf37fbefe84b06afaf6837a413fd7.ctex"
+uid="uid://drx8yrjiion6e"
+path="res://.godot/imported/UV_FlashLight-Floor.png-e11872b6fae67ced10c8aace9c9a1ec7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Guards_Back.png"
-dest_files=["res://.godot/imported/Guards_Back.png-a30bf37fbefe84b06afaf6837a413fd7.ctex"]
+source_file="res://assets/items/UV_FlashLight-Floor.png"
+dest_files=["res://.godot/imported/UV_FlashLight-Floor.png-e11872b6fae67ced10c8aace9c9a1ec7.ctex"]
 
 [params]
 

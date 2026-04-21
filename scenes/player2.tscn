@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://5it8olpe6dgr" path="res://scripts/inventory.gd" id="3_agjl5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agjl5"]
-radius = 32.0
-height = 111.0
+radius = 12.728622
+height = 64.9364
 
 [sub_resource type="Animation" id="Animation_dj65e"]
 length = 0.001
@@ -298,12 +298,12 @@ collision_mask = 826
 script = ExtResource("1_agjl5")
 
 [node name="FeetCollider" type="CollisionShape2D" parent="." unique_id=862284075]
-position = Vector2(0, -20)
-rotation = 3.1415927
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_agjl5")
 debug_color = Color(0.087395035, 0.649167, 0, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=922027651]
+position = Vector2(0, -12.635742)
 scale = Vector2(0.49799198, 0.503992)
 texture = ExtResource("2_agjl5")
 offset = Vector2(0, -197.55)
@@ -318,7 +318,7 @@ libraries/ = SubResource("AnimationLibrary_24gv0")
 script = ExtResource("3_agjl5")
 
 [node name="HurtBoxZone" type="Area2D" parent="." unique_id=390291488 groups=["HurtBox"]]
-position = Vector2(0, -100.824165)
+position = Vector2(0, -111.714165)
 collision_layer = 1024
 collision_mask = 2048
 
@@ -327,7 +327,7 @@ position = Vector2(0.65289307, 3.4297485)
 shape = SubResource("CapsuleShape2D_dj65e")
 
 [node name="EnemyDetectionZone" type="Area2D" parent="." unique_id=1104270427]
-position = Vector2(0, -39.493958)
+position = Vector2(0, -99.99396)
 collision_layer = 4096
 collision_mask = 4096
 
