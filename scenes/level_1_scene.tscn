@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://cyta5c5pqluy8" path="res://scenes/blanket_ghost.tscn" id="20_e5gav"]
 [ext_resource type="PackedScene" uid="uid://blc2wqvr525qk" path="res://scenes/door_open.tscn" id="21_5yyo0"]
 [ext_resource type="AudioStream" uid="uid://hg2uxyy0yt26" path="res://music/Ambience.mp3" id="22_b322n"]
+[ext_resource type="Texture2D" uid="uid://boqunsygbbvhi" path="res://assets/items/UV_FlashLight-Hand.png" id="23_v7nly"]
 [ext_resource type="Texture2D" uid="uid://bbeeo2dju1t1q" path="res://assets/items/Key_3.png" id="24_q2d6d"]
 [ext_resource type="AudioStream" uid="uid://vfusupj1p18i" path="res://music/Scary_Ambience.mp3" id="24_us6j8"]
 [ext_resource type="AudioStream" uid="uid://cva3jrjfiwawk" path="res://music/level1_boss.mp3" id="25_5yyo0"]
@@ -72,6 +73,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 546, 657, 0, 0, 0, 0, 1519.4336, 654.7495, 0, 0, 0, 0, 1518.5247, 653.8408, 0, 0, 0, 0, 546, 657)
 }
 point_count = 4
+
+[sub_resource type="Resource" id="Resource_dy0mc"]
+script = ExtResource("19_4ymq3")
+name = "key"
+texture = ExtResource("23_v7nly")
+metadata/_custom_type_script = "uid://cx3r8pobbq5x6"
 
 [sub_resource type="Resource" id="Resource_q2d6d"]
 script = ExtResource("19_4ymq3")
@@ -743,6 +750,7 @@ position = Vector2(-171.04437, 208.70554)
 [node name="Black Light Flashlight Item" parent="Objects/Puzzle Items/Items" unique_id=603767252 instance=ExtResource("13_xb17u")]
 z_index = 4
 position = Vector2(246.04437, 2419.2944)
+item_info = SubResource("Resource_dy0mc")
 
 [node name="Keys" type="Node2D" parent="Objects/Puzzle Items" unique_id=2132403648]
 position = Vector2(-171.04437, 208.70554)
@@ -751,7 +759,7 @@ position = Vector2(-171.04437, 208.70554)
 position = Vector2(284.70068, 99.36069)
 item_info = SubResource("Resource_q2d6d")
 
-[node name="key-tutorial-bathroom" parent="Objects/Puzzle Items/Keys" unique_id=1417814454 instance=ExtResource("17_tqr37")]
+[node name="key-tutorial-bathroom" parent="Objects/Puzzle Items/Keys" unique_id=1367511770 instance=ExtResource("17_tqr37")]
 position = Vector2(-134.79144, 121.1922)
 item_info = SubResource("Resource_v7nly")
 

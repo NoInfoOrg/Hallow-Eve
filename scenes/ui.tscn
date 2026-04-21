@@ -27,8 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://ddq5vb6fmgvtp" path="res://assets/ui elements/main menu/MainMenu_Button_Settings-Pressed.png" id="24_0tsab"]
 [ext_resource type="Texture2D" uid="uid://c0bftsywnr05a" path="res://assets/ui elements/settings/Settings_MainMenuButton-Pressed.png" id="25_0tsab"]
 [ext_resource type="Texture2D" uid="uid://b4ckj662te6jy" path="res://assets/ui elements/settings/Settings_ExitButton-Pressed.png" id="26_i5tog"]
-[ext_resource type="Script" uid="uid://rq0skhg5ml0h" path="res://scripts/return_to_main_menu.gd" id="26_rleeb"]
-[ext_resource type="Script" uid="uid://cfstcfkmcb0e7" path="res://scripts/progress_tracker.gd" id="28_rleeb"]
+[ext_resource type="Script" path="res://scripts/return_to_main_menu.gd" id="26_rleeb"]
+[ext_resource type="Script" path="res://scripts/progress_tracker.gd" id="28_rleeb"]
 
 [node name="UI" type="CanvasLayer" unique_id=1522527901 groups=["UI"]]
 script = ExtResource("1_8dubc")
@@ -133,12 +133,12 @@ anchor_left = 0.013
 anchor_top = 0.079
 anchor_right = 0.98700005
 anchor_bottom = 0.896
-offset_left = -6.8640003
-offset_top = -5.161333
-offset_right = 182.86383
-offset_bottom = 29.16504
+offset_left = 0.24708366
+offset_top = 3.7275562
+offset_right = 171.01202
+offset_bottom = 19.090973
 scale = Vector2(0.75, 0.75)
-theme_override_constants/h_separation = 75
+theme_override_constants/h_separation = 100
 theme_override_constants/v_separation = 75
 columns = 6
 
