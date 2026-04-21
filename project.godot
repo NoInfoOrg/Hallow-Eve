@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="NoInfoGame"
-run/main_scene="uid://bvjnppcf2xnev"
+run/main_scene="uid://cocf68hauten4"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/image="uid://butu7b2wedoks"
 config/icon="uid://c42thod8mjmjm"
 
 [audio]

@@ -19,7 +19,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("P1Drop"):
-		leave_tutorial()
+		pass
 	
 func watch_fizzles():
 	var map = get_node("Map")
@@ -128,5 +128,3 @@ func leave_tutorial():
 	await move_player(p1, Vector2(475, 350), 1.3)
 	$"Map/MovementCont/Eve - P1/AnimationPlayer".play("Eve_Walk_S")
 	await move_player(p1, Vector2(475, 900), 2.3)
-	
-	

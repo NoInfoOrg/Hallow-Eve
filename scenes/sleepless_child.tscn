@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://fcp66n68vghv"]
 
-[ext_resource type="Script" uid="uid://c88yrj1ryhkpq" path="res://scripts/sleepless_child.gd" id="1_q6gtu"]
+[ext_resource type="Script" uid="uid://bx8cigaojg5jm" path="res://scripts/sleepless_child.gd" id="1_q6gtu"]
 [ext_resource type="Texture2D" uid="uid://b7uyd4ri2bj3c" path="res://assets/spritesheets/enemy/Blankie_Spritesheet.png" id="2_q6gtu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnlnb"]
@@ -88,7 +88,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_xxys6"]
 resource_name = "Blankie_Sleep"
-length = 0.6666667
+length = 1.3333334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

@@ -1,0 +1,377 @@
+[gd_scene format=3 uid="uid://bvjnppcf2xnev"]
+
+[ext_resource type="Script" uid="uid://0ybp5largn5o" path="res://cutscenes/tutorial_scenes.gd" id="1_6okyp"]
+[ext_resource type="AudioStream" uid="uid://du3hvv22nhfxg" path="res://music/DoorClose.mp3" id="2_c7kao"]
+[ext_resource type="AudioStream" uid="uid://cw2jq12pbxr58" path="res://music/fizzle.wav" id="3_kvjxf"]
+[ext_resource type="PackedScene" uid="uid://dnjf1aqiogr0k" path="res://scenes/level_1_floorplan.tscn" id="4_u1wtd"]
+[ext_resource type="PackedScene" uid="uid://w6s64ylvwlya" path="res://scenes/player.tscn" id="5_r23k8"]
+[ext_resource type="Script" uid="uid://dnkbpnvvlvuvc" path="res://light.gd" id="6_5hgli"]
+[ext_resource type="PackedScene" uid="uid://cphkguivqa6gt" path="res://scenes/player2.tscn" id="7_t7mkq"]
+[ext_resource type="PackedScene" uid="uid://blc2wqvr525qk" path="res://scenes/door_open.tscn" id="8_lxa63"]
+[ext_resource type="Script" uid="uid://c6ufm81rtdraj" path="res://scripts/asset.gd" id="9_1d23a"]
+[ext_resource type="PackedScene" uid="uid://fcp66n68vghv" path="res://scenes/sleepless_child.tscn" id="10_c7kao"]
+
+[sub_resource type="Environment" id="Environment_tfucb"]
+background_mode = 3
+glow_enabled = true
+glow_bloom = 0.53
+glow_blend_mode = 2
+glow_hdr_threshold = 2.33
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_pimkb"]
+vertices = PackedVector2Array(628, -152, 628, 429, 208, 429, -432, -152, 208, 488, 178, 488, 178, 838, 268, 838, 268, 1709, 348, 1709, 348, 1498, 408, 1498, 408, 1148, 348, 1148, 348, 838, 628, 838, 628, 1148, 528, 1148, 348, 1989, 528, 1498, 348, 2109, 1348, 1498, 1348, 2109, 268, 1989, 348, 2549, 348, 2488, 868, 2488, 868, 2549, 948, 2549, 948, 2488, 1348, 2488, 1348, 2889, 948, 2889, 948, 2829, 868, 2829, 868, 2889, -72, 2889, 268, 2549, -72, 838, 58, 838, 58, 488, -12, 488, -12, 429, -212, 429, -212, 488, -242, 488, -372, 429, -242, 838, -152, 838, -152, 1148, -172, 1148, -172, 1149, -212, 1149, -362, 1148, -362, 838, -362, 1498, -212, 1229, -172, 1229, -172, 1498, -572, 2109, -152, 1498, -152, 2109, -572, 2138, -592, 2138, -732, 2109, -592, 2488, -152, 2488, -152, 2889, -1032, 2889, -1032, 2488, -712, 2488, -712, 2138, -732, 2138, -1352, 2109, -1352, 2138, -1362, 2138, -1362, 2488, -1112, 2488, -1112, 2889, -1692, 2889, -1692, 2488, -1482, 2488, -1482, 2138, -1512, 2138, -1512, 2109, -1692, 2109, -1692, 1498, -432, 1148, -432, 838, -362, 488, -372, 488, -432, 429, -1754.0313, 1149, -1754.9922, -528.9922, -512, -528.21094, -1712, 1148, -512, 1148, -1712, 1149, 708, 1148, 708, -527.4375, 1406, -527, 1388, 1148, 1406.9609, 1149, 1388, 1149)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 3), PackedInt32Array(6, 7, 8), PackedInt32Array(9, 10, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(15, 16, 17), PackedInt32Array(12, 15, 17, 11), PackedInt32Array(18, 11, 17, 19, 20), PackedInt32Array(19, 21, 22, 20), PackedInt32Array(9, 11, 18), PackedInt32Array(8, 9, 18, 23), PackedInt32Array(24, 25, 26, 27), PackedInt32Array(28, 29, 30, 31), PackedInt32Array(31, 32, 33), PackedInt32Array(28, 31, 33, 27), PackedInt32Array(27, 33, 34, 24), PackedInt32Array(24, 34, 35, 36, 37), PackedInt32Array(37, 36, 38, 23), PackedInt32Array(8, 23, 38, 39), PackedInt32Array(6, 8, 39), PackedInt32Array(5, 6, 39, 40), PackedInt32Array(40, 41, 42), PackedInt32Array(43, 44, 45, 46, 3), PackedInt32Array(47, 48, 49, 50), PackedInt32Array(47, 50, 51, 52, 53, 54), PackedInt32Array(55, 56, 57, 58, 59), PackedInt32Array(58, 60, 61, 59), PackedInt32Array(59, 62, 63, 64), PackedInt32Array(65, 66, 67, 68), PackedInt32Array(68, 69, 70), PackedInt32Array(65, 68, 70), PackedInt32Array(63, 65, 70, 71), PackedInt32Array(71, 72, 64), PackedInt32Array(73, 74, 75), PackedInt32Array(76, 77, 78, 79), PackedInt32Array(79, 80, 81), PackedInt32Array(76, 79, 81), PackedInt32Array(75, 76, 81, 82), PackedInt32Array(82, 83, 84, 55, 73), PackedInt32Array(84, 85, 86, 55), PackedInt32Array(53, 87, 88, 54), PackedInt32Array(89, 90, 46), PackedInt32Array(46, 91, 3), PackedInt32Array(3, 5, 40, 42), PackedInt32Array(3, 42, 43), PackedInt32Array(89, 46, 45, 47), PackedInt32Array(54, 89, 47), PackedInt32Array(55, 53, 52, 56), PackedInt32Array(73, 75, 82), PackedInt32Array(64, 73, 55), PackedInt32Array(64, 55, 59), PackedInt32Array(64, 63, 71), PackedInt32Array(92, 93, 94, 95), PackedInt32Array(94, 96, 95), PackedInt32Array(92, 95, 97), PackedInt32Array(98, 99, 100, 101), PackedInt32Array(101, 100, 102, 103)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1765, -539, 1416, -537, 1418, 2959, -1763, 2959)])
+
+[sub_resource type="Gradient" id="Gradient_kvjxf"]
+offsets = PackedFloat32Array(0.13701923, 0.74278843)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tfucb"]
+gradient = SubResource("Gradient_kvjxf")
+fill = 1
+fill_from = Vector2(0.5052083, 0.515625)
+fill_to = Vector2(0, 0)
+
+[node name="Cutscene Scene" type="Node2D" unique_id=753645656]
+script = ExtResource("1_6okyp")
+
+[node name="DoorClose" type="AudioStreamPlayer" parent="." unique_id=1083707650]
+stream = ExtResource("2_c7kao")
+bus = &"Sfx"
+
+[node name="Fizzle" type="AudioStreamPlayer" parent="." unique_id=1158990661]
+stream = ExtResource("3_kvjxf")
+pitch_scale = 0.77
+bus = &"Sfx"
+
+[node name="Fizzle2" type="AudioStreamPlayer" parent="." unique_id=147218969]
+stream = ExtResource("3_kvjxf")
+pitch_scale = 0.23
+bus = &"Sfx"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=539063216]
+environment = SubResource("Environment_tfucb")
+
+[node name="Map" type="Node2D" parent="." unique_id=1497479751]
+visible = false
+position = Vector2(-538, 1685)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Map" unique_id=1851343933]
+position = Vector2(538, -1685)
+navigation_polygon = SubResource("NavigationPolygon_pimkb")
+
+[node name="Level 1 Floorplan" parent="Map" unique_id=1850241566 instance=ExtResource("4_u1wtd")]
+position = Vector2(277, -2035.0001)
+scale = Vector2(1.3, 1.3)
+
+[node name="MovementCont" type="Node2D" parent="Map" unique_id=1501288569]
+y_sort_enabled = true
+position = Vector2(538, -1685)
+
+[node name="Eve - P1" parent="Map/MovementCont" unique_id=810202292 instance=ExtResource("5_r23k8")]
+position = Vector2(623.076, 350)
+collision_mask = 4294967226
+slide_on_ceiling = false
+
+[node name="watch_light" type="PointLight2D" parent="Map/MovementCont/Eve - P1" unique_id=1977667871]
+process_mode = 3
+position = Vector2(-0.9665755, -24.999998)
+rotation = -6.2831855
+scale = Vector2(0.8045653, 0.75194067)
+color = Color(0, 17.772009, 13.133442, 1)
+energy = 0.0
+texture = SubResource("GradientTexture2D_tfucb")
+script = ExtResource("6_5hgli")
+
+[node name="Willow - P2" parent="Map/MovementCont" unique_id=882182450 instance=ExtResource("7_t7mkq")]
+position = Vector2(-56, 350)
+collision_mask = 4294967226
+slide_on_ceiling = false
+
+[node name="Locked Doors" type="Node2D" parent="." unique_id=1718764744]
+z_index = 4
+position = Vector2(310, -148)
+scale = Vector2(1.3, 1.3)
+
+[node name="Tutorial-Hallway Door" parent="Locked Doors" unique_id=1322021479 instance=ExtResource("8_lxa63")]
+z_index = -3
+position = Vector2(-161.77837, 497.97223)
+collision_mask = 0
+
+[node name="Tutorial-Bathroom Door" parent="Locked Doors" unique_id=935333339 instance=ExtResource("8_lxa63")]
+z_index = -3
+position = Vector2(-581.98285, 497.83832)
+collision_mask = 0
+
+[node name="Bathroom-SleeplessChildRoom Door" parent="Locked Doors" unique_id=410068028 instance=ExtResource("8_lxa63")]
+z_index = -3
+position = Vector2(-581.9226, 1157.7439)
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="ExtraBedroom-Closet Door" parent="Locked Doors" unique_id=2018570790 instance=ExtResource("8_lxa63")]
+z_index = -3
+position = Vector2(188.63568, 1158.0046)
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="SleeplessChildRoom-Closet Door" parent="Locked Doors" unique_id=1503367905 instance=ExtResource("8_lxa63")]
+z_index = -3
+position = Vector2(-931.6678, 2147.9905)
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="Hall-Bathroom Door" parent="Locked Doors" unique_id=568545234 instance=ExtResource("8_lxa63")]
+z_index = -3
+position = Vector2(-1702.0033, 2147.8447)
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="Assets" type="Node2D" parent="." unique_id=42519771]
+y_sort_enabled = true
+position = Vector2(1546, -1345)
+
+[node name="SleeplessChildRoom" type="Node2D" parent="Assets" unique_id=1778105011]
+y_sort_enabled = true
+
+[node name="SleeplessChildBedComplete" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=2130101185]
+y_sort_enabled = true
+position = Vector2(-1062, 1500)
+script = ExtResource("9_1d23a")
+asset = 2
+
+[node name="Nightstand" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=636482913]
+y_sort_enabled = true
+position = Vector2(-893, 1506.0334)
+script = ExtResource("9_1d23a")
+asset = 16
+
+[node name="PlushiesLayingPink2" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=847796037]
+y_sort_enabled = true
+position = Vector2(-1049, 1523)
+script = ExtResource("9_1d23a")
+asset = 9
+
+[node name="KidsArmchair" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=1688218602]
+y_sort_enabled = true
+position = Vector2(-1241, 1516.2102)
+script = ExtResource("9_1d23a")
+asset = 6
+
+[node name="WallLampOff" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=928592813]
+y_sort_enabled = true
+position = Vector2(-895, 1336)
+script = ExtResource("9_1d23a")
+asset = 0
+
+[node name="WallLampOff2" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=1529713960]
+y_sort_enabled = true
+position = Vector2(-1233, 1336)
+script = ExtResource("9_1d23a")
+asset = 0
+
+[node name="BookcaseFull" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=2129236399]
+y_sort_enabled = true
+position = Vector2(-1586, 1499.4344)
+script = ExtResource("9_1d23a")
+roomType = 8
+asset = 5
+
+[node name="Picture2" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=1340789098]
+y_sort_enabled = true
+position = Vector2(-533, 1357)
+script = ExtResource("9_1d23a")
+roomType = 10
+asset = 3
+
+[node name="ChairFront" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=1655222312]
+y_sort_enabled = true
+position = Vector2(-652, 1817)
+script = ExtResource("9_1d23a")
+roomType = 6
+asset = 2
+
+[node name="TableBooksAndPaper" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=1794617786]
+y_sort_enabled = true
+position = Vector2(-650.7598, 1874.6573)
+script = ExtResource("9_1d23a")
+roomType = 8
+asset = 1
+
+[node name="PlushiesProppedBrown" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=1085007142]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-895, 1424.9312)
+script = ExtResource("9_1d23a")
+asset = 14
+
+[node name="Night" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=90159857]
+y_sort_enabled = true
+position = Vector2(-718, 1346)
+script = ExtResource("9_1d23a")
+roomType = 12
+asset = 3
+
+[node name="Night2" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=1191860664]
+y_sort_enabled = true
+position = Vector2(-1393, 1347)
+script = ExtResource("9_1d23a")
+roomType = 12
+asset = 3
+
+[node name="Frame" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=258431325]
+y_sort_enabled = true
+position = Vector2(-1394, 1437)
+script = ExtResource("9_1d23a")
+roomType = 12
+asset = 4
+
+[node name="Frame2" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=799559896]
+y_sort_enabled = true
+position = Vector2(-717, 1437)
+script = ExtResource("9_1d23a")
+roomType = 12
+asset = 4
+
+[node name="CandleLampOff" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=1088293564]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-737, 1431.8325)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("9_1d23a")
+roomType = 9
+asset = 1
+
+[node name="PlushiesLayingWhite" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=1429342253]
+y_sort_enabled = true
+position = Vector2(-1395, 1425.3661)
+script = ExtResource("9_1d23a")
+asset = 7
+
+[node name="Homework" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=1008038246]
+y_sort_enabled = true
+position = Vector2(-848, 1943)
+script = ExtResource("9_1d23a")
+asset = 15
+
+[node name="Homework2" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=728921393]
+y_sort_enabled = true
+position = Vector2(-455, 1874)
+script = ExtResource("9_1d23a")
+asset = 15
+
+[node name="PlushiesGroup" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=1143386876]
+y_sort_enabled = true
+position = Vector2(-1172, 2001)
+script = ExtResource("9_1d23a")
+asset = 20
+
+[node name="PlushiesGroup2" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=1549587733]
+y_sort_enabled = true
+position = Vector2(-1583, 1914)
+script = ExtResource("9_1d23a")
+asset = 20
+
+[node name="PlushiesGroup3" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=1283094959]
+y_sort_enabled = true
+position = Vector2(-1453, 1651)
+script = ExtResource("9_1d23a")
+asset = 20
+
+[node name="PlushiesLayingPink" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=1750986762]
+y_sort_enabled = true
+position = Vector2(-1496, 1725)
+script = ExtResource("9_1d23a")
+asset = 9
+
+[node name="PlushiesProppedWhite" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=2005678446]
+y_sort_enabled = true
+position = Vector2(-919, 1540)
+script = ExtResource("9_1d23a")
+asset = 11
+
+[node name="PlushiesLayingBrown" type="Node2D" parent="Assets/SleeplessChildRoom" unique_id=1491181176]
+y_sort_enabled = true
+position = Vector2(-867, 1567)
+script = ExtResource("9_1d23a")
+asset = 10
+
+[node name="Bathroom1" type="Node2D" parent="Assets" unique_id=1416510040]
+y_sort_enabled = true
+position = Vector2(1901, -766)
+
+[node name="Bathroom2" type="Node2D" parent="Assets" unique_id=988487516]
+y_sort_enabled = true
+position = Vector2(1248, -683)
+
+[node name="ToiletOpen" type="Node2D" parent="Assets/Bathroom2" unique_id=650923746]
+y_sort_enabled = true
+position = Vector2(-2403, 3131)
+script = ExtResource("9_1d23a")
+roomType = 1
+asset = 1
+
+[node name="Sink" type="Node2D" parent="Assets/Bathroom2" unique_id=1526073402]
+y_sort_enabled = true
+position = Vector2(-2526, 3124)
+script = ExtResource("9_1d23a")
+roomType = 1
+asset = 0
+
+[node name="Shower" type="Node2D" parent="Assets/Bathroom2" unique_id=1227211507]
+y_sort_enabled = true
+position = Vector2(-2848, 3185.389)
+script = ExtResource("9_1d23a")
+roomType = 1
+asset = 3
+
+[node name="Tub" type="Node2D" parent="Assets/Bathroom2" unique_id=1209780184]
+y_sort_enabled = true
+position = Vector2(-2504, 3479)
+script = ExtResource("9_1d23a")
+roomType = 1
+asset = 4
+
+[node name="Locked Doors2" type="Node2D" parent="." unique_id=1804590458]
+position = Vector2(1546, -1345)
+
+[node name="Tutorial-Hallway Door" parent="Locked Doors2" unique_id=435517399 instance=ExtResource("8_lxa63")]
+z_index = -3
+position = Vector2(-161.77837, 497.97223)
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="Tutorial-Bathroom Door" parent="Locked Doors2" unique_id=1100749997 instance=ExtResource("8_lxa63")]
+z_index = -3
+position = Vector2(-581.98285, 497.83832)
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="Bathroom-SleeplessChildRoom Door" parent="Locked Doors2" unique_id=522906474 instance=ExtResource("8_lxa63")]
+z_index = -3
+position = Vector2(-581.9226, 1157.7439)
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="ExtraBedroom-Closet Door" parent="Locked Doors2" unique_id=1054695535 instance=ExtResource("8_lxa63")]
+z_index = -3
+position = Vector2(188.63568, 1158.0046)
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="SleeplessChildRoom-Closet Door" parent="Locked Doors2" unique_id=2082807472 instance=ExtResource("8_lxa63")]
+z_index = -3
+position = Vector2(-931.6678, 2147.9905)
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="Hall-Bathroom Door" parent="Locked Doors2" unique_id=105584761 instance=ExtResource("8_lxa63")]
+z_index = -3
+position = Vector2(-1702.0033, 2147.8447)
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="SleeplessChild" parent="." unique_id=464654720 instance=ExtResource("10_c7kao")]
+position = Vector2(1240, 297)
+scale = Vector2(0.75, 0.75)
