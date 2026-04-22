@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://tfdg4d53vqdh"]
 
 [ext_resource type="Script" uid="uid://coc5acy3aos0a" path="res://cutscenes/endscene2.gd" id="1_o1s44"]
-[ext_resource type="VideoStream" uid="uid://b1r00cf16o6d3" path="res://cutscenes/Bonk.ogv" id="2_mipbc"]
+[ext_resource type="VideoStream" uid="uid://bhkbdb6olep0f" path="res://cutscenes/end.ogv" id="2_o1s44"]
 
 [node name="Control" type="Control" unique_id=1380502911]
 layout_mode = 3
@@ -25,5 +25,5 @@ offset_bottom = 437.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.6, 0.6)
-stream = ExtResource("2_mipbc")
+stream = ExtResource("2_o1s44")
 autoplay = true
